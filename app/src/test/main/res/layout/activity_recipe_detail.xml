@@ -1,0 +1,653 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white"
+    tools:context=".RecipeDetailActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/activity_recipe_detail_appbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <!--        android:theme="@style/Theme.SECO.AppBarOverlay">-->
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/activity_recipe_detail_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/activity_recipe_detail_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/noto_sans_cjk_kr_bold"
+                android:text="@string/recipe_title"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/title_font_size" />
+
+        </androidx.appcompat.widget.Toolbar>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:nestedScrollingEnabled="false"
+        android:overScrollMode="never"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        app:layout_constraintTop_toBottomOf="@+id/activity_recipe_detail_toolbar">     <!-- margin을 action bar size 만큼 준다 -->
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/recipe_img_constraint_layout"
+                android:layout_width="match_parent"
+                android:layout_height="259dp"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="MissingConstraints">
+
+                <FrameLayout
+                    android:id="@+id/activity_recipe_detail_frame_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/activity_recipe_detail_image"
+                        android:layout_width="match_parent"
+                        android:layout_height="324dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/vegan_meal"
+                        tools:ignore="InvalidId" />
+
+                </FrameLayout>
+
+                <ImageButton
+                    android:id="@+id/activity_recipe_detail_like_button"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_marginRight="25dp"
+                    android:layout_marginBottom="25dp"
+                    android:background="@drawable/bg_like_icon"
+                    android:src="@drawable/ic_filled_favorites"
+                    app:layout_constraintBottom_toBottomOf="@+id/activity_recipe_detail_frame_layout"
+                    app:layout_constraintRight_toRightOf="@+id/activity_recipe_detail_frame_layout"
+                    tools:ignore="MissingConstraints,NotSibling" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/activity_recipe_detail_summary_constraint_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/recipe_img_constraint_layout">
+
+                <TextView
+                    android:id="@+id/activity_recipe_detail_food_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/noto_sans_cjk_kr_bold"
+                    android:text="레시피 이름"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textSize="20sp"
+                    android:includeFontPadding="false"
+                    android:layout_marginTop="21dp"
+                    android:layout_marginBottom="26dp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toTopOf="@+id/recipe_calories_linear_layout"
+                    tools:ignore="MissingConstraints,NotSibling" />
+
+                <LinearLayout
+                    android:id="@+id/recipe_calories_linear_layout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:orientation="horizontal"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@+id/recipe_protein_linear_layout"
+                    app:layout_constraintTop_toBottomOf="@+id/activity_recipe_detail_food_name"
+                    tools:ignore="MissingConstraints,NotSibling">
+
+                    <ImageView
+                        android:id="@+id/activity_recipe_detail_calories_icon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginRight="5dp"
+                        android:background="@android:color/transparent"
+                        android:src="@drawable/ic_calories" />
+
+                    <TextView
+                        android:id="@+id/recipe_calories_text_view"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/noto_sans_cjk_kr_bold"
+                        android:text="00 min"
+                        android:textAlignment="center"
+                        android:textColor="@color/black"
+                        android:textSize="11sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/recipe_protein_linear_layout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:orientation="horizontal"
+                    app:layout_constraintLeft_toRightOf="@+id/recipe_calories_linear_layout"
+                    app:layout_constraintRight_toLeftOf="@+id/recipe_fat_linear_layout"
+                    app:layout_constraintTop_toBottomOf="@+id/activity_recipe_detail_food_name"
+                    tools:ignore="MissingConstraints,NotSibling">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginRight="5dp"
+                        android:background="@android:color/transparent"
+                        android:src="@drawable/ic_protein" />
+
+                    <TextView
+                        android:id="@+id/recipe_protein_text_view"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/noto_sans_cjk_kr_bold"
+                        android:text="00 Kcal"
+                        android:textAlignment="center"
+                        android:textColor="@color/black"
+                        android:textSize="11sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/recipe_fat_linear_layout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:orientation="horizontal"
+                    app:layout_constraintLeft_toRightOf="@+id/recipe_protein_linear_layout"
+                    app:layout_constraintRight_toLeftOf="@+id/recipe_sodium_linear_layout"
+                    app:layout_constraintTop_toBottomOf="@+id/activity_recipe_detail_food_name"
+                    tools:ignore="MissingConstraints,NotSibling">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginRight="5dp"
+                        android:background="@android:color/transparent"
+                        android:src="@drawable/ic_fat" />
+
+                    <TextView
+                        android:id="@+id/recipe_fat_text_view"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/noto_sans_cjk_kr_bold"
+                        android:text="단백질: 00g"
+                        android:textAlignment="center"
+                        android:textColor="@color/black"
+                        android:textSize="11sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/recipe_sodium_linear_layout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:orientation="horizontal"
+                    app:layout_constraintLeft_toRightOf="@+id/recipe_fat_linear_layout"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/activity_recipe_detail_food_name"
+                    tools:ignore="MissingConstraints,NotSibling">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginRight="5dp"
+                        android:background="@android:color/transparent"
+                        android:src="@drawable/ic_sodium" />
+
+                    <TextView
+                        android:id="@+id/recipe_sodium_text_view"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/noto_sans_cjk_kr_bold"
+                        android:text="지방: 00g"
+                        android:textAlignment="center"
+                        android:textColor="@color/black"
+                        android:textSize="11sp" />
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/activity_recipe_detail_selection_button"
+                    android:layout_width="338dp"
+                    android:layout_height="58dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="25dp"
+                    android:background="@drawable/button_rounded_green"
+                    android:fontFamily="@font/noto_sans_cjk_kr_bold"
+                    android:text="메뉴 선택하기"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/recipe_calories_linear_layout" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <View
+                android:id="@+id/recipe_detail_line1"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginTop="21dp"
+                android:layout_marginBottom="21dp"
+                android:background="@color/seco_lightgray"
+                app:layout_constraintBottom_toTopOf="@+id/activity_recipe_detail_manual_constraint_layout"
+                app:layout_constraintTop_toBottomOf="@+id/activity_recipe_detail_summary_constraint_layout"
+                tools:ignore="MissingConstraints" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/activity_recipe_detail_manual_constraint_layout"
+                android:layout_width="match_parent"
+                android:layout_height="194dp"
+                app:layout_constraintTop_toBottomOf="@id/recipe_detail_line1"
+                tools:ignore="MissingConstraints">
+
+                <TextView
+                    android:id="@+id/recipe_manual_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/noto_sans_cjk_kr_bold"
+                    android:text="조리방법"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    app:layout_constraintLeft_toLeftOf="@id/activity_recipe_detail_manual_1_contents"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+<!--                <TextView-->
+<!--                    android:id="@+id/activity_recipe_detail_manual_1_number"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginLeft="26dp"-->
+<!--                    android:layout_marginTop="8dp"-->
+<!--                    android:fontFamily="@font/notosansregular"-->
+<!--                    android:text="1."-->
+<!--                    android:textAlignment="viewStart"-->
+<!--                    android:textColor="@color/black"-->
+<!--                    android:textSize="11sp"-->
+<!--                    app:layout_constraintLeft_toLeftOf="parent"-->
+<!--                    app:layout_constraintRight_toLeftOf="@+id/activity_recipe_detail_manual_1_contents"-->
+<!--                    app:layout_constraintTop_toBottomOf="@+id/recipe_manual_title" />-->
+
+                <TextView
+                    android:id="@+id/activity_recipe_detail_manual_1_contents"
+                    android:layout_width="330dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/notosansregular"
+                    android:text="1. 시금치는 끓는 소금물에 데쳐 찬물에 헹구어 물기를 짜고 우유를 넣고 블렌더에 곱게 갈아 체에 거른다."
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/black"
+                    android:textSize="11sp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/recipe_manual_title"
+                    app:layout_constraintBottom_toTopOf="@+id/activity_recipe_detail_manual_2_contents"/>
+
+                <TextView
+                    android:id="@+id/activity_recipe_detail_manual_2_contents"
+                    android:layout_width="330dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/notosansregular"
+                    android:text="1. 시금치는 끓는 소금물에 데쳐 찬물에 헹구어 물기를 짜고 우유를 넣고 블렌더에 곱게 갈아 체에 거른다."
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/black"
+                    android:textSize="11sp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/activity_recipe_detail_manual_1_contents"
+                    app:layout_constraintBottom_toTopOf="@+id/activity_recipe_detail_manual_3_contents"/>
+
+                <TextView
+                    android:id="@+id/activity_recipe_detail_manual_3_contents"
+                    android:layout_width="330dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/notosansregular"
+                    android:text="1. 시금치는 끓는 소금물에 데쳐 찬물에 헹구어 물기를 짜고 우유를 넣고 블렌더에 곱게 갈아 체에 거른다."
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/black"
+                    android:textSize="11sp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/activity_recipe_detail_manual_2_contents"
+                    app:layout_constraintBottom_toTopOf="@+id/activity_recipe_detail_manual_4_contents"/>
+
+                <TextView
+                    android:id="@+id/activity_recipe_detail_manual_4_contents"
+                    android:layout_width="330dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/notosansregular"
+                    android:text="1. 시금치는 끓는 소금물에 데쳐 찬물에 헹구어 물기를 짜고 우유를 넣고 블렌더에 곱게 갈아 체에 거른다."
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/black"
+                    android:textSize="11sp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/activity_recipe_detail_manual_3_contents"
+                    app:layout_constraintBottom_toTopOf="@+id/activity_recipe_detail_manual_5_contents"/>
+
+                <TextView
+                    android:id="@+id/activity_recipe_detail_manual_5_contents"
+                    android:layout_width="330dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/notosansregular"
+                    android:text="1. 시금치는 끓는 소금물에 데쳐 찬물에 헹구어 물기를 짜고 우유를 넣고 블렌더에 곱게 갈아 체에 거른다."
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/black"
+                    android:textSize="11sp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/activity_recipe_detail_manual_4_contents"
+                    app:layout_constraintBottom_toTopOf="@+id/activity_recipe_detail_manual_6_contents"/>
+
+                <TextView
+                    android:id="@+id/activity_recipe_detail_manual_6_contents"
+                    android:layout_width="330dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/notosansregular"
+                    android:text="1. 시금치는 끓는 소금물에 데쳐 찬물에 헹구어 물기를 짜고 우유를 넣고 블렌더에 곱게 갈아 체에 거른다."
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/black"
+                    android:textSize="11sp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/activity_recipe_detail_manual_5_contents"
+                    app:layout_constraintBottom_toTopOf="@+id/activity_recipe_detail_manual_7_contents"/>
+
+                <TextView
+                    android:id="@+id/activity_recipe_detail_manual_7_contents"
+                    android:layout_width="330dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/notosansregular"
+                    android:text="1. 시금치는 끓는 소금물에 데쳐 찬물에 헹구어 물기를 짜고 우유를 넣고 블렌더에 곱게 갈아 체에 거른다."
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/black"
+                    android:textSize="11sp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/activity_recipe_detail_manual_6_contents"
+                    app:layout_constraintBottom_toTopOf="@+id/activity_recipe_detail_manual_8_contents"/>
+
+                <TextView
+                    android:id="@+id/activity_recipe_detail_manual_8_contents"
+                    android:layout_width="330dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/notosansregular"
+                    android:text="1. 시금치는 끓는 소금물에 데쳐 찬물에 헹구어 물기를 짜고 우유를 넣고 블렌더에 곱게 갈아 체에 거른다."
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/black"
+                    android:textSize="11sp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/activity_recipe_detail_manual_7_contents"
+                    app:layout_constraintBottom_toTopOf="@+id/activity_recipe_detail_manual_9_contents"/>
+
+                <TextView
+                    android:id="@+id/activity_recipe_detail_manual_9_contents"
+                    android:layout_width="330dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/notosansregular"
+                    android:text="1. 시금치는 끓는 소금물에 데쳐 찬물에 헹구어 물기를 짜고 우유를 넣고 블렌더에 곱게 갈아 체에 거른다."
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/black"
+                    android:textSize="11sp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/activity_recipe_detail_manual_8_contents"
+                    app:layout_constraintBottom_toTopOf="@+id/activity_recipe_detail_manual_10_contents"/>
+
+                <TextView
+                    android:id="@+id/activity_recipe_detail_manual_10_contents"
+                    android:layout_width="330dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/notosansregular"
+                    android:text="1. 시금치는 끓는 소금물에 데쳐 찬물에 헹구어 물기를 짜고 우유를 넣고 블렌더에 곱게 갈아 체에 거른다."
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/black"
+                    android:textSize="11sp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/activity_recipe_detail_manual_9_contents"
+                    app:layout_constraintBottom_toTopOf="@+id/activity_recipe_detail_manual_11_contents"/>
+
+                <TextView
+                    android:id="@+id/activity_recipe_detail_manual_11_contents"
+                    android:layout_width="330dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/notosansregular"
+                    android:text="1. 시금치는 끓는 소금물에 데쳐 찬물에 헹구어 물기를 짜고 우유를 넣고 블렌더에 곱게 갈아 체에 거른다."
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/black"
+                    android:textSize="11sp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/activity_recipe_detail_manual_10_contents"
+                    app:layout_constraintBottom_toTopOf="@+id/activity_recipe_detail_manual_12_contents"/>
+
+                <TextView
+                    android:id="@+id/activity_recipe_detail_manual_12_contents"
+                    android:layout_width="330dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/notosansregular"
+                    android:text="1. 시금치는 끓는 소금물에 데쳐 찬물에 헹구어 물기를 짜고 우유를 넣고 블렌더에 곱게 갈아 체에 거른다."
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/black"
+                    android:textSize="11sp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/activity_recipe_detail_manual_11_contents"
+                    app:layout_constraintBottom_toTopOf="@+id/activity_recipe_detail_manual_13_contents"/>
+
+                <TextView
+                    android:id="@+id/activity_recipe_detail_manual_13_contents"
+                    android:layout_width="330dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/notosansregular"
+                    android:text="1. 시금치는 끓는 소금물에 데쳐 찬물에 헹구어 물기를 짜고 우유를 넣고 블렌더에 곱게 갈아 체에 거른다."
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/black"
+                    android:textSize="11sp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/activity_recipe_detail_manual_12_contents"
+                    app:layout_constraintBottom_toTopOf="@+id/activity_recipe_detail_manual_14_contents"/>
+
+                <TextView
+                    android:id="@+id/activity_recipe_detail_manual_14_contents"
+                    android:layout_width="330dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/notosansregular"
+                    android:text="1. 시금치는 끓는 소금물에 데쳐 찬물에 헹구어 물기를 짜고 우유를 넣고 블렌더에 곱게 갈아 체에 거른다."
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/black"
+                    android:textSize="11sp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/activity_recipe_detail_manual_13_contents"
+                    app:layout_constraintBottom_toTopOf="@+id/activity_recipe_detail_manual_15_contents"/>
+
+                <TextView
+                    android:id="@+id/activity_recipe_detail_manual_15_contents"
+                    android:layout_width="330dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/notosansregular"
+                    android:text="1. 시금치는 끓는 소금물에 데쳐 찬물에 헹구어 물기를 짜고 우유를 넣고 블렌더에 곱게 갈아 체에 거른다."
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/black"
+                    android:textSize="11sp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/activity_recipe_detail_manual_14_contents"
+                    app:layout_constraintBottom_toTopOf="@+id/activity_recipe_detail_manual_16_contents"/>
+
+                <TextView
+                    android:id="@+id/activity_recipe_detail_manual_16_contents"
+                    android:layout_width="330dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/notosansregular"
+                    android:text="1. 시금치는 끓는 소금물에 데쳐 찬물에 헹구어 물기를 짜고 우유를 넣고 블렌더에 곱게 갈아 체에 거른다."
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/black"
+                    android:textSize="11sp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/activity_recipe_detail_manual_15_contents"
+                    app:layout_constraintBottom_toTopOf="@+id/activity_recipe_detail_manual_17_contents"/>
+
+                <TextView
+                    android:id="@+id/activity_recipe_detail_manual_17_contents"
+                    android:layout_width="330dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/notosansregular"
+                    android:text="1. 시금치는 끓는 소금물에 데쳐 찬물에 헹구어 물기를 짜고 우유를 넣고 블렌더에 곱게 갈아 체에 거른다."
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/black"
+                    android:textSize="11sp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/activity_recipe_detail_manual_16_contents" />
+
+                <TextView
+                    android:id="@+id/activity_recipe_detail_manual_18_contents"
+                    android:layout_width="330dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/notosansregular"
+                    android:text="1. 시금치는 끓는 소금물에 데쳐 찬물에 헹구어 물기를 짜고 우유를 넣고 블렌더에 곱게 갈아 체에 거른다."
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/black"
+                    android:textSize="11sp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/activity_recipe_detail_manual_17_contents" />
+
+                <TextView
+                    android:id="@+id/recipe_ingredient_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="18dp"
+                    android:fontFamily="@font/noto_sans_cjk_kr_bold"
+                    android:text="재료"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    app:layout_constraintLeft_toLeftOf="@id/recipe_manual_title"
+                    app:layout_constraintTop_toBottomOf="@id/activity_recipe_detail_manual_18_contents" />
+
+                <TextView
+                    android:id="@+id/activity_recipe_ingredient_contents"
+                    android:layout_width="330dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/notosansregular"
+                    android:text="재료 데이터"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/black"
+                    android:textSize="11sp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/recipe_ingredient_title" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <Button
+                android:id="@+id/activity_recipe_detail_manual_read_more_button"
+                android:layout_width="match_parent"
+                android:layout_height="57dp"
+                android:background="@drawable/button_square_border_lightgray"
+                android:fontFamily="@font/notosansregular"
+                android:text="더보기"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@id/activity_recipe_detail_manual_constraint_layout"
+                android:stateListAnimator="@null"
+                tools:ignore="MissingConstraints" />
+
+            <View
+                android:id="@+id/recipe_detail_line2"
+                android:layout_width="match_parent"
+                android:layout_height="12dp"
+                android:background="@color/seco_lightgray"
+                app:layout_constraintTop_toBottomOf="@+id/activity_recipe_detail_manual_read_more_button"
+                tools:ignore="MissingConstraints" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/recipe_detail_line2"
+                tools:ignore="MissingConstraints">
+
+                <TextView
+                    android:id="@+id/activity_recipe_detail_related_product_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="26dp"
+                    android:layout_marginTop="33dp"
+                    android:layout_marginBottom="13dp"
+                    android:fontFamily="@font/noto_sans_cjk_kr_bold"
+                    android:text="이 상품과 관련된 상품"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/activity_recipe_detail_related_product_recycler_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:nestedScrollingEnabled="true"
+                    tools:ignore="MissingConstraints" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </ScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

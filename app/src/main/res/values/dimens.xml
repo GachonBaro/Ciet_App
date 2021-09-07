@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <dimen name="pageMargin">30dp</dimen>
+    <dimen name="offset">30dp</dimen>
+    <dimen name="pageMarginAndOffset">50dp</dimen>
+    <dimen name="pagerWidth">500dp</dimen>
+
+    <dimen name="statusBarMargin">30dp</dimen>
+
+    <!-- SETI survey -->
+    <dimen name="seti_question_fontsize">20sp</dimen>
+    <dimen name="seti_answer_fontsize">12sp</dimen>
+    <dimen name="seti_next_button_fontsize">14sp</dimen>
+    <dimen name="seti_question_text_width">300dp</dimen>
+    <!-- interval -->
+    <dimen name="seti_seekbar_vertical_margin_top">22dp</dimen>
+    <dimen name="seti_seekbar_vertical_margin_bottom">0dp</dimen>
+    <dimen name="seti_seekbar_thumbOffset">4dp</dimen>
+    <dimen name="seti_seekbar_width">338dp</dimen>
+    <dimen name="seti_question_vertival_interval">150dp</dimen>
+
+    <dimen name="back_button_margin_top">40dp</dimen>
+    <dimen name="back_button_margin_left">20dp</dimen>
+
+    <!-- free mode activity -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="appbar_padding">16dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="appbar_padding_top">8dp</dimen>
+    <dimen name="title_font_size">16dp</dimen>
+
+    <!-- FAB Icon-->
+    <dimen name="design_fab_size_normal" tools:override="true">76dp</dimen>
+    <dimen name="design_fab_image_size" tools:override="true">76dp</dimen>
+
+    <!-- Divider -->
+    <dimen name="item_divider">16dp</dimen>
+
+</resources>

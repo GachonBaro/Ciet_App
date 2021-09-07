@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.initsurvey.Fragment_initQ_4">
+
+    <RadioGroup
+        android:id="@+id/q5_radiogroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView5">
+
+        <RadioButton
+            android:id="@+id/a4"
+            android:layout_width="338dp"
+            android:textColor="@drawable/text_toggle_selector"
+            android:layout_height="58dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/button_initq_selector"
+            android:button="@android:color/transparent"
+            android:fontFamily="@font/noto_sans_cjk_kr_bold"
+            android:gravity="center"
+            android:text="RadioButton"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:layout_editor_absoluteY="313dp" />
+
+        <RadioButton
+            android:id="@+id/b4"
+            android:layout_width="338dp"
+            android:layout_height="58dp"
+            android:textColor="@drawable/text_toggle_selector"
+            android:background="@drawable/button_initq_selector"
+            android:button="@android:color/transparent"
+            android:fontFamily="@font/noto_sans_cjk_kr_bold"
+            android:gravity="center"
+            android:text="RadioButton"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:layout_editor_absoluteY="313dp" />
+
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/init_question4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:fontFamily="@font/noto_sans_cjk_kr_bold"
+        android:text="TextView"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteY="50dp" />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/image_vegan"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/init_question4" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

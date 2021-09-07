@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.initsurvey.Fragment_initQ_0">
+
+    <GridLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:columnCount="2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/init_question0">
+
+        <RadioGroup
+            android:id="@+id/q0_radiogroup1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RadioButton
+                android:id="@+id/a0"
+                android:layout_width="160dp"
+                android:layout_height="45dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/button_initq_selector"
+                android:button="@android:color/transparent"
+                android:fontFamily="@font/noto_sans_cjk_kr_bold"
+                android:textColor="@drawable/text_toggle_selector"
+                android:gravity="center"
+                android:text="RadioButton" />
+
+            <RadioButton
+                android:id="@+id/b0"
+                android:layout_width="160dp"
+                android:layout_height="45dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginRight="5dp"
+                android:background="@drawable/button_initq_selector"
+                android:button="@android:color/transparent"
+                android:textColor="@drawable/text_toggle_selector"
+                android:gravity="center"
+                android:text="RadioButton"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:layout_editor_absoluteY="313dp"
+                android:fontFamily="@font/noto_sans_cjk_kr_bold"/>
+
+            <RadioButton
+                android:id="@+id/c0"
+                android:layout_width="160dp"
+                android:layout_height="45dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginRight="5dp"
+                android:background="@drawable/button_initq_selector"
+                android:button="@android:color/transparent"
+                android:textColor="@drawable/text_toggle_selector"
+                android:gravity="center"
+                android:text="RadioButton"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:layout_editor_absoluteY="313dp"
+                android:fontFamily="@font/noto_sans_cjk_kr_bold"/>
+
+            <RadioButton
+                android:id="@+id/d0"
+                android:layout_width="160dp"
+                android:layout_height="45dp"
+                android:layout_marginBottom="10dp"
+                android:textColor="@drawable/text_toggle_selector"
+                android:layout_marginRight="5dp"
+                android:background="@drawable/button_initq_selector"
+                android:button="@android:color/transparent"
+                android:gravity="center"
+                android:text="RadioButton"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:layout_editor_absoluteY="313dp"
+                android:fontFamily="@font/noto_sans_cjk_kr_bold"/>
+
+            <RadioButton
+                android:id="@+id/e0"
+                android:layout_width="160dp"
+                android:layout_height="45dp"
+                android:layout_marginBottom="10dp"
+                android:textColor="@drawable/text_toggle_selector"
+                android:layout_marginRight="5dp"
+                android:background="@drawable/button_initq_selector"
+                android:button="@android:color/transparent"
+                android:gravity="center"
+                android:text="RadioButton"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:layout_editor_absoluteY="313dp"
+                android:fontFamily="@font/noto_sans_cjk_kr_bold"/>
+
+            <RadioButton
+                android:id="@+id/f0"
+                android:layout_width="160dp"
+                android:layout_height="45dp"
+                android:textColor="@drawable/text_toggle_selector"
+                android:layout_marginBottom="10dp"
+                android:layout_marginRight="5dp"
+                android:background="@drawable/button_initq_selector"
+                android:button="@android:color/transparent"
+                android:gravity="center"
+                android:text="RadioButton"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:layout_editor_absoluteY="313dp"
+                android:fontFamily="@font/noto_sans_cjk_kr_bold"/>
+
+        </RadioGroup>
+
+        <RadioGroup
+            android:id="@+id/q0_radiogroup2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <RadioButton
+                android:id="@+id/g0"
+                android:layout_width="160dp"
+                android:layout_height="45dp"
+                android:textColor="@drawable/text_toggle_selector"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/button_initq_selector"
+                android:button="@android:color/transparent"
+                android:gravity="center"
+                android:text="RadioButton"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:layout_editor_absoluteY="313dp"
+                android:fontFamily="@font/noto_sans_cjk_kr_bold"/>
+
+            <RadioButton
+                android:id="@+id/h0"
+                android:layout_width="160dp"
+                android:layout_height="45dp"
+                android:textColor="@drawable/text_toggle_selector"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/button_initq_selector"
+                android:button="@android:color/transparent"
+                android:gravity="center"
+                android:text="RadioButton"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:layout_editor_absoluteY="313dp"
+                android:fontFamily="@font/noto_sans_cjk_kr_bold"/>
+
+            <RadioButton
+                android:id="@+id/i0"
+                android:layout_width="160dp"
+                android:layout_height="45dp"
+                android:textColor="@drawable/text_toggle_selector"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/button_initq_selector"
+                android:button="@android:color/transparent"
+                android:gravity="center"
+                android:text="RadioButton"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:layout_editor_absoluteY="313dp"
+                android:fontFamily="@font/noto_sans_cjk_kr_bold"/>
+
+            <RadioButton
+                android:id="@+id/j0"
+                android:layout_width="160dp"
+                android:layout_height="45dp"
+                android:textColor="@drawable/text_toggle_selector"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/button_initq_selector"
+                android:button="@android:color/transparent"
+                android:gravity="center"
+                android:text="RadioButton"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:layout_editor_absoluteY="313dp"
+                android:fontFamily="@font/noto_sans_cjk_kr_bold"/>
+
+            <RadioButton
+                android:id="@+id/k0"
+                android:layout_width="160dp"
+                android:layout_height="45dp"
+                android:layout_marginBottom="10dp"
+                android:textColor="@drawable/text_toggle_selector"
+                android:background="@drawable/button_initq_selector"
+                android:button="@android:color/transparent"
+                android:gravity="center"
+                android:text="RadioButton"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:layout_editor_absoluteY="313dp"
+                android:fontFamily="@font/noto_sans_cjk_kr_bold"/>
+
+        </RadioGroup>
+
+    </GridLayout>
+
+
+    <TextView
+        android:id="@+id/init_question0"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:fontFamily="@font/noto_sans_cjk_kr_bold"
+        android:text="TextView"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="50dp"
+        tools:ignore="MissingConstraints" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

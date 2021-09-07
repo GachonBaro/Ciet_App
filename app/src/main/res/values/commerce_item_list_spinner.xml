@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="commerce_item_list_spinner">
+        <item>추천순</item>
+        <item>판매순</item>
+        <item>낮은 가격순</item>
+        <item>높은 가격순</item>
+        <item>최신순</item>
+    </string-array>
+</resources>

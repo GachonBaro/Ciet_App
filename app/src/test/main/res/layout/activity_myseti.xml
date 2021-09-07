@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context=".MySetiActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/activity_myseti_appbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        tools:ignore="MissingConstraints">
+        <!--        android:theme="@style/Theme.SECO.AppBarOverlay">-->
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/activity_myseti_material_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/activity_myseti_title_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/noto_sans_cjk_kr_bold"
+                android:text="MY SETI"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/title_font_size" />
+
+        </androidx.appcompat.widget.Toolbar>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/activity_myseti_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/activity_myseti_type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/notosansregular"
+                android:includeFontPadding="false"
+                android:text="당신의 유형은 SPA 입니다."
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="@id/activity_myseti_content" />
+
+            <ImageView
+                android:id="@+id/activity_myseti_image"
+                android:layout_width="235dp"
+                android:layout_height="192dp"
+                android:layout_marginTop="30dp"
+                android:src="@drawable/image_my_seti"
+                app:layout_constraintBottom_toTopOf="@id/activity_myseti_button_review"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/activity_myseti_type" />
+
+            <Button
+                android:id="@+id/activity_myseti_button_review"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:includeFontPadding="false"
+                android:fontFamily="@font/notosansregular"
+                android:text="@string/myseti_activity_review_button"
+                android:textColor="@color/black"
+                android:background="@android:color/transparent"
+                android:textSize="14sp"
+                app:layout_constraintTop_toBottomOf="@id/activity_myseti_image"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/activity_myseti_divider_1"/>
+
+            <View
+                android:id="@+id/activity_myseti_divider_1"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/item_divider"
+                android:background="@drawable/item_divider"
+                app:layout_constraintTop_toBottomOf="@id/activity_myseti_button_review" />
+
+            <TextView
+                android:id="@+id/activity_myseti_type_graph_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/noto_sans_cjk_kr_bold"
+                android:includeFontPadding="false"
+                android:text="유형 그래프"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toTopOf="@id/activity_myseti_willingness_title"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/activity_myseti_divider_1" />
+
+            <TextView
+                android:id="@+id/activity_myseti_willingness_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="10dp"
+                android:fontFamily="@font/noto_sans_cjk_kr_bold"
+                android:includeFontPadding="false"
+                android:text="실천의향"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/activity_myseti_type_graph_title" />
+
+            <com.skydoves.progressview.ProgressView
+                android:id="@+id/activity_myseti_willingness_progressbar"
+                android:layout_width="281dp"
+                android:layout_height="21dp"
+                android:layout_marginTop="10dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/activity_myseti_willingness_title"
+                app:progressView_colorBackground="@color/seco_gray"
+                app:progressView_colorProgress="@color/seco_green"
+                app:progressView_labelColorInner="@color/white"
+                app:progressView_labelColorOuter="@color/seco_green"
+                app:progressView_labelSize="11sp"
+                app:progressView_labelText="30%"
+                app:progressView_max="100"
+                app:progressView_min="0"
+                app:progressView_progress="30"
+                app:progressView_radius="0dp" />
+
+            <TextView
+                android:id="@+id/activity_myseti_knowledge_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="10dp"
+                android:fontFamily="@font/noto_sans_cjk_kr_bold"
+                android:includeFontPadding="false"
+                android:text="환경 이해도"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/activity_myseti_willingness_progressbar" />
+
+            <com.skydoves.progressview.ProgressView
+                android:id="@+id/activity_myseti_knowledge_progressbar"
+                android:layout_width="281dp"
+                android:layout_height="21dp"
+                android:layout_marginTop="10dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/activity_myseti_knowledge_title"
+                app:progressView_colorBackground="@color/seco_gray"
+                app:progressView_colorProgress="@color/seco_green"
+                app:progressView_labelColorInner="@color/white"
+                app:progressView_labelColorOuter="@color/seco_green"
+                app:progressView_labelSize="11sp"
+                app:progressView_labelText="30%"
+                app:progressView_max="100"
+                app:progressView_min="0"
+                app:progressView_progress="30"
+                app:progressView_radius="0dp" />
+
+            <TextView
+                android:id="@+id/activity_myseti_progress_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="10dp"
+                android:fontFamily="@font/noto_sans_cjk_kr_bold"
+                android:includeFontPadding="false"
+                android:text="실천 현황"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/activity_myseti_knowledge_progressbar" />
+
+            <com.skydoves.progressview.ProgressView
+                android:id="@+id/activity_myseti_progress_bar"
+                android:layout_width="281dp"
+                android:layout_height="21dp"
+                android:layout_marginTop="10dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/activity_myseti_progress_title"
+                app:progressView_colorBackground="@color/seco_gray"
+                app:progressView_colorProgress="@color/seco_green"
+                app:progressView_labelColorInner="@color/white"
+                app:progressView_labelColorOuter="@color/seco_green"
+                app:progressView_labelSize="11sp"
+                app:progressView_labelText="30%"
+                app:progressView_max="100"
+                app:progressView_min="0"
+                app:progressView_progress="30"
+                app:progressView_radius="0dp" />
+
+            <View
+                android:id="@+id/activity_myseti_divider_2"
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/item_divider"
+                app:layout_constraintTop_toBottomOf="@id/activity_myseti_progress_bar" />
+
+            <TextView
+                android:id="@+id/activity_myseti_type_description_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="10dp"
+                android:fontFamily="@font/noto_sans_cjk_kr_bold"
+                android:includeFontPadding="false"
+                android:text="유형 설명"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/activity_myseti_divider_2" />
+
+            <TextView
+                android:id="@+id/activity_myseti_type_description"
+                android:layout_width="334dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="30dp"
+                android:fontFamily="@font/notosansregular"
+                android:includeFontPadding="false"
+                android:singleLine="false"
+                android:padding="20dp"
+                android:text="친환경 활동에 참여할 의향과 환경에 대한 이해도는 크지만 실천도가 낮은 타입입니다."
+                android:textColor="@color/seco_deepgray"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toTopOf="@id/activity_myseti_retest_button"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/activity_myseti_type_description_title" />
+
+            <Button
+                android:id="@+id/activity_myseti_retest_button"
+                android:layout_width="338dp"
+                android:layout_height="58dp"
+                android:layout_marginBottom="30dp"
+                android:background="@drawable/button_initq_checked"
+                android:fontFamily="@font/noto_sans_cjk_kr_bold"
+                android:text="SETI 다시하기"
+                android:layout_marginTop="30dp"
+                android:textColor="@color/white"
+                app:layout_constraintTop_toBottomOf="@id/activity_myseti_type_description"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

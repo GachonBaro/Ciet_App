@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFF</color>
+    <color name="green">#00C853</color>
+    <color name="light_gray">#E1E1E1</color>
+
+    <color name="toolbar_color">#9EDBC5</color>
+    <color name="appbar_color">#9EDBC5</color>
+    <color name="dialog_progress_bg_color">#22ffffff</color>
+    <color name="statusBarColor">#FFFFFF</color>
+    <color name="toolbar_title_color">#FFFFFF</color>
+
+    <color name="seco_green">#29D29A</color>
+    <color name="seco_gray">#E5E5E5</color>
+    <color name="seco_deepgray">#707070</color>
+    <color name="seco_tooltipgray">#BABABA</color>
+    <color name="seco_lightgray">#F5F5F5</color>
+    <color name="seco_blue">#277CEA</color>
+    <color name="seco_red">#D81010</color>
+    <color name="seco_background">#F0F0F0</color>
+    <color name="seco_deepgreen">#14B28B</color>
+    <color name="seco_pink">#F10175</color>
+    <color name="seco_yellow">#FFCA00</color>
+    <color name="seco_applegreen">#30BA2B</color>
+
+    <color name="home_challenge_enable_mode_bg_color">#EDF6F2</color>
+    <color name="calories_text_gray">#383838</color>
+
+    <color name="recipe_color_text_red">#FF6464</color>
+    <color name="recipe_color_text_yellow">#FFCE28</color>
+    <color name="recipe_color_text_green">#29D29A</color>
+
+</resources>

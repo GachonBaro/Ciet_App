@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    tools:context=".CommerceMapActivity">
+
+    <include
+        android:id="@+id/activity_commerce_map_toolbar"
+        layout="@layout/toolbar_main" />
+
+    <EditText
+        android:id="@+id/activity_commerce_map_search"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/activity_commerce_map_toolbar"
+        android:layout_gravity="center"
+        android:layout_margin="30dp"
+        android:layout_marginBottom="40dp"
+        android:background="@drawable/ic_search_title"
+        android:fontFamily="@font/noto_sans_cjk_kr_bold"
+        android:gravity="left"
+        android:hint="가게 이름을 검색해 보세요."
+        android:paddingLeft="50dp"
+        android:textColor="@color/seco_tooltipgray"
+        android:textSize="14sp" />
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/activity_commerce_map_tabs"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/activity_commerce_map_search"
+        android:background="@color/white"
+        app:tabIndicatorColor="@color/seco_green"
+        app:tabRippleColor="@null"
+        app:tabSelectedTextColor="@color/seco_green"
+        app:tabTextAppearance="@style/seco_font"
+        app:tabTextColor="@color/seco_deepgray">
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="외식"/>
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="못난이"/>
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="비건"/>
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="헬스"/>
+
+    </com.google.android.material.tabs.TabLayout>
+
+    <com.naver.maps.map.MapView
+        android:id="@+id/activity_commerce_map_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/activity_commerce_map_tabs" />
+
+
+</RelativeLayout>

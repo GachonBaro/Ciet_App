@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/setiq_border">
+    <TextView
+        android:id="@+id/question_num"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/noto_sans_cjk_kr_bold"
+        android:text="01. "
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/seti_question_fontsize"
+        app:layout_constraintLeft_toLeftOf="@id/setiq_radiogroup"
+        app:layout_constraintRight_toLeftOf="@+id/question_text"
+        app:layout_constraintTop_toTopOf="@+id/question_text"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/question_text"
+        android:layout_width="@dimen/seti_question_text_width"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/noto_sans_cjk_kr_bold"
+        android:text="null"
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/seti_question_fontsize"
+        app:layout_constraintBottom_toTopOf="@+id/setiq_radiogroup"
+        app:layout_constraintLeft_toRightOf="@id/question_num"
+        app:layout_constraintRight_toRightOf="@id/setiq_radiogroup"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <RadioGroup
+        android:id="@+id/setiq_radiogroup"
+        android:layout_width="@dimen/seti_seekbar_width"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/seti_seekbar_vertical_margin_top"
+
+
+
+
+
+
+
+
+
+
+
+
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/question_text"
+        android:orientation="horizontal"
+        android:gravity="center"
+        tools:ignore="MissingConstraints">
+
+        <RadioButton
+            android:id="@+id/setiq_radio_0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            android:background="@drawable/radiobutton_selector"
+            android:layout_marginLeft="17dp"
+            android:layout_marginRight="17dp"
+            android:button="@android:color/transparent" />
+
+        <RadioButton
+            android:id="@+id/setiq_radio_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            android:background="@drawable/radiobutton_selector"
+            android:layout_marginLeft="17dp"
+            android:layout_marginRight="17dp"
+            android:button="@android:color/transparent" />
+
+        <RadioButton
+            android:id="@+id/setiq_radio_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            android:background="@drawable/radiobutton_selector"
+            android:layout_marginLeft="17dp"
+            android:layout_marginRight="17dp"
+            android:button="@android:color/transparent" />
+
+        <RadioButton
+            android:id="@+id/setiq_radio_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            android:background="@drawable/radiobutton_selector"
+            android:layout_marginLeft="17dp"
+            android:layout_marginRight="17dp"
+            android:button="@android:color/transparent" />
+
+        <RadioButton
+            android:id="@+id/setiq_radio_4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            android:background="@drawable/radiobutton_selector"
+            android:layout_marginLeft="17dp"
+            android:layout_marginRight="17dp"
+            android:button="@android:color/transparent" />
+
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/range_text1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="@dimen/seti_seekbar_vertical_margin_bottom"
+        android:layout_marginBottom="10dp"
+        android:fontFamily="@font/noto_sans_cjk_kr_bold"
+        android:text="range1"
+        android:textColor="#A1A1A1"
+        android:textSize="@dimen/seti_answer_fontsize"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="@+id/setiq_radiogroup"
+        app:layout_constraintTop_toBottomOf="@+id/setiq_radiogroup"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/range_text2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/seti_seekbar_vertical_margin_bottom"
+        android:fontFamily="@font/noto_sans_cjk_kr_bold"
+        android:text="range2"
+        android:textColor="#A1A1A1"
+        android:textSize="@dimen/seti_answer_fontsize"
+        app:layout_constraintLeft_toRightOf="@+id/range_text1"
+        app:layout_constraintRight_toLeftOf="@+id/range_text3"
+        app:layout_constraintTop_toBottomOf="@+id/setiq_radiogroup"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/range_text3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/seti_seekbar_vertical_margin_bottom"
+        android:fontFamily="@font/noto_sans_cjk_kr_bold"
+        android:text="range3"
+        android:textColor="#A1A1A1"
+        android:textSize="@dimen/seti_answer_fontsize"
+        app:layout_constraintLeft_toRightOf="@+id/range_text2"
+        app:layout_constraintRight_toLeftOf="@+id/range_text4"
+        app:layout_constraintTop_toBottomOf="@+id/setiq_radiogroup"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/range_text4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/seti_seekbar_vertical_margin_bottom"
+        android:fontFamily="@font/noto_sans_cjk_kr_bold"
+        android:text="range4"
+        android:textColor="#A1A1A1"
+        android:textSize="@dimen/seti_answer_fontsize"
+        app:layout_constraintLeft_toRightOf="@+id/range_text3"
+        app:layout_constraintRight_toLeftOf="@+id/range_text5"
+        app:layout_constraintTop_toBottomOf="@+id/setiq_radiogroup"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/range_text5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/seti_seekbar_vertical_margin_bottom"
+        android:fontFamily="@font/noto_sans_cjk_kr_bold"
+        android:text="range5"
+        android:textColor="#A1A1A1"
+        android:textSize="@dimen/seti_answer_fontsize"
+        android:layout_marginRight="15dp"
+        app:layout_constraintRight_toRightOf="@+id/setiq_radiogroup"
+        app:layout_constraintTop_toBottomOf="@+id/setiq_radiogroup" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="5dp"
+        tools:ignore="MissingConstraints">
+
+        <ImageView
+            android:id="@+id/commerce_item_image"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="30dp"
+            android:background="@android:color/transparent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/image_coin" />
+
+        <TextView
+            android:id="@+id/commerce_item_brand"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/commerce_item_image"
+            android:fontFamily="@font/notosansregular"
+            android:text="스타벅스"
+            android:textColor="@color/seco_tooltipgray"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/commerce_item_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/commerce_item_brand"
+            android:layout_toRightOf="@id/commerce_item_image"
+            android:fontFamily="@font/notosansregular"
+            android:text="아이스 아메리카노"
+            android:textColor="@color/black"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/commerce_item_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/commerce_item_name"
+            android:layout_toRightOf="@id/commerce_item_image"
+            android:fontFamily="@font/notosansregular"
+            android:text="4,100원"
+            android:textColor="@color/seco_red"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/commerce_item_discount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/commerce_item_price"
+            android:layout_marginBottom="5dp"
+            android:layout_toRightOf="@id/commerce_item_image"
+            android:text="삼성에코 혜택가 4,217원" />
+
+        <TextView
+            android:id="@+id/commerce_item_point"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/commerce_item_discount"
+            android:layout_toRightOf="@id/commerce_item_image"
+            android:layout_marginBottom="15dp"
+            android:text="삼성에코 적립 41원" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/item_divider"/>
+
+    </RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

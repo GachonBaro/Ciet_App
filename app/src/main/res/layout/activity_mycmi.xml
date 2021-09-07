@@ -1,0 +1,481 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context=".MyCmiActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/activity_mycmi_appbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        tools:ignore="MissingConstraints">
+        <!--        android:theme="@style/Theme.SECO.AppBarOverlay">-->
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/activity_mycmi_material_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/activity_myseti_title_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/noto_sans_cjk_kr_bold"
+                android:text="@string/mycmi_activity_title"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/title_font_size" />
+
+        </androidx.appcompat.widget.Toolbar>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/activity_mycmi_title_recent_graph"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/mycmi_activity_title_recent_graph"
+                style="@style/ContentLargeTitleStyle"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+            <com.github.mikephil.charting.charts.CombinedChart
+                android:id="@+id/activity_mycmi_chart"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:padding="20dp"
+                app:layout_constraintTop_toBottomOf="@id/activity_mycmi_title_recent_graph"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent" />
+
+            <View
+                android:id="@+id/activity_mycmi_divider_1"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/item_divider"
+                android:background="@drawable/item_divider"
+                app:layout_constraintTop_toBottomOf="@id/activity_mycmi_chart" />
+
+            <TextView
+                android:id="@+id/activity_mycmi_rating_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="@string/mycmi_activity_title"
+                app:layout_constraintTop_toBottomOf="@id/activity_mycmi_divider_1"
+                app:layout_constraintLeft_toLeftOf="parent"
+                style="@style/ContentLargeTitleStyle"/>
+
+            <View
+                android:id="@+id/activity_mycmi_rating_border"
+                android:layout_width="338dp"
+                android:layout_height="150dp"
+                android:background="@drawable/item_white_rounded_background"
+                android:elevation="10dp"
+                android:layout_marginTop="30dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/activity_mycmi_rating_title"/>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/mycmi_activity_rating_detail"
+                android:elevation="15dp"
+                android:textSize="11sp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="20dp"
+                app:layout_constraintTop_toTopOf="@id/activity_mycmi_rating_border"
+                app:layout_constraintRight_toRightOf="@id/activity_mycmi_rating_border"/>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/activity_mycmi_rating_border_content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintLeft_toLeftOf="@id/activity_mycmi_rating_border"
+                app:layout_constraintRight_toRightOf="@id/activity_mycmi_rating_border"
+                app:layout_constraintTop_toTopOf="@id/activity_mycmi_rating_border"
+                app:layout_constraintBottom_toBottomOf="@id/activity_mycmi_rating_border"
+                android:elevation="15dp">
+
+                <View
+                    android:id="@+id/activity_mycmi_rating_circle"
+                    android:layout_width="88dp"
+                    android:layout_height="88dp"
+                    app:layout_constraintRight_toLeftOf="@id/activity_mycmi_rating_text"
+                    android:background="@drawable/bg_mycmi_rating"
+                    app:layout_constraintTop_toTopOf="@id/activity_mycmi_rating_border_content"
+                    app:layout_constraintBottom_toBottomOf="@id/activity_mycmi_rating_border_content"
+                    app:layout_constraintLeft_toLeftOf="@id/activity_mycmi_rating_border_content"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="A"
+                    android:textSize="54sp"
+                    android:fontFamily="@font/notosansregular"
+                    android:includeFontPadding="false"
+                    android:layout_marginBottom="5dp"
+                    app:layout_constraintLeft_toLeftOf="@id/activity_mycmi_rating_circle"
+                    app:layout_constraintRight_toRightOf="@id/activity_mycmi_rating_circle"
+                    app:layout_constraintTop_toTopOf="@id/activity_mycmi_rating_circle"
+                    app:layout_constraintBottom_toBottomOf="@id/activity_mycmi_rating_circle"
+                    android:textColor="@color/seco_blue"
+                    />
+
+                <TextView
+                    android:id="@+id/activity_mycmi_rating_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:fontFamily="@font/notosansregular"
+                    android:includeFontPadding="false"
+                    android:text="등급"
+                    android:layout_marginTop="15dp"
+                    android:textColor="@color/black"
+                    android:textSize="39sp"
+                    app:layout_constraintLeft_toRightOf="@id/activity_mycmi_rating_circle"
+                    app:layout_constraintBottom_toTopOf="@id/activity_mycmi_rating_description"
+                    app:layout_constraintRight_toRightOf="@id/activity_mycmi_rating_border_content"
+                    app:layout_constraintTop_toTopOf="@id/activity_mycmi_rating_border_content"
+                    app:layout_constraintVertical_bias="0.473" />
+
+                <TextView
+                    android:id="@+id/activity_mycmi_rating_description"
+                    android:text="상위 15%"
+                    android:fontFamily="@font/notosansregular"
+                    android:textSize="11sp"
+                    android:textColor="@color/seco_deepgray"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:includeFontPadding="false"
+                    app:layout_constraintBottom_toBottomOf="@id/activity_mycmi_rating_border_content"
+                    app:layout_constraintLeft_toLeftOf="@id/activity_mycmi_rating_text"
+                    app:layout_constraintTop_toBottomOf="@id/activity_mycmi_rating_text"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/activity_mycmi_suggestion_title"
+                style="@style/ContentLargeTitleStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:text="@string/mycmi_activity_title_suggested_activity"
+                app:layout_constraintBottom_toTopOf="@id/activity_mycmi_suggestion_recyclerview"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/activity_mycmi_rating_border" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/activity_mycmi_suggestion_recyclerview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                app:layout_constraintTop_toBottomOf="@id/activity_mycmi_suggestion_title"/>
+
+            <View
+                android:id="@+id/activity_mycmi_divider_2"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/item_divider"
+                android:background="@drawable/item_divider"
+                android:layout_marginTop="20dp"
+                app:layout_constraintTop_toBottomOf="@id/activity_mycmi_suggestion_recyclerview"/>
+
+            <TextView
+                android:id="@+id/activity_mycmi_title_ranking"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/mycmi_activity_title_ranking"
+                style="@style/ContentSmallTitleStyle"
+                app:layout_constraintTop_toBottomOf="@id/activity_mycmi_divider_2"
+                app:layout_constraintLeft_toLeftOf="parent" />
+
+            <TextView
+                android:id="@+id/activity_mycmi_ranking_share_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/mycmi_activity_title_ranking_share"
+                android:fontFamily="@font/noto_sans_cjk_kr_bold"
+                android:textSize="16sp"
+                android:drawableRight="@drawable/button_share"
+                app:layout_constraintTop_toBottomOf="@id/activity_mycmi_title_ranking"
+                app:layout_constraintRight_toRightOf="parent"
+                android:layout_marginRight="30dp"/>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/fragment_mypage_users_1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_square_border_lightgray"
+                android:padding="30dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/activity_mycmi_ranking_share_text">
+
+                <TextView
+                    android:id="@+id/fragment_mypage_text_ranking_number_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/noto_sans_cjk_kr_bold"
+                    android:text="1"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    app:layout_constraintTop_toTopOf="@id/fragment_mypage_users_1"
+                    app:layout_constraintBottom_toBottomOf="@id/fragment_mypage_users_1"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@id/fragment_mypage_image_userphoto_1" />
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/fragment_mypage_image_userphoto_1"
+                    android:layout_width="52dp"
+                    android:layout_height="52dp"
+                    android:src="@drawable/common_google_signin_btn_icon_light"
+                    android:layout_marginLeft="20dp"
+                    app:layout_constraintLeft_toRightOf="@id/fragment_mypage_text_ranking_number_1"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="MissingConstraints" />
+
+                <TextView
+                    android:id="@+id/fragment_mypage_text_nickname_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:fontFamily="@font/noto_sans_cjk_kr_bold"
+                    android:includeFontPadding="false"
+                    android:text="김세코"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    app:layout_constraintLeft_toRightOf="@id/fragment_mypage_image_userphoto_1"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/fragment_mypage_text_email_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:fontFamily="@font/noto_sans_cjk_kr_bold"
+                    android:includeFontPadding="false"
+                    android:text="kim\@gmail.com"
+                    android:textColor="@color/seco_deepgray"
+                    app:layout_constraintLeft_toRightOf="@id/fragment_mypage_image_userphoto_1"
+                    app:layout_constraintTop_toBottomOf="@id/fragment_mypage_text_nickname_1" />
+
+                <TextView
+                    android:id="@+id/fragment_mypage_text_rating_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:fontFamily="@font/noto_sans_cjk_kr_bold"
+                    android:includeFontPadding="false"
+                    android:text="상위 35%"
+                    android:textColor="@color/seco_deepgray"
+                    android:textSize="11sp"
+                    app:layout_constraintBottom_toTopOf="@id/fragment_mypage_text_grade_1"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+                <TextView
+                    android:id="@+id/fragment_mypage_text_grade_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:fontFamily="@font/noto_sans_cjk_kr_bold"
+                    android:includeFontPadding="false"
+                    android:text="A 등급"
+                    android:textColor="@color/black"
+                    android:textSize="20sp"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/fragment_mypage_text_rating_1" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/fragment_mypage_users_2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_square_border_lightgray"
+                android:padding="30dp"
+                app:layout_constraintTop_toBottomOf="@id/fragment_mypage_users_1">
+
+                <TextView
+                    android:id="@+id/fragment_mypage_text_ranking_number_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/noto_sans_cjk_kr_bold"
+                    android:text="2"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    app:layout_constraintTop_toTopOf="@id/fragment_mypage_users_2"
+                    app:layout_constraintBottom_toBottomOf="@id/fragment_mypage_users_2"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@id/fragment_mypage_image_userphoto_2" />
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/fragment_mypage_image_userphoto_2"
+                    android:layout_width="52dp"
+                    android:layout_height="52dp"
+                    android:layout_marginLeft="20dp"
+                    android:src="@drawable/common_google_signin_btn_icon_light"
+                    app:layout_constraintLeft_toRightOf="@id/fragment_mypage_text_ranking_number_2"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="MissingConstraints" />
+
+                <TextView
+                    android:id="@+id/fragment_mypage_text_nickname_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:fontFamily="@font/noto_sans_cjk_kr_bold"
+                    android:includeFontPadding="false"
+                    android:text="이수현"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    app:layout_constraintLeft_toRightOf="@id/fragment_mypage_image_userphoto_2"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/fragment_mypage_text_email_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:fontFamily="@font/noto_sans_cjk_kr_bold"
+                    android:includeFontPadding="false"
+                    android:text="lee\@gmail.com"
+                    android:textColor="@color/seco_deepgray"
+                    app:layout_constraintLeft_toRightOf="@id/fragment_mypage_image_userphoto_2"
+                    app:layout_constraintTop_toBottomOf="@id/fragment_mypage_text_nickname_2" />
+
+                <TextView
+                    android:id="@+id/fragment_mypage_text_rating_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:fontFamily="@font/noto_sans_cjk_kr_bold"
+                    android:includeFontPadding="false"
+                    android:text="상위 43%"
+                    android:textColor="@color/seco_deepgray"
+                    android:textSize="11sp"
+                    app:layout_constraintBottom_toTopOf="@id/fragment_mypage_text_grade_2"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+                <TextView
+                    android:id="@+id/fragment_mypage_text_grade_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:fontFamily="@font/noto_sans_cjk_kr_bold"
+                    android:includeFontPadding="false"
+                    android:text="B+ 등급"
+                    android:textColor="@color/black"
+                    android:textSize="20sp"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/fragment_mypage_text_rating_2" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/fragment_mypage_users_3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_square_border_lightgray"
+                android:padding="30dp"
+                app:layout_constraintTop_toBottomOf="@id/fragment_mypage_users_2">
+
+                <TextView
+                    android:id="@+id/fragment_mypage_text_ranking_number_3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/noto_sans_cjk_kr_bold"
+                    android:text="3"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    app:layout_constraintTop_toTopOf="@id/fragment_mypage_users_3"
+                    app:layout_constraintBottom_toBottomOf="@id/fragment_mypage_users_3"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@id/fragment_mypage_image_userphoto_3" />
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/fragment_mypage_image_userphoto_3"
+                    android:layout_width="52dp"
+                    android:layout_height="52dp"
+                    android:src="@drawable/common_google_signin_btn_icon_light"
+                    android:layout_marginLeft="20dp"
+                    app:layout_constraintLeft_toRightOf="@id/fragment_mypage_text_ranking_number_3"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="MissingConstraints" />
+
+                <TextView
+                    android:id="@+id/fragment_mypage_text_nickname_3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:fontFamily="@font/noto_sans_cjk_kr_bold"
+                    android:includeFontPadding="false"
+                    android:text="강기호"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    app:layout_constraintLeft_toRightOf="@id/fragment_mypage_image_userphoto_3"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/fragment_mypage_text_email_3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:fontFamily="@font/noto_sans_cjk_kr_bold"
+                    android:includeFontPadding="false"
+                    android:text="kang\@gmail.com"
+                    android:textColor="@color/seco_deepgray"
+                    app:layout_constraintLeft_toRightOf="@id/fragment_mypage_image_userphoto_3"
+                    app:layout_constraintTop_toBottomOf="@id/fragment_mypage_text_nickname_3" />
+
+                <TextView
+                    android:id="@+id/fragment_mypage_text_rating_3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:fontFamily="@font/noto_sans_cjk_kr_bold"
+                    android:includeFontPadding="false"
+                    android:text="상위 45%"
+                    android:textColor="@color/seco_deepgray"
+                    android:textSize="11sp"
+                    app:layout_constraintBottom_toTopOf="@id/fragment_mypage_text_grade_3"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+                <TextView
+                    android:id="@+id/fragment_mypage_text_grade_3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:fontFamily="@font/noto_sans_cjk_kr_bold"
+                    android:includeFontPadding="false"
+                    android:text="A 등급"
+                    android:textColor="@color/black"
+                    android:textSize="20sp"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/fragment_mypage_text_rating_3" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

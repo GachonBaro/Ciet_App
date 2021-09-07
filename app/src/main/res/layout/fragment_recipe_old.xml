@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="10dp"
+        android:background="@color/white">
+
+        <EditText
+            android:id="@+id/fragment_recipe_search"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/ic_search_title"
+            android:fontFamily="@font/noto_sans_cjk_kr_bold"
+            android:gravity="left"
+            android:hint="재료를 검색해 보세요."
+            android:paddingLeft="50dp"
+            android:textColor="@color/seco_tooltipgray"
+            android:textSize="14sp"
+            tools:ignore="TouchTargetSizeCheck" />
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/fragment_recipe_tabs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/fragment_recipe_search"
+            app:tabIndicatorColor="@color/seco_green"
+            app:tabSelectedTextColor="@color/seco_green"
+            app:tabTextColor="@color/black">
+
+            <com.google.android.material.tabs.TabItem
+                android:id="@+id/fragment_recipe_tab_korean"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="한식" />
+
+            <com.google.android.material.tabs.TabItem
+                android:id="@+id/fragment_recipe_tab_chinese"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="중식" />
+
+            <com.google.android.material.tabs.TabItem
+                android:id="@+id/fragment_recipe_tab_japanese"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="일식" />
+
+            <com.google.android.material.tabs.TabItem
+                android:id="@+id/fragment_recipe_tab_western"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="양식" />
+
+            <com.google.android.material.tabs.TabItem
+                android:id="@+id/fragment_recipe_tab_vegan"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="비건전용" />
+
+        </com.google.android.material.tabs.TabLayout>
+
+        <LinearLayout
+            android:id="@+id/fragment_recipe"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/fragment_recipe_tabs">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/suggestion_recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

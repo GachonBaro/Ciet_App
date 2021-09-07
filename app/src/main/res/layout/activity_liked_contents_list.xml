@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/activity_liked_contents_list_appbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp">
+        <!--        android:theme="@style/Theme.SECO.AppBarOverlay">-->
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/activity_liked_contents_list_material_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/activity_liked_contents_list_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/noto_sans_cjk_kr_bold"
+                android:text="@string/title_activity_liked_contents_list"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/title_font_size" />
+
+        </androidx.appcompat.widget.Toolbar>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/seco_background"
+           >
+
+            <RelativeLayout
+                android:id="@+id/activity_liked_contents_list_layout_upper"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:padding="30dp">
+
+                <TextView
+                    android:id="@+id/activity_liked_contents_list_challenge_name_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/notosansregular"
+                    android:includeFontPadding="false"
+                    android:text="@string/title_activity_liked_contents_list_challenge_name"
+                    android:textColor="@color/seco_deepgray"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/activity_liked_contents_list_challenge_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/activity_liked_contents_list_challenge_name_title"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="40dp"
+                    android:background="@drawable/button_initq_unchecked"
+                    android:fontFamily="@font/noto_sans_cjk_kr_bold"
+                    android:gravity="left"
+                    android:hint="입력하기"
+                    android:paddingLeft="20dp"
+                    android:paddingTop="3dp"
+                    android:textColor="@color/seco_tooltipgray"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/activity_liked_contents_list_challenge_date_from_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/activity_liked_contents_list_challenge_name"
+                    android:layout_alignLeft="@id/activity_liked_contents_list_challenge_date_from"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/notosansregular"
+                    android:includeFontPadding="false"
+                    android:text="@string/title_activity_liked_contents_list_challenge_date_from"
+                    android:textColor="@color/seco_deepgray"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/activity_liked_contents_list_challenge_date_until_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/activity_liked_contents_list_challenge_name"
+                    android:layout_alignLeft="@id/activity_liked_contents_list_challenge_date_until"
+                    android:layout_marginTop="10dp"
+                    android:layout_toRightOf="@id/activity_liked_contents_list_challenge_date_from"
+                    android:fontFamily="@font/notosansregular"
+                    android:includeFontPadding="false"
+                    android:text="@string/title_activity_liked_contents_list_challenge_until"
+                    android:textColor="@color/seco_deepgray"
+                    android:textSize="14sp" />
+
+                <Button
+                    android:id="@+id/activity_liked_contents_list_challenge_date_from"
+                    android:layout_width="160dp"
+                    android:layout_height="27dp"
+                    android:layout_below="@id/activity_liked_contents_list_challenge_date_from_title"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/bg_date_picker"
+                    android:gravity="left|center_vertical"
+                    android:includeFontPadding="false"
+                    android:paddingLeft="5dp"
+                    android:text="2021-08-11" />
+
+                <Button
+                    android:id="@+id/activity_liked_contents_list_challenge_date_until"
+                    android:layout_width="160dp"
+                    android:layout_height="27dp"
+                    android:layout_below="@id/activity_liked_contents_list_challenge_date_from_title"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/bg_date_picker"
+                    android:gravity="left|center_vertical"
+                    android:includeFontPadding="false"
+                    android:paddingLeft="5dp"
+                    android:text="2021-08-11" />
+
+                <TextView
+                    android:id="@+id/activity_liked_contents_list_challenge_date_select_days_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/activity_liked_contents_list_challenge_date_from"
+                    android:layout_alignLeft="@id/activity_liked_contents_list_challenge_date_from"
+                    android:layout_marginTop="30dp"
+                    android:fontFamily="@font/notosansregular"
+                    android:includeFontPadding="false"
+                    android:text="@string/title_activity_liked_contents_list_challenge_select_days"
+                    android:textColor="@color/seco_deepgray"
+                    android:textSize="14sp" />
+
+                <ToggleButton
+                    android:id="@+id/activity_liked_contents_list_challenge_days_mon"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="38dp"
+                    android:layout_height="38dp"
+                    android:layout_below="@id/activity_liked_contents_list_challenge_date_select_days_title"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_toLeftOf="@id/activity_liked_contents_list_challenge_days_tue"
+                    android:background="@drawable/button_initq_selector"
+                    android:button="@android:color/transparent"
+                    android:fontFamily="@font/noto_sans_cjk_kr_bold"
+                    android:textColor="@drawable/text_toggle_selector" />
+
+                <ToggleButton
+                    android:id="@+id/activity_liked_contents_list_challenge_days_tue"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="38dp"
+                    android:layout_height="38dp"
+                    android:layout_below="@id/activity_liked_contents_list_challenge_date_select_days_title"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_toLeftOf="@id/activity_liked_contents_list_challenge_days_wed"
+                    android:background="@drawable/button_initq_selector"
+                    android:button="@android:color/transparent"
+                    android:fontFamily="@font/noto_sans_cjk_kr_bold"
+                    android:textColor="@drawable/text_toggle_selector" />
+
+                <ToggleButton
+                    android:id="@+id/activity_liked_contents_list_challenge_days_wed"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="38dp"
+                    android:layout_height="38dp"
+                    android:layout_below="@id/activity_liked_contents_list_challenge_date_select_days_title"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_toLeftOf="@id/activity_liked_contents_list_challenge_days_thu"
+                    android:background="@drawable/button_initq_selector"
+                    android:button="@android:color/transparent"
+                    android:fontFamily="@font/noto_sans_cjk_kr_bold"
+                    android:textColor="@drawable/text_toggle_selector" />
+
+                <ToggleButton
+                    android:id="@+id/activity_liked_contents_list_challenge_days_thu"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="38dp"
+                    android:layout_height="38dp"
+                    android:layout_below="@id/activity_liked_contents_list_challenge_date_select_days_title"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginRight="5dp"
+                    android:background="@drawable/button_initq_selector"
+                    android:button="@android:color/transparent"
+                    android:fontFamily="@font/noto_sans_cjk_kr_bold"
+                    android:textColor="@drawable/text_toggle_selector" />
+
+                <ToggleButton
+                    android:id="@+id/activity_liked_contents_list_challenge_days_fri"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="38dp"
+                    android:layout_height="38dp"
+                    android:layout_below="@id/activity_liked_contents_list_challenge_date_select_days_title"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_toRightOf="@id/activity_liked_contents_list_challenge_days_thu"
+                    android:background="@drawable/button_initq_selector"
+                    android:button="@android:color/transparent"
+                    android:fontFamily="@font/noto_sans_cjk_kr_bold"
+                    android:textColor="@drawable/text_toggle_selector" />
+
+                <ToggleButton
+                    android:id="@+id/activity_liked_contents_list_challenge_days_sat"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="38dp"
+                    android:layout_height="38dp"
+                    android:layout_below="@id/activity_liked_contents_list_challenge_date_select_days_title"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_toRightOf="@id/activity_liked_contents_list_challenge_days_fri"
+                    android:background="@drawable/button_initq_selector"
+                    android:button="@android:color/transparent"
+                    android:fontFamily="@font/noto_sans_cjk_kr_bold"
+                    android:textColor="@drawable/text_toggle_selector" />
+
+                <ToggleButton
+                    android:id="@+id/activity_liked_contents_list_challenge_days_sun"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="38dp"
+                    android:layout_height="38dp"
+                    android:layout_below="@id/activity_liked_contents_list_challenge_date_select_days_title"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_toRightOf="@id/activity_liked_contents_list_challenge_days_sat"
+                    android:background="@drawable/button_initq_selector"
+                    android:button="@android:color/transparent"
+                    android:fontFamily="@font/noto_sans_cjk_kr_bold"
+                    android:textColor="@drawable/text_toggle_selector" />
+
+
+            </RelativeLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/activity_liked_contents_list_recyclerview_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@id/activity_liked_contents_list_layout_upper">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/activity_liked_contents_list_recyclerview"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:layout_constraintVertical_weight="1" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <RelativeLayout
+                android:id="@+id/activity_liked_contents_list_layout_bottom"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@id/activity_liked_contents_list_recyclerview_layout"
+                android:padding="30dp">
+
+                <TextView
+                    android:id="@+id/activity_liked_contents_list_text_total_num"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignRight="@id/activity_liked_contents_list_button_create_challenge"
+                    android:layout_marginBottom="10dp"
+                    android:fontFamily="@font/noto_sans_cjk_kr_bold"
+                    android:text="총 활동개수 5개"
+                    android:textSize="16sp" />
+
+                <Button
+                    android:id="@+id/activity_liked_contents_list_button_create_challenge"
+                    android:layout_width="338dp"
+                    android:layout_height="58dp"
+                    android:layout_below="@id/activity_liked_contents_list_text_total_num"
+                    android:background="@drawable/button_green_rounded_checked"
+                    android:fontFamily="@font/noto_sans_cjk_kr_bold"
+                    android:textSize="14sp"
+                    android:text="@string/title_activity_liked_contents_list_button_create_challenge"
+                    android:textColor="@color/white" />
+
+            </RelativeLayout>
+
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/seco_lightgray"
+    android:padding="15dp"
+    tools:context=".fragments.authorize.ReceiptAuthFragment">
+
+    <TextView
+        android:id="@+id/fragment_authorize_camera_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/noto_sans_cjk_kr_bold"
+        android:text="사진 등록"
+        android:layout_marginBottom="20dp"
+        android:textColor="@color/black"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/fragment_authorize_camera_title_activity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/fragment_authorize_camera_title"
+        android:fontFamily="@font/noto_sans_cjk_kr_bold"
+        android:text="활동사진 등록"
+        android:textColor="@color/black"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/fragment_authorize_camera_title_bill"
+        android:layout_width="162dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/fragment_authorize_camera_title"
+        android:fontFamily="@font/noto_sans_cjk_kr_bold"
+        android:layout_alignParentRight="true"
+        android:text="영수증 사진 등록"
+        android:textColor="@color/black"
+        android:textSize="20sp" />
+
+    <ImageButton
+        android:id="@+id/fragment_authorize_camera_shot_activity"
+        android:layout_width="162dp"
+        android:layout_height="233dp"
+        android:layout_below="@id/fragment_authorize_camera_title_activity"
+        android:layout_alignParentLeft="true"
+        android:scaleType="centerInside"
+        android:background="@android:color/transparent"
+        android:src="@drawable/button_authorize_pic" />
+
+    <ImageButton
+        android:id="@+id/fragment_authorize_camera_shot_bill"
+        android:layout_width="162dp"
+        android:layout_height="233dp"
+        android:layout_below="@id/fragment_authorize_camera_title_bill"
+        android:layout_alignParentRight="true"
+        android:scaleType="centerInside"
+        android:background="@android:color/transparent"
+        android:src="@drawable/button_authorize_pic" />
+
+    <Button
+        android:id="@+id/fragment_authorize_camera_submit"
+        android:layout_width="338dp"
+        android:layout_height="58dp"
+        android:layout_below="@id/fragment_authorize_camera_shot_activity"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/button_initq_unchecked"
+        android:fontFamily="@font/noto_sans_cjk_kr_bold"
+        android:stateListAnimator="@null"
+        android:text="올리기"
+        android:textColor="@color/white"
+        android:textSize="14sp" />
+
+</RelativeLayout>

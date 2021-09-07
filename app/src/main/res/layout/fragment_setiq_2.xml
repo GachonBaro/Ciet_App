@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.setisurvey.Fragment_SetiQ_2">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/seti_survey_page_2_recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:ignore="MissingConstraints"
+        android:overScrollMode="never"/>
+
+</FrameLayout>

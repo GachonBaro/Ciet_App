@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardview_suggest_card"
+        android:layout_width="match_parent"
+        android:layout_height="236dp"
+        app:cardCornerRadius="20dp"
+        app:cardUseCompatPadding="true"
+        app:cardElevation="4dp">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/suggestion_cardview_image"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:background="@color/white"
+                android:scaleType="centerCrop" />
+
+            <TextView
+                android:id="@+id/suggestion_cardview_text_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/suggestion_cardview_image"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/noto_sans_cjk_kr_bold"
+                android:text="음식 이름"
+                android:textColor="@color/seco_deepgray"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/suggestion_cardview_text_calories"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/suggestion_cardview_text_name"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="-10dp"
+                android:layout_marginRight="16dp"
+                android:fontFamily="@font/noto_sans_cjk_kr_bold"
+                android:text="칼로리"
+                android:textColor="@color/seco_tooltipgray"
+                android:textSize="11sp" />
+
+            <ToggleButton
+                android:id="@+id/suggestion_cardview_button_like"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_below="@id/suggestion_cardview_image"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="20dp"
+                android:background="@android:color/transparent"
+                android:button="@drawable/button_like_selector"
+                android:gravity="bottom" />
+
+
+        </RelativeLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+</FrameLayout>

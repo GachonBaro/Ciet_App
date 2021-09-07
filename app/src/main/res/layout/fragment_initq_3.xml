@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.initsurvey.Fragment_initQ_3">
+
+    <ToggleButton
+        android:id="@+id/a3"
+        android:layout_width="338dp"
+        android:layout_height="58dp"
+        android:button="@android:color/transparent"
+        android:textColor="@drawable/text_toggle_selector"
+        android:background="@drawable/button_initq_selector"
+        android:fontFamily="@font/noto_sans_cjk_kr_bold"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/init_multiple_choice"
+        style="?android:attr/borderlessButtonStyle"
+        tools:ignore="MissingConstraints"></ToggleButton>
+
+
+    <ToggleButton
+        android:id="@+id/b3"
+        android:layout_width="338dp"
+        android:layout_height="58dp"
+        android:layout_marginTop="10dp"
+        android:textColor="@drawable/text_toggle_selector"
+        android:background="@drawable/button_initq_selector"
+        android:button="@android:color/transparent"
+        android:fontFamily="@font/noto_sans_cjk_kr_bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/a3"
+        style="?android:attr/borderlessButtonStyle"
+        tools:ignore="MissingConstraints"></ToggleButton>
+
+    <ToggleButton
+        android:id="@+id/c3"
+        android:layout_width="338dp"
+        android:layout_height="58dp"
+        android:layout_marginTop="10dp"
+        android:textColor="@drawable/text_toggle_selector"
+        android:background="@drawable/button_initq_selector"
+        android:button="@android:color/transparent"
+        android:fontFamily="@font/noto_sans_cjk_kr_bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/b3"
+        style="?android:attr/borderlessButtonStyle"
+        tools:ignore="MissingConstraints"></ToggleButton>
+
+    <ToggleButton
+        android:id="@+id/d3"
+        android:layout_width="338dp"
+        android:layout_height="58dp"
+        android:textColor="@drawable/text_toggle_selector"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/button_initq_selector"
+        android:button="@android:color/transparent"
+        android:fontFamily="@font/noto_sans_cjk_kr_bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/c3"
+        style="?android:attr/borderlessButtonStyle"
+        tools:ignore="MissingConstraints"></ToggleButton>
+
+    <ToggleButton
+        android:id="@+id/e3"
+        android:layout_width="338dp"
+        android:layout_height="58dp"
+        android:textColor="@drawable/text_toggle_selector"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/button_initq_selector"
+        android:button="@android:color/transparent"
+        android:fontFamily="@font/noto_sans_cjk_kr_bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/d3"
+        style="?android:attr/borderlessButtonStyle"
+        tools:ignore="MissingConstraints"></ToggleButton>
+
+    <ToggleButton
+        android:id="@+id/f3"
+        android:layout_width="338dp"
+        android:textColor="@drawable/text_toggle_selector"
+        android:layout_height="58dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/button_initq_selector"
+        android:button="@android:color/transparent"
+        android:fontFamily="@font/noto_sans_cjk_kr_bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/e3"
+        style="?android:attr/borderlessButtonStyle"
+        tools:ignore="MissingConstraints"></ToggleButton>
+
+    <TextView
+        android:id="@+id/init_question3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:fontFamily="@font/noto_sans_cjk_kr_bold"
+        android:text="TextView"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:includeFontPadding="false"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="50dp"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/init_multiple_choice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:fontFamily="@font/notosansregular"
+        android:text="*중복 선택 가능"
+        android:textColor="@color/seco_deepgray"
+        android:textSize="14sp"
+        app:layout_constraintTop_toBottomOf="@id/init_question3"
+        app:layout_constraintLeft_toLeftOf="parent"
+        tools:ignore="MissingConstraints" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

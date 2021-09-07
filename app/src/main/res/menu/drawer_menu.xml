@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#A82020">
+    <!-- TODO: 메뉴 리스트 수정 -->
+    <item
+        android:id="@+id/drawer_my_seti"
+        android:title="MY SETI" />
+    <item
+        android:id="@+id/drawer_my_cmi"
+        android:title="MY CMI" />
+    <item
+        android:id="@+id/drawer_status"
+        android:title="진행현황" />
+    <item
+        android:id="@+id/drawer_reward_history"
+        android:title="리워드 내역" />
+    <item
+        android:id="@+id/drawer_order_history"
+        android:title="주문내역" />
+
+
+    <group
+        android:id="@+id/drawer_group_options"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/drawer_setting"
+            android:title="환경설정" />
+        <item
+            android:id="@+id/drawer_csc"
+            android:title="고객센터" />
+        <item
+            android:id="@+id/drawer_help"
+            android:title="도움말" />
+    </group>
+    <item android:title=""
+        android:id="@+id/menu_options">
+        <menu></menu>
+    </item>
+
+</menu>

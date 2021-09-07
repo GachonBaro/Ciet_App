@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.barofutures.seco">
+    <!-- Grant internet access permission -->
+    <uses-permission android:name="android.permission.INTERNET" /> <!-- camera permission -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" /> <!-- Grant location access permission -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="true" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher_otter"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_otter_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.SECO">
+        <activity
+            android:name=".LikedContentsListActivity"
+            android:exported="true" />
+        <activity
+            android:name=".SetiSurveyIntroActivity"
+            android:exported="true" />
+        <activity
+            android:name=".MyOrderHistoryActivity"
+            android:exported="true" />
+        <activity
+            android:name=".MyCmiActivity"
+            android:exported="true" />
+        <activity
+            android:name=".MySetiActivity"
+            android:exported="true" />
+        <activity
+            android:name=".RewardHistoryAcitivity"
+            android:exported="true" />
+        <activity
+            android:name=".SetiAnswerReviewActivity"
+            android:exported="true" />
+        <activity
+            android:name=".RecipeDetailActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ChallengeModeStatusActivity"
+            android:exported="true" />
+        <activity
+            android:name=".AuthorizeActivity"
+            android:exported="true" />
+        <activity
+            android:name=".freeModeStatusActivity"
+            android:exported="true" />
+        <activity
+            android:name=".FreeModeContentsDetailsActivity"
+            android:exported="true"
+            android:label="@string/title_activity_free_mode_contents_details"
+            android:theme="@style/Theme.SECO.NoActionBar" />
+        <activity android:name=".CommerceMapActivity" />
+        <activity
+            android:name=".ContentsListActivity"
+            android:label="@string/title_activity_free_mode"
+            android:theme="@style/Theme.SECO.NoActionBar" />
+        <activity android:name=".SetiSurveyActivity" />
+        <activity android:name=".SetiSurveyResultActivity" />
+        <activity android:name=".InitialSurveyIntroActivity" /> <!-- 키보드가 EditText 가림 해결 -->
+        <activity
+            android:name=".InitialSurveyActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize|adjustPan" />
+        <activity android:name=".MainActivity"
+            android:exported="true"/>
+        <activity android:name=".SplashActivity" />
+        <activity android:name=".GoogleLogInActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.barofutures.seco.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
+        <meta-data
+            android:name="com.naver.maps.map.CLIENT_ID"
+            android:value="hiy1xcbxr8" /> <!-- Define Push Listener Provider -->
+        <service android:name=".PushListenerService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+
+        <receiver
+            android:name="com.amazonaws.mobileconnectors.pinpoint.targeting.notification.PinpointNotificationReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.amazonaws.intent.fcm.NOTIFICATION_OPEN" />
+            </intent-filter>
+        </receiver>
+    </application>
+
+</manifest>

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    app:layout_constraintBottom_toTopOf="@id/item_myorder_history_body"
+    android:paddingTop="20dp"
+    android:paddingRight="20dp"
+    android:paddingLeft="20dp"
+    android:paddingBottom="10dp">
+
+    <RelativeLayout
+        android:id="@+id/item_myorder_history_body"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/item_white_rounded_background"
+        android:orientation="vertical"
+        android:padding="20dp"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="10dp"
+        tools:layout_editor_absoluteY="10dp">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/item_myorder_history_image"
+            android:layout_width="79dp"
+            android:layout_height="79dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="20dp"
+            android:src="@drawable/image_coin" />
+
+        <TextView
+            android:id="@+id/item_myorder_history_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/item_myorder_history_image"
+            android:fontFamily="@font/notosansregular"
+            android:includeFontPadding="false"
+            android:text="2021-08-02"
+            android:textColor="@color/seco_deepgray"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/item_myorder_history_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/item_myorder_history_date"
+            android:layout_toRightOf="@id/item_myorder_history_image"
+            android:clickable="true"
+            android:drawableRight="@drawable/button_arrow_right_black"
+            android:fontFamily="@font/noto_sans_cjk_kr_bold"
+            android:text="스타벅스  "
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/item_myorder_history_detail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/item_myorder_history_name"
+            android:layout_toRightOf="@id/item_myorder_history_image"
+            android:fontFamily="@font/notosansregular"
+            android:includeFontPadding="false"
+            android:text="돼지국밥 고기내장 섞어서 특으로"
+            android:textColor="@color/seco_deepgray"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/item_myorder_history_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/item_myorder_history_detail"
+            android:layout_toRightOf="@id/item_myorder_history_image"
+            android:fontFamily="@font/notosansregular"
+            android:includeFontPadding="false"
+            android:text="9,000원"
+            android:textColor="@color/seco_deepgray"
+            android:textSize="14sp" />
+
+    </RelativeLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

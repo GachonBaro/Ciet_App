@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingLeft="10dp"
+    android:paddingTop="10dp"
+    android:paddingRight="10dp"
+    android:paddingBottom="10dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="330dp"
+        android:layout_height="100dp"
+        android:background="@drawable/item_white_rounded_background"
+        android:orientation="vertical"
+        android:padding="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.64"
+        tools:ignore="MissingConstraints">
+
+
+        <TextView
+            android:id="@+id/routine_list_text_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:fontFamily="@font/noto_sans_cjk_kr_bold"
+            android:includeFontPadding="false"
+            android:text="My Daily Set"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:layout_editor_absoluteY="-1dp" />
+
+        <TextView
+            android:id="@+id/routine_list_text_days_left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/noto_sans_cjk_kr_bold"
+            android:text="남은일수 5일"
+            android:layout_marginBottom="5dp"
+            android:textColor="@color/seco_deepgray"
+            android:textSize="11sp"
+            android:includeFontPadding="false"
+            app:layout_constraintBottom_toTopOf="@id/routine_list_text_day"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/routine_list_text_day"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/noto_sans_cjk_kr_bold"
+            android:text="일 월 화 수 목 금 토"
+            android:includeFontPadding="false"
+            android:layout_marginBottom="5dp"
+            android:textColor="@color/black"
+            android:textSize="11sp"
+            app:layout_constraintBottom_toTopOf="@id/routine_list_progressbar"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/routine_list_text_days_left" />
+
+
+        <com.skydoves.progressview.ProgressView
+            android:id="@+id/routine_list_progressbar"
+            android:layout_width="match_parent"
+            android:layout_height="18dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/routine_list_text_day"
+            app:progressView_colorBackground="@color/seco_gray"
+            app:progressView_colorProgress="@color/seco_green"
+            app:progressView_labelColorInner="@color/white"
+            app:progressView_labelColorOuter="@color/seco_green"
+            app:progressView_labelSize="11sp"
+            app:progressView_labelText="30%"
+            app:progressView_max="100"
+            app:progressView_min="0"
+            app:progressView_progress="30"
+            app:progressView_radius="0dp"
+            tools:layout_editor_absoluteX="-46dp"
+            tools:layout_editor_absoluteY="50dp" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- TODO: 수정 필요(내용 넣어야 함) -->
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/sidebar_linearLayout"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <!-- user profile -->
+    <RelativeLayout
+        android:id="@+id/drawer_layout_line1"
+        android:layout_width="match_parent"
+        android:layout_height="57dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginBottom="-30dp">
+
+        <TextView
+            android:id="@+id/drawer_text_user_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="-40dp"
+            android:fontFamily="@font/noto_sans_cjk_kr_bold"
+            android:text="바로퓨처스"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/drawer_button_settings"
+            android:layout_width="21dp"
+            android:layout_height="21dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="80dp"
+            android:layout_toRightOf="@id/drawer_text_user_name"
+            android:background="@drawable/drawer_settings" />
+
+        <Button
+            android:id="@+id/drawer_button_notifications"
+            android:layout_width="21dp"
+            android:layout_height="21dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20dp"
+            android:layout_toRightOf="@id/drawer_button_settings"
+            android:background="@drawable/drawer_notifications" />
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/drawer_text_email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/drawer_layout_line1"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/noto_sans_cjk_kr_bold"
+        android:text="\@wahaha"
+        android:textColor="@color/seco_tooltipgray"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/drawer_text_badge_amount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/drawer_text_email"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/noto_sans_cjk_kr_bold"
+        android:includeFontPadding="false"
+        android:text="배지 12개"
+        android:layout_marginBottom="30dp"
+        android:textColor="@color/seco_deepgray"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/drawer_text_coin_amount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/drawer_text_email"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="10dp"
+        android:layout_toRightOf="@id/drawer_text_badge_amount"
+        android:fontFamily="@font/noto_sans_cjk_kr_bold"
+        android:includeFontPadding="false"
+        android:text="코인 32개"
+        android:textColor="@color/seco_deepgray"
+        android:textSize="14sp" />
+
+</RelativeLayout>

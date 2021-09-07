@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageButton
+        android:id="@+id/activity_initsurvey_button_back"
+        android:layout_width="20dp"
+        android:layout_height="19dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="@dimen/back_button_margin_top"
+        android:background="@android:color/transparent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_baseline_arrow_back_24" />
+
+    <ProgressBar
+        android:id="@+id/activity_initsurvey_progressbar"
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:max="100"
+        android:progress="0"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="20dp"
+        android:progressBackgroundTint="@color/seco_gray"
+        android:progressDrawable="@drawable/progressbar_survey"
+        app:layout_constraintTop_toBottomOf="@id/activity_initsurvey_button_back"/>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/activity_initsurvey_progressbar"
+        app:layout_constraintBottom_toTopOf="@id/activity_initsurvey_button_next">
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/activity_initsurvey_viewpager2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clipChildren="false"
+            android:clipToPadding="false"
+            android:overScrollMode="never"
+            tools:ignore="MissingConstraints"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+    <Button
+        android:id="@+id/activity_initsurvey_button_next"
+        android:layout_width="338dp"
+        android:layout_height="58dp"
+        android:background="@drawable/button_rounded_gray"
+        android:fontFamily="@font/noto_sans_cjk_kr_bold"
+        android:text="다음으로"
+        android:textColor="@color/seco_tooltipgray"
+        android:textSize="14sp"
+        android:layout_marginBottom="30dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:stateListAnimator="@null" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

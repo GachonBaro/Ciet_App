@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/free_mode_contents_linear_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#F5F5F5"
+    tools:context=".FreeModeContentsDetailsActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/contents_details_title_constraint_layout"
+            android:layout_width="match_parent"
+            android:layout_height="259dp"
+            tools:ignore="MissingConstraints">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <ImageView
+                    android:id="@+id/free_mode_meal_contents_image"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/vegan_meal"
+                    android:scaleType="centerCrop"
+                    android:foreground="@drawable/image_overlay_gradation"
+                    tools:ignore="InvalidId" />
+
+            </FrameLayout>
+
+            <ImageButton
+                android:id="@+id/contents_details_back_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="26dp"
+                android:layout_marginLeft="26dp"
+                android:background="@android:color/transparent"
+                android:tint="@android:color/white"
+                android:src="@drawable/ic_baseline_arrow_back_24"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="UseAppTint" />
+
+            <ImageButton
+                android:id="@+id/contents_details_commerce_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_commerce"
+                android:background="@android:color/transparent"
+                android:layout_marginTop="26dp"
+                android:layout_marginRight="26dp"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+            <TextView
+                android:id="@+id/contents_details_title_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/noto_sans_cjk_kr_bold"
+                android:text="Title"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:layout_marginBottom="24dp"
+                android:layout_marginLeft="26dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/contents_details_description1"
+            android:layout_width="match_parent"
+            android:layout_height="136dp"
+            android:background="@color/white"
+            app:layout_constraintTop_toBottomOf="@+id/contents_details_title_constraint_layout"
+            tools:ignore="MissingConstraints">
+
+            <TextView
+                android:id="@+id/contents_details_description1_summary"
+                android:layout_width="331dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:fontFamily="@font/noto_sans_cjk_kr_bold"
+                android:text="summary"
+                android:textAlignment="viewStart"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/contents_details_description1_contents"
+                android:layout_width="331dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/notosansregular"
+                android:text="Contents😀😀"
+                android:textAlignment="viewStart"
+                android:textColor="@color/black"
+                android:textSize="12sp"
+                app:layout_constraintTop_toBottomOf="@+id/contents_details_description1_summary"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/contents_details_description2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/contents_details_description1"
+            tools:ignore="MissingConstraints">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/contents_details_badge_payment_criteria"
+                android:layout_width="338dp"
+                android:layout_height="76dp"
+                android:background="@drawable/bg_rounded_lightgray"
+                android:layout_marginTop="33dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent">
+
+                    <TextView
+                        android:id="@+id/contents_details_badge_criteria_text_view"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/noto_sans_cjk_kr_bold"
+                        android:text="N회"
+                        android:textAlignment="center"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/notosansregular"
+                        android:text=" 수행 시 "
+                        android:textAlignment="viewStart"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"/>
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_coin_green"
+                        android:layout_gravity="center"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/noto_sans_cjk_kr_bold"
+                        android:text=" 뱃지 1개"
+                        android:textAlignment="viewStart"
+                        android:textColor="#29D29A"
+                        android:textSize="16sp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/notosansregular"
+                        android:text=" 지급"
+                        android:textAlignment="viewStart"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"/>
+
+                </LinearLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/amount_of_carbon_reduction"
+                android:layout_width="338dp"
+                android:layout_height="112dp"
+                android:background="@drawable/bg_rounded_lightgray"
+                android:layout_marginTop="33dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/contents_details_badge_payment_criteria">
+
+                <TextView
+                    android:id="@+id/contents_details_carbon_reduction_text_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/noto_sans_cjk_kr_bold"
+                    android:text="0.00kg"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:layout_marginTop="20dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toTopOf="@+id/contents_details_carbon_reduction_text"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"/>
+
+                <TextView
+                    android:id="@+id/contents_details_carbon_reduction_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/notosansregular"
+                    android:text="탄소 저감량"
+                    android:textAlignment="viewStart"
+                    android:textColor="#BFBFBF"
+                    android:textSize="14sp"
+                    app:layout_constraintTop_toBottomOf="@+id/contents_details_carbon_reduction_text_view"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <!-- eco activity에서 보이는 레이아웃 -->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/amount_of_carbon_reduction_calories_consumption"
+                android:layout_width="338dp"
+                android:layout_height="112dp"
+                android:background="@drawable/bg_rounded_lightgray"
+                android:layout_marginTop="33dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/contents_details_badge_payment_criteria">
+
+                <TextView
+                    android:id="@+id/activity_contents_details_carbon_reduction_text_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/noto_sans_cjk_kr_bold"
+                    android:text="0.330kg"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:layout_marginTop="20dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toTopOf="@+id/activity_contents_details_carbon_reduction_text"
+                    app:layout_constraintRight_toRightOf="@+id/vertical_line"
+                    app:layout_constraintLeft_toLeftOf="parent"/>
+
+                <TextView
+                    android:id="@+id/activity_contents_details_carbon_reduction_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/notosansregular"
+                    android:text="탄소 저감량"
+                    android:textAlignment="viewStart"
+                    android:textColor="#BFBFBF"
+                    android:textSize="14sp"
+                    app:layout_constraintTop_toBottomOf="@+id/activity_contents_details_carbon_reduction_text_view"
+                    app:layout_constraintRight_toRightOf="@+id/vertical_line"
+                    app:layout_constraintLeft_toLeftOf="parent"/>
+
+                <View
+                    android:id="@+id/vertical_line"
+                    android:layout_width="2dp"
+                    android:layout_height="84dp"
+                    android:background="#ECECEC"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"/>
+
+                <TextView
+                    android:id="@+id/activity_contents_details_calories_consumption_text_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/noto_sans_cjk_kr_bold"
+                    android:text="123kcal"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:layout_marginTop="20dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toTopOf="@+id/activity_contents_details_carbon_reduction_text"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintLeft_toLeftOf="@+id/vertical_line"/>
+
+                <TextView
+                    android:id="@+id/activity_contents_details_calories_consumption_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/notosansregular"
+                    android:text="칼로리 소모량"
+                    android:textAlignment="viewStart"
+                    android:textColor="#BFBFBF"
+                    android:textSize="14sp"
+                    app:layout_constraintTop_toBottomOf="@+id/activity_contents_details_carbon_reduction_text_view"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintLeft_toLeftOf="@+id/vertical_line"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <Button
+                android:id="@+id/contents_details_enable_button"
+                android:layout_width="338dp"
+                android:layout_height="58dp"
+                android:layout_marginTop="33dp"
+                android:layout_marginBottom="30dp"
+                android:background="@drawable/button_rounded_green"
+                android:fontFamily="@font/noto_sans_cjk_kr_bold"
+                android:text="컨텐츠 담기"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/amount_of_carbon_reduction" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+</ScrollView>

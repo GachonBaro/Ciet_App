@@ -1,0 +1,66 @@
+<resources>
+    <string name="app_name">SECO</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!-- drawer -->
+    <string name="drawer_open">drawer_open</string>
+    <string name="drawer_close">drawer_close</string>
+
+    <!-- appbar scrolling view -->
+    <string name="appbar_scrolling_view_behavior" translatable="false">
+        com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior
+    </string>
+
+    <!-- free mode fragment -->
+    <string name="title_activity_free_mode">콘텐츠 목록</string>
+    <string name="tab_text_1">식단</string>
+    <string name="tab_text_2">활동</string>
+    <string name="tab_text_3">퀘스트</string>
+    <string name="tab_text_4">관심</string>
+    <string name="title_activity_free_mode_contents_details">FreeModeContentsDetailsActivity</string>
+
+    <!-- Challenge mode fragment -->
+    <string name="title_activity_challenge_mode">진행현황</string>
+
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+
+    <!-- Routine Status -->
+    <string name="title_activity_routine_status">진행현황</string>
+
+    <!-- Authorize Activity -->
+    <string name="title_activity_authorize">인증하기</string>
+
+    <!-- recipe detail activity -->
+    <string name="recipe_title">레시피</string>
+
+    <!-- My SETI Activity -->
+    <string name="myseti_activity_review_button"><u>내 답변 확인하기</u></string>
+
+    <!-- My CMI Activity -->
+    <string name="mycmi_activity_title">MY CMI</string>
+    <string name="mycmi_activity_title_recent_graph">최근 6개월 간 나의 CMI 현황</string>
+    <string name="mycmi_activity_rating_detail"><u>자세히 보기</u></string>
+    <string name="mycmi_activity_title_suggested_activity">CMI 등급 개선을 위한 추천 활동</string>
+    <string name="mycmi_activity_title_ranking">CMI 랭킹</string>
+    <string name="mycmi_activity_title_ranking_share"><u>랭킹 공유하기</u>   </string>
+
+    <!-- My Order History Activity -->
+    <string name="myorder_history_title">주문내역</string>
+
+    <!-- Liked Contents List Activity -->
+    <string name="title_activity_liked_contents_list">담아놓은 컨텐츠 목록</string>
+    <string name="title_activity_liked_contents_list_challenge_name">챌린지 이름</string>
+    <string name="title_activity_liked_contents_list_challenge_date_from">부터</string>
+    <string name="title_activity_liked_contents_list_challenge_until">까지</string>
+    <string name="title_activity_liked_contents_list_challenge_select_days">요일 선택</string>
+    <string name="title_activity_liked_contents_list_button_create_challenge">챌린지 생성하기</string>
+
+</resources>

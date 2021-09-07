@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "155242663498",
+    "project_id": "seco-2549f",
+    "storage_bucket": "seco-2549f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:155242663498:android:d1104ca7adbb6eef8420b3",
+        "android_client_info": {
+          "package_name": "com.barofutures.seco"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "155242663498-trrkppm3hu7s9s05h5r9tp4qg1jjim6g.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.barofutures.seco",
+            "certificate_hash": "d01d73ef2f32203e777845bf3abd8839373d3729"
+          }
+        },
+        {
+          "client_id": "155242663498-k7fecaifv5t4uevom77kkc4k1bj6csh7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDMwJwTAWDnH7WKHAAg9tVQnXbK2QpY6mE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "155242663498-k7fecaifv5t4uevom77kkc4k1bj6csh7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

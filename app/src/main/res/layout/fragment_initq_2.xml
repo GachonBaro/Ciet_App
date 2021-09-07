@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.initsurvey.Fragment_initQ_2">
+
+    <ToggleButton
+        android:id="@+id/a2"
+        android:layout_width="338dp"
+        android:layout_height="58dp"
+        android:layout_marginTop="50dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:textColor="@drawable/text_toggle_selector"
+        app:layout_constraintTop_toBottomOf="@+id/init_question2"
+        android:button="@android:color/transparent"
+        android:background="@drawable/button_initq_selector"
+        android:fontFamily="@font/noto_sans_cjk_kr_bold"
+        style="?android:attr/borderlessButtonStyle"
+        tools:ignore="MissingConstraints"></ToggleButton>
+
+
+    <ToggleButton
+        android:id="@+id/b2"
+        android:layout_width="338dp"
+        android:layout_height="58dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/button_initq_selector"
+        android:button="@android:color/transparent"
+        android:fontFamily="@font/noto_sans_cjk_kr_bold"
+        android:textColor="@drawable/text_toggle_selector"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/a2"
+        style="?android:attr/borderlessButtonStyle"
+        tools:ignore="MissingConstraints"></ToggleButton>
+
+    <ToggleButton
+        android:id="@+id/c2"
+        android:layout_width="338dp"
+        android:layout_height="58dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/button_initq_selector"
+        android:button="@android:color/transparent"
+        android:fontFamily="@font/noto_sans_cjk_kr_bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/b2"
+        android:textColor="@drawable/text_toggle_selector"
+        style="?android:attr/borderlessButtonStyle"
+        tools:ignore="MissingConstraints"></ToggleButton>
+
+    <ToggleButton
+        android:id="@+id/d2"
+        android:layout_width="338dp"
+        android:layout_height="58dp"
+        android:layout_marginTop="10dp"
+        android:textColor="@drawable/text_toggle_selector"
+        android:background="@drawable/button_initq_selector"
+        android:button="@android:color/transparent"
+        android:fontFamily="@font/noto_sans_cjk_kr_bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/c2"
+        style="?android:attr/borderlessButtonStyle"
+        tools:ignore="MissingConstraints"></ToggleButton>
+
+    <ToggleButton
+        android:id="@+id/e2"
+        android:layout_width="338dp"
+        android:layout_height="58dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/button_initq_selector"
+        android:button="@android:color/transparent"
+        android:fontFamily="@font/noto_sans_cjk_kr_bold"
+        android:textColor="@drawable/text_toggle_selector"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/d2"
+        style="?android:attr/borderlessButtonStyle"
+        tools:ignore="MissingConstraints"></ToggleButton>
+
+    <TextView
+        android:id="@+id/init_question2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:fontFamily="@font/noto_sans_cjk_kr_bold"
+        android:text="TextView"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="50dp"
+        android:includeFontPadding="false"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
+    <TextView
+        android:id="@+id/init_multiple_choice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:fontFamily="@font/notosansregular"
+        android:text="*중복 선택 가능"
+        android:textColor="@color/seco_deepgray"
+        android:textSize="14sp"
+        app:layout_constraintTop_toBottomOf="@id/init_question2"
+        app:layout_constraintLeft_toLeftOf="parent"
+        tools:ignore="MissingConstraints" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

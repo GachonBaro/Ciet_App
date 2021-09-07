@@ -1,0 +1,22 @@
+{
+    "appName": "SECO2aZRs",
+    "roleName": "pinpointLambdaRole691cb9f2",
+    "cloudformationPolicyName": "cloudformationPolicy691cb9f2",
+    "cloudWatchPolicyName": "cloudWatchPolicy691cb9f2",
+    "pinpointPolicyName": "pinpointPolicy691cb9f2",
+    "authPolicyName": "pinpoint_amplify_691cb9f2",
+    "unauthPolicyName": "pinpoint_amplify_691cb9f2",
+    "authRoleName": {
+        "Ref": "AuthRoleName"
+    },
+    "unauthRoleName": {
+        "Ref": "UnauthRoleName"
+    },
+    "authRoleArn": {
+        "Fn::GetAtt": [
+            "AuthRole",
+            "Arn"
+        ]
+    },
+    "appId": "2b71383017e7444fa5f2edb88fd56395"
+}

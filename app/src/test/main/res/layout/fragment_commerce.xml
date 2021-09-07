@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.Fragment_Commerce">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/seco_lightgray">
+
+        <RelativeLayout
+            android:id="@+id/fragment_commerce_upper"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:background="@color/white">
+
+            <EditText
+                android:id="@+id/fragment_commerce_search"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:elevation="15dp"
+                android:paddingTop="3dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginBottom="40dp"
+                android:background="@drawable/ic_search_title"
+                android:fontFamily="@font/noto_sans_cjk_kr_bold"
+                android:gravity="left"
+                android:hint="가게 이름을 검색해 보세요."
+                android:paddingLeft="50dp"
+                android:textColor="@color/seco_tooltipgray"
+                android:textSize="14sp" />
+
+            <ImageView
+                android:id="@+id/fragment_commerce_map_background"
+                android:layout_width="match_parent"
+                android:layout_height="185dp"
+                android:layout_above="@id/fragment_commerce_tabs"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="-2dp"
+                android:layout_marginEnd="0dp"
+                android:layout_marginBottom="2dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/map_image" />
+
+            <ImageView
+                android:id="@+id/fragment_commerce_map_dalsu"
+                android:layout_width="169dp"
+                android:layout_height="99dp"
+                android:layout_above="@id/fragment_commerce_tabs"
+                android:layout_alignLeft="@id/fragment_commerce_map_background"
+                android:layout_alignBottom="@id/fragment_commerce_map_background"
+                android:layout_marginLeft="10dp"
+                android:scaleType="centerInside"
+                android:src="@drawable/image_dalsu_map" />
+
+            <Button
+                android:id="@+id/fragment_commerce_button_map"
+                android:layout_width="wrap_content"
+                android:layout_height="43dp"
+                android:layout_below="@id/fragment_commerce_search"
+                android:layout_alignParentRight="true"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/button_frame_commerce_map"
+                android:drawableLeft="@drawable/button_commerce_map"
+                android:fontFamily="@font/notosansregular"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:src="@drawable/button_commerce_map"
+                android:text="   지도에서 보기"
+                android:textColor="@color/white" />
+
+            <androidx.viewpager.widget.ViewPager
+                android:id="@+id/fragment_commerce_viewpager"
+                android:layout_width="match_parent"
+                android:layout_height="203dp"
+                android:layout_below="@id/fragment_commerce_tabs">
+
+            </androidx.viewpager.widget.ViewPager>
+
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/fragment_commerce_tabs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/fragment_commerce_button_map"
+                app:tabIndicatorColor="@color/seco_green"
+                app:tabSelectedTextColor="@color/seco_green"
+                app:tabTextColor="@color/black">
+
+                <com.google.android.material.tabs.TabItem
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="외식" />
+
+                <com.google.android.material.tabs.TabItem
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="못난이" />
+
+                <com.google.android.material.tabs.TabItem
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="비건" />
+
+                <com.google.android.material.tabs.TabItem
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="헬스" />
+
+            </com.google.android.material.tabs.TabLayout>
+
+
+            <LinearLayout
+                android:id="@+id/fragment_commerce_tabs_indicator"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@id/fragment_commerce_viewpager"
+                android:layout_centerHorizontal="true"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:paddingBottom="8dp">
+
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/fragment_commerce_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/fragment_commerce_upper"
+            android:background="@color/white"
+            android:padding="30dp">
+
+            <TextView
+                android:id="@+id/fragment_commerce_list_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/noto_sans_cjk_kr_bold"
+                android:text="128개"
+                android:layout_alignParentTop="true"
+                android:textColor="@color/seco_tooltipgray"
+                android:textSize="14sp" />
+
+            <Spinner
+                android:id="@+id/fragment_commerce_item_list_spinner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true" />
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/fragment_commerce_list_recycler_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@id/fragment_commerce_list_number"
+                android:background="@color/seco_lightgray" />
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</ScrollView>
