@@ -26,9 +26,9 @@
 - Version 1.0
 
 ## 📖Read more (click below)  
-▶️[System Architectural design🎛](https://github.com/GachonBaro/Ciet/wiki/System-Architectural-Design)  
+▶️[System Architectural design🎛](https://github.com/GachonBaro/Ciet_App/wiki/System-Architectural-Design)  
 ▶️[Demo Web for SETI Test💻](https://setitest.netlify.app/)  
-▶️[Deep Learning Model Source🗂](https://github.com/Ciet/Ciet_DL)
+▶️[Deep Learning Model Source🗂](https://github.com/GachonBaro/Ciet_DL)
 
 ## Demo video (click below)
 
