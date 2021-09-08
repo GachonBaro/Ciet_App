@@ -32,7 +32,7 @@
 
 ## Demo video (click below)
 
-[![Demo Video](https://img.youtube.com/vi/b4CuUxCE3I8/0.jpg)](https://www.youtube.com/watch?v=b4CuUxCE3I8)
+[![Demo Video](https://img.youtube.com/vi/XyHJxWbhLZM/0.jpg)](https://www.youtube.com/watch?v=XyHJxWbhLZM)
 
 <br>
 
