@@ -25,10 +25,12 @@
 - <img src="https://img.shields.io/badge/Android_Studio-3DDC84?style=for-the-badge&logo=android-studio&logoColor=white"/></a> Arctic Fox | 2020.3.1
 - Version 1.0
 
+## 🗂Deep Learning Model Source (click below)
+▶️[Click Here!](https://github.com/GachonBaro/Ciet_DL)
+
 ## 📖Read more (click below)  
 ▶️[System Architectural design🎛](https://github.com/GachonBaro/Ciet_App/wiki/System-Architectural-Design)  
 ▶️[Demo Web for SETI Test💻](https://setitest.netlify.app/)  
-▶️[Deep Learning Model Source🗂](https://github.com/GachonBaro/Ciet_DL)
 
 ## Demo video (click below)
 
