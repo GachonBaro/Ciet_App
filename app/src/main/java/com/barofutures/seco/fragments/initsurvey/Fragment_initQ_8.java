@@ -14,12 +14,17 @@ import com.barofutures.seco.MainActivity;
 import com.barofutures.seco.R;
 import com.barofutures.seco.SetiSurveyActivity;
 import com.barofutures.seco.SetiSurveyIntroActivity;
+import com.barofutures.seco.firebase.firestore.UserInfoData;
 import com.barofutures.seco.model.InitQnA;
 import com.barofutures.seco.model.SetiQnA;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 public class Fragment_initQ_8 extends Fragment {
     private TextView text;
     private Button b1, b2;
+
+
 
     public Fragment_initQ_8() {
         // Required empty public constructor
@@ -64,5 +69,11 @@ public class Fragment_initQ_8 extends Fragment {
         });
 
         return viewGroup;
+    }
+
+    // Firestore에 UserInfo 저장
+    private void storeUserInfo() {
+//        DocumentReference docRef = FirebaseFirestore.getInstance().collection("users").document(UserInfoData.getUID());
+
     }
 }

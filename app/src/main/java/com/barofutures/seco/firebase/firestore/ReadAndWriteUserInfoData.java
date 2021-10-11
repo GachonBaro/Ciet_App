@@ -11,6 +11,8 @@ import androidx.core.content.ContextCompat;
 import com.barofutures.seco.GoogleLogInActivity;
 import com.barofutures.seco.SplashActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
@@ -21,10 +23,10 @@ public class ReadAndWriteUserInfoData {
     private static final String TAG = "ReadAndWriteUserInfoData";
 
     // Access a Cloud Firestore instance from your Activity
-    private FirebaseFirestore db;
-    private CollectionReference usersRef;
-    private Context context;
-    private GoogleLogInActivity googleLogInActivity;
+    public FirebaseFirestore db;
+    public CollectionReference usersRef;
+    public Context context;
+    public GoogleLogInActivity googleLogInActivity;
 
     public ReadAndWriteUserInfoData(Context context, GoogleLogInActivity googleLogInActivity) {
         this.db = FirebaseFirestore.getInstance();
@@ -35,7 +37,7 @@ public class ReadAndWriteUserInfoData {
 
     // TODO: 하는 중
     // 해당 UID가 이미 있으면 true 반환(기존 유저), 아니면 false 반환(신규 유저)
-    public void searchUser(String userID) {
+    public void searchUser(String userID, String email, String name) {
 //        UserSearchingThread userSearchingThread = new UserSearchingThread(userID);
 //        Thread thread = new Thread(userSearchingThread);
 //        try {
@@ -59,14 +61,17 @@ public class ReadAndWriteUserInfoData {
                         Log.d(TAG, "DocumentSnapshot data: " + document.getData());
                         Intent intent = new Intent(context, SplashActivity.class);
                         intent.putExtra("nextActivity", "MainActivity");
+                        intent.putExtra("UID", userID);
                         context.startActivity(intent);
                         googleLogInActivity.finish();
                     } else {
                         Log.d(TAG, "No such document");
-                        Intent intent = new Intent(context, SplashActivity.class);
-                        intent.putExtra("nextActivity", "InitialSurveyIntroActivity");
-                        context.startActivity(intent);
-                        googleLogInActivity.finish();
+                        storeUIDAndNameAndEmail(userID, email, name);
+
+//                        Intent intent = new Intent(context, SplashActivity.class);
+//                        intent.putExtra("nextActivity", "InitialSurveyIntroActivity");
+//                        context.startActivity(intent);
+//                        googleLogInActivity.finish();
                     }
                 } else {
                     Log.d(TAG, "get failed with ", task.getException());
@@ -76,6 +81,32 @@ public class ReadAndWriteUserInfoData {
         });
 
     }
+
+    // 사용자 데이터(UID, email, name) 저장
+    public void storeUIDAndNameAndEmail(String UID, String email, String name) {
+        UserInfoData userInfoData = new UserInfoData(UID, name, email);
+
+        DocumentReference docRef = usersRef.document(UID);
+        docRef.set(userInfoData).addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void unused) {
+                Log.d(TAG, "DocumentSnapshot successfully written!");
+
+                // 기초 설문조사로 이동 (InitialSurveyIntroActivity.java로 이동)
+                Intent intent = new Intent(context, SplashActivity.class);
+                intent.putExtra("nextActivity", "InitialSurveyIntroActivity");
+                intent.putExtra("UID", UID);
+                context.startActivity(intent);
+                googleLogInActivity.finish();
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Log.w(TAG, "Error writing document", e);
+            }
+        });
+    }
+
 
 //    class UserSearchingThread implements Runnable {
 //        String userID;

@@ -81,7 +81,7 @@ public class GoogleLogInActivity extends AppCompatActivity {
 
             // TODO: 기존 유저인지, 신규 유저인지 확인하기 - 완
 
-            readAndWriteUserInfoData.searchUser(lastGoogleAccount.getId());
+            readAndWriteUserInfoData.searchUser(lastGoogleAccount.getId(), lastGoogleAccount.getEmail(), lastGoogleAccount.getDisplayName());
             Log.d("uiduid","자동로그, " + lastGoogleAccount.getId());
 
 
@@ -130,7 +130,7 @@ public class GoogleLogInActivity extends AppCompatActivity {
 
                 // TODO: 기존 유저인지, 신규 유저인지 확인하기
 
-                readAndWriteUserInfoData.searchUser(account.getId());
+                readAndWriteUserInfoData.searchUser(account.getId(), account.getEmail(), account.getDisplayName());
                 Log.d("uiduid","자동로그, " + account.getId());
 
 //                // SETI가 설정되어 있는지 확인한 후 Splash로 전환

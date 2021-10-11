@@ -2,6 +2,7 @@ package com.barofutures.seco.firebase.firestore;
 
 public class UserInfoData {
     // get data from Google Auth
+    private String UID;              // UID
     private String userName;        // 사용자 이름
     private String email;           // 사용자 이메일 주소
 
@@ -26,18 +27,19 @@ public class UserInfoData {
 
     }
 
-    public UserInfoData(String userName, String email, String nickname, String job, String gender, String routineGoal, String interestActivity, boolean isVegan, boolean isCarOwner, String activityDay) {
+    public UserInfoData(String UID, String userName, String email) {
+        this.UID = UID;
         this.userName = userName;
         this.email = email;
 
-        this.nickname = nickname;
-        this.job = job;
-        this.gender = gender;
-        this.routineGoal = routineGoal;
-        this.interestActivity = interestActivity;
-        this.isVegan = isVegan;
-        this.isCarOwner = isCarOwner;
-        this.activityDay = activityDay;
+        this.nickname = "nickname_NULL";
+        this.job = "job_NULL";
+        this.gender = "gender_NULL";
+        this.routineGoal = "routineGoal_NULL";
+        this.interestActivity = "interestActivity_NULL";
+        this.isVegan = false;
+        this.isCarOwner = false;
+        this.activityDay = "activityDay_NULL";
 
         this.SETI = "SETI_NULL";
         this.CMIGrade = "CMIGrade_NULL";
@@ -47,6 +49,15 @@ public class UserInfoData {
     }
 
     // getter, setter
+
+
+    public String getUID() {
+        return UID;
+    }
+
+    public void setUID(String UID) {
+        this.UID = UID;
+    }
 
     public String getUserName() {
         return userName;
