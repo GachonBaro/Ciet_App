@@ -12,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.barofutures.seco.firebase.ReadAndWriteUserData;
+import com.barofutures.seco.firebase.firestore.ReadAndWriteUserInfoData;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -26,16 +27,20 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 public class GoogleLogInActivity extends AppCompatActivity {
     private static final String TAG = "GoogleActivity";
     private static final int RC_SIGN_IN = 226;
     private FirebaseAuth mAuth;
     private GoogleSignInClient mGoogleSignInClient;
-    private DatabaseReference mDatabase;
-    private ReadAndWriteUserData readAndWriteUserData;
+//    private DatabaseReference mDatabase;
+//    private ReadAndWriteUserData readAndWriteUserData;
     private Button googleSignInButton;
     private String profileImageUrl, userName;
+
+    private ReadAndWriteUserInfoData readAndWriteUserInfoData;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,12 +50,18 @@ public class GoogleLogInActivity extends AppCompatActivity {
         // 상단바 완전 투명
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
 
-        // Initialize Firebase Auth and Realtime database reference
+        // Initialize Firebase Auth
         mAuth = FirebaseAuth.getInstance();
-        mDatabase = FirebaseDatabase.getInstance().getReference();
+//        mDatabase = FirebaseDatabase.getInstance().getReference();
+
+
 
         // Initialize readAndWriteUserData
-        readAndWriteUserData = new ReadAndWriteUserData(mDatabase, this);
+//        readAndWriteUserData = new ReadAndWriteUserData(mDatabase, this);
+
+        // Initialize ReadAndWriteUserInfoData
+        readAndWriteUserInfoData = new ReadAndWriteUserInfoData(this, GoogleLogInActivity.this);
+
 
         // Configure Google Sign In
         googleSignInButton = findViewById(R.id.splash_button_google_login);
@@ -61,14 +72,31 @@ public class GoogleLogInActivity extends AppCompatActivity {
                 .build();
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
 
-        // TODO: 자동 로그인 임시로 풀어놓음
-        // 이전에 로그인 한 적이 있는지 확인하여 마이페이지(임시)로 바로 연결
+        // 사용자 등록이 되었는지 확인 후,
+        // 기존 유저이면 MainActivity.java로 이동 (nextActivity == MainActivity)
+        // 신규 유저이면 InitialSurveyIntroActivity.java로 이동 (초기 기초 설문 조사) (nextActivity == InitialSurveyIntroActivity)
         GoogleSignInAccount lastGoogleAccount = GoogleSignIn.getLastSignedInAccount(GoogleLogInActivity.this);
         if (lastGoogleAccount != null) {
             Toast.makeText(this, lastGoogleAccount.getEmail() + "으로 로그인 되었습니다.", Toast.LENGTH_SHORT).show();
-            Intent intent = new Intent(getApplicationContext(), SplashActivity.class);
-            startActivity(intent);
-            this.finish();
+
+            // TODO: 기존 유저인지, 신규 유저인지 확인하기 - 완
+
+            readAndWriteUserInfoData.searchUser(lastGoogleAccount.getId());
+            Log.d("uiduid","자동로그, " + lastGoogleAccount.getId());
+
+
+//            if (readAndWriteUserInfoData.searchUser(lastGoogleAccount.getId())) {     // 기존 유저이면
+//                Toast.makeText(getApplicationContext(), "기존유저, " + lastGoogleAccount.getId(), Toast.LENGTH_SHORT).show();
+//            }
+//            else {      // 신규 유저이면
+//                Toast.makeText(getApplicationContext(), "신규, " + lastGoogleAccount.getId(), Toast.LENGTH_SHORT).show();
+//            }
+
+
+
+//            Intent intent = new Intent(getApplicationContext(), SplashActivity.class);
+//            startActivity(intent);
+//            this.finish();
         }
 
         googleSignInButton.setOnClickListener(new View.OnClickListener() {
@@ -98,13 +126,18 @@ public class GoogleLogInActivity extends AppCompatActivity {
                 firebaseAuthWithGoogle(account.getIdToken());
 
                 // TODO : 이미 존재하는 유저인지 확인할 것
-                readAndWriteUserData.writeNewUserWithTaskListeners(account.getId(), account.getDisplayName(), account.getEmail());
+//                readAndWriteUserData.writeNewUserWithTaskListeners(account.getId(), account.getDisplayName(), account.getEmail());료
 
-                // SETI가 설정되어 있는지 확인한 후 Splash로 전환
-                Toast.makeText(this, account.getEmail(), Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(getApplicationContext(), SplashActivity.class);
-                startActivity(intent);
-                this.finish();
+                // TODO: 기존 유저인지, 신규 유저인지 확인하기
+
+                readAndWriteUserInfoData.searchUser(account.getId());
+                Log.d("uiduid","자동로그, " + account.getId());
+
+//                // SETI가 설정되어 있는지 확인한 후 Splash로 전환
+//                Toast.makeText(this, account.getEmail(), Toast.LENGTH_SHORT).show();
+//                Intent intent = new Intent(getApplicationContext(), SplashActivity.class);
+//                startActivity(intent);
+//                this.finish();
             } catch (ApiException e) {
                 // Google Sign In failed, update UI appropriately
                 Log.w(TAG, "Google sign in failed", e);

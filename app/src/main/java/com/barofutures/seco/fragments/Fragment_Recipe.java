@@ -65,7 +65,6 @@ public class Fragment_Recipe extends Fragment {
         }).attach();
         tabLayout.setTabTextColors(getResources().getColor(R.color.seco_tooltipgray), getResources().getColor(R.color.seco_green));
 
-        // TODO: 아 뭔가 여기에서 텍스트 정렬하는 것 같은데 왜 안되냐~~
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
         tabLayout.setSelectedTabIndicatorColor(ContextCompat.getColor(getActivity(), R.color.seco_green));
         tabLayout.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);

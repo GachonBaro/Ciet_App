@@ -161,11 +161,14 @@ public class MainActivity extends AppCompatActivity{
          * Drawer Navigation View: 왼 -> 오른쪽으로 슬라이드하면 뜨는 메뉴 (간단한 사용자 정보, 상세 메뉴, 설정 등)
          */
 
-        // Drawer에 User 정보 표시
+        // TODO: Drawer에 User 정보 표시 - UserInfo 불러오는 코드 추가 후에 수정
         currentUser = FirebaseAuth.getInstance().getCurrentUser();
-        userName = currentUser.getDisplayName();
-        drawerUserName.setText(userName);
-        drawerEmail.setText(currentUser.getEmail());
+        if (currentUser != null) {
+            userName = currentUser.getDisplayName();
+            drawerUserName.setText(userName);
+            drawerEmail.setText(currentUser.getEmail());
+        }
+
         badgeAmount=new SpannableString("배지 12개");
         coinAmount=new SpannableString("코인 32개");
         badgeAmount.setSpan(new ForegroundColorSpan(Color.parseColor("#29D29A")), 3, 5, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);

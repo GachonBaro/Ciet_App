@@ -19,6 +19,9 @@ import org.w3c.dom.Text;
 
 import java.util.Objects;
 
+/**
+ *
+ */
 public class ModeChangeConfirmDialog {
     private Context context;
 
