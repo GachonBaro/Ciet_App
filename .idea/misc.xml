@@ -6,7 +6,10 @@
         <entry key="app/src/main/res/layout/activity_initialsurveyintro.xml" value="0.2490740740740741" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.24427083333333333" />
         <entry key="app/src/main/res/layout/activity_mycmi.xml" value="0.4244791666666667" />
+        <entry key="app/src/main/res/layout/activity_myseti.xml" value="0.23020833333333332" />
+        <entry key="app/src/main/res/layout/activity_seti_answer_reivew.xml" value="0.23020833333333332" />
         <entry key="app/src/main/res/layout/activity_seti_survey_intro.xml" value="0.22666666666666666" />
+        <entry key="app/src/main/res/layout/activity_setisurveyresult.xml" value="0.23020833333333332" />
         <entry key="app/src/main/res/layout/activity_splash.xml" value="0.25" />
       </map>
     </option>

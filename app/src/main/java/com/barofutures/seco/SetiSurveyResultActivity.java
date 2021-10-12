@@ -26,6 +26,8 @@ public class SetiSurveyResultActivity extends AppCompatActivity {
     private Toast toast;
     private String seti;
 
+    private String uid;
+
     public SetiSurveyResultActivity() {
         // Required empty public constructor
     }
@@ -34,6 +36,9 @@ public class SetiSurveyResultActivity extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setisurveyresult);
+
+        Intent intent = getIntent();
+        uid = intent.getStringExtra("UID");
 
         // 상단바 완전 투명
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
@@ -65,6 +70,7 @@ public class SetiSurveyResultActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent(getApplicationContext(), MySetiActivity.class);
+                intent.putExtra("UID", uid);
                 startActivity(intent);
                 finish();
             }
@@ -75,6 +81,7 @@ public class SetiSurveyResultActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                intent.putExtra("UID", uid);
                 startActivity(intent);
                 finish();
             }

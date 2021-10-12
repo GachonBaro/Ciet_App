@@ -24,12 +24,17 @@ public class MySetiActivity extends AppCompatActivity {
     private String setiResult;
     private SpannableString displayResult;
     private TextView setiSummary;
-    private Button retestButton, reviewButton;
+    private Button retestButton;
+
+    private String uid;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_myseti);
+
+        Intent intent = getIntent();
+        uid = intent.getStringExtra("UID");
 
         // 상단바 완전 투명
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
@@ -45,7 +50,6 @@ public class MySetiActivity extends AppCompatActivity {
         // View 연결 및 초기화
         setiSummary =findViewById(R.id.activity_myseti_type);
         retestButton =findViewById(R.id.activity_myseti_retest_button);
-        reviewButton=findViewById(R.id.activity_myseti_button_review);
 
         // SETI 다시하기 버튼 이벤트 리스너
         retestButton.setOnClickListener(new View.OnClickListener() {
@@ -56,20 +60,10 @@ public class MySetiActivity extends AppCompatActivity {
             }
         });
 
-        // SETI 결과 다시보기 버튼 이벤트 리스너
-        reviewButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent=new Intent(getApplicationContext(), SetiAnswerReviewActivity.class);
-                startActivity(intent);
-            }
-        });
-
         // SETI 결과 텍스트
         if(SetiQnA.mySETI.length()==0){
             setiSummary.setText("아직 SETI 검사를 하지 않았습니다.");
-            // 내 답변 확인하기 버튼 숨김
-            reviewButton.setVisibility(View.INVISIBLE);
+
             // SETI 다시하기가 아니라 검사하기로 표시
             retestButton.setText("SETI 검사하기");
         }else{
@@ -78,8 +72,6 @@ public class MySetiActivity extends AppCompatActivity {
             displayResult.setSpan(new StyleSpan(Typeface.BOLD), 8, 12, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
             setiSummary.setText(displayResult);
 
-            // 내 답변 확인하기 버튼 표시
-            reviewButton.setVisibility(View.VISIBLE);
         }
 
     }

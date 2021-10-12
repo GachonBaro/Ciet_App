@@ -106,6 +106,7 @@ public class SetiSurveyActivity extends AppCompatActivity implements SetiSurveyA
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), SetiSurveyResultActivity.class);
+                intent.putExtra("UID", uid);
                 startActivity(intent);
                 finish();
             }

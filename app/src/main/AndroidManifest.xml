@@ -38,9 +38,6 @@
             android:name=".RewardHistoryAcitivity"
             android:exported="true" />
         <activity
-            android:name=".SetiAnswerReviewActivity"
-            android:exported="true" />
-        <activity
             android:name=".RecipeDetailActivity"
             android:exported="true" />
         <activity

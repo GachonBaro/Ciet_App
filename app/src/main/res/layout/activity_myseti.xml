@@ -64,32 +64,17 @@
                 android:layout_height="192dp"
                 android:layout_marginTop="30dp"
                 android:src="@drawable/image_my_seti"
-                app:layout_constraintBottom_toTopOf="@id/activity_myseti_button_review"
+                app:layout_constraintBottom_toTopOf="@id/activity_myseti_divider_1"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/activity_myseti_type" />
-
-            <Button
-                android:id="@+id/activity_myseti_button_review"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:includeFontPadding="false"
-                android:fontFamily="@font/notosansregular"
-                android:text="@string/myseti_activity_review_button"
-                android:textColor="@color/black"
-                android:background="@android:color/transparent"
-                android:textSize="14sp"
-                app:layout_constraintTop_toBottomOf="@id/activity_myseti_image"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintBottom_toTopOf="@id/activity_myseti_divider_1"/>
 
             <View
                 android:id="@+id/activity_myseti_divider_1"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/item_divider"
                 android:background="@drawable/item_divider"
-                app:layout_constraintTop_toBottomOf="@id/activity_myseti_button_review" />
+                app:layout_constraintTop_toBottomOf="@id/activity_myseti_image" />
 
             <TextView
                 android:id="@+id/activity_myseti_type_graph_title"
