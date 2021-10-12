@@ -197,7 +197,7 @@ public class SetiQnA {
         WriteBatch batch = db.batch();
         DocumentReference updateDocRef = db.collection("users").document(email).collection("user_info").document("current");
         // update user info
-        batch.update(updateDocRef, "SETI", mySETI);
+        batch.update(updateDocRef, "seti", mySETI);
         // Commit the batch
         batch.commit().addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
