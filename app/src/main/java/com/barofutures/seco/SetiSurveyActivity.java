@@ -31,10 +31,16 @@ public class SetiSurveyActivity extends AppCompatActivity implements SetiSurveyA
     // 답변 체크 확인을 위한 boolean
     public static boolean[] isComplete = {false, false, false, false, false};
 
+    // uid
+    public static String uid;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_seti_survey);
+
+        Intent intent = getIntent();
+        uid = intent.getStringExtra("UID");
 
         // 상단바 완전 투명
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);

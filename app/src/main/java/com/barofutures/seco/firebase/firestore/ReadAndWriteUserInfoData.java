@@ -17,7 +17,12 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firestore.v1.WriteResult;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class ReadAndWriteUserInfoData {
     private static final String TAG = "ReadAndWriteUserInfoData";
@@ -66,7 +71,7 @@ public class ReadAndWriteUserInfoData {
                         googleLogInActivity.finish();
                     } else {
                         Log.d(TAG, "No such document");
-                        storeUIDAndNameAndEmail(userID, email, name);
+                        updateServerTimestamp(userID, email, name);
 
 //                        Intent intent = new Intent(context, SplashActivity.class);
 //                        intent.putExtra("nextActivity", "InitialSurveyIntroActivity");
@@ -82,11 +87,26 @@ public class ReadAndWriteUserInfoData {
 
     }
 
+    // update Server Timestamp
+    public void updateServerTimestamp(String UID, String email, String name) {
+        DocumentReference docRef = usersRef.document(UID);
+        Map<String, Object> timeStamp = new HashMap<>();
+        timeStamp.put("timeStamp", FieldValue.serverTimestamp());
+        docRef.set(timeStamp).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                Log.d(TAG, "successfully updated!");
+                storeUIDAndNameAndEmail(UID, email, name);
+            }
+        });
+    }
+
     // 사용자 데이터(UID, email, name) 저장
     public void storeUIDAndNameAndEmail(String UID, String email, String name) {
         UserInfoData userInfoData = new UserInfoData(UID, name, email);
 
-        DocumentReference docRef = usersRef.document(UID);
+        DocumentReference docRef = usersRef.document(UID).collection("user_info").document("current");
+//        DocumentReference docRef = usersRef.document(UID);
         docRef.set(userInfoData).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void unused) {

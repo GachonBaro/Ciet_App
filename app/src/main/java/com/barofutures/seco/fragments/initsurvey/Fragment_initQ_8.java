@@ -86,7 +86,7 @@ public class Fragment_initQ_8 extends Fragment {
         // Get a new write batch
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         WriteBatch batch = db.batch();
-        DocumentReference docRef = db.collection("users").document(InitialSurveyActivity.uid);
+        DocumentReference docRef = db.collection("users").document(InitialSurveyActivity.uid).collection("user_info").document("current");
         // update user info
         batch.update(docRef, "job", InitQnA.A0);
         batch.update(docRef, "gender", InitQnA.A1);
@@ -103,7 +103,7 @@ public class Fragment_initQ_8 extends Fragment {
             public void onComplete(@NonNull Task<Void> task) {
                 Log.d("Fragment_initQ_8", "init survey update completed!!");
                 Intent intent=new Intent(getActivity(), SetiSurveyIntroActivity.class);
-
+                intent.putExtra("UID", InitialSurveyActivity.uid);
                 startActivity(intent);
                 getActivity().finish();
             }
@@ -114,10 +114,11 @@ public class Fragment_initQ_8 extends Fragment {
     private void storeUserInfoAndGoMain() {
 
         //TODO: 여기 하는중 - 닉네임 등 업데이
+
         // Get a new write batch
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         WriteBatch batch = db.batch();
-        DocumentReference docRef = db.collection("users").document(InitialSurveyActivity.uid);
+        DocumentReference docRef = db.collection("users").document(InitialSurveyActivity.uid).collection("user_info").document("current");
         // update user info
         batch.update(docRef, "job", InitQnA.A0);
         batch.update(docRef, "gender", InitQnA.A1);

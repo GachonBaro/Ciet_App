@@ -25,10 +25,16 @@ public class SetiSurveyIntroActivity extends AppCompatActivity {
     private SpannableString spannableString;
     private TextView textView;
 
+    // uid
+    private String uid;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_seti_survey_intro);
+
+        Intent intent = getIntent();
+        uid = intent.getStringExtra("UID");
 
         // 상단바 완전 투명
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
@@ -58,6 +64,7 @@ public class SetiSurveyIntroActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent(getApplicationContext(), SetiSurveyActivity.class);
+                intent.putExtra("UID", uid);
                 startActivity(intent);
                 finish();
             }
