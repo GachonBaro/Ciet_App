@@ -105,29 +105,6 @@ public class Fragment_MyPage extends Fragment {
             }
         });
 
-        setiButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent=new Intent(getActivity(), MySetiActivity.class);
-                startActivity(intent);
-            }
-        });
-
-        cmiButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent=new Intent(getActivity(), MyCmiActivity.class);
-                startActivity(intent);
-            }
-        });
-
-        orderButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent=new Intent(getActivity(), MyOrderHistoryActivity.class);
-                startActivity(intent);
-            }
-        });
 
         // 유저 정보 표시
         if (currentUser != null) {
