@@ -30,8 +30,8 @@ public class InitQnA {
     public static String A1;
     public static ArrayList<String> A2=new ArrayList<>();
     public static ArrayList<String> A3=new ArrayList<>();
-    public static String A4;
-    public static String A5;
+    public static boolean A4;
+    public static boolean A5;
     public static ArrayList<String> A6=new ArrayList<>();
     public static String A7;
     public static String A8;

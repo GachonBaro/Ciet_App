@@ -24,14 +24,14 @@ public class SplashActivity extends AppCompatActivity {
         ///////////////////////////////////////////////////////////////////////////////////////////
         Intent splashIntent = getIntent();
         String nextActivity = splashIntent.getStringExtra("nextActivity");        // 다음으로 넘어갈 Activity
-        String uid = splashIntent.getStringExtra("UID");        // UID
+        String email = splashIntent.getStringExtra("email");        // email
         switch (nextActivity) {
             case "InitialSurveyIntroActivity":      // InitialSurveyIntroActivity.java로 전환
                 // TEST
                 Toast.makeText(getApplicationContext(), "case InitialSurveyIntroActivity", Toast.LENGTH_SHORT).show();
 
                 Intent initSurveyIntent = new Intent(getApplicationContext(), InitialSurveyIntroActivity.class);
-                initSurveyIntent.putExtra("UID", uid);
+                initSurveyIntent.putExtra("email", email);
                 startActivity(initSurveyIntent);
                 this.finish();
                 break;
@@ -44,7 +44,7 @@ public class SplashActivity extends AppCompatActivity {
 
 
                 Intent MainIntent = new Intent(getApplicationContext(), MainActivity.class);
-                MainIntent.putExtra("UID", uid);
+                MainIntent.putExtra("email", email);
                 startActivity(MainIntent);
                 this.finish();
                 break;

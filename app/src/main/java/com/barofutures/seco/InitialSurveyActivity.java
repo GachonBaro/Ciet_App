@@ -36,8 +36,8 @@ public class InitialSurveyActivity extends AppCompatActivity {
     // 답변 체크 확인
     public static boolean isAnswered = false;
 
-    // uid
-    public static String uid;
+    // email
+    public static String email;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,7 +45,7 @@ public class InitialSurveyActivity extends AppCompatActivity {
         setContentView(R.layout.activity_initialsurvey);
 
         Intent intent = getIntent();
-        uid = intent.getStringExtra("UID");
+        email = intent.getStringExtra("email");
 
         // 상단바 완전 투명
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);

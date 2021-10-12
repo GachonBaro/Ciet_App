@@ -27,8 +27,8 @@ public class InitialSurveyIntroActivity extends AppCompatActivity {
     private TextView title;
     private SpannableString spannableString;
 
-    // uid
-    private String uid;
+    // email
+    private String email;
 
     // Anim
     private VideoView videoView;
@@ -41,7 +41,7 @@ public class InitialSurveyIntroActivity extends AppCompatActivity {
         setContentView(R.layout.activity_initialsurveyintro);
 
         Intent intent = getIntent();
-        uid = intent.getStringExtra("UID");
+        email = intent.getStringExtra("email");
 
         // 상단바 완전 투명
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
@@ -74,7 +74,7 @@ public class InitialSurveyIntroActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), InitialSurveyActivity.class);
-                intent.putExtra("UID", uid);
+                intent.putExtra("email", email);
                 startActivity(intent);
                 finishAfterTransition();
             }

@@ -26,7 +26,7 @@ public class SetiSurveyResultActivity extends AppCompatActivity {
     private Toast toast;
     private String seti;
 
-    private String uid;
+    private String email;
 
     public SetiSurveyResultActivity() {
         // Required empty public constructor
@@ -38,7 +38,7 @@ public class SetiSurveyResultActivity extends AppCompatActivity {
         setContentView(R.layout.activity_setisurveyresult);
 
         Intent intent = getIntent();
-        uid = intent.getStringExtra("UID");
+        email = intent.getStringExtra("email");
 
         // 상단바 완전 투명
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
@@ -65,12 +65,46 @@ public class SetiSurveyResultActivity extends AppCompatActivity {
         description.setText("친환경 활동에 참여할 의향과 환경에 대한 이해도는\n" +
                 "크지만 실천도가 낮은 타입입니다.");
 
+        // SETI 결과 저장
+        SetiQnA.storeSETIResult(email);
+
+//        // 더 자세히 알아보기 클릭 시 이벤트
+//        detailButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent=new Intent(getApplicationContext(), MySetiActivity.class);
+//                intent.putExtra("email", email);
+//                startActivity(intent);
+//                finish();
+//            }
+//        });
+//
+//        // 나가기 버튼 클릭 시 홈으로 이동
+//        exitButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+//                intent.putExtra("email", email);
+//                // 플래그 지정: 같은 액티비티가 재사용되기 때문에 onCreate가 호출되지 않고 onNewIntent가 실행되는 것에 주의
+//                intent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+//                startActivity(intent);
+//                finish();
+//            }
+//        });
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
         // 더 자세히 알아보기 클릭 시 이벤트
         detailButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent(getApplicationContext(), MySetiActivity.class);
-                intent.putExtra("UID", uid);
+                intent.putExtra("email", email);
+                // 플래그 지정: 같은 액티비티가 재사용되기 때문에 onCreate가 호출되지 않고 onNewIntent가 실행되는 것에 주의
+                intent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
                 startActivity(intent);
                 finish();
             }
@@ -81,7 +115,9 @@ public class SetiSurveyResultActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                intent.putExtra("UID", uid);
+                intent.putExtra("email", email);
+                // 플래그 지정: 같은 액티비티가 재사용되기 때문에 onCreate가 호출되지 않고 onNewIntent가 실행되는 것에 주의
+                intent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
                 startActivity(intent);
                 finish();
             }

@@ -1,8 +1,33 @@
 package com.barofutures.seco.model;
 
+import android.content.Intent;
+import android.util.Log;
+import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+
+import com.barofutures.seco.InitialSurveyActivity;
+import com.barofutures.seco.MainActivity;
+import com.barofutures.seco.SplashActivity;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.WriteBatch;
+
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 public class SetiQnA {
     public static boolean testLater=false;
     public static String mySETI="";
+    private static int sc, ap, aj;
 
     // 질문
     public static String[] question = {
@@ -100,16 +125,18 @@ public class SetiQnA {
         // 10문항 씩 세 영역으로 나누어 각각 S/C, A/P, A/J를 결정
         // 각 영역에서 25점 이상일 경우 S, A, A
         // 25점 미만일 경우 C, P, J 중에서 결정됨
-            int sc=0, ap=0, aj=0;
+            sc = 0;
+            ap = 0;
+            aj = 0;
 
             for(int i=0; i<10; i++){
-                sc+=answer[i];
+                sc+=answer[i] + 1;
             }
             for(int i=10; i<20; i++){
-                ap+=answer[i];
+                ap+=answer[i] + 1;
             }
             for(int i=20; i<30; i++){
-                aj+=answer[i];
+                aj+=answer[i] + 1;
             }
 
             if(sc>=25){ mySETI+="S"; }
@@ -123,6 +150,61 @@ public class SetiQnA {
     // SETI 가져오기
     public static String getMySETI(){
         return  mySETI;
+    }
+
+    public static int getSc() {
+        return sc;
+    }
+
+    public static int getAp() {
+        return ap;
+    }
+
+    public static int getAj() {
+        return aj;
+    }
+
+    public static int[] getAnswer() {
+        return answer;
+    }
+
+    // SETI 결과 Firestore에 저장
+    public static void storeSETIResult(String email) {
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        CollectionReference usersRef = db.collection("users");
+        DocumentReference docRef = usersRef.document(email).collection("user_info").document("seti");
+
+        Map<String, Object> seti = new HashMap<>();
+        seti.put("type", getMySETI());
+//        seti.put("answer", getAnswer());
+        seti.put("understanding", getSc());
+        seti.put("practice", getAp());
+        seti.put("intent", getAj());
+
+        docRef.set(seti).addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void unused) {
+                Log.d("SetiQnA", "DocumentSnapshot successfully written!");
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Log.w("SetiQnA", "Error writing document", e);
+            }
+        });
+
+        // Get a new write batch
+        WriteBatch batch = db.batch();
+        DocumentReference updateDocRef = db.collection("users").document(email).collection("user_info").document("current");
+        // update user info
+        batch.update(updateDocRef, "SETI", mySETI);
+        // Commit the batch
+        batch.commit().addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                Log.d("SetiQnA", "SETI type update completed!!");
+            }
+        });
     }
 
 }

@@ -25,8 +25,8 @@ public class SetiSurveyIntroActivity extends AppCompatActivity {
     private SpannableString spannableString;
     private TextView textView;
 
-    // uid
-    private String uid;
+    // email
+    private String email;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +34,7 @@ public class SetiSurveyIntroActivity extends AppCompatActivity {
         setContentView(R.layout.activity_seti_survey_intro);
 
         Intent intent = getIntent();
-        uid = intent.getStringExtra("UID");
+        email = intent.getStringExtra("email");
 
         // 상단바 완전 투명
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
@@ -45,7 +45,7 @@ public class SetiSurveyIntroActivity extends AppCompatActivity {
         textView=findViewById(R.id.activity_seti_survey_intro_title);
 
         // Spannable String
-        spannableString=new SpannableString("Samsung\nEco\nType\nIndicator");
+        spannableString=new SpannableString("Sustainable\nEco\nType\nIndicator");
         spannableString.setSpan(new ForegroundColorSpan(ContextCompat.getColor(getApplicationContext(), R.color.seco_deepgreen)), 0, 1, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         spannableString.setSpan(new ForegroundColorSpan(ContextCompat.getColor(getApplicationContext(), R.color.seco_deepgreen)), 8, 9, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         spannableString.setSpan(new ForegroundColorSpan(ContextCompat.getColor(getApplicationContext(), R.color.seco_deepgreen)), 12, 13, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
@@ -64,7 +64,7 @@ public class SetiSurveyIntroActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent(getApplicationContext(), SetiSurveyActivity.class);
-                intent.putExtra("UID", uid);
+                intent.putExtra("email", email);
                 startActivity(intent);
                 finish();
             }

@@ -17,9 +17,8 @@ public class UserInfoData {
     private String activityDay;     // 활동 요일(루틴 실천이 가능한 요일 )
 
     // current state
-    private String SETI;            // 현재 SETI type
-    private String CMIGrade;        // 현재 CMI 등급
-    private double CMINum;          // 현재 CMI 값
+    private String seti;            // 현재 SETI type
+    private double carbonReductionAmount;   // 현재까지의 탄소 저감
     private long badgeNum;        // 현재 뱃지 개수
     private boolean isChallengeMode;    // 현재 챌린지 모드를 진행하고 있는지 유무
 
@@ -41,9 +40,8 @@ public class UserInfoData {
         this.isCarOwner = false;
         this.activityDay = "activityDay_NULL";
 
-        this.SETI = "SETI_NULL";
-        this.CMIGrade = "CMIGrade_NULL";
-        this.CMINum = 0.0;
+        this.seti = "SETI_NULL";
+        this.carbonReductionAmount = 0;
         this.badgeNum = 0;
         this.isChallengeMode = false;
     }
@@ -139,28 +137,20 @@ public class UserInfoData {
         this.activityDay = activityDay;
     }
 
-    public String getSETI() {
-        return SETI;
+    public String getSeti() {
+        return seti;
     }
 
-    public void setSETI(String SETI) {
-        this.SETI = SETI;
+    public void setSeti(String seti) {
+        this.seti = seti;
     }
 
-    public String getCMIGrade() {
-        return CMIGrade;
+    public double getCarbonReductionAmount() {
+        return carbonReductionAmount;
     }
 
-    public void setCMIGrade(String CMIGrade) {
-        this.CMIGrade = CMIGrade;
-    }
-
-    public double getCMINum() {
-        return CMINum;
-    }
-
-    public void setCMINum(double CMINum) {
-        this.CMINum = CMINum;
+    public void setCarbonReductionAmount(double carbonReductionAmount) {
+        this.carbonReductionAmount = carbonReductionAmount;
     }
 
     public long getBadgeNum() {

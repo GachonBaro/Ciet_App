@@ -26,7 +26,7 @@ public class MySetiActivity extends AppCompatActivity {
     private TextView setiSummary;
     private Button retestButton;
 
-    private String uid;
+    private String email;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +34,7 @@ public class MySetiActivity extends AppCompatActivity {
         setContentView(R.layout.activity_myseti);
 
         Intent intent = getIntent();
-        uid = intent.getStringExtra("UID");
+        email = intent.getStringExtra("email");
 
         // 상단바 완전 투명
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
@@ -55,11 +55,13 @@ public class MySetiActivity extends AppCompatActivity {
         retestButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(getApplicationContext(), SetiSurveyActivity.class);
+                Intent intent=new Intent(getApplicationContext(), SetiSurveyIntroActivity.class);
+                intent.putExtra("email", email);
                 startActivity(intent);
             }
         });
 
+        // TODO: SETI 결과 받아오는걸로 수정
         // SETI 결과 텍스트
         if(SetiQnA.mySETI.length()==0){
             setiSummary.setText("아직 SETI 검사를 하지 않았습니다.");
@@ -81,6 +83,11 @@ public class MySetiActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
             case android.R.id.home:{ //toolbar의 back키 눌렀을 때 동작
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                intent.putExtra("email", email);
+                // 플래그 지정: 같은 액티비티가 재사용되기 때문에 onCreate가 호출되지 않고 onNewIntent가 실행되는 것에 주의
+                intent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                startActivity(intent);
                 finish();
                 return true;
             }

@@ -51,6 +51,7 @@ public class Fragment_initQ_7 extends Fragment {
                     isAnswered=false;
 
                 }else{
+                    InitQnA.A7 = nickName.getText().toString();
                     setAnswered(getActivity());
                     isAnswered=true;
                 }

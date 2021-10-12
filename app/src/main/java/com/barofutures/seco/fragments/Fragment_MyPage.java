@@ -85,6 +85,9 @@ public class Fragment_MyPage extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent(getActivity(), MySetiActivity.class);
+                intent.putExtra("email", currentUser.getEmail());
+                // 플래그 지정: 같은 액티비티가 재사용되기 때문에 onCreate가 호출되지 않고 onNewIntent가 실행되는 것에 주의
+                intent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
                 startActivity(intent);
             }
         });

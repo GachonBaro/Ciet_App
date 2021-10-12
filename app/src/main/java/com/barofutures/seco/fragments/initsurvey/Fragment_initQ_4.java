@@ -46,13 +46,13 @@ public class Fragment_initQ_4 extends Fragment {
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 switch (checkedId){
                     case R.id.a4:
-                        InitQnA.A4=InitQnA.C458[0];
+                        InitQnA.A4=true;
                         // 문제 답할 시에만 버튼 활성화 되도록
                         setAnswered(getActivity());
                         isAnswered=true;
                         break;
                     case R.id.b4:
-                        InitQnA.A4=InitQnA.C458[1];
+                        InitQnA.A4=true;
                         // 문제 답할 시에만 버튼 활성화 되도록
                         setAnswered(getActivity());
                         isAnswered=true;

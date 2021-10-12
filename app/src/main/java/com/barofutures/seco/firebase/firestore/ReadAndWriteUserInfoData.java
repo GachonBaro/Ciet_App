@@ -41,7 +41,7 @@ public class ReadAndWriteUserInfoData {
     }
 
     // TODO: 하는 중
-    // 해당 UID가 이미 있으면 true 반환(기존 유저), 아니면 false 반환(신규 유저)
+    // 해당 유저가 이미 있으면 true 반환(기존 유저), 아니면 false 반환(신규 유저)
     public void searchUser(String userID, String email, String name) {
 //        UserSearchingThread userSearchingThread = new UserSearchingThread(userID);
 //        Thread thread = new Thread(userSearchingThread);
@@ -56,7 +56,7 @@ public class ReadAndWriteUserInfoData {
 //            return userSearchingThread.isFound;
 //        }
 
-        DocumentReference docRef = usersRef.document(userID);
+        DocumentReference docRef = usersRef.document(email);
         docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
@@ -66,7 +66,7 @@ public class ReadAndWriteUserInfoData {
                         Log.d(TAG, "DocumentSnapshot data: " + document.getData());
                         Intent intent = new Intent(context, SplashActivity.class);
                         intent.putExtra("nextActivity", "MainActivity");
-                        intent.putExtra("UID", userID);
+                        intent.putExtra("email", email);
                         context.startActivity(intent);
                         googleLogInActivity.finish();
                     } else {
@@ -89,7 +89,7 @@ public class ReadAndWriteUserInfoData {
 
     // update Server Timestamp
     public void updateServerTimestamp(String UID, String email, String name) {
-        DocumentReference docRef = usersRef.document(UID);
+        DocumentReference docRef = usersRef.document(email);
         Map<String, Object> timeStamp = new HashMap<>();
         timeStamp.put("timeStamp", FieldValue.serverTimestamp());
         docRef.set(timeStamp).addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -105,7 +105,7 @@ public class ReadAndWriteUserInfoData {
     public void storeUIDAndNameAndEmail(String UID, String email, String name) {
         UserInfoData userInfoData = new UserInfoData(UID, name, email);
 
-        DocumentReference docRef = usersRef.document(UID).collection("user_info").document("current");
+        DocumentReference docRef = usersRef.document(email).collection("user_info").document("current");
 //        DocumentReference docRef = usersRef.document(UID);
         docRef.set(userInfoData).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
@@ -115,7 +115,7 @@ public class ReadAndWriteUserInfoData {
                 // 기초 설문조사로 이동 (InitialSurveyIntroActivity.java로 이동)
                 Intent intent = new Intent(context, SplashActivity.class);
                 intent.putExtra("nextActivity", "InitialSurveyIntroActivity");
-                intent.putExtra("UID", UID);
+                intent.putExtra("email", email);
                 context.startActivity(intent);
                 googleLogInActivity.finish();
             }
