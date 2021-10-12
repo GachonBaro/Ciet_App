@@ -65,6 +65,8 @@ public class GoogleLogInActivity extends AppCompatActivity {
 
         // Configure Google Sign In
         googleSignInButton = findViewById(R.id.splash_button_google_login);
+        googleSignInButton.setVisibility(View.INVISIBLE);
+
         GoogleSignInOptions gso = new GoogleSignInOptions
                 .Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken(getString(R.string.default_web_client_id))
@@ -97,6 +99,9 @@ public class GoogleLogInActivity extends AppCompatActivity {
 //            Intent intent = new Intent(getApplicationContext(), SplashActivity.class);
 //            startActivity(intent);
 //            this.finish();
+        }
+        else {
+            googleSignInButton.setVisibility(View.VISIBLE);
         }
 
         googleSignInButton.setOnClickListener(new View.OnClickListener() {
