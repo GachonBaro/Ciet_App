@@ -2,6 +2,7 @@ package com.barofutures.seco;
 
 import android.animation.ObjectAnimator;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -35,10 +36,16 @@ public class InitialSurveyActivity extends AppCompatActivity {
     // 답변 체크 확인
     public static boolean isAnswered = false;
 
+    // uid
+    public static String uid;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_initialsurvey);
+
+        Intent intent = getIntent();
+        uid = intent.getStringExtra("UID");
 
         // 상단바 완전 투명
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);

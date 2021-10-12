@@ -10,11 +10,11 @@ public class UserInfoData {
     private String nickname;        // 닉네임
     private String job;             // 직업
     private String gender;          // 성별
-    private String routineGoal;     // 루틴으로 달성하고 싶은 목표, sep="|"
-    private String interestActivity;    // 하고 싶은 친환경 활동, sep="|"
+    private String routineGoal;     // 루틴으로 달성하고 싶은 목표
+    private String interestActivity;    // 하고 싶은 친환경 활동
     private boolean isVegan;         // 비건 유무
     private boolean isCarOwner;     // 자가용 이용 유무
-    private String activityDay;     // 활동 요일(루틴 실천이 가능한 요일 ), sep="|"
+    private String activityDay;     // 활동 요일(루틴 실천이 가능한 요일 )
 
     // current state
     private String SETI;            // 현재 SETI type

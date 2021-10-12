@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/noto_sans_cjk_kr_bold"
         android:textSize="25sp"
-        android:text="Samsung\nEco\nType\nIndicator"
+        android:text="Sustainable\nEco\nType\nIndicator"
         android:textColor="@color/seco_green"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
