@@ -51,7 +51,7 @@
                 android:layout_marginTop="20dp"
                 android:fontFamily="@font/notosansregular"
                 android:includeFontPadding="false"
-                android:text="당신의 유형은 SPA 입니다."
+                android:text="데이터를 불러오는 중입니다."
                 android:textColor="@color/black"
                 android:textSize="20sp"
                 app:layout_constraintLeft_toLeftOf="parent"
@@ -87,43 +87,9 @@
                 android:text="유형 그래프"
                 android:textColor="@color/black"
                 android:textSize="20sp"
-                app:layout_constraintBottom_toTopOf="@id/activity_myseti_willingness_title"
+                app:layout_constraintBottom_toTopOf="@id/activity_myseti_knowledge_title"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/activity_myseti_divider_1" />
-
-            <TextView
-                android:id="@+id/activity_myseti_willingness_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="30dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginBottom="10dp"
-                android:fontFamily="@font/noto_sans_cjk_kr_bold"
-                android:includeFontPadding="false"
-                android:text="실천의향"
-                android:textColor="@color/black"
-                android:textSize="16sp"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/activity_myseti_type_graph_title" />
-
-            <com.skydoves.progressview.ProgressView
-                android:id="@+id/activity_myseti_willingness_progressbar"
-                android:layout_width="281dp"
-                android:layout_height="21dp"
-                android:layout_marginTop="10dp"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/activity_myseti_willingness_title"
-                app:progressView_colorBackground="@color/seco_gray"
-                app:progressView_colorProgress="@color/seco_green"
-                app:progressView_labelColorInner="@color/white"
-                app:progressView_labelColorOuter="@color/seco_green"
-                app:progressView_labelSize="11sp"
-                app:progressView_labelText="30%"
-                app:progressView_max="100"
-                app:progressView_min="0"
-                app:progressView_progress="30"
-                app:progressView_radius="0dp" />
 
             <TextView
                 android:id="@+id/activity_myseti_knowledge_title"
@@ -138,7 +104,7 @@
                 android:textColor="@color/black"
                 android:textSize="16sp"
                 app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/activity_myseti_willingness_progressbar" />
+                app:layout_constraintTop_toBottomOf="@id/activity_myseti_type_graph_title" />
 
             <com.skydoves.progressview.ProgressView
                 android:id="@+id/activity_myseti_knowledge_progressbar"
@@ -153,14 +119,14 @@
                 app:progressView_labelColorInner="@color/white"
                 app:progressView_labelColorOuter="@color/seco_green"
                 app:progressView_labelSize="11sp"
-                app:progressView_labelText="30%"
+                app:progressView_labelText="10%"
                 app:progressView_max="100"
                 app:progressView_min="0"
-                app:progressView_progress="30"
+                app:progressView_progress="10"
                 app:progressView_radius="0dp" />
 
             <TextView
-                android:id="@+id/activity_myseti_progress_title"
+                android:id="@+id/activity_myseti_status_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="30dp"
@@ -175,22 +141,56 @@
                 app:layout_constraintTop_toBottomOf="@id/activity_myseti_knowledge_progressbar" />
 
             <com.skydoves.progressview.ProgressView
-                android:id="@+id/activity_myseti_progress_bar"
+                android:id="@+id/activity_myseti_status_progressbar"
                 android:layout_width="281dp"
                 android:layout_height="21dp"
                 android:layout_marginTop="10dp"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/activity_myseti_progress_title"
+                app:layout_constraintTop_toBottomOf="@id/activity_myseti_status_title"
                 app:progressView_colorBackground="@color/seco_gray"
                 app:progressView_colorProgress="@color/seco_green"
                 app:progressView_labelColorInner="@color/white"
                 app:progressView_labelColorOuter="@color/seco_green"
                 app:progressView_labelSize="11sp"
-                app:progressView_labelText="30%"
+                app:progressView_labelText="10%"
                 app:progressView_max="100"
                 app:progressView_min="0"
-                app:progressView_progress="30"
+                app:progressView_progress="10"
+                app:progressView_radius="0dp" />
+
+            <TextView
+                android:id="@+id/activity_myseti_willingness_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="10dp"
+                android:fontFamily="@font/noto_sans_cjk_kr_bold"
+                android:includeFontPadding="false"
+                android:text="실천 의향"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/activity_myseti_status_progressbar" />
+
+            <com.skydoves.progressview.ProgressView
+                android:id="@+id/activity_myseti_willingness_progress_bar"
+                android:layout_width="281dp"
+                android:layout_height="21dp"
+                android:layout_marginTop="10dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/activity_myseti_willingness_title"
+                app:progressView_colorBackground="@color/seco_gray"
+                app:progressView_colorProgress="@color/seco_green"
+                app:progressView_labelColorInner="@color/white"
+                app:progressView_labelColorOuter="@color/seco_green"
+                app:progressView_labelSize="11sp"
+                app:progressView_labelText="10%"
+                app:progressView_max="100"
+                app:progressView_min="0"
+                app:progressView_progress="10"
                 app:progressView_radius="0dp" />
 
             <View
@@ -199,7 +199,7 @@
                 android:layout_height="3dp"
                 android:layout_marginTop="20dp"
                 android:background="@drawable/item_divider"
-                app:layout_constraintTop_toBottomOf="@id/activity_myseti_progress_bar" />
+                app:layout_constraintTop_toBottomOf="@id/activity_myseti_willingness_progress_bar" />
 
             <TextView
                 android:id="@+id/activity_myseti_type_description_title"
@@ -228,7 +228,7 @@
                 android:includeFontPadding="false"
                 android:singleLine="false"
                 android:padding="20dp"
-                android:text="친환경 활동에 참여할 의향과 환경에 대한 이해도는 크지만 실천도가 낮은 타입입니다."
+                android:text="데이터를 불러오는 중입니다."
                 android:textColor="@color/seco_deepgray"
                 android:textSize="14sp"
                 app:layout_constraintBottom_toTopOf="@id/activity_myseti_retest_button"

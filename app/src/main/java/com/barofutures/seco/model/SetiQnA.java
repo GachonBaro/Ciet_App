@@ -114,9 +114,20 @@ public class SetiQnA {
             0, 0, 0, 0, 0,
     };
 
+    // 유형별 설명
+    public static Map<String, String> typeDescription;
+
     // Constructor
     public SetiQnA() {
-
+        typeDescription = new HashMap<>();
+        typeDescription.put("SAA", "a.k.a 이상적인 실천인\n당신은 환경에 대한 현재 이해도와 실천도, 실천 의향 모두 높은 유형입니다.");
+        typeDescription.put("SAJ", "a.k.a 뛰어난 스프린터\n당신은 환경에 대한 이해도와 현재 실천도가 높지만 실천 의향은 낮은 유형입니다.");
+        typeDescription.put("SPA", "a.k.a 준비된 활동가\n당신은 환경에 대한 이해도와 실천 의향은 높지만 현재 실천도는 낮은 유형입니다.");
+        typeDescription.put("SPJ", "a.k.a 소극적인 지성인\n당신은 환경에 대한 이해도는 높지만 현재 실천도와 실천 의향은 낮은 유형입니다.");
+        typeDescription.put("CAA", "a.k.a 잠재력 있는 유망주\n당신은 환경에 대한 이해도는 낮지만 현재 실천도와 실천 의향은 높은 유형입니다.");
+        typeDescription.put("CAJ", "a.k.a 열정 가득한 야망인\n당신은 환경에 대한 이해도와 실천 의향이 낮고 현재 실천도가 높은 유형입니다.");
+        typeDescription.put("CPA", "a.k.a 희망적인 선도자\n당신은 환경에 대한 이해도와 현재 실천도는 낮지만 실천 의향은 높은 유형입니다.");
+        typeDescription.put("CPJ", "a.k.a 보수적인 신봉자(신념가)\n당신은 환경에 대한 이해도와 현재 실천도, 실천 의향 모두 낮은 유형입니다.");
     }
 
     // SETI 계산

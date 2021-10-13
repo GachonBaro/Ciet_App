@@ -62,8 +62,8 @@ public class SetiSurveyResultActivity extends AppCompatActivity {
         typo2.setText(String.valueOf(seti.charAt(1)));
         typo3.setText(String.valueOf(seti.charAt(2)));
 
-        description.setText("친환경 활동에 참여할 의향과 환경에 대한 이해도는\n" +
-                "크지만 실천도가 낮은 타입입니다.");
+        SetiQnA setiQnA = new SetiQnA();
+        description.setText(SetiQnA.typeDescription.get(seti));
 
         // SETI 결과 저장
         SetiQnA.storeSETIResult(email);

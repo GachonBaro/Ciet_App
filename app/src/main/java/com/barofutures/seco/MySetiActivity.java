@@ -1,5 +1,6 @@
 package com.barofutures.seco;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.ContextCompat;
@@ -11,13 +12,24 @@ import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.style.ForegroundColorSpan;
 import android.text.style.StyleSpan;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.barofutures.seco.model.SetiQnA;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.skydoves.progressview.ProgressView;
+
+import java.util.Map;
 
 public class MySetiActivity extends AppCompatActivity {
     private Toolbar toolbar;
@@ -25,6 +37,10 @@ public class MySetiActivity extends AppCompatActivity {
     private SpannableString displayResult;
     private TextView setiSummary;
     private Button retestButton;
+    private ProgressView progressViewKnowledge;
+    private ProgressView progressViewStatus;
+    private ProgressView progressViewWillingness;
+    private TextView typeDescription;
 
     private String email;
 
@@ -48,8 +64,13 @@ public class MySetiActivity extends AppCompatActivity {
         toolbar.setPadding(0,getStatusBarHeight(), 0, 0);
 
         // View 연결 및 초기화
-        setiSummary =findViewById(R.id.activity_myseti_type);
-        retestButton =findViewById(R.id.activity_myseti_retest_button);
+
+        progressViewKnowledge = (ProgressView) findViewById(R.id.activity_myseti_knowledge_progressbar);
+        progressViewStatus = (ProgressView) findViewById(R.id.activity_myseti_status_progressbar);
+        progressViewWillingness = (ProgressView) findViewById(R.id.activity_myseti_willingness_progress_bar);
+        typeDescription = (TextView) findViewById(R.id.activity_myseti_type_description);
+        setiSummary = findViewById(R.id.activity_myseti_type);
+        retestButton = findViewById(R.id.activity_myseti_retest_button);
 
         // SETI 다시하기 버튼 이벤트 리스너
         retestButton.setOnClickListener(new View.OnClickListener() {
@@ -61,21 +82,53 @@ public class MySetiActivity extends AppCompatActivity {
             }
         });
 
-        // TODO: SETI 결과 받아오는걸로 수정
-        // SETI 결과 텍스트
-        if(SetiQnA.mySETI.length()==0){
-            setiSummary.setText("아직 SETI 검사를 하지 않았습니다.");
+        // Firestore에서 SETI 결과 정보 받아와서 띄움
+        loadSETIResultData(email);
+    }
 
-            // SETI 다시하기가 아니라 검사하기로 표시
-            retestButton.setText("SETI 검사하기");
-        }else{
-            displayResult=new SpannableString("당신의 유형은 "+ SetiQnA.getMySETI()+" 입니다.");
-            displayResult.setSpan(new ForegroundColorSpan(ContextCompat.getColor(getApplicationContext(), R.color.seco_green)), 8, 12, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-            displayResult.setSpan(new StyleSpan(Typeface.BOLD), 8, 12, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-            setiSummary.setText(displayResult);
+    // load SETI result data
+    public void loadSETIResultData(String email) {
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        CollectionReference usersRef = db.collection("users");
+        DocumentReference docRef = usersRef.document(email).collection("user_info").document("seti");
+        docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                if (task.isSuccessful()) {
+                    DocumentSnapshot document = task.getResult();
+                    if (document.exists()) {
+                        Log.d("MySetiActivity", "DocumentSnapshot data: " + document.getData());
+                        Map<String, Object> setiData = document.getData();
+                        updateUI(setiData.get("type").toString(), Long.valueOf(setiData.get("understanding").toString()), Long.valueOf(setiData.get("practice").toString()), Long.valueOf(setiData.get("intent").toString()));
+                    } else {
+                        Log.d("MySetiActivity", "No such document");
+                        // SETI 다시하기가 아니라 검사하기로 표시
+                        retestButton.setText("SETI 검사하기");
+                    }
+                } else {
+                    Log.d("MySetiActivity", "get failed with ", task.getException());
+                }
+            }
+        });
 
-        }
+    }
 
+    // update UI
+    public void updateUI(String type, long understanding, long practice, long intent) {
+        displayResult=new SpannableString("당신의 유형은 "+ type +" 입니다.");
+        displayResult.setSpan(new ForegroundColorSpan(ContextCompat.getColor(getApplicationContext(), R.color.seco_green)), 8, 12, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        displayResult.setSpan(new StyleSpan(Typeface.BOLD), 8, 12, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        setiSummary.setText(displayResult);
+
+        progressViewKnowledge.setProgress(understanding * 2);
+        progressViewKnowledge.setLabelText(String.valueOf(understanding * 2) + "%");
+        progressViewStatus.setProgress(practice * 2);
+        progressViewStatus.setLabelText(String.valueOf(practice * 2) + "%");
+        progressViewWillingness.setProgress(intent * 2);
+        progressViewWillingness.setLabelText(String.valueOf(intent * 2) + "%");
+
+        SetiQnA setiQnA = new SetiQnA();
+        typeDescription.setText(SetiQnA.typeDescription.get(type));
     }
 
     // 툴바 뒤로가기 버튼
