@@ -1,5 +1,8 @@
 package com.barofutures.seco.adapter.recipeTab;
 
+import android.os.Bundle;
+import android.util.Log;
+
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
@@ -11,6 +14,8 @@ import com.barofutures.seco.fragments.freemode.FreeModeQuestFragment;
 import com.barofutures.seco.model.ContentsDetailData;
 
 public class CarbonDietTabPagerAdapter extends FragmentStateAdapter {
+    private Fragment fragment;
+
     public static ContentsDetailData contentsDetailDataMeal;
     public static ContentsDetailData contentsDetailDataActivity;
     public static ContentsDetailData contentsDetailDataQuest;
@@ -28,34 +33,31 @@ public class CarbonDietTabPagerAdapter extends FragmentStateAdapter {
     @Override
     public Fragment createFragment(int position) {
         if (position == 0){
-            Fragment fragment = new FreeModeMealFragment(contentsDetailDataMeal);
-//            Bundle args = new Bundle();
-            // Our object is just an integer :-P
-//            args.putInt(fragment.ARG_OBJECT, position + 1);
-//            fragment.setArguments(args);
+            fragment = new FreeModeMealFragment(contentsDetailDataMeal);
+            Bundle args = new Bundle();
+            args.putInt("page_position", position);
+            fragment.setArguments(args);
             return fragment;
         } else if (position == 1) {
-            Fragment fragment = new FreeModeActivityFragment(contentsDetailDataActivity);
-//            Bundle args = new Bundle();
-            // Our object is just an integer :-P
-//            args.putInt(fragment.ARG_OBJECT, position + 1);
-//            fragment.setArguments(args);
+            fragment = new FreeModeActivityFragment(contentsDetailDataActivity);
+            Bundle args = new Bundle();
+            args.putInt("page_position", position);
+            fragment.setArguments(args);
             return fragment;
         } else if (position == 2) {
-            Fragment fragment = new FreeModeQuestFragment(contentsDetailDataQuest);
-//            Bundle args = new Bundle();
-            // Our object is just an integer :-P
-//            args.putInt(fragment.ARG_OBJECT, position + 1);
-//            fragment.setArguments(args);
+            fragment = new FreeModeQuestFragment(contentsDetailDataQuest);
+            Bundle args = new Bundle();
+            args.putInt("page_position", position);
+            fragment.setArguments(args);
             return fragment;
         } else if (position == 3) {
-            Fragment fragment = new FreeModeLikeFragment(contentsDetailDataFavorites);
-//            Bundle args = new Bundle();
-            // Our object is just an integer :-P
-//            args.putInt(fragment.ARG_OBJECT, position + 1);
-//            fragment.setArguments(args);
+            fragment = new FreeModeLikeFragment(contentsDetailDataFavorites);
+            Bundle args = new Bundle();
+            args.putInt("page_position", position);
+            fragment.setArguments(args);
             return fragment;
         } else {
+            Log.e("CarbonDietTabPagerAdapter", "[ERROR] CarbonDietTabPagerAdapter: createFragment() error");
             return null;
         }
     }

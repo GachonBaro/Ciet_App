@@ -16,13 +16,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.barofutures.seco.R;
-import com.barofutures.seco.adapter.FreeModePagerAdapter;
 import com.barofutures.seco.adapter.recipeTab.CarbonDietTabPagerAdapter;
-import com.barofutures.seco.adapter.recipeTab.RecipeTabPagerAdapter;
-import com.barofutures.seco.fragments.freemode.FreeModeActivityFragment;
-import com.barofutures.seco.fragments.freemode.FreeModeLikeFragment;
-import com.barofutures.seco.fragments.freemode.FreeModeMealFragment;
-import com.barofutures.seco.fragments.freemode.FreeModeQuestFragment;
 import com.barofutures.seco.model.ContentsDetailData;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;

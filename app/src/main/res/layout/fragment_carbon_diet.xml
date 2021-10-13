@@ -6,27 +6,36 @@
     android:layout_height="match_parent"
     tools:context=".fragments.Fragment_CarbonDiet">
 
-    <com.google.android.material.tabs.TabLayout
-        android:id="@+id/fragment_carbon_diet_tabs"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:tabGravity="fill"
-        app:tabRippleColor="@android:color/transparent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="parent"
-        tools:ignore="MissingConstraints">
-    </com.google.android.material.tabs.TabLayout>
+        android:layout_height="match_parent">
 
-    <androidx.viewpager2.widget.ViewPager2
-        android:id="@+id/fragment_recipe_view_pager"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:orientation="horizontal"
-        app:layout_constraintVertical_weight="1"
-        app:layout_constraintTop_toBottomOf="@+id/fragment_carbon_diet_tabs"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:overScrollMode="never"
-        tools:ignore="MissingConstraints" />
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/fragment_carbon_diet_tabs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tabGravity="fill"
+            app:tabRippleColor="@android:color/transparent"
+            app:layout_constraintTop_toBottomOf="parent"
+            tools:ignore="MissingConstraints">
+        </com.google.android.material.tabs.TabLayout>
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/fragment_recipe_view_pager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/fragment_carbon_diet_tabs"
+            android:orientation="horizontal"
+            app:layout_constraintVertical_weight="1"
+            app:layout_constraintTop_toBottomOf="@+id/fragment_carbon_diet_tabs"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:overScrollMode="never"
+            tools:ignore="MissingConstraints" />
+
+
+    </RelativeLayout>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

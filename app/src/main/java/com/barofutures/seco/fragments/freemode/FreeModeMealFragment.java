@@ -1,6 +1,7 @@
 package com.barofutures.seco.fragments.freemode;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -35,8 +36,16 @@ public class FreeModeMealFragment extends Fragment {
     public View onCreateView(@NonNull @NotNull LayoutInflater inflater, @Nullable @org.jetbrains.annotations.Nullable ViewGroup container, @Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
         ViewGroup viewGroup = (ViewGroup) inflater.inflate(R.layout.fragment_free_mode_meal, container, false);
 
+
+        return viewGroup;
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
         // get free mode meal recyclerView
-        freeModeMealRecyclerView = viewGroup.findViewById(R.id.fragment_free_mode_meal_recyclerView);
+        freeModeMealRecyclerView = view.findViewById(R.id.fragment_free_mode_meal_recyclerView);
 
         // init pager adapter
         freeModeContentsListAdapter = new FreeModeContentsListAdapter(0, mealData);
@@ -45,7 +54,5 @@ public class FreeModeMealFragment extends Fragment {
         freeModeMealRecyclerView.setAdapter(freeModeContentsListAdapter);
         freeModeMealRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         RecyclerView.LayoutManager layoutManager = freeModeMealRecyclerView.getLayoutManager();
-
-        return viewGroup;
     }
 }

@@ -45,6 +45,8 @@ public class FreeModeActivityFragment extends Fragment {
         // init recyclerView
         freeModeActivityRecyclerView.setAdapter(freeModeContentsListAdapter);
         freeModeActivityRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+
+//        freeModeContentsListAdapter.notifyDataSetChanged();
         RecyclerView.LayoutManager layoutManager = freeModeActivityRecyclerView.getLayoutManager();
 
         return viewGroup;
