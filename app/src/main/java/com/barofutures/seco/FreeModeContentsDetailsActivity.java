@@ -23,7 +23,7 @@ public class FreeModeContentsDetailsActivity extends AppCompatActivity {
     private ConstraintLayout activityConstraintLayout;
     private ImageView background;
     private ImageButton backButton;
-    private ImageButton commerceButton;
+//    private ImageButton commerceButton;
     private TextView title;
     private TextView summary;
     private TextView contents;
@@ -51,23 +51,36 @@ public class FreeModeContentsDetailsActivity extends AppCompatActivity {
         scrollView = findViewById(R.id.free_mode_contents_linear_layout);
         enableButton = findViewById(R.id.contents_details_enable_button);
         backButton = findViewById(R.id.contents_details_back_button);
-        commerceButton = findViewById(R.id.contents_details_commerce_button);
+//        commerceButton = findViewById(R.id.contents_details_commerce_button);
 
         // 데이터 띄우기
+        background = findViewById(R.id.free_mode_meal_contents_image);
+        background.setImageResource(intent.getExtras().getInt("background"));
+        title = findViewById(R.id.contents_details_title_text_view);
+        title.setText(intent.getExtras().getString("title"));
+        summary = findViewById(R.id.contents_details_description1_summary);
+        summary.setText(intent.getExtras().getString("summary"));
+        contents = findViewById(R.id.contents_details_description1_contents);
+        contents.setText(intent.getExtras().getString("contents"));
+
+        badgeCriteria = findViewById(R.id.contents_details_badge_criteria_text_view);
+        badgeCriteria.setText(intent.getExtras().getString("badgeCriteria"));
+        carbonReduction = findViewById(R.id.contents_details_carbon_reduction_text_view);
+        carbonReduction.setText(intent.getExtras().getString("carbonReduction"));
 
             if (pageNum == 0) {     // eco-meal page인 경우
-                background = findViewById(R.id.free_mode_meal_contents_image);
-                background.setImageResource(ContentsListActivity.contentsDetailDataMeal.image.get(recyclerPosition));
-                title = findViewById(R.id.contents_details_title_text_view);
-                title.setText(ContentsListActivity.contentsDetailDataMeal.title.get(recyclerPosition));
-                summary = findViewById(R.id.contents_details_description1_summary);
-                summary.setText(ContentsListActivity.contentsDetailDataMeal.contents1.get(recyclerPosition));
-                contents = findViewById(R.id.contents_details_description1_contents);
-                contents.setText(ContentsListActivity.contentsDetailDataMeal.contents2.get(recyclerPosition));
-                badgeCriteria = findViewById(R.id.contents_details_badge_criteria_text_view);
-                badgeCriteria.setText(ContentsListActivity.contentsDetailDataMeal.activityNum.get(recyclerPosition));
-                carbonReduction = findViewById(R.id.contents_details_carbon_reduction_text_view);
-                carbonReduction.setText(ContentsListActivity.contentsDetailDataMeal.carbonReduction.get(recyclerPosition));
+//                background = findViewById(R.id.free_mode_meal_contents_image);
+//                background.setImageResource(ContentsListActivity.contentsDetailDataMeal.image.get(recyclerPosition));
+//                title = findViewById(R.id.contents_details_title_text_view);
+//                title.setText(ContentsListActivity.contentsDetailDataMeal.title.get(recyclerPosition));
+//                summary = findViewById(R.id.contents_details_description1_summary);
+//                summary.setText(ContentsListActivity.contentsDetailDataMeal.contents1.get(recyclerPosition));
+//                contents = findViewById(R.id.contents_details_description1_contents);
+//                contents.setText(ContentsListActivity.contentsDetailDataMeal.contents2.get(recyclerPosition));
+//                badgeCriteria = findViewById(R.id.contents_details_badge_criteria_text_view);
+//                badgeCriteria.setText(ContentsListActivity.contentsDetailDataMeal.activityNum.get(recyclerPosition));
+//                carbonReduction = findViewById(R.id.contents_details_carbon_reduction_text_view);
+//                carbonReduction.setText(ContentsListActivity.contentsDetailDataMeal.carbonReduction.get(recyclerPosition));
 
                 mealConstraintLayout = findViewById(R.id.amount_of_carbon_reduction);
                 activityConstraintLayout = findViewById(R.id.amount_of_carbon_reduction_calories_consumption);
@@ -75,61 +88,59 @@ public class FreeModeContentsDetailsActivity extends AppCompatActivity {
                 activityConstraintLayout.setVisibility(View.INVISIBLE);
             }
             else if (pageNum == 1) {    // eco-activity page인 경우
-                background = findViewById(R.id.free_mode_meal_contents_image);
-                background.setImageResource(ContentsListActivity.contentsDetailDataActivity.image.get(recyclerPosition));
-                title = findViewById(R.id.contents_details_title_text_view);
-                title.setText(ContentsListActivity.contentsDetailDataActivity.title.get(recyclerPosition));
-                summary = findViewById(R.id.contents_details_description1_summary);
-                summary.setText(ContentsListActivity.contentsDetailDataActivity.contents1.get(recyclerPosition));
-                contents = findViewById(R.id.contents_details_description1_contents);
-                contents.setText(ContentsListActivity.contentsDetailDataActivity.contents2.get(recyclerPosition));
-                badgeCriteria = findViewById(R.id.contents_details_badge_criteria_text_view);
-                badgeCriteria.setText(ContentsListActivity.contentsDetailDataActivity.activityNum.get(recyclerPosition));
-                carbonReduction = findViewById(R.id.contents_details_carbon_reduction_text_view);
-                carbonReduction.setText(ContentsListActivity.contentsDetailDataActivity.carbonReduction.get(recyclerPosition));
+//                background = findViewById(R.id.free_mode_meal_contents_image);
+//                background.setImageResource(ContentsListActivity.contentsDetailDataActivity.image.get(recyclerPosition));
+//                title = findViewById(R.id.contents_details_title_text_view);
+//                title.setText(ContentsListActivity.contentsDetailDataActivity.title.get(recyclerPosition));
+//                summary = findViewById(R.id.contents_details_description1_summary);
+//                summary.setText(ContentsListActivity.contentsDetailDataActivity.contents1.get(recyclerPosition));
+//                contents = findViewById(R.id.contents_details_description1_contents);
+//                contents.setText(ContentsListActivity.contentsDetailDataActivity.contents2.get(recyclerPosition));
+//                badgeCriteria = findViewById(R.id.contents_details_badge_criteria_text_view);
+//                badgeCriteria.setText(ContentsListActivity.contentsDetailDataActivity.activityNum.get(recyclerPosition));
+//                carbonReduction = findViewById(R.id.contents_details_carbon_reduction_text_view);
+//                carbonReduction.setText(ContentsListActivity.contentsDetailDataActivity.carbonReduction.get(recyclerPosition));
 
 
                 caloriesConsumption = findViewById(R.id.activity_contents_details_calories_consumption_text_view);
-                caloriesConsumption.setText(ContentsListActivity.contentsDetailDataActivity.calorieConsumption.get(recyclerPosition));
+//                caloriesConsumption.setText(ContentsListActivity.contentsDetailDataActivity.calorieConsumption.get(recyclerPosition));
+                caloriesConsumption.setText(intent.getExtras().getString("caloriesConsumption"));
 
                 mealConstraintLayout = findViewById(R.id.amount_of_carbon_reduction);
                 activityConstraintLayout = findViewById(R.id.amount_of_carbon_reduction_calories_consumption);
                 mealConstraintLayout.setVisibility(View.INVISIBLE);
                 activityConstraintLayout.setVisibility(View.VISIBLE);
             } else if(pageNum==3){
-                background = findViewById(R.id.free_mode_meal_contents_image);
-                background.setImageResource(ContentsListActivity.contentsDetailDataQuest.image.get(recyclerPosition));
-                title = findViewById(R.id.contents_details_title_text_view);
-                title.setText(ContentsListActivity.contentsDetailDataQuest.title.get(recyclerPosition));
-                summary = findViewById(R.id.contents_details_description1_summary);
-                summary.setText(ContentsListActivity.contentsDetailDataQuest.contents1.get(recyclerPosition));
-                contents = findViewById(R.id.contents_details_description1_contents);
-                contents.setText(ContentsListActivity.contentsDetailDataQuest.contents2.get(recyclerPosition));
-                badgeCriteria = findViewById(R.id.contents_details_badge_criteria_text_view);
-                badgeCriteria.setText(ContentsListActivity.contentsDetailDataQuest.activityNum.get(recyclerPosition));
-                carbonReduction = findViewById(R.id.contents_details_carbon_reduction_text_view);
-                carbonReduction.setText(ContentsListActivity.contentsDetailDataQuest.carbonReduction.get(recyclerPosition));
-
-                // 퀘스트는 컨텐츠 담기가 아닌 활성화 하기
-                enableButton.setText("활성화 하기");
+//                background = findViewById(R.id.free_mode_meal_contents_image);
+//                background.setImageResource(ContentsListActivity.contentsDetailDataQuest.image.get(recyclerPosition));
+//                title = findViewById(R.id.contents_details_title_text_view);
+//                title.setText(ContentsListActivity.contentsDetailDataQuest.title.get(recyclerPosition));
+//                summary = findViewById(R.id.contents_details_description1_summary);
+//                summary.setText(ContentsListActivity.contentsDetailDataQuest.contents1.get(recyclerPosition));
+//                contents = findViewById(R.id.contents_details_description1_contents);
+//                contents.setText(ContentsListActivity.contentsDetailDataQuest.contents2.get(recyclerPosition));
+//                badgeCriteria = findViewById(R.id.contents_details_badge_criteria_text_view);
+//                badgeCriteria.setText(ContentsListActivity.contentsDetailDataQuest.activityNum.get(recyclerPosition));
+//                carbonReduction = findViewById(R.id.contents_details_carbon_reduction_text_view);
+//                carbonReduction.setText(ContentsListActivity.contentsDetailDataQuest.carbonReduction.get(recyclerPosition));
 
                 mealConstraintLayout = findViewById(R.id.amount_of_carbon_reduction);
                 activityConstraintLayout = findViewById(R.id.amount_of_carbon_reduction_calories_consumption);
                 mealConstraintLayout.setVisibility(View.VISIBLE);
                 activityConstraintLayout.setVisibility(View.INVISIBLE);
             } else{
-                background = findViewById(R.id.free_mode_meal_contents_image);
-                background.setImageResource(ContentsListActivity.contentsDetailDataFavorites.image.get(recyclerPosition));
-                title = findViewById(R.id.contents_details_title_text_view);
-                title.setText(ContentsListActivity.contentsDetailDataFavorites.title.get(recyclerPosition));
-                summary = findViewById(R.id.contents_details_description1_summary);
-                summary.setText(ContentsListActivity.contentsDetailDataFavorites.contents1.get(recyclerPosition));
-                contents = findViewById(R.id.contents_details_description1_contents);
-                contents.setText(ContentsListActivity.contentsDetailDataFavorites.contents2.get(recyclerPosition));
-                badgeCriteria = findViewById(R.id.contents_details_badge_criteria_text_view);
-                badgeCriteria.setText(ContentsListActivity.contentsDetailDataFavorites.activityNum.get(recyclerPosition));
-                carbonReduction = findViewById(R.id.contents_details_carbon_reduction_text_view);
-                carbonReduction.setText(ContentsListActivity.contentsDetailDataFavorites.carbonReduction.get(recyclerPosition));
+//                background = findViewById(R.id.free_mode_meal_contents_image);
+//                background.setImageResource(ContentsListActivity.contentsDetailDataFavorites.image.get(recyclerPosition));
+//                title = findViewById(R.id.contents_details_title_text_view);
+//                title.setText(ContentsListActivity.contentsDetailDataFavorites.title.get(recyclerPosition));
+//                summary = findViewById(R.id.contents_details_description1_summary);
+//                summary.setText(ContentsListActivity.contentsDetailDataFavorites.contents1.get(recyclerPosition));
+//                contents = findViewById(R.id.contents_details_description1_contents);
+//                contents.setText(ContentsListActivity.contentsDetailDataFavorites.contents2.get(recyclerPosition));
+//                badgeCriteria = findViewById(R.id.contents_details_badge_criteria_text_view);
+//                badgeCriteria.setText(ContentsListActivity.contentsDetailDataFavorites.activityNum.get(recyclerPosition));
+//                carbonReduction = findViewById(R.id.contents_details_carbon_reduction_text_view);
+//                carbonReduction.setText(ContentsListActivity.contentsDetailDataFavorites.carbonReduction.get(recyclerPosition));
 
                 mealConstraintLayout = findViewById(R.id.amount_of_carbon_reduction);
                 activityConstraintLayout = findViewById(R.id.amount_of_carbon_reduction_calories_consumption);
@@ -149,18 +160,18 @@ public class FreeModeContentsDetailsActivity extends AppCompatActivity {
             }
         });
 
-        // 커머스 버튼 누르면 커머스로 연결
-        commerceButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "커머스 페이지로 이동", Toast.LENGTH_SHORT).show();
-            }
-        });
+//        // 커머스 버튼 누르면 커머스로 연결
+//        commerceButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Toast.makeText(getApplicationContext(), "커머스 페이지로 이동", Toast.LENGTH_SHORT).show();
+//            }
+//        });
 
         enableButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "활성화 하기 버튼 눌림", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "인증 하기 버튼 눌림", Toast.LENGTH_SHORT).show();
             }
         });
 

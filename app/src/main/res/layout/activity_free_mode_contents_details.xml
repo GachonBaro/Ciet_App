@@ -46,16 +46,16 @@
                 app:layout_constraintTop_toTopOf="parent"
                 tools:ignore="UseAppTint" />
 
-            <ImageButton
-                android:id="@+id/contents_details_commerce_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_commerce"
-                android:background="@android:color/transparent"
-                android:layout_marginTop="26dp"
-                android:layout_marginRight="26dp"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent"/>
+<!--            <ImageButton-->
+<!--                android:id="@+id/contents_details_commerce_button"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:src="@drawable/ic_commerce"-->
+<!--                android:background="@android:color/transparent"-->
+<!--                android:layout_marginTop="26dp"-->
+<!--                android:layout_marginRight="26dp"-->
+<!--                app:layout_constraintRight_toRightOf="parent"-->
+<!--                app:layout_constraintTop_toTopOf="parent"/>-->
 
             <TextView
                 android:id="@+id/contents_details_title_text_view"
@@ -76,7 +76,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/contents_details_description1"
             android:layout_width="match_parent"
-            android:layout_height="136dp"
+            android:layout_height="160dp"
             android:background="@color/white"
             app:layout_constraintTop_toBottomOf="@+id/contents_details_title_constraint_layout"
             tools:ignore="MissingConstraints">
@@ -85,7 +85,7 @@
                 android:id="@+id/contents_details_description1_summary"
                 android:layout_width="331dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="14dp"
                 android:fontFamily="@font/noto_sans_cjk_kr_bold"
                 android:text="summary"
                 android:textAlignment="viewStart"
@@ -310,7 +310,7 @@
                 android:layout_marginBottom="30dp"
                 android:background="@drawable/button_rounded_green"
                 android:fontFamily="@font/noto_sans_cjk_kr_bold"
-                android:text="컨텐츠 담기"
+                android:text="인증하기"
                 android:textAlignment="center"
                 android:textColor="@color/white"
                 android:textSize="14sp"

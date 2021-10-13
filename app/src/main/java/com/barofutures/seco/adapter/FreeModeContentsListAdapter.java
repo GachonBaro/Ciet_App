@@ -44,11 +44,11 @@ public class FreeModeContentsListAdapter extends RecyclerView.Adapter<FreeModeCo
         // 배경 사진 설정
         holder.background.setImageResource(data.image.get(position));
 
-        // 좋아요 표시 아이콘 설정
-        if (data.isFavorites.get(position))         // 사용자가 좋아요 표시
-            holder.likeButton.setImageResource(R.drawable.ic_filled_favorites);       // filled icon으로
-        else                                        // 사용자가 좋아요 안누름
-            holder.likeButton.setImageResource(R.drawable.ic_unfilled_favorites);     // unfilled icon으로
+//        // 좋아요 표시 아이콘 설정
+//        if (data.isFavorites.get(position))         // 사용자가 좋아요 표시
+//            holder.likeButton.setImageResource(R.drawable.ic_filled_favorites);       // filled icon으로
+//        else                                        // 사용자가 좋아요 안누름
+//            holder.likeButton.setImageResource(R.drawable.ic_unfilled_favorites);     // unfilled icon으로
 
         // 제목
         holder.title.setText(data.title.get(position));
@@ -60,18 +60,24 @@ public class FreeModeContentsListAdapter extends RecyclerView.Adapter<FreeModeCo
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(mContext, FreeModeContentsDetailsActivity.class);
+                intent.putExtra("background", data.image.get(position));
+                intent.putExtra("title", data.title.get(position));
+                intent.putExtra("summary", data.contents1.get(position));
+                intent.putExtra("contents", data.contents2.get(position));
+                intent.putExtra("badgeCriteria", data.activityNum.get(position));
+                intent.putExtra("carbonReduction", data.carbonReduction.get(position));
+
+                // eco-activity page인 경우
+                if (pageNum == 1) {
+                    intent.putExtra("caloriesConsumption", data.calorieConsumption.get(position));
+                }
+
                 intent.putExtra("page_number", pageNum);
                 intent.putExtra("recycler_position", holder.getPosition());
                 mContext.startActivity(intent);
             }
         });
 
-        // 모드에 따라 활성화 하기, 컨텐츠 담기 설정
-        if(Fragment_Home.isChallenge){
-            holder.readMoreButton.setText("활성화 하기");
-        }else{
-            holder.readMoreButton.setText("컨텐츠 담기");
-        }
     }
 
     @Override
@@ -81,7 +87,7 @@ public class FreeModeContentsListAdapter extends RecyclerView.Adapter<FreeModeCo
 
     class ViewHolder extends RecyclerView.ViewHolder {
         ImageView background;       // 배경 사진
-        ImageButton likeButton;     // 좋아요 아이콘
+//        ImageButton likeButton;     // 좋아요 아이콘
         TextView title;             // 제목
         TextView numOfActivities;   // 활동 횟수
         Button readMoreButton;      // 자세히 보기 버튼
@@ -89,7 +95,7 @@ public class FreeModeContentsListAdapter extends RecyclerView.Adapter<FreeModeCo
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             background = (ImageView) itemView.findViewById(R.id.item_free_mode_contents_image);
-            likeButton = (ImageButton) itemView.findViewById(R.id.item_free_mode_like_button);
+//            likeButton = (ImageButton) itemView.findViewById(R.id.item_free_mode_like_button);
             title = (TextView) itemView.findViewById(R.id.contents_title_text_view);
             numOfActivities = (TextView) itemView.findViewById(R.id.num_of_activities_text);
             readMoreButton = (Button) itemView.findViewById(R.id.item_free_mode_read_more_button);

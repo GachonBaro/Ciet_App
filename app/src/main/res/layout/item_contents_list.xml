@@ -23,16 +23,16 @@
             android:src="@drawable/vegan_meal"
             tools:ignore="InvalidId" />
 
-        <ImageButton
-            android:id="@+id/item_free_mode_like_button"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
-            android:src="@drawable/ic_sharp_favorite_border_24"
-            android:background="@drawable/bg_like_icon"
-            android:layout_marginTop="25dp"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintRight_toRightOf="@+id/item_free_mode_read_more_button"
-            tools:ignore="MissingConstraints"/>
+<!--        <ImageButton-->
+<!--            android:id="@+id/item_free_mode_like_button"-->
+<!--            android:layout_width="32dp"-->
+<!--            android:layout_height="32dp"-->
+<!--            android:src="@drawable/ic_sharp_favorite_border_24"-->
+<!--            android:background="@drawable/bg_like_icon"-->
+<!--            android:layout_marginTop="25dp"-->
+<!--            app:layout_constraintTop_toTopOf="parent"-->
+<!--            app:layout_constraintRight_toRightOf="@+id/item_free_mode_read_more_button"-->
+<!--            tools:ignore="MissingConstraints"/>-->
 
         <TextView
             android:id="@+id/contents_title_text_view"
