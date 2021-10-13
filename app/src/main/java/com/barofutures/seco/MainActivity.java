@@ -39,6 +39,7 @@ import com.amazonaws.mobile.client.UserStateDetails;
 import com.amazonaws.mobile.config.AWSConfiguration;
 import com.amazonaws.mobileconnectors.pinpoint.PinpointConfiguration;
 import com.amazonaws.mobileconnectors.pinpoint.PinpointManager;
+import com.barofutures.seco.fragments.Fragment_CarbonDiet;
 import com.barofutures.seco.fragments.Fragment_Commerce;
 import com.barofutures.seco.fragments.Fragment_Home;
 import com.barofutures.seco.fragments.Fragment_MyPage;
@@ -84,6 +85,7 @@ public class MainActivity extends AppCompatActivity{
     private Fragment_Recipe fragRecipe;
     private Fragment_MyPage fragMypage;
     private Fragment_Commerce fragShopping;
+    private Fragment_CarbonDiet fragCarbonDiet;
 
     // 마지막으로 뒤로가기 버튼을 눌렀던 시간 저장
     private long backKeyPressedTime = 0;
@@ -260,6 +262,9 @@ public class MainActivity extends AppCompatActivity{
                     case R.id.bottomnavigation_menu_commerce:
                         changeFragment("commerce", fragShopping);
                         return true;
+                    case R.id.bottomnavigation_menu_carbon_diet:
+                        changeFragment("carbonDiet", fragCarbonDiet);
+                        return true;
                 }
                 return false;
             }
@@ -391,6 +396,7 @@ public class MainActivity extends AppCompatActivity{
         fragRecipe = new Fragment_Recipe();/////////
         fragMypage = new Fragment_MyPage();/////////////
         fragShopping = new Fragment_Commerce();///////////////
+        fragCarbonDiet = new Fragment_CarbonDiet();
 
 
         // get id of drawer navigationView

@@ -3,10 +3,17 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/bottomnavigation_menu_commerce"
+        android:id="@+id/bottomnavigation_menu_home"
+        app:showAsAction="always"
+        android:icon="@drawable/ic_home"
         android:enabled="true"
-        android:icon="@drawable/ic_commerce"
-        android:title="쇼핑"
+        android:checked="true"
+        android:title="홈"/>
+    <item
+        android:id="@+id/bottomnavigation_menu_carbon_diet"
+        android:enabled="true"
+        android:icon="@drawable/ic_earth"
+        android:title="탄소 다이어트"
         app:showAsAction="always" />
     <item
         android:id="@+id/bottomnavigation_menu_recipe"
@@ -15,17 +22,15 @@
         android:title="레시피"
         app:showAsAction="always" />
     <item
-        android:id="@+id/bottomnavigation_menu_home"
-        app:showAsAction="always"
-        android:icon="@drawable/ic_home"
+        android:id="@+id/bottomnavigation_menu_commerce"
         android:enabled="true"
-        android:checked="true"
-        android:title="홈"/>
+        android:icon="@drawable/ic_commerce"
+        android:title="쇼핑"
+        app:showAsAction="always" />
     <item
         android:id="@+id/bottomnavigation_menu_mypage"
         android:enabled="true"
         android:icon="@drawable/ic_my_page"
         android:title="마이 페이지"
         app:showAsAction="always" />
-
 </menu>
