@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".WalkingAuthActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/activity_walking_auth_appbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/activity_walking_auth_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/activity_walking_auth_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_marginLeft="20dp"
+                android:fontFamily="@font/noto_sans_cjk_kr_bold"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/title_font_size"
+                android:text="@string/title_activity_authorize"/>
+
+        </androidx.appcompat.widget.Toolbar>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/main_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:background="@color/white"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar">     <!-- margin을 action bar size 만큼 준다 -->
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/distance_constraint_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="7dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/map"
+            tools:ignore="MissingConstraints">
+
+            <TextView
+                android:id="@+id/distance_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/noto_sans_cjk_kr_bold"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/title_font_size"
+                android:text="@string/distance_text"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/activity_walking_auth_distance_progressview"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"/>
+
+            <com.skydoves.progressview.ProgressView
+                android:id="@+id/activity_walking_auth_distance_progressview"
+                android:layout_width="281dp"
+                android:layout_height="21dp"
+                android:layout_marginTop="10dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/distance_textview"
+                app:progressView_colorBackground="@color/seco_gray"
+                app:progressView_colorProgress="@color/seco_green"
+                app:progressView_labelColorInner="@color/white"
+                app:progressView_labelColorOuter="@color/seco_green"
+                app:progressView_labelSize="11sp"
+                app:progressView_labelText="0km"
+                app:progressView_max="100"
+                app:progressView_min="0"
+                app:progressView_progress="0"
+                app:progressView_radius="0dp"
+                app:progressView_autoAnimate="false"/>
+
+            <TextView
+                android:id="@+id/distance_start_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/noto_sans_cjk_kr_bold"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/distance_bar_text_size"
+                android:text="0km"
+                app:layout_constraintTop_toBottomOf="@id/activity_walking_auth_distance_progressview"
+                app:layout_constraintLeft_toLeftOf="@id/activity_walking_auth_distance_progressview" />
+
+            <TextView
+                android:id="@+id/distance_end_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/noto_sans_cjk_kr_bold"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/distance_bar_text_size"
+                android:text="0km"
+                app:layout_constraintTop_toBottomOf="@id/activity_walking_auth_distance_progressview"
+                app:layout_constraintRight_toRightOf="@id/activity_walking_auth_distance_progressview" />
+
+            <TextView
+                android:id="@+id/current_distance_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/noto_sans_cjk_kr_bold"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/current_distance_text_size"
+                android:text="0km"
+                app:layout_constraintTop_toBottomOf="@id/distance_start_textview"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <!-- Google Map  -->
+        <fragment
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:id="@+id/map"
+            android:name="com.google.android.gms.maps.SupportMapFragment"
+            app:layout_constraintTop_toBottomOf="@id/distance_constraint_layout"
+            app:layout_constraintBottom_toTopOf="@+id/activity_walking_auth_bottom_layout"
+            tools:ignore="MissingConstraints" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/activity_walking_auth_bottom_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <Button
+                android:id="@+id/activity_walking_auth_start_button"
+                android:layout_width="338dp"
+                android:layout_height="58dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="30dp"
+                android:background="@drawable/button_rounded_green"
+                android:fontFamily="@font/noto_sans_cjk_kr_bold"
+                android:text="시작하기"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent" />
+            <Button
+                android:id="@+id/activity_walking_auth_pause_button"
+                android:layout_width="154dp"
+                android:layout_height="58dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="30dp"
+                android:background="@drawable/button_rounded_green"
+                android:fontFamily="@font/noto_sans_cjk_kr_bold"
+                android:text="일시정지"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                android:visibility="invisible"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintRight_toLeftOf="@id/activity_walking_auth_stop_button"
+                app:layout_constraintLeft_toLeftOf="parent" />
+
+            <Button
+                android:id="@+id/activity_walking_auth_stop_button"
+                android:layout_width="154dp"
+                android:layout_height="58dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="30dp"
+                android:background="@drawable/button_rounded_green"
+                android:fontFamily="@font/noto_sans_cjk_kr_bold"
+                android:text="그만두기"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                android:visibility="invisible"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toRightOf="@id/activity_walking_auth_pause_button"
+                app:layout_constraintRight_toRightOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -37,4 +37,8 @@
     <!-- Divider -->
     <dimen name="item_divider">16dp</dimen>
 
+    <!-- Walking Auth Activity -->
+    <dimen name="distance_bar_text_size">11dp</dimen>
+    <dimen name="current_distance_text_size">22dp</dimen>
+
 </resources>

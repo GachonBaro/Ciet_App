@@ -171,7 +171,13 @@ public class FreeModeContentsDetailsActivity extends AppCompatActivity {
         enableButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // TODO: 활동별로 인증 화면 다르게 뜨게 설정 (걷기/플로깅하기, 자전거타기(이것도 걷기란 같이 가능..?), 계단 이용하기)
                 Toast.makeText(getApplicationContext(), "인증 하기 버튼 눌림", Toast.LENGTH_SHORT).show();
+                Intent authIntent = new Intent(getApplicationContext(), WalkingAuthActivity.class);
+                authIntent.putExtra("title", intent.getExtras().getString("title"));
+//                authIntent.putExtra();
+                startActivity(authIntent);
+
             }
         });
 

@@ -1,9 +1,9 @@
 <component name="libraryTable">
   <library name="Gradle: com.kyleduo.switchbutton:library:2.1.0@aar">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/42210cb81aa4ae6aba99c83fb62d7daf/transformed/jetified-library-2.1.0/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/42210cb81aa4ae6aba99c83fb62d7daf/transformed/jetified-library-2.1.0/res" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/42210cb81aa4ae6aba99c83fb62d7daf/transformed/jetified-library-2.1.0/AndroidManifest.xml" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/32a66f89be826cb1de7e1b536b6c79de/transformed/jetified-library-2.1.0/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/32a66f89be826cb1de7e1b536b6c79de/transformed/jetified-library-2.1.0/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/32a66f89be826cb1de7e1b536b6c79de/transformed/jetified-library-2.1.0/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.kyleduo.switchbutton/library/2.1.0/8548d8258f8879f12be50baed28c6fdbf7403d12/library-2.1.0-javadoc.jar!/" />
