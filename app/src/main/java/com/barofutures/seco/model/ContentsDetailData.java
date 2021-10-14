@@ -103,7 +103,7 @@ public class ContentsDetailData {
         contents1.add("엘리베이터 대신 계단 오르기");
 
         // 활동 설명2 (얇은 글씨)
-        contents2.add("매연이나 CO₂ 배출이 많은 교통 수단 대신 걷기로 대체");
+        contents2.add("매연이나 CO₂ 배출이 많은 교통 수단 대신 걷기로 대체\n※ 10000보는 약 6km입니다.");
         contents2.add("걷기보다 근육 사용량이 높아 운동 효과가 높으며 매연 발생량이 없어 지구 건강에도 좋은 자전거 타기");
         contents2.add("플로깅: 이삭을 줍는다는 뜻인 스웨덴어 PLOCKA UPP(PICK UP)과 조깅(JOGGING)의 합성어");
         contents2.add("엘리베이터가 발생시키는 전기 사용량과  CO₂ 배출량을 줄일 수 있는 활동");

@@ -172,11 +172,19 @@ public class FreeModeContentsDetailsActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // TODO: 활동별로 인증 화면 다르게 뜨게 설정 (걷기/플로깅하기, 자전거타기(이것도 걷기란 같이 가능..?), 계단 이용하기)
-                Toast.makeText(getApplicationContext(), "인증 하기 버튼 눌림", Toast.LENGTH_SHORT).show();
-                Intent authIntent = new Intent(getApplicationContext(), WalkingAuthActivity.class);
-                authIntent.putExtra("title", intent.getExtras().getString("title"));
-//                authIntent.putExtra();
-                startActivity(authIntent);
+
+                // 걷기, 자전거 타기, 플로깅하기 인 경우
+                if (pageNum == 1 && !intent.getExtras().getString("title").equalsIgnoreCase("계단 이용하기")){
+                    Intent authIntent = new Intent(getApplicationContext(), WalkingAuthActivity.class);
+                    authIntent.putExtra("title", intent.getExtras().getString("title"));
+                    authIntent.putExtra("badgeCriteria", intent.getExtras().getString("badgeCriteria"));
+                    startActivity(authIntent);
+                }
+                // 계단 이용하기 인 경우
+                else if (intent.getExtras().getString("title").equalsIgnoreCase("계단 이용하기")) {
+
+                }
+
 
             }
         });

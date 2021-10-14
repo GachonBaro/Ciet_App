@@ -9,6 +9,7 @@ import androidx.core.content.ContextCompat;
 import androidx.core.view.GravityCompat;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.location.Location;
@@ -58,6 +59,7 @@ public class WalkingAuthActivity extends AppCompatActivity
     private static final int LOCATION_PERMISSION_REQUEST_CODE = 1;
 
     private Toolbar toolbar;
+    private TextView titleTextView;                     // title TextView
     private ProgressView distanceProgressView;          // 이동거리 표시 바
     private TextView endDistanceText;                   // 목표거리
     private TextView currentDistanceText;               // 현재 이동거리
@@ -90,10 +92,6 @@ public class WalkingAuthActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_walking_auth);
 
-        // TODO: intent로 목표 거리 값 받아와서 변경하기
-        targetDistance = 8;
-        sumOfDistance = 0.0;
-
         // 상단바 완전 투명
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
 
@@ -107,12 +105,27 @@ public class WalkingAuthActivity extends AppCompatActivity
 
         polylineList = new ArrayList<Polyline>();
 
+        titleTextView = findViewById(R.id.activity_walking_auth_title);
         distanceProgressView = findViewById(R.id.activity_walking_auth_distance_progressview);
         endDistanceText = findViewById(R.id.distance_end_textview);
         currentDistanceText = findViewById(R.id.current_distance_textview);
         startButton = findViewById(R.id.activity_walking_auth_start_button);
         pauseButton = findViewById(R.id.activity_walking_auth_pause_button);
         stopButton = findViewById(R.id.activity_walking_auth_stop_button);
+
+        // intent로 목표 거리 값 받아와서 변경
+        Intent authIntent = getIntent();
+        titleTextView.setText(authIntent.getExtras().getString("title") + " 인증하기");
+        if (authIntent.getExtras().getString("title").equalsIgnoreCase("걷기")) {
+            targetDistance = 6;
+        }
+        else {
+            String temp = authIntent.getExtras().getString("badgeCriteria");
+            temp = temp.substring(0, temp.length() - 2);
+            targetDistance = Double.valueOf(temp);
+        }
+
+        sumOfDistance = 0.0;
 
         // progressView Max 값을 목표 거리로 변경
         distanceProgressView.setMax((float) targetDistance);
