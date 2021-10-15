@@ -8,7 +8,8 @@ import java.util.ArrayList;
 public class ContentsDetailData {
     public ArrayList<Integer> image;            // 배경 사진
     public ArrayList<String> title;            // title (ex. 비건식단)
-    public ArrayList<String> activityNum;     // 1 뱃지를 얻을 수 있는 활동 횟수
+    public ArrayList<String> activityNum;     // 뱃지를 얻을 수 있는 활동 횟수
+    public ArrayList<String> badgeNum;          // 활동 1회 완료 시, 지급하는 뱃지 개수
     public ArrayList<Boolean> isFavorites;     // 좋아요(즐겨찾기) 추가 유무
     public ArrayList<String> contents1;        // 활동 설명1 (굵은 글씨)
     public ArrayList<String> contents2;        // 활동 설명2 (얇은 글씨)
@@ -23,6 +24,7 @@ public class ContentsDetailData {
         image = new ArrayList<>();
         title = new ArrayList<>();
         activityNum = new ArrayList<>();
+        badgeNum = new ArrayList<>();
         isFavorites = new ArrayList<>();
         contents1 = new ArrayList<>();
         contents2 = new ArrayList<>();
@@ -46,10 +48,17 @@ public class ContentsDetailData {
         image.add(R.drawable.container_challenge);
 
         // 1 뱃지를 얻을 수 있는 활동 횟수
-        activityNum.add("1");
-        activityNum.add("2");
-        activityNum.add("2");
-        activityNum.add("2");
+        activityNum.add("1회");
+        activityNum.add("1회");
+        activityNum.add("1회");
+        activityNum.add("1회");
+
+        // 1회 활동 시, 얻을 수 있는 뱃지 수
+        badgeNum.add("3");
+        badgeNum.add("2");
+        badgeNum.add("2");
+        badgeNum.add("2");
+
 
         // 활동 설명1 (굵은 글씨)
         contents1.add("CO₂ 배출량이 큰 동물성 음식 줄이기");
@@ -66,9 +75,9 @@ public class ContentsDetailData {
 
         // 탄소저감량
         carbonReduction.add("0.64kg");
+        carbonReduction.add("0.37kg");
+        carbonReduction.add("0.37kg");
         carbonReduction.add("0.25kg");
-        carbonReduction.add("0.37kg");
-        carbonReduction.add("0.37kg");
 
         // 좋아요(즐겨찾기) 추가 유무
         this.isFavorites = isFavorites;
@@ -80,8 +89,8 @@ public class ContentsDetailData {
     public void setActivity(ArrayList<Boolean> isFavorites, ArrayList<Boolean> isEnabled) {
         // title
         title.add("걷기");
-        title.add("자전거 타기");
-        title.add("플로깅하기");
+        title.add("자전거로 출퇴근");
+        title.add("플로깅");
         title.add("계단 이용하기");
 
         // 배경 사진
@@ -91,10 +100,16 @@ public class ContentsDetailData {
         image.add(R.drawable.stepping);
 
         // 1 뱃지를 얻을 수 있는 활동 횟수
-        activityNum.add("10000보");
-        activityNum.add("8.17km");
+        activityNum.add("6.5km");
+        activityNum.add("15km");
         activityNum.add("2km");
         activityNum.add("12층");
+
+        // 1회 활동 시, 얻을 수 있는 뱃지 수
+        badgeNum.add("1");
+        badgeNum.add("3");
+        badgeNum.add("3");
+        badgeNum.add("2");
 
         // 활동 설명1 (굵은 글씨)
         contents1.add("일상 속 틈틈히 운동 효과를 낼 수 있는 걷기");
@@ -103,15 +118,15 @@ public class ContentsDetailData {
         contents1.add("엘리베이터 대신 계단 오르기");
 
         // 활동 설명2 (얇은 글씨)
-        contents2.add("매연이나 CO₂ 배출이 많은 교통 수단 대신 걷기로 대체\n※ 10000보는 약 6km입니다.");
+        contents2.add("매연이나 CO₂ 배출이 많은 교통 수단 대신 걷기로 대체");
         contents2.add("걷기보다 근육 사용량이 높아 운동 효과가 높으며 매연 발생량이 없어 지구 건강에도 좋은 자전거 타기");
         contents2.add("플로깅: 이삭을 줍는다는 뜻인 스웨덴어 PLOCKA UPP(PICK UP)과 조깅(JOGGING)의 합성어");
         contents2.add("엘리베이터가 발생시키는 전기 사용량과  CO₂ 배출량을 줄일 수 있는 활동");
 
         // 탄소저감량
         carbonReduction.add("1.51kg");
-        carbonReduction.add("1.89kg");
-        carbonReduction.add("0.46kg");
+        carbonReduction.add("3.53kg");
+        carbonReduction.add("2kg");
         carbonReduction.add("0.0127kg");
 
         // 칼로리 소모량
@@ -150,14 +165,25 @@ public class ContentsDetailData {
         image.add(R.drawable.electricity);
 
         // 1 뱃지를 얻을 수 있는 활동 횟수
-        activityNum.add("10번");
-        activityNum.add("20번");
-        activityNum.add("70번 ");
-        activityNum.add("10번");
-        activityNum.add("20번");
-        activityNum.add("70번 ");
-        activityNum.add("10번");
-        activityNum.add("20번");
+        activityNum.add("1회");
+        activityNum.add("1회");
+        activityNum.add("1회");
+        activityNum.add("1회");
+        activityNum.add("1회");
+        activityNum.add("1회");
+        activityNum.add("1회");
+        activityNum.add("1회");
+
+
+        // 1회 활동 시, 얻을 수 있는 뱃지 수
+        badgeNum.add("2");
+        badgeNum.add("1");
+        badgeNum.add("1");
+        badgeNum.add("1");
+        badgeNum.add("1");
+        badgeNum.add("1");
+        badgeNum.add("1");
+        badgeNum.add("1");
 
         // 활동 설명1 (굵은 글씨)
         contents1.add("다양한 폐기물 올바르게 버리기");
@@ -170,7 +196,7 @@ public class ContentsDetailData {
         contents1.add("절전탭");
 
         // 활동 설명2 (얇은 글씨)
-        contents2.add("수분이 적고 딱딱해서 재활용하기 어려운 음식물은 일반 쓰레기로 배출해주세요. 플라스틱 용기 안의 내용물은 깨끗이 비우고 이물질은 제거합니다. 플라스틱과 다른 재질은 별도 제거 후 일반 플라스틱끼리 모아서 분리배출합니다.\n ※출처: 서울사랑");
+        contents2.add("플라스틱 용기 안의 내용물은 깨끗이 비우고 이물질은 제거합니다. 플라스틱과 다른 재질은 별도 제거 후 일반 플라스틱끼리 모아서 분리배출합니다.\n ※출처: 서울사랑");
         contents2.add("우리나라 1인당 연간 비닐봉투 사용량 420여장이고, 비닐봉투를 사용하는데 걸리는 시간은 5분, 완전히 분해되려면 최소 100년이 걸린다. 또한 비닐봉지 1장 사용하면 에코백을 최소 131번 사용한 것과 같다.");
         contents2.add("사업장 1백만 명 핸드 드라이어 한달 사용 시 360.4 ton Co2 발생 1톤의 탄소를 줄이기 위해 360그루 소나무 심어야 함 360.4 ton의 이산화탄소를 줄이기 위해서는 한달에 129,600 그루의 소나무를, 일 년엔 1,555,200 그루의 소나무를 심어야 함");
         contents2.add("'리필 (refill)'의 뜻은 비어 있는 용기에 내용물을 다시 채움. 또는 그러한 서비스를 말함 즉, 리필 스테이션은 다른 포장 없이 원하는 '내용물'을 빈 용기에 채워갈 수 있게 하는 장소  '에코 리필 스테이션' 1개점 기준 연간 플라스틱 1095kg 절감");
@@ -179,16 +205,15 @@ public class ContentsDetailData {
         contents2.add("4인 가족 기준, 음식물 쓰레기 20%만 줄여도 연간 온실가스 145kg 절감 이는 소나무 30그루 1년 동안 흡수하는 온실가스 양 또한 에너지를 연간 144kWh 절약 이는 세탁기 1,080회 / 냉장고 3.3개월 / 텔레비전 5~6개월 사용");
         contents2.add("월 평균 450kWh 사용 가구에 스마트 플러그 설치시, 연간 31kWh (5.8% ↓) 전력 절감");
 
-
         // 탄소저감량
-        carbonReduction.add("1.51kg");
-        carbonReduction.add("1.89kg");
-        carbonReduction.add("0.46kg");
-        carbonReduction.add("0.0127kg");
-        carbonReduction.add("1.51kg");
-        carbonReduction.add("1.89kg");
-        carbonReduction.add("0.46kg");
-        carbonReduction.add("0.0127kg");
+        carbonReduction.add("0.302kg");
+        carbonReduction.add("0.0945kg");
+        carbonReduction.add("0.0066kg");
+        carbonReduction.add("0.0025kg");
+        carbonReduction.add("0.0755kg");
+        carbonReduction.add("0.027kg");
+        carbonReduction.add("0.046kg");
+        carbonReduction.add("0.0013kg");
 
         // 칼로리 소모량
         calorieConsumption.add("234kcal");

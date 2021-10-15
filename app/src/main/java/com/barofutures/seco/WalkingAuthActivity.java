@@ -87,6 +87,8 @@ public class WalkingAuthActivity extends AppCompatActivity
 
     private long waitTime = 0;      // back button 눌린 시간
 
+    private String badgeNum;        // 1회 완료 시 얻을 수 있는 뱃지 개수
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -115,15 +117,12 @@ public class WalkingAuthActivity extends AppCompatActivity
 
         // intent로 목표 거리 값 받아와서 변경
         Intent authIntent = getIntent();
+        badgeNum = authIntent.getExtras().getString("badgeNum");
         titleTextView.setText(authIntent.getExtras().getString("title") + " 인증하기");
-        if (authIntent.getExtras().getString("title").equalsIgnoreCase("걷기")) {
-            targetDistance = 6;
-        }
-        else {
-            String temp = authIntent.getExtras().getString("badgeCriteria");
-            temp = temp.substring(0, temp.length() - 2);
-            targetDistance = Double.valueOf(temp);
-        }
+
+        String temp = authIntent.getExtras().getString("badgeCriteria");
+        temp = temp.substring(0, temp.length() - 2);
+        targetDistance = Double.valueOf(temp);
 
         sumOfDistance = 0.0;
 

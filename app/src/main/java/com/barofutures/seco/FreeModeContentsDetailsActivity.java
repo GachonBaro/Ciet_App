@@ -28,6 +28,7 @@ public class FreeModeContentsDetailsActivity extends AppCompatActivity {
     private TextView summary;
     private TextView contents;
     private TextView badgeCriteria;
+    private TextView badgeNum;
     private TextView carbonReduction;
     // eco-activity만 해당
     private TextView caloriesConsumption;
@@ -65,6 +66,9 @@ public class FreeModeContentsDetailsActivity extends AppCompatActivity {
 
         badgeCriteria = findViewById(R.id.contents_details_badge_criteria_text_view);
         badgeCriteria.setText(intent.getExtras().getString("badgeCriteria"));
+        badgeNum = findViewById(R.id.activity_free_mode_contents_badge_num_text_view);
+        badgeNum.setText("뱃지 " + intent.getExtras().getString("badgeNum") + "개");
+
         carbonReduction = findViewById(R.id.contents_details_carbon_reduction_text_view);
         carbonReduction.setText(intent.getExtras().getString("carbonReduction"));
 
@@ -171,13 +175,12 @@ public class FreeModeContentsDetailsActivity extends AppCompatActivity {
         enableButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // TODO: 활동별로 인증 화면 다르게 뜨게 설정 (걷기/플로깅하기, 자전거타기(이것도 걷기란 같이 가능..?), 계단 이용하기)
-
                 // 걷기, 자전거 타기, 플로깅하기 인 경우
                 if (pageNum == 1 && !intent.getExtras().getString("title").equalsIgnoreCase("계단 이용하기")){
                     Intent authIntent = new Intent(getApplicationContext(), WalkingAuthActivity.class);
                     authIntent.putExtra("title", intent.getExtras().getString("title"));
                     authIntent.putExtra("badgeCriteria", intent.getExtras().getString("badgeCriteria"));
+                    authIntent.putExtra("badgeNum", intent.getExtras().getString("badgeNum"));
                     startActivity(authIntent);
                 }
                 // 계단 이용하기 인 경우
@@ -185,9 +188,14 @@ public class FreeModeContentsDetailsActivity extends AppCompatActivity {
                     Intent authIntent = new Intent(getApplicationContext(), SteppingAuthActivity.class);
                     authIntent.putExtra("title", intent.getExtras().getString("title"));
                     authIntent.putExtra("badgeCriteria", intent.getExtras().getString("badgeCriteria"));
+                    authIntent.putExtra("badgeNum", intent.getExtras().getString("badgeNum"));
                     startActivity(authIntent);
                 }
+                // TODO: 사진 인증 추가
+                // 나머지 사진 인증하는 활동인 경우
+                else {
 
+                }
 
             }
         });

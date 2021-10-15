@@ -158,10 +158,11 @@
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/ic_coin_green"
+                        android:src="@drawable/ic_badge_green"
                         android:layout_gravity="center"/>
 
                     <TextView
+                        android:id="@+id/activity_free_mode_contents_badge_num_text_view"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/noto_sans_cjk_kr_bold"

@@ -94,6 +94,8 @@ public class SteppingAuthActivity extends AppCompatActivity
 
     private long waitTime = 0;      // back button 눌린 시간
 
+    private String badgeNum;        // 1회 완료 시 얻을 수 있는 뱃지 수
+
     private SensorManager sensorManager;
     private Sensor pressure;
 
@@ -123,6 +125,7 @@ public class SteppingAuthActivity extends AppCompatActivity
 
         // intent로 목표 층수 값 받아와서 변경
         Intent authIntent = getIntent();
+        badgeNum = authIntent.getExtras().getString("badgeNum");
         titleTextView.setText(authIntent.getExtras().getString("title") + " 인증하기");
         String temp = authIntent.getExtras().getString("badgeCriteria");
         temp = temp.substring(0, temp.length() - 1);

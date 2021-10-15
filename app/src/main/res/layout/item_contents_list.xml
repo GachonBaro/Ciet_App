@@ -46,19 +46,34 @@
             app:layout_constraintBottom_toTopOf="@+id/item_free_mode_read_more_button"
             tools:ignore="MissingConstraints" />
 
+        <TextView
+            android:id="@+id/num_of_activities_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/noto_sans_cjk_kr_bold"
+            android:text="1회 완료시"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:includeFontPadding="false"
+            android:textSize="11sp"
+            android:layout_marginBottom="0dp"
+            app:layout_constraintRight_toRightOf="@+id/item_free_mode_read_more_button"
+            app:layout_constraintBottom_toTopOf="@+id/num_of_badge_text"
+            tools:ignore="MissingConstraints" />
+
         <ImageView
             android:id="@+id/item_free_mode_badge_icon"
             android:layout_width="17dp"
             android:layout_height="17dp"
             android:layout_marginRight="10dp"
             android:src="@drawable/ic_coin_really_new"
-            app:layout_constraintRight_toLeftOf="@+id/num_of_activities_text"
-            app:layout_constraintTop_toTopOf="@+id/num_of_activities_text"
-            app:layout_constraintBottom_toBottomOf="@+id/num_of_activities_text"
+            app:layout_constraintRight_toLeftOf="@+id/num_of_badge_text"
+            app:layout_constraintTop_toTopOf="@+id/num_of_badge_text"
+            app:layout_constraintBottom_toBottomOf="@+id/num_of_badge_text"
             tools:ignore="MissingConstraints"/>
 
         <TextView
-            android:id="@+id/num_of_activities_text"
+            android:id="@+id/num_of_badge_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/noto_sans_cjk_kr_bold"

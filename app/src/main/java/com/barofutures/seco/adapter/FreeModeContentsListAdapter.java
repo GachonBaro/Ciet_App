@@ -54,7 +54,10 @@ public class FreeModeContentsListAdapter extends RecyclerView.Adapter<FreeModeCo
         holder.title.setText(data.title.get(position));
 
         // 활동 횟수
-        holder.numOfActivities.setText("활동 횟수 " + data.activityNum.get(position));
+        holder.numOfActivities.setText(data.activityNum.get(position) + " 완료 시");
+
+        // 뱃지 개수
+        holder.numOfBadge.setText(data.badgeNum.get(position) + "개 지급");
 
         holder.readMoreButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -65,6 +68,7 @@ public class FreeModeContentsListAdapter extends RecyclerView.Adapter<FreeModeCo
                 intent.putExtra("summary", data.contents1.get(position));
                 intent.putExtra("contents", data.contents2.get(position));
                 intent.putExtra("badgeCriteria", data.activityNum.get(position));
+                intent.putExtra("badgeNum", data.badgeNum.get(position));
                 intent.putExtra("carbonReduction", data.carbonReduction.get(position));
 
                 // eco-activity page인 경우
@@ -90,6 +94,7 @@ public class FreeModeContentsListAdapter extends RecyclerView.Adapter<FreeModeCo
 //        ImageButton likeButton;     // 좋아요 아이콘
         TextView title;             // 제목
         TextView numOfActivities;   // 활동 횟수
+        TextView numOfBadge;        // 뱃지 개수
         Button readMoreButton;      // 자세히 보기 버튼
 
         public ViewHolder(@NonNull View itemView) {
@@ -98,6 +103,7 @@ public class FreeModeContentsListAdapter extends RecyclerView.Adapter<FreeModeCo
 //            likeButton = (ImageButton) itemView.findViewById(R.id.item_free_mode_like_button);
             title = (TextView) itemView.findViewById(R.id.contents_title_text_view);
             numOfActivities = (TextView) itemView.findViewById(R.id.num_of_activities_text);
+            numOfBadge = (TextView) itemView.findViewById(R.id.num_of_badge_text);
             readMoreButton = (Button) itemView.findViewById(R.id.item_free_mode_read_more_button);
 
         }
