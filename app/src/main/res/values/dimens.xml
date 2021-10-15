@@ -41,4 +41,8 @@
     <dimen name="distance_bar_text_size">11dp</dimen>
     <dimen name="current_distance_text_size">22dp</dimen>
 
+    <!-- Stepping Auth Activity -->
+    <dimen name="altitude_bar_text_size">11dp</dimen>
+    <dimen name="current_altitude_text_size">22dp</dimen>
+
 </resources>

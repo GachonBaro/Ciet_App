@@ -182,7 +182,10 @@ public class FreeModeContentsDetailsActivity extends AppCompatActivity {
                 }
                 // 계단 이용하기 인 경우
                 else if (intent.getExtras().getString("title").equalsIgnoreCase("계단 이용하기")) {
-
+                    Intent authIntent = new Intent(getApplicationContext(), SteppingAuthActivity.class);
+                    authIntent.putExtra("title", intent.getExtras().getString("title"));
+                    authIntent.putExtra("badgeCriteria", intent.getExtras().getString("badgeCriteria"));
+                    startActivity(authIntent);
                 }
 
 
