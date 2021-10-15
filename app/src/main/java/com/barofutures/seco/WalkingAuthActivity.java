@@ -228,7 +228,7 @@ public class WalkingAuthActivity extends AppCompatActivity
     }
     //polyline을 그려주는 메소드
     private void drawPath(){
-        PolylineOptions options = new PolylineOptions().add(startLatLng).add(endLatLng).width(15).color(Color.BLACK).geodesic(true);
+        PolylineOptions options = new PolylineOptions().add(startLatLng).add(endLatLng).width(15).color(Color.parseColor("#277CEA")).geodesic(true);
         polylineList.add(mMap.addPolyline(options));
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(startLatLng, 18));
     }
