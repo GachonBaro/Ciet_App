@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PhotoAuthActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/activity_photo_auth_appbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/activity_photo_auth_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/activity_photo_auth_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_marginLeft="20dp"
+                android:fontFamily="@font/noto_sans_cjk_kr_bold"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/title_font_size"
+                android:text="@string/title_activity_authorize"/>
+
+        </androidx.appcompat.widget.Toolbar>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/activity_photo_auth_main_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:background="@color/white"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
+        <TextView
+            android:id="@+id/activity_photo_auth_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/notosansregular"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/photo_auth_text_size"
+            android:text="@string/photo_auth_text"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/activity_photo_auth_description_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="0dp"
+            android:fontFamily="@font/notosansregular"
+            android:textColor="@color/text_color_gray"
+            android:textSize="@dimen/photo_auth_description__text_size"
+            android:text="@string/photo_auth_description_text"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/activity_photo_auth_text_view"
+            tools:ignore="MissingConstraints" />
+
+        <ImageButton
+            android:id="@+id/activity_photo_auth_take_photo_imagebutton"
+            android:layout_width="320dp"
+            android:layout_height="0dp"
+            android:layout_marginBottom="30dp"
+            android:background="@android:color/transparent"
+            android:scaleType="fitCenter"
+            android:src="@drawable/button_authorize_pic"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/activity_photo_auth_description_text_view"
+            app:layout_constraintBottom_toTopOf="@+id/activity_photh_auth_upload_button"/>
+
+        <Button
+            android:id="@+id/activity_photh_auth_upload_button"
+            android:layout_width="338dp"
+            android:layout_height="58dp"
+            android:layout_marginBottom="30dp"
+            android:background="@drawable/button_initq_unchecked"
+            android:fontFamily="@font/noto_sans_cjk_kr_bold"
+            android:text="업로드 하기"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            android:enabled="false"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

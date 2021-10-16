@@ -36,4 +36,6 @@
     <color name="recipe_color_text_yellow">#FFCE28</color>
     <color name="recipe_color_text_green">#29D29A</color>
 
+    <color name="text_color_gray">#434343</color>
+
 </resources>

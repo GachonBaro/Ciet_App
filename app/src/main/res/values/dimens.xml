@@ -38,11 +38,15 @@
     <dimen name="item_divider">16dp</dimen>
 
     <!-- Walking Auth Activity -->
-    <dimen name="distance_bar_text_size">11dp</dimen>
-    <dimen name="current_distance_text_size">22dp</dimen>
+    <dimen name="distance_bar_text_size">11sp</dimen>
+    <dimen name="current_distance_text_size">22sp</dimen>
 
     <!-- Stepping Auth Activity -->
-    <dimen name="altitude_bar_text_size">11dp</dimen>
-    <dimen name="current_altitude_text_size">22dp</dimen>
+    <dimen name="altitude_bar_text_size">11sp</dimen>
+    <dimen name="current_altitude_text_size">22sp</dimen>
+
+    <!-- Photo Auth Activity -->
+    <dimen name="photo_auth_text_size">20sp</dimen>
+    <dimen name="photo_auth_description__text_size">14sp</dimen>
 
 </resources>

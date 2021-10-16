@@ -44,8 +44,8 @@
         android:layout_height="233dp"
         android:layout_below="@id/fragment_authorize_camera_title_activity"
         android:layout_alignParentLeft="true"
-        android:scaleType="centerInside"
         android:background="@android:color/transparent"
+        android:scaleType="centerInside"
         android:src="@drawable/button_authorize_pic" />
 
     <ImageButton

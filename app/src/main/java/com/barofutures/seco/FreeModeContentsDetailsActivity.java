@@ -194,7 +194,11 @@ public class FreeModeContentsDetailsActivity extends AppCompatActivity {
                 // TODO: 사진 인증 추가
                 // 나머지 사진 인증하는 활동인 경우
                 else {
-
+                    Intent authIntent = new Intent(getApplicationContext(), PhotoAuthActivity.class);
+                    authIntent.putExtra("title", intent.getExtras().getString("title"));
+                    authIntent.putExtra("badgeCriteria", intent.getExtras().getString("badgeCriteria"));
+                    authIntent.putExtra("badgeNum", intent.getExtras().getString("badgeNum"));
+                    startActivity(authIntent);
                 }
 
             }

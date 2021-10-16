@@ -23,6 +23,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SECO">
         <activity
+            android:name=".PhotoAuthActivity"
+            android:exported="true" />
+        <activity
             android:name=".SteppingAuthActivity"
             android:exported="true" />
         <activity
