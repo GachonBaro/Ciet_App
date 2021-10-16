@@ -87,7 +87,9 @@ public class WalkingAuthActivity extends AppCompatActivity
 
     private long waitTime = 0;      // back button 눌린 시간
 
+    private String title;           // 활동 이름
     private String badgeNum;        // 1회 완료 시 얻을 수 있는 뱃지 개수
+    private String carbonReduction;     // 1회 완료 시 탄소 감축량
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -118,8 +120,10 @@ public class WalkingAuthActivity extends AppCompatActivity
         // intent로 목표 거리 값 받아와서 변경
         Intent authIntent = getIntent();
         badgeNum = authIntent.getExtras().getString("badgeNum");
-        titleTextView.setText(authIntent.getExtras().getString("title") + " 인증하기");
+        title = authIntent.getExtras().getString("title");
+        carbonReduction = authIntent.getExtras().getString("carbonReduction");
 
+        titleTextView.setText(title + " 인증하기");
         String temp = authIntent.getExtras().getString("badgeCriteria");
         temp = temp.substring(0, temp.length() - 2);
         targetDistance = Double.valueOf(temp);
@@ -365,6 +369,27 @@ public class WalkingAuthActivity extends AppCompatActivity
                 // TODO: 인증 완료 activity로 넘어가기
                 Toast.makeText(getApplicationContext(), "달성완료", Toast.LENGTH_SHORT).show();
                 Toast.makeText(getApplicationContext(), "s: " + startTime + ", e: " + endTime, Toast.LENGTH_SHORT).show();
+
+
+                if (title.equalsIgnoreCase("플로깅")) {      // 플로깅인 경우
+                    Intent authIntent = new Intent(getApplicationContext(), PhotoAuthActivity.class);
+                    authIntent.putExtra("title", title);
+                    authIntent.putExtra("badgeNum", badgeNum);
+                    authIntent.putExtra("carbonReduction", carbonReduction);
+                    authIntent.putExtra("startTime", startTime);
+                    startActivity(authIntent);
+                    finish();
+                }
+                else {      // 걷기, 자전거로 출퇴근인 경우
+                    Intent authIntent = new Intent(getApplicationContext(), AuthCompletionActivity.class);
+                    authIntent.putExtra("title", title);
+                    authIntent.putExtra("badgeNum", badgeNum);
+                    authIntent.putExtra("carbonReduction", carbonReduction);
+                    authIntent.putExtra("startTime", startTime);
+                    authIntent.putExtra("endTime", endTime);
+                    startActivity(authIntent);
+                    finish();
+                }
             }
 
 

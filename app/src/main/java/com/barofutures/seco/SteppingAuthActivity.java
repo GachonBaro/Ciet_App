@@ -94,7 +94,9 @@ public class SteppingAuthActivity extends AppCompatActivity
 
     private long waitTime = 0;      // back button 눌린 시간
 
+    private String title;           // 활동 이름
     private String badgeNum;        // 1회 완료 시 얻을 수 있는 뱃지 수
+    private String carbonReduction;     // 1회 완료 시 탄소 감축량
 
     private SensorManager sensorManager;
     private Sensor pressure;
@@ -126,7 +128,10 @@ public class SteppingAuthActivity extends AppCompatActivity
         // intent로 목표 층수 값 받아와서 변경
         Intent authIntent = getIntent();
         badgeNum = authIntent.getExtras().getString("badgeNum");
-        titleTextView.setText(authIntent.getExtras().getString("title") + " 인증하기");
+        title = authIntent.getExtras().getString("title");
+        carbonReduction = authIntent.getExtras().getString("carbonReduction");
+
+        titleTextView.setText(title + " 인증하기");
         String temp = authIntent.getExtras().getString("badgeCriteria");
         temp = temp.substring(0, temp.length() - 1);
         targetDistance = Double.valueOf(temp) * 4;      // 한 층에 약 4m
@@ -383,13 +388,21 @@ public class SteppingAuthActivity extends AppCompatActivity
             Log.d("누적거리", String.valueOf(sumOfDistance));
             Toast.makeText(getApplicationContext(), "누적거리: " + String.valueOf(sumOfDistance), Toast.LENGTH_SHORT).show();
 
-            // TODO: 이동거리 >= 목표거리이면, 인증 완료 activity로 넘어가기 + 종료 시간 저장
             // 달성 완료: 이동거리 >= 목표거리
             if (targetDistance <= sumOfDistance + currentDistance) {
                 endTime = getTime();        // 달성 완료 시간 저장
                 // TODO: 인증 완료 activity로 넘어가기
                 Toast.makeText(getApplicationContext(), "달성완료", Toast.LENGTH_SHORT).show();
                 Toast.makeText(getApplicationContext(), "s: " + startTime + ", e: " + endTime, Toast.LENGTH_SHORT).show();
+
+                Intent authIntent = new Intent(getApplicationContext(), AuthCompletionActivity.class);
+                authIntent.putExtra("title", title);
+                authIntent.putExtra("badgeNum", badgeNum);
+                authIntent.putExtra("carbonReduction", carbonReduction);
+                authIntent.putExtra("startTime", startTime);
+                authIntent.putExtra("endTime", endTime);
+                startActivity(authIntent);
+                finish();
             }
 
 

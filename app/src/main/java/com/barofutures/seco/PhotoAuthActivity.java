@@ -43,7 +43,11 @@ public class PhotoAuthActivity extends AppCompatActivity {
     // Intent values
     private String title;
     private String badgeNum;
-    private String badgeCriteria;
+    private String carbonReduction;     // 1회 완료 시 탄소 감축량
+    private String startTime;           // 플로깅인 경우만
+
+    private String dateStr;
+    private String endTime;
 
     // 경로 변수, 요정 변수 설정
     private String mCurrentPhotoPath;
@@ -67,9 +71,12 @@ public class PhotoAuthActivity extends AppCompatActivity {
 
         // intent 값 받아오기
         Intent authIntent = getIntent();
-        badgeNum = authIntent.getExtras().getString("badgeNum");
         title = authIntent.getExtras().getString("title");
-        badgeCriteria = authIntent.getExtras().getString("badgeCriteria");
+        badgeNum = authIntent.getExtras().getString("badgeNum");
+        carbonReduction = authIntent.getExtras().getString("carbonReduction");
+        if(title.equalsIgnoreCase("플로깅")) {     // 플로깅인 경우만
+            startTime = authIntent.getExtras().getString("startTime");
+        }
 
         // 상단바 완전 투명
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
@@ -86,9 +93,16 @@ public class PhotoAuthActivity extends AppCompatActivity {
         takePhotoImageButton = findViewById(R.id.activity_photo_auth_take_photo_imagebutton);
         uploadPhotoButton = findViewById(R.id.activity_photh_auth_upload_button);
 
+        // toolbar title 변경
+        titleTextView.setText(title + " 인증하기");
+
         takePhotoImageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // 현재 시간 받아오기
+                dateStr = getDate();
+                endTime = dateStr.substring(8, 10) + ":" + dateStr.substring(10, 12);
+
                 dispatchTakePictureIntent(REQUEST_TAKE_PHOTO_ACTIVITY);     // 사진 찍고 저장하기
                 // 업로드 버튼 활성화
                 uploadPhotoButton.setBackgroundResource(R.drawable.button_initq_checked);
@@ -96,8 +110,28 @@ public class PhotoAuthActivity extends AppCompatActivity {
             }
         });
 
+        uploadPhotoButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent completionIntent = new Intent(getApplicationContext(), AuthCompletionActivity.class);
+                completionIntent.putExtra("title", title);
+                completionIntent.putExtra("badgeNum", badgeNum);
+                completionIntent.putExtra("endTime", endTime);
+                completionIntent.putExtra("carbonReduction", carbonReduction);
+                if(title.equalsIgnoreCase("플로깅")) {     // 플로깅인 경우만
+                    completionIntent.putExtra("startTime", startTime);
+                }
+                startActivity(completionIntent);
+                finish();
+            }
+        });
 
+    }
 
+    private String getDate() {
+        SimpleDateFormat day = new SimpleDateFormat("yyyyMMddHHmmss");
+        Date date = new Date();
+        return day.format(date);
     }
 
     @Override
@@ -148,7 +182,7 @@ public class PhotoAuthActivity extends AppCompatActivity {
                                 bitmap = ImageDecoder.decodeBitmap(source);
                                 if (bitmap != null) {
                                     takePhotoImageButton.setImageBitmap(bitmap);
-//                                    galleryAddPic();
+                                    // 갤러리에 저장
                                     storeBitmapToGallery(bitmap);
                                 }
                             } catch (IOException e) {
@@ -159,7 +193,7 @@ public class PhotoAuthActivity extends AppCompatActivity {
                                 bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), Uri.fromFile(file));
                                 if (bitmap != null) {
                                     takePhotoImageButton.setImageBitmap(bitmap);
-//                                    galleryAddPic();
+                                    // 갤러리에 저장
                                     storeBitmapToGallery(bitmap);
                                 }
                             } catch (IOException e) {
@@ -226,8 +260,8 @@ public class PhotoAuthActivity extends AppCompatActivity {
     private void storeBitmapToGallery(Bitmap bitmap) {
         String path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES) +"";
 
-        SimpleDateFormat day = new SimpleDateFormat("yyyyMMddHHmmss");
-        Date date = new Date();
+//        SimpleDateFormat day = new SimpleDateFormat("yyyyMMddHHmmss");
+//        Date date = new Date();
 
         File file = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
 
@@ -237,11 +271,12 @@ public class PhotoAuthActivity extends AppCompatActivity {
 
         }
 
+//        String dateStr = day.format(date);
         FileOutputStream fos = null;
         try {
-            fos = new FileOutputStream(path + "/" + day.format(date) + "_" + title + ".jpeg");
+            fos = new FileOutputStream(path + "/" + dateStr + "_" + title + ".jpeg");
             bitmap.compress(Bitmap.CompressFormat.JPEG, 100, fos);
-            sendBroadcast(new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE, Uri.parse("file://" + path + "/" + day.format(date) + "_" + title + ".JPEG")));
+            sendBroadcast(new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE, Uri.parse("file://" + path + "/" + dateStr + "_" + title + ".JPEG")));
             fos.flush();
             fos.close();
         } catch (FileNotFoundException e) {

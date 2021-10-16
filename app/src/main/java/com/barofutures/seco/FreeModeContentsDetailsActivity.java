@@ -175,12 +175,13 @@ public class FreeModeContentsDetailsActivity extends AppCompatActivity {
         enableButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // 걷기, 자전거 타기, 플로깅하기 인 경우
+                // 걷기, 자전거로 출퇴근, 플로깅인 경우
                 if (pageNum == 1 && !intent.getExtras().getString("title").equalsIgnoreCase("계단 이용하기")){
                     Intent authIntent = new Intent(getApplicationContext(), WalkingAuthActivity.class);
                     authIntent.putExtra("title", intent.getExtras().getString("title"));
                     authIntent.putExtra("badgeCriteria", intent.getExtras().getString("badgeCriteria"));
                     authIntent.putExtra("badgeNum", intent.getExtras().getString("badgeNum"));
+                    authIntent.putExtra("carbonReduction", intent.getExtras().getString("carbonReduction"));
                     startActivity(authIntent);
                 }
                 // 계단 이용하기 인 경우
@@ -189,6 +190,7 @@ public class FreeModeContentsDetailsActivity extends AppCompatActivity {
                     authIntent.putExtra("title", intent.getExtras().getString("title"));
                     authIntent.putExtra("badgeCriteria", intent.getExtras().getString("badgeCriteria"));
                     authIntent.putExtra("badgeNum", intent.getExtras().getString("badgeNum"));
+                    authIntent.putExtra("carbonReduction", intent.getExtras().getString("carbonReduction"));
                     startActivity(authIntent);
                 }
                 // TODO: 사진 인증 추가
@@ -196,8 +198,8 @@ public class FreeModeContentsDetailsActivity extends AppCompatActivity {
                 else {
                     Intent authIntent = new Intent(getApplicationContext(), PhotoAuthActivity.class);
                     authIntent.putExtra("title", intent.getExtras().getString("title"));
-                    authIntent.putExtra("badgeCriteria", intent.getExtras().getString("badgeCriteria"));
                     authIntent.putExtra("badgeNum", intent.getExtras().getString("badgeNum"));
+                    authIntent.putExtra("carbonReduction", intent.getExtras().getString("carbonReduction"));
                     startActivity(authIntent);
                 }
 
