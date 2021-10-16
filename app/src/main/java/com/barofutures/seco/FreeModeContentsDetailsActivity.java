@@ -67,7 +67,7 @@ public class FreeModeContentsDetailsActivity extends AppCompatActivity {
         badgeCriteria = findViewById(R.id.contents_details_badge_criteria_text_view);
         badgeCriteria.setText(intent.getExtras().getString("badgeCriteria"));
         badgeNum = findViewById(R.id.activity_free_mode_contents_badge_num_text_view);
-        badgeNum.setText("뱃지 " + intent.getExtras().getString("badgeNum") + "개");
+        badgeNum.setText("배지 " + intent.getExtras().getString("badgeNum") + "개");
 
         carbonReduction = findViewById(R.id.contents_details_carbon_reduction_text_view);
         carbonReduction.setText(intent.getExtras().getString("carbonReduction"));

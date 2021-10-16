@@ -38,7 +38,7 @@ public class ContentsDetailData {
         // title
         title.add("채식 식단");
         title.add("유기농 농산물");
-        title.add("못난이 농산물");
+        title.add("못난이 농수산물");
         title.add("용기내 챌린지");
 
         // 배경 사진
@@ -148,7 +148,7 @@ public class ContentsDetailData {
         title.add("올바른 재활용 배출");
         title.add("장바구니, 에코백 사용");
         title.add("손수건 사용");
-        title.add("리필스테이션 사용");
+        title.add("리필 스테이션 사용");
         title.add("양치컵 사용");
         title.add("이메일 정리");
         title.add("냉장고 확인하기");
