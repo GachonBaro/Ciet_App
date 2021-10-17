@@ -49,7 +49,7 @@ public class Fragment_CarbonDiet extends Fragment {
     public static ContentsDetailData contentsDetailDataMeal;
     public static ContentsDetailData contentsDetailDataActivity;
     public static ContentsDetailData contentsDetailDataQuest;
-    public static ContentsDetailData contentsDetailDataFavorites;
+//    public static ContentsDetailData contentsDetailDataFavorites;
 
     public Fragment_CarbonDiet() {
         // Required empty public constructor
@@ -98,11 +98,11 @@ public class Fragment_CarbonDiet extends Fragment {
         contentsDetailDataMeal = getFreeModeContentsListDataMeal();
         contentsDetailDataActivity = getFreeModeContentsListDataActivity();
         contentsDetailDataQuest = getFreeModeContentsListDataQuest();
-        contentsDetailDataFavorites =getFreeModeContentsListDataListFavorites();
+//        contentsDetailDataFavorites =getFreeModeContentsListDataListFavorites();
 
         // TabLayout에 viewPager 연결
         tabLayout = (TabLayout) view.findViewById(R.id.fragment_carbon_diet_tabs);
-        carbonDietTabPagerAdapter = new CarbonDietTabPagerAdapter(this, contentsDetailDataMeal, contentsDetailDataActivity, contentsDetailDataQuest, contentsDetailDataFavorites);
+        carbonDietTabPagerAdapter = new CarbonDietTabPagerAdapter(this, contentsDetailDataMeal, contentsDetailDataActivity, contentsDetailDataQuest);
         viewPager2 = view.findViewById(R.id.fragment_recipe_view_pager);
         viewPager2.setAdapter(carbonDietTabPagerAdapter);
         viewPager2.setUserInputEnabled(false);
@@ -201,24 +201,5 @@ public class Fragment_CarbonDiet extends Fragment {
         quest.setQuest(isFavorites, isEnabled);
 
         return quest;
-    }
-
-    // user의 free mode 데이터 받아옴 (Favorites)
-    public ContentsDetailData getFreeModeContentsListDataListFavorites() {
-        //TODO: 사용자의 좋아요, 활성화 유무 데이터 받아오기
-        ArrayList<Boolean> isFavorites = new ArrayList<>();
-        isFavorites.add(true);
-        isFavorites.add(true);
-        isFavorites.add(true);
-
-        ArrayList<Boolean> isEnabled = new ArrayList<>();
-        isEnabled.add(false);
-        isEnabled.add(true);
-        isEnabled.add(true);
-
-        ContentsDetailData favorites = new ContentsDetailData();
-        favorites.setFavorites(isFavorites, isEnabled);
-
-        return favorites;
     }
 }

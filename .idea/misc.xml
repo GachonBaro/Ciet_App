@@ -4,9 +4,12 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="app/src/main/res/drawable-v24/button_rounded_green.xml" value="0.2222222222222222" />
+        <entry key="app/src/main/res/drawable/bg_rounded_white.xml" value="0.11481481481481481" />
+        <entry key="app/src/main/res/drawable/bg_white_corner_radius_10dp.xml" value="0.325742372920407" />
         <entry key="app/src/main/res/drawable/button_authorize_pic.xml" value="0.22407407407407406" />
         <entry key="app/src/main/res/drawable/ic_earth.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/ic_home.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/item_white_rounded_background.xml" value="0.11481481481481481" />
         <entry key="app/src/main/res/layout/activity_auth_completion.xml" value="0.33240740740740743" />
         <entry key="app/src/main/res/layout/activity_authorize.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_contents_list.xml" value="0.23020833333333332" />
@@ -27,12 +30,18 @@
         <entry key="app/src/main/res/layout/activity_walking_auth.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_camera_auth.xml" value="0.2518518518518518" />
         <entry key="app/src/main/res/layout/fragment_carbon_diet.xml" value="0.11574074074074074" />
+        <entry key="app/src/main/res/layout/fragment_challenge.xml" value="0.2180636831391422" />
         <entry key="app/src/main/res/layout/fragment_free_mode_activity.xml" value="0.23020833333333332" />
+        <entry key="app/src/main/res/layout/fragment_free_mode_favorites.xml" value="0.2611111111111111" />
         <entry key="app/src/main/res/layout/fragment_free_mode_meal.xml" value="0.23020833333333332" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.23020833333333332" />
         <entry key="app/src/main/res/layout/fragment_recipe.xml" value="0.23020833333333332" />
         <entry key="app/src/main/res/layout/fragment_recipe_general.xml" value="0.20555555555555555" />
+        <entry key="app/src/main/res/layout/item_challenge_recommendation_list.xml" value="0.375" />
         <entry key="app/src/main/res/layout/item_contents_list.xml" value="0.2265625" />
+        <entry key="app/src/main/res/layout/item_recipe_list.xml" value="0.2634983343492339" />
+        <entry key="app/src/main/res/layout/item_routine_list.xml" value="0.4244791666666667" />
+        <entry key="app/src/main/res/layout/recyclerview_item.xml" value="0.4244791666666667" />
         <entry key="app/src/main/res/menu/bottomnavigation_menu.xml" value="0.23020833333333332" />
       </map>
     </option>

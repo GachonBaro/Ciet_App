@@ -1,3 +1,7 @@
+/*
+ * TODO: 삭제
+ */
+
 package com.barofutures.seco;
 
 import android.app.FragmentManager;
@@ -13,7 +17,7 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.barofutures.seco.adapter.FreeModePagerAdapter;
 import com.barofutures.seco.fragments.freemode.FreeModeActivityFragment;
-import com.barofutures.seco.fragments.freemode.FreeModeLikeFragment;
+import com.barofutures.seco.fragments.freemode.ChallengeFragment;
 import com.barofutures.seco.fragments.freemode.FreeModeMealFragment;
 import com.barofutures.seco.fragments.freemode.FreeModeQuestFragment;
 import com.barofutures.seco.model.ContentsDetailData;
@@ -36,7 +40,7 @@ public class ContentsListActivity extends AppCompatActivity {
     private FreeModeMealFragment mealFragment;
     private FreeModeActivityFragment activityFragment;
     private FreeModeQuestFragment questFragment;
-    private FreeModeLikeFragment favoritesFragment;
+    private ChallengeFragment favoritesFragment;
 
     public static ContentsDetailData contentsDetailDataMeal;
     public static ContentsDetailData contentsDetailDataActivity;
@@ -78,7 +82,7 @@ public class ContentsListActivity extends AppCompatActivity {
         mealFragment = new FreeModeMealFragment(contentsDetailDataMeal);
         activityFragment = new FreeModeActivityFragment(contentsDetailDataActivity);
         questFragment = new FreeModeQuestFragment(contentsDetailDataQuest);
-        favoritesFragment = new FreeModeLikeFragment(contentsDetailDataFavorites);
+        favoritesFragment = new ChallengeFragment();
 
         // connect Fragment using ViewPagerAdapter
         FreeModePagerAdapter viewPagerAdapter = new FreeModePagerAdapter(getSupportFragmentManager(), 0);

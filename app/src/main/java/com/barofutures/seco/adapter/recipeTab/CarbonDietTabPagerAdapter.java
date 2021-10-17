@@ -7,8 +7,8 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 
+import com.barofutures.seco.fragments.freemode.ChallengeFragment;
 import com.barofutures.seco.fragments.freemode.FreeModeActivityFragment;
-import com.barofutures.seco.fragments.freemode.FreeModeLikeFragment;
 import com.barofutures.seco.fragments.freemode.FreeModeMealFragment;
 import com.barofutures.seco.fragments.freemode.FreeModeQuestFragment;
 import com.barofutures.seco.model.ContentsDetailData;
@@ -19,14 +19,14 @@ public class CarbonDietTabPagerAdapter extends FragmentStateAdapter {
     public static ContentsDetailData contentsDetailDataMeal;
     public static ContentsDetailData contentsDetailDataActivity;
     public static ContentsDetailData contentsDetailDataQuest;
-    public static ContentsDetailData contentsDetailDataFavorites;
+//    public static ContentsDetailData contentsDetailDataFavorites;
 
-    public CarbonDietTabPagerAdapter(@NonNull Fragment fragment, ContentsDetailData contentsDetailDataMeal, ContentsDetailData contentsDetailDataActivity, ContentsDetailData contentsDetailDataQuest, ContentsDetailData contentsDetailDataFavorites) {
+    public CarbonDietTabPagerAdapter(@NonNull Fragment fragment, ContentsDetailData contentsDetailDataMeal, ContentsDetailData contentsDetailDataActivity, ContentsDetailData contentsDetailDataQuest) {
         super(fragment);
         this.contentsDetailDataMeal = contentsDetailDataMeal;
         this.contentsDetailDataActivity = contentsDetailDataActivity;
         this.contentsDetailDataQuest = contentsDetailDataQuest;
-        this.contentsDetailDataFavorites = contentsDetailDataFavorites;
+//        this.contentsDetailDataFavorites = contentsDetailDataFavorites;
     }
 
     @NonNull
@@ -51,7 +51,7 @@ public class CarbonDietTabPagerAdapter extends FragmentStateAdapter {
             fragment.setArguments(args);
             return fragment;
         } else if (position == 3) {
-            fragment = new FreeModeLikeFragment(contentsDetailDataFavorites);
+            fragment = new ChallengeFragment();
             Bundle args = new Bundle();
             args.putInt("page_position", position);
             fragment.setArguments(args);

@@ -57,6 +57,8 @@ import com.google.firebase.iid.InstanceIdResult;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.HashMap;
+import java.util.Map;
 
 public class MainActivity extends AppCompatActivity{
     // Splash에서 유저 프로필 받아오기
@@ -109,6 +111,15 @@ public class MainActivity extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+//        FirebaseDatabase database = FirebaseDatabase.getInstance();
+//        DatabaseReference databaseReference = database.getReference();
+//        Map<String, Object> data = new HashMap<>();
+//        data.put("초급", R.drawable.walking + "|걷기_2|유기농 농산물_1");
+//        data.put("중급", R.drawable.stepping + "|계단 이용하기_3|용기내 챌린지_1|못난이 농수산물_1");
+//        data.put("고급", R.drawable.cycling + "|자전거로 출퇴근_2|플로깅_2|채식 식단_1");
+//        databaseReference.child("challenge").child("recommendations").setValue(data);
+
 
         // 상단바 완전 투명
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);

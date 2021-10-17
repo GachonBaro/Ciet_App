@@ -34,7 +34,7 @@ public class FreeModeLikeFragment extends Fragment {
     @org.jetbrains.annotations.Nullable
     @Override
     public View onCreateView(@NonNull @NotNull LayoutInflater inflater, @Nullable @org.jetbrains.annotations.Nullable ViewGroup container, @Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
-        ViewGroup viewGroup = (ViewGroup) inflater.inflate(R.layout.fragment_free_mode_favorites, container, false);
+        ViewGroup viewGroup = (ViewGroup) inflater.inflate(R.layout.fragment_challenge, container, false);
 
         // get free mode meal recyclerView
         freeModeQuestRecyclerView = viewGroup.findViewById(R.id.fragment_free_mode_favorites_recyclerView);

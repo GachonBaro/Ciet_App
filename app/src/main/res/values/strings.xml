@@ -78,4 +78,9 @@
     <string name="photo_auth_text">인증 사진 촬영하기</string>
     <string name="photo_auth_description_text">아래를 클릭해 인증 사진을 촬영하세요!</string>
 
+    <!-- Challenge fragment -->
+    <string name="challenge_off_progress_title">챌린지 진행 현황</string>
+    <string name="challenge_off_progress_description">진행 중인 \'챌린지\'가 없어요!\n\'챌린지\' 시작하고\n추가 배지 받으세요:)</string>
+    <string name="challenge_off_recommendation_title">난이도별 추천 챌린지</string>
+
 </resources>
