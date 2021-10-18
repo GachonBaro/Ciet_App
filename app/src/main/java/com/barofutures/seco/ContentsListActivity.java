@@ -123,21 +123,21 @@ public class ContentsListActivity extends AppCompatActivity {
 
     // user의 free mode 데이터 받아옴 (meal)
     public ContentsDetailData getFreeModeContentsListDataMeal() {
-        //TODO: 사용자의 좋아요, 활성화 유무 데이터 받아오기
-        ArrayList<Boolean> isFavorites = new ArrayList<>();
-        isFavorites.add(true);
-        isFavorites.add(true);
-        isFavorites.add(false);
-        isFavorites.add(false);
-
-        ArrayList<Boolean> isEnabled = new ArrayList<>();
-        isEnabled.add(false);
-        isEnabled.add(true);
-        isEnabled.add(true);
-        isEnabled.add(true);
+//        //TODO: 사용자의 좋아요, 활성화 유무 데이터 받아오기
+//        ArrayList<Boolean> isFavorites = new ArrayList<>();
+//        isFavorites.add(true);
+//        isFavorites.add(true);
+//        isFavorites.add(false);
+//        isFavorites.add(false);
+//
+//        ArrayList<Boolean> isEnabled = new ArrayList<>();
+//        isEnabled.add(false);
+//        isEnabled.add(true);
+//        isEnabled.add(true);
+//        isEnabled.add(true);
 
         ContentsDetailData meal = new ContentsDetailData();
-        meal.setMeal(isFavorites, isEnabled);
+        meal.setMeal();
 
         return meal;
     }
@@ -145,70 +145,70 @@ public class ContentsListActivity extends AppCompatActivity {
     // user의 free mode 데이터 받아옴 (activity)
     public ContentsDetailData getFreeModeContentsListDataActivity() {
         //TODO: 사용자의 좋아요, 활성화 유무 데이터 받아오기
-        ArrayList<Boolean> isFavorites = new ArrayList<>();
-        isFavorites.add(true);
-        isFavorites.add(true);
-        isFavorites.add(false);
-        isFavorites.add(false);
-
-        ArrayList<Boolean> isEnabled = new ArrayList<>();
-        isEnabled.add(false);
-        isEnabled.add(true);
-        isEnabled.add(true);
-        isEnabled.add(true);
+//        ArrayList<Boolean> isFavorites = new ArrayList<>();
+//        isFavorites.add(true);
+//        isFavorites.add(true);
+//        isFavorites.add(false);
+//        isFavorites.add(false);
+//
+//        ArrayList<Boolean> isEnabled = new ArrayList<>();
+//        isEnabled.add(false);
+//        isEnabled.add(true);
+//        isEnabled.add(true);
+//        isEnabled.add(true);
 
         ContentsDetailData activity = new ContentsDetailData();
-        activity.setActivity(isFavorites, isEnabled);
+        activity.setActivity();
 
         return activity;
     }
 
     // user의 free mode 데이터 받아옴 (quest)
     public ContentsDetailData getFreeModeContentsListDataQuest() {
-        //TODO: 사용자의 좋아요, 활성화 유무 데이터 받아오기
-        ArrayList<Boolean> isFavorites = new ArrayList<>();
-        isFavorites.add(true);
-        isFavorites.add(true);
-        isFavorites.add(false);
-        isFavorites.add(false);
-        isFavorites.add(true);
-        isFavorites.add(true);
-        isFavorites.add(false);
-        isFavorites.add(false);
-
-
-        ArrayList<Boolean> isEnabled = new ArrayList<>();
-        isEnabled.add(false);
-        isEnabled.add(true);
-        isEnabled.add(true);
-        isEnabled.add(true);
-        isEnabled.add(false);
-        isEnabled.add(true);
-        isEnabled.add(true);
-        isEnabled.add(true);
+//        //TODO: 사용자의 좋아요, 활성화 유무 데이터 받아오기
+//        ArrayList<Boolean> isFavorites = new ArrayList<>();
+//        isFavorites.add(true);
+//        isFavorites.add(true);
+//        isFavorites.add(false);
+//        isFavorites.add(false);
+//        isFavorites.add(true);
+//        isFavorites.add(true);
+//        isFavorites.add(false);
+//        isFavorites.add(false);
+//
+//
+//        ArrayList<Boolean> isEnabled = new ArrayList<>();
+//        isEnabled.add(false);
+//        isEnabled.add(true);
+//        isEnabled.add(true);
+//        isEnabled.add(true);
+//        isEnabled.add(false);
+//        isEnabled.add(true);
+//        isEnabled.add(true);
+//        isEnabled.add(true);
 
 
         ContentsDetailData quest = new ContentsDetailData();
-        quest.setQuest(isFavorites, isEnabled);
+        quest.setQuest();
 
         return quest;
     }
 
     // user의 free mode 데이터 받아옴 (Favorites)
     public ContentsDetailData getFreeModeContentsListDataListFavorites() {
-        //TODO: 사용자의 좋아요, 활성화 유무 데이터 받아오기
-        ArrayList<Boolean> isFavorites = new ArrayList<>();
-        isFavorites.add(true);
-        isFavorites.add(true);
-        isFavorites.add(true);
-
-        ArrayList<Boolean> isEnabled = new ArrayList<>();
-        isEnabled.add(false);
-        isEnabled.add(true);
-        isEnabled.add(true);
+//        //TODO: 사용자의 좋아요, 활성화 유무 데이터 받아오기
+//        ArrayList<Boolean> isFavorites = new ArrayList<>();
+//        isFavorites.add(true);
+//        isFavorites.add(true);
+//        isFavorites.add(true);
+//
+//        ArrayList<Boolean> isEnabled = new ArrayList<>();
+//        isEnabled.add(false);
+//        isEnabled.add(true);
+//        isEnabled.add(true);
 
         ContentsDetailData favorites = new ContentsDetailData();
-        favorites.setFavorites(isFavorites, isEnabled);
+        favorites.setFavorites();
 
         return favorites;
     }

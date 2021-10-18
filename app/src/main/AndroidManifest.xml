@@ -23,6 +23,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SECO">
         <activity
+            android:name=".ChallengeSettingActivity"
+            android:exported="true" />
+        <activity
             android:name=".AuthCompletionActivity"
             android:exported="true" />
         <activity

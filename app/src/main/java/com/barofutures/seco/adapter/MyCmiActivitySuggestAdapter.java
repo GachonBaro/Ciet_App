@@ -47,21 +47,21 @@ public class MyCmiActivitySuggestAdapter extends RecyclerView.Adapter<MyCmiActiv
     public MyCmiActivitySuggestAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType){
         View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.item_mycmi_activity_suggest, parent, false);
 
-        // FreeModeContentsListData 데이터 임시로 활용
-        ArrayList<Boolean> isFavorites = new ArrayList<>();
-        isFavorites.add(true);
-        isFavorites.add(true);
-        isFavorites.add(false);
-        isFavorites.add(false);
-
-        ArrayList<Boolean> isEnabled = new ArrayList<>();
-        isEnabled.add(false);
-        isEnabled.add(true);
-        isEnabled.add(true);
-        isEnabled.add(true);
+//        // FreeModeContentsListData 데이터 임시로 활용
+//        ArrayList<Boolean> isFavorites = new ArrayList<>();
+//        isFavorites.add(true);
+//        isFavorites.add(true);
+//        isFavorites.add(false);
+//        isFavorites.add(false);
+//
+//        ArrayList<Boolean> isEnabled = new ArrayList<>();
+//        isEnabled.add(false);
+//        isEnabled.add(true);
+//        isEnabled.add(true);
+//        isEnabled.add(true);
 
         data = new ContentsDetailData();
-        data.setActivity(isFavorites, isEnabled);
+        data.setActivity();
 
         return new ViewHolder(view);
     }

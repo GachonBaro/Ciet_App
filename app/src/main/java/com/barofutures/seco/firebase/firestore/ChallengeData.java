@@ -12,7 +12,9 @@ public class ChallengeData {
 
 
     public ChallengeData() {
-
+        super();
+        this.currentBadgeNum = 0;
+        this.isSucceed = false;
     }
 
     public ChallengeData(String startDate, String endDate, long maxBadgeNum, long additionalBadgeNum) {

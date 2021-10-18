@@ -1,5 +1,6 @@
 package com.barofutures.seco.fragments.freemode;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -14,6 +15,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.barofutures.seco.ChallengeSettingActivity;
 import com.barofutures.seco.R;
 import com.barofutures.seco.adapter.ChallengeRecommendationListAdapter;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -60,6 +62,8 @@ public class ChallengeFragment extends Fragment {
             public void onClick(View v) {
                 Toast.makeText(getContext(), "챌린지 생성 화면으로 이동", Toast.LENGTH_SHORT).show();
                 // TODO: 챌린지 생성으로 이동
+                Intent intent = new Intent(getContext(), ChallengeSettingActivity.class);
+                startActivity(intent);
             }
         });
 
@@ -70,8 +74,6 @@ public class ChallengeFragment extends Fragment {
     private void loadChallengeRecommendationData() {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference databaseReference = database.getReference();
-//        Map<String, Object> data = new HashMap<>();
-//        data.put("초급", "자전거|플로깅");
         databaseReference.child("challenge").child("recommendations").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -92,16 +94,5 @@ public class ChallengeFragment extends Fragment {
                 Log.e("ChallengeFragment", "일반식 데이터 불러오기 실패");
             }
         });
-//            @Override
-//            public void onComplete(@NonNull Task<DataSnapshot> task) {
-//                if (!task.isSuccessful()) {
-//                    Log.e("ChallengeFragment", "Error getting data", task.getException());
-//                } else {
-//                    Log.d("ChallengeFragment", String.valueOf(task.getResult().getValue()));
-//                    Map<String, Object> data = new HashMap<>();
-//                    data = task.getResult().getValue();
-//                }
-//            }
-//        });
     }
 }

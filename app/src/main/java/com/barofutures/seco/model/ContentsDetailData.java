@@ -10,11 +10,11 @@ public class ContentsDetailData {
     public ArrayList<String> title;            // title (ex. 비건식단)
     public ArrayList<String> activityNum;     // 뱃지를 얻을 수 있는 활동 횟수
     public ArrayList<String> badgeNum;          // 활동 1회 완료 시, 지급하는 뱃지 개수
-    public ArrayList<Boolean> isFavorites;     // 좋아요(즐겨찾기) 추가 유무
+//    public ArrayList<Boolean> isFavorites;     // 좋아요(즐겨찾기) 추가 유무
     public ArrayList<String> contents1;        // 활동 설명1 (굵은 글씨)
     public ArrayList<String> contents2;        // 활동 설명2 (얇은 글씨)
     public ArrayList<String> carbonReduction;  // 탄소 저감량
-    public ArrayList<Boolean> isEnabled;        // 활성화 유무
+//    public ArrayList<Boolean> isEnabled;        // 활성화 유무
 
 
     // eco activity 만 해당
@@ -25,16 +25,16 @@ public class ContentsDetailData {
         title = new ArrayList<>();
         activityNum = new ArrayList<>();
         badgeNum = new ArrayList<>();
-        isFavorites = new ArrayList<>();
+//        isFavorites = new ArrayList<>();
         contents1 = new ArrayList<>();
         contents2 = new ArrayList<>();
         carbonReduction = new ArrayList<>();
-        isEnabled = new ArrayList<>();
+//        isEnabled = new ArrayList<>();
         calorieConsumption = new ArrayList<>();
     }
 
     // eco meal data 설정 - item 5개
-    public void setMeal(ArrayList<Boolean> isFavorites, ArrayList<Boolean> isEnabled) {
+    public void setMeal() {
         // title
         title.add("채식 식단");
         title.add("유기농 농산물");
@@ -80,13 +80,13 @@ public class ContentsDetailData {
         carbonReduction.add("0.25kg");
 
         // 좋아요(즐겨찾기) 추가 유무
-        this.isFavorites = isFavorites;
+//        this.isFavorites = isFavorites;
         // 활성화 유무
-        this.isEnabled = isEnabled;
+//        this.isEnabled = isEnabled;
     }
 
     // eco activity data 설정
-    public void setActivity(ArrayList<Boolean> isFavorites, ArrayList<Boolean> isEnabled) {
+    public void setActivity() {
         // title
         title.add("걷기");
         title.add("자전거로 출퇴근");
@@ -137,13 +137,13 @@ public class ContentsDetailData {
 
 
         // 좋아요(즐겨찾기) 추가 유무
-        this.isFavorites = isFavorites;
+//        this.isFavorites = isFavorites;
         // 활성화 유무
-        this.isEnabled = isEnabled;
+//        this.isEnabled = isEnabled;
     }
 
     // eco quest data 설정
-    public void setQuest(ArrayList<Boolean> isFavorites, ArrayList<Boolean> isEnabled) {
+    public void setQuest() {
         // title
         title.add("올바른 재활용 배출");
         title.add("장바구니, 에코백 사용");
@@ -227,13 +227,13 @@ public class ContentsDetailData {
 
 
         // 좋아요(즐겨찾기) 추가 유무
-        this.isFavorites = isFavorites;
+//        this.isFavorites = isFavorites;
         // 활성화 유무
-        this.isEnabled = isEnabled;
+//        this.isEnabled = isEnabled;
     }
 
     // eco favorites data 설정
-    public void setFavorites(ArrayList<Boolean> isFavorites, ArrayList<Boolean> isEnabled) {
+    public void setFavorites() {
         // title
         title.add("걷기");
         title.add("자전거 타기");
@@ -271,9 +271,9 @@ public class ContentsDetailData {
 
 
         // 좋아요(즐겨찾기) 추가 유무
-        this.isFavorites = isFavorites;
+//        this.isFavorites = isFavorites;
         // 활성화 유무
-        this.isEnabled = isEnabled;
+//        this.isEnabled = isEnabled;
     }
 
     // getter
@@ -285,9 +285,9 @@ public class ContentsDetailData {
         return activityNum;
     }
 
-    public ArrayList<Boolean> getIsFavorites() {
-        return isFavorites;
-    }
+//    public ArrayList<Boolean> getIsFavorites() {
+//        return isFavorites;
+//    }
 
     public ArrayList<String> getContents1() {
         return contents1;
@@ -301,9 +301,9 @@ public class ContentsDetailData {
         return carbonReduction;
     }
 
-    public ArrayList<Boolean> getIsEnabled() {
-        return isEnabled;
-    }
+//    public ArrayList<Boolean> getIsEnabled() {
+//        return isEnabled;
+//    }
 
     public ArrayList<String> getCalorieConsumption() {
         return calorieConsumption;
