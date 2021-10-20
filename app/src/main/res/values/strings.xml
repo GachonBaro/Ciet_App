@@ -82,6 +82,9 @@
     <string name="challenge_off_progress_title">챌린지 진행 현황</string>
     <string name="challenge_off_progress_description">진행 중인 \'챌린지\'가 없어요!\n\'챌린지\' 시작하고\n추가 배지 받으세요:)</string>
     <string name="challenge_off_recommendation_title">난이도별 추천 챌린지</string>
+    
+    <string name="challenge_on_progress_title">챌린지 진행률</string>
+    <string name="challenge_on_activity_of_today_title">오늘의 활동</string>
 
     <!-- Challenge Setting Activity -->
     <string name="challenge_setting_appbar_title">챌린지 설정하기</string>

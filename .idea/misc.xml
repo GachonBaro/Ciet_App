@@ -42,13 +42,14 @@
         <entry key="app/src/main/res/layout/activity_walking_auth.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_camera_auth.xml" value="0.2518518518518518" />
         <entry key="app/src/main/res/layout/fragment_carbon_diet.xml" value="0.11574074074074074" />
-        <entry key="app/src/main/res/layout/fragment_challenge.xml" value="0.2180636831391422" />
+        <entry key="app/src/main/res/layout/fragment_challenge.xml" value="0.2625996302344833" />
         <entry key="app/src/main/res/layout/fragment_free_mode_activity.xml" value="0.23020833333333332" />
         <entry key="app/src/main/res/layout/fragment_free_mode_favorites.xml" value="0.2611111111111111" />
         <entry key="app/src/main/res/layout/fragment_free_mode_meal.xml" value="0.23020833333333332" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.23020833333333332" />
         <entry key="app/src/main/res/layout/fragment_recipe.xml" value="0.23020833333333332" />
         <entry key="app/src/main/res/layout/fragment_recipe_general.xml" value="0.20555555555555555" />
+        <entry key="app/src/main/res/layout/item_activity_of_today.xml" value="0.24427083333333333" />
         <entry key="app/src/main/res/layout/item_challenge_recommendation_list.xml" value="0.375" />
         <entry key="app/src/main/res/layout/item_contents_list.xml" value="0.2265625" />
         <entry key="app/src/main/res/layout/item_recipe_list.xml" value="0.2634983343492339" />
