@@ -12,15 +12,15 @@ public class UserInfoData {
     private String gender;          // 성별
     private String routineGoal;     // 루틴으로 달성하고 싶은 목표
     private String interestActivity;    // 하고 싶은 친환경 활동
-    private boolean isVegan;         // 비건 유무
-    private boolean isCarOwner;     // 자가용 이용 유무
+    private boolean vegan;         // 비건 유무
+    private boolean carOwner;     // 자가용 이용 유무
     private String activityDay;     // 활동 요일(루틴 실천이 가능한 요일 )
 
     // current state
     private String seti;            // 현재 SETI type
     private double carbonReductionAmount;   // 현재까지의 탄소 저감
     private long badgeNum;        // 현재 뱃지 개수
-    private boolean isChallengeMode;    // 현재 챌린지 모드를 진행하고 있는지 유무
+    private boolean challengeMode;    // 현재 챌린지 모드를 진행하고 있는지 유무
 
     public UserInfoData() {
 
@@ -36,18 +36,17 @@ public class UserInfoData {
         this.gender = "gender_NULL";
         this.routineGoal = "routineGoal_NULL";
         this.interestActivity = "interestActivity_NULL";
-        this.isVegan = false;
-        this.isCarOwner = false;
+        this.vegan = false;
+        this.carOwner = false;
         this.activityDay = "activityDay_NULL";
 
         this.seti = "SETI_NULL";
         this.carbonReductionAmount = 0;
         this.badgeNum = 0;
-        this.isChallengeMode = false;
+        this.challengeMode = false;
     }
 
     // getter, setter
-
 
     public String getUID() {
         return UID;
@@ -114,19 +113,19 @@ public class UserInfoData {
     }
 
     public boolean isVegan() {
-        return isVegan;
+        return vegan;
     }
 
     public void setVegan(boolean vegan) {
-        isVegan = vegan;
+        this.vegan = vegan;
     }
 
     public boolean isCarOwner() {
-        return isCarOwner;
+        return carOwner;
     }
 
     public void setCarOwner(boolean carOwner) {
-        isCarOwner = carOwner;
+        this.carOwner = carOwner;
     }
 
     public String getActivityDay() {
@@ -162,10 +161,10 @@ public class UserInfoData {
     }
 
     public boolean isChallengeMode() {
-        return isChallengeMode;
+        return challengeMode;
     }
 
     public void setChallengeMode(boolean challengeMode) {
-        isChallengeMode = challengeMode;
+        this.challengeMode = challengeMode;
     }
 }

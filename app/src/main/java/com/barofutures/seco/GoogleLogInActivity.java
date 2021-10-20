@@ -60,7 +60,7 @@ public class GoogleLogInActivity extends AppCompatActivity {
 //        readAndWriteUserData = new ReadAndWriteUserData(mDatabase, this);
 
         // Initialize ReadAndWriteUserInfoData
-        readAndWriteUserInfoData = new ReadAndWriteUserInfoData(this, GoogleLogInActivity.this);
+        readAndWriteUserInfoData = new ReadAndWriteUserInfoData(getApplicationContext(), GoogleLogInActivity.this);
 
 
         // Configure Google Sign In

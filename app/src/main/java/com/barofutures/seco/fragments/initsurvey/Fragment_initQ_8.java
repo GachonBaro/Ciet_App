@@ -92,8 +92,8 @@ public class Fragment_initQ_8 extends Fragment {
         batch.update(docRef, "gender", InitQnA.A1);
         batch.update(docRef, "routineGoal", InitQnA.A2);
         batch.update(docRef, "interestActivity", InitQnA.A3);
-        batch.update(docRef, "isVegan", InitQnA.A4);
-        batch.update(docRef, "isCarOwner", InitQnA.A5);
+        batch.update(docRef, "vegan", InitQnA.A4);
+        batch.update(docRef, "carOwner", InitQnA.A5);
         batch.update(docRef, "activityDay", InitQnA.A6);
         batch.update(docRef, "nickname", InitQnA.A7);
 

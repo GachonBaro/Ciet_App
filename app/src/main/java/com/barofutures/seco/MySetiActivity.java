@@ -104,6 +104,8 @@ public class MySetiActivity extends AppCompatActivity {
                         Log.d("MySetiActivity", "No such document");
                         // SETI 다시하기가 아니라 검사하기로 표시
                         retestButton.setText("SETI 검사하기");
+                        setiSummary.setText("SETI 데이터가 없습니다.");
+                        typeDescription.setText("SETI 데이터가 없습니다.\nSETI 테스트를 진행하세요.");
                     }
                 } else {
                     Log.d("MySetiActivity", "get failed with ", task.getException());

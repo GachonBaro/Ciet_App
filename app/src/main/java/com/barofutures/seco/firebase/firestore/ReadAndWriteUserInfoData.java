@@ -67,6 +67,7 @@ public class ReadAndWriteUserInfoData {
                         Intent intent = new Intent(context, SplashActivity.class);
                         intent.putExtra("nextActivity", "MainActivity");
                         intent.putExtra("email", email);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                         context.startActivity(intent);
                         googleLogInActivity.finish();
                     } else {
@@ -116,6 +117,7 @@ public class ReadAndWriteUserInfoData {
                 Intent intent = new Intent(context, SplashActivity.class);
                 intent.putExtra("nextActivity", "InitialSurveyIntroActivity");
                 intent.putExtra("email", email);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 context.startActivity(intent);
                 googleLogInActivity.finish();
             }
