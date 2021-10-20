@@ -8,6 +8,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
@@ -24,6 +25,17 @@ import android.widget.Toast;
 
 import com.barofutures.seco.firebase.firestore.ChallengeData;
 import com.barofutures.seco.model.ContentsDetailData;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.WriteBatch;
 import com.skydoves.powerspinner.IconSpinnerAdapter;
 import com.skydoves.powerspinner.IconSpinnerItem;
 import com.skydoves.powerspinner.OnSpinnerItemSelectedListener;
@@ -31,9 +43,12 @@ import com.skydoves.powerspinner.PowerSpinnerInterface;
 import com.skydoves.powerspinner.PowerSpinnerView;
 
 import java.lang.reflect.Array;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
@@ -45,7 +60,7 @@ public class ChallengeSettingActivity extends AppCompatActivity {
 
     // 날짜 선택
     private DatePickerDialog datePickerDialog;
-    private Calendar mCalendar;
+    private Calendar mCalendar;         // 시작일
     private Calendar minDate;           // 오늘 날짜
 
     // 활동 리스트
@@ -66,6 +81,8 @@ public class ChallengeSettingActivity extends AppCompatActivity {
     // 챌린지 설정 데이터
     private ChallengeData challengeData;
     private ArrayList<Map<String,ArrayList<String>>> activityList;      // key: 활동 이름, value: 활동 요일 arr
+    private Map<String, Object> activityByDay;      // 요일별 활동 리스트
+    private Map<String, Object> missionCompletion;       // 각 활동의 미션 완료 여부
 
     // 추가한 활동 개수
     private int activityNum;
@@ -277,28 +294,290 @@ public class ChallengeSettingActivity extends AppCompatActivity {
         createButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setDayDataByActivity();
-                challengeData.setMaxBadgeNum(calcMaxBadgeNum());
-                challengeData.setAdditionalBadgeNum((long) (challengeData.getMaxBadgeNum() * 0.1 * term));
+                Button button = (Button) v;
+                if (button.getText().equals("선택 완료")) {
+                    setDayDataByActivity();
+                    challengeData.setMaxBadgeNum(calcMaxBadgeNum());
+                    challengeData.setAdditionalBadgeNum((long) (challengeData.getMaxBadgeNum() * 0.1 * term));
 
-                badgeNumTextView.setText("X " + challengeData.getAdditionalBadgeNum() + "개");
-                badgeNumLayout.setVisibility(View.VISIBLE);
+                    badgeNumTextView.setText("X " + challengeData.getAdditionalBadgeNum() + "개");
+                    badgeNumLayout.setVisibility(View.VISIBLE);
+
+                    // activityByDay, missionCompletion 설정
+                    setActivityByDayAndMissionCompletion();
+
+                    createButton.setText("챌린지 만드는 중...");
+                    createButton.setBackgroundResource(R.drawable.button_initq_unchecked);
+                    createButton.setClickable(false);
+
+                    // 챌린지 데이터 firestore에 저장 & button UI 업데이트
+                    storeChallengeData();
+                }
+                else if (button.getText().equals("완료하기")) {
+                    Intent resultIntent = new Intent();
+                    resultIntent.putExtra("challengeMode", true);
+                    setResult(RESULT_OK, resultIntent);
+                    finish();
+                }
 
 
-                createButton.setText("챌린지 만드는 중...");
-                createButton.setBackgroundResource(R.drawable.button_initq_unchecked);
-                createButton.setClickable(false);
-
-                // 챌린지 데이터 firestore에 저장
-                storeChallengeData();
             }
         });
     }
 
     // 챌린지 데이터 firestore에 저장
     private void storeChallengeData() {
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        String email = user.getEmail();
+
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        CollectionReference ref = db.collection("users").document(email).collection("challenge");
+        DocumentReference challengeRef = ref.document(challengeData.getStartDate());
+
+        challengeRef.set(challengeData).addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void unused) {
+                Log.d("ChallengeSettingActivity", "DocumentSnapshot successfully written!");
+                storeActivityByDay(challengeRef);
+                switchChallengeModeOn();
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Log.w("ChallengeSettingActivity", "Error writing document", e);
+            }
+        });
 
     }
+
+    // challenge mode를 on(true)으로 바꿈
+    private void switchChallengeModeOn() {
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        String email = user.getEmail();
+
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        WriteBatch batch = db.batch();
+        CollectionReference ref = db.collection("users").document(email).collection("user_info");
+        DocumentReference currentRef = ref.document("current");
+
+        batch.update(currentRef, "challengeMode", true);
+
+        // Commit the batch
+        batch.commit().addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                Log.d("ChallengeSettingActivity", "init survey update completed!!");
+            }
+        });
+
+//        challengeRef.set(challengeData).addOnSuccessListener(new OnSuccessListener<Void>() {
+//            @Override
+//            public void onSuccess(Void unused) {
+//                Log.d("ChallengeSettingActivity", "DocumentSnapshot successfully written!");
+//                storeActivityByDay(challengeRef);
+//            }
+//        }).addOnFailureListener(new OnFailureListener() {
+//            @Override
+//            public void onFailure(@NonNull Exception e) {
+//                Log.w("ChallengeSettingActivity", "Error writing document", e);
+//            }
+//        });
+
+    }
+
+    // 요일별 활동 리스트 저장
+    private void storeActivityByDay(DocumentReference ref) {
+        DocumentReference activityByDayRef = ref.collection("activity_list").document("activity_by_day");
+        activityByDayRef.set(activityByDay).addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void unused) {
+                Log.d("ChallengeSettingActivity", "DocumentSnapshot successfully written!");
+                storeMissionCompletion(ref);
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Log.w("ChallengeSettingActivity", "Error writing document", e);
+            }
+        });
+    }
+
+    //각 활동의 미션 성공 여부 저장
+    private void storeMissionCompletion(DocumentReference ref) {
+        DocumentReference missionCompletionRef = ref.collection("activity_list").document("mission_completion");
+        missionCompletionRef.set(missionCompletion).addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void unused) {
+                Log.d("ChallengeSettingActivity", "DocumentSnapshot successfully written!");
+                updateNextButtonUI();
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Log.w("ChallengeSettingActivity", "Error writing document", e);
+            }
+        });
+    }
+
+    // 다음으로 버튼 활성화
+    private void updateNextButtonUI() {
+        createButton.setText("완료하기");
+        createButton.setBackgroundResource(R.drawable.bg_rounded_green);
+        createButton.setClickable(true);
+    }
+
+    // 요일별 활동 리스트 설정 & 각 활동의 미션 완료 여부 설정
+    private void setActivityByDayAndMissionCompletion() {
+        activityByDay = new HashMap<>();
+        missionCompletion = new HashMap<>();
+
+        ArrayList<String> sunStr = new ArrayList<>();
+        ArrayList<String> monStr = new ArrayList<>();
+        ArrayList<String> tueStr = new ArrayList<>();
+        ArrayList<String> wedStr = new ArrayList<>();
+        ArrayList<String> thuStr = new ArrayList<>();
+        ArrayList<String> friStr = new ArrayList<>();
+        ArrayList<String> satStr = new ArrayList<>();
+
+        ArrayList<Boolean> sunBool = new ArrayList<>();
+        ArrayList<Boolean> monBool = new ArrayList<>();
+        ArrayList<Boolean> tueBool = new ArrayList<>();
+        ArrayList<Boolean> wedBool = new ArrayList<>();
+        ArrayList<Boolean> thuBool = new ArrayList<>();
+        ArrayList<Boolean> friBool = new ArrayList<>();
+        ArrayList<Boolean> satBool = new ArrayList<>();
+
+        for (int i = 0; i < activityNum; i++) {
+
+            for (String key : activityList.get(i).keySet()) {
+                for (String day : activityList.get(i).get(key)) {
+                    if (day.equalsIgnoreCase("일")) {
+                        sunStr.add(key);
+                        sunBool.add(false);
+                    } else if (day.equalsIgnoreCase("월")) {
+                        monStr.add(key);
+                        monBool.add(false);
+                    } else if (day.equalsIgnoreCase("화")) {
+                        tueStr.add(key);
+                        tueBool.add(false);
+                    } else if (day.equalsIgnoreCase("수")) {
+                        wedStr.add(key);
+                        wedBool.add(false);
+                    } else if (day.equalsIgnoreCase("목")) {
+                        thuStr.add(key);
+                        thuBool.add(false);
+                    } else if (day.equalsIgnoreCase("금")) {
+                        friStr.add(key);
+                        friBool.add(false);
+                    } else if (day.equalsIgnoreCase("토")) {
+                        satStr.add(key);
+                        satBool.add(false);
+                    }
+                }
+
+            }
+        }
+
+//        activityByDay.put("일", sun.toArray(new String[sun.size()]));
+//        activityByDay.put("월", mon.toArray(new String[mon.size()]));
+//        activityByDay.put("화", tue.toArray(new String[tue.size()]));
+//        activityByDay.put("수", wed.toArray(new String[wed.size()]));
+//        activityByDay.put("목", thu.toArray(new String[thu.size()]));
+//        activityByDay.put("금", fri.toArray(new String[fri.size()]));
+//        activityByDay.put("토", sat.toArray(new String[sat.size()]));
+
+        activityByDay.put("일", sunStr);
+        activityByDay.put("월", monStr);
+        activityByDay.put("화", tueStr);
+        activityByDay.put("수", wedStr);
+        activityByDay.put("목", thuStr);
+        activityByDay.put("금", friStr);
+        activityByDay.put("토", satStr);
+
+        // 시작일이 무슨 요일인지
+//        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+//        Date date = null;
+//        try {
+//            date = format.parse(challengeData.getStartDate());
+//        } catch (ParseException e) {
+//            e.printStackTrace();
+//        }
+//        Calendar calendar = Calendar.getInstance();
+//        calendar.setTime(date);
+        int dayOfStartDate = mCalendar.get(Calendar.DAY_OF_WEEK);   // 시작일 요일 (int)
+
+        String myFormat = "yyyy-MM-dd";    // 출력형식
+        SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.KOREA);
+
+        Calendar temp = (Calendar) mCalendar.clone();
+        for (int i = dayOfStartDate; i < dayOfStartDate + term * 7; i++) {
+
+            switch (temp.get(Calendar.DAY_OF_WEEK)) {
+                case Calendar.SUNDAY:       //1
+                    missionCompletion.put(sdf.format(temp.getTime()), sunBool);
+                    break;
+                case Calendar.MONDAY:       //2
+                    missionCompletion.put(sdf.format(temp.getTime()), monBool);
+                    break;
+                case Calendar.TUESDAY:       //3
+                    missionCompletion.put(sdf.format(temp.getTime()), tueBool);
+                    break;
+                case Calendar.WEDNESDAY:       //4
+                    missionCompletion.put(sdf.format(temp.getTime()), wedBool);
+                    break;
+                case Calendar.THURSDAY:       //5
+                    missionCompletion.put(sdf.format(temp.getTime()), thuBool);
+                    break;
+                case Calendar.FRIDAY:       //6
+                    missionCompletion.put(sdf.format(temp.getTime()), friBool);
+                    break;
+                case Calendar.SATURDAY:       //7
+                    missionCompletion.put(sdf.format(temp.getTime()), satBool);
+                    break;
+            }
+            temp.add(Calendar.DATE, 1);     // 하루씩 더함
+        }
+
+//        missionCompletion.put("일", sunBool);
+//        missionCompletion.put("월", monBool);
+//        missionCompletion.put("화", tueBool);
+//        missionCompletion.put("수", wedBool);
+//        missionCompletion.put("목", thuBool);
+//        missionCompletion.put("금", friBool);
+//        missionCompletion.put("토", satBool);
+
+//        setMissionCompletion(sun.size(), mon.size(), tue.size(), wed.size(), thu.size(), fri.size(), sat.size());
+    }
+
+//    // 각 활동의 미션 완료 여부
+//    private void setMissionCompletion(int sunSize, int monSize, int tueSize, int wedSize, int thuSize, int friSize, int satSize) {
+//        missionCompletion = new HashMap<>();
+//
+//        ArrayList<Boolean> sun = new ArrayList<>();
+//        boolean[] sun = new boolean[sunSize];
+//        boolean[] mon = new boolean[monSize];
+//        boolean[] tue = new boolean[tueSize];
+//        boolean[] wed = new boolean[wedSize];
+//        boolean[] thu = new boolean[thuSize];
+//        boolean[] fri = new boolean[friSize];
+//        boolean[] sat = new boolean[satSize];
+//
+//        Arrays.fill(sun, false);
+//        Arrays.fill(mon, false);
+//        Arrays.fill(tue, false);
+//        Arrays.fill(wed, false);
+//        Arrays.fill(thu, false);
+//        Arrays.fill(fri, false);
+//        Arrays.fill(sat, false);
+//
+//        missionCompletion.put("일", sun);
+//        missionCompletion.put("월", mon);
+//        missionCompletion.put("화", tue);
+//        missionCompletion.put("수", wed);
+//        missionCompletion.put("목", thu);
+//        missionCompletion.put("금", fri);
+//        missionCompletion.put("토", sat);
+//    }
 
     // 최대로 얻을 수 있는 배지 개수 계산
     private long calcMaxBadgeNum() {
