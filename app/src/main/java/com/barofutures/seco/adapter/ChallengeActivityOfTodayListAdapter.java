@@ -1,6 +1,7 @@
 package com.barofutures.seco.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,7 +12,11 @@ import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.barofutures.seco.PhotoAuthActivity;
 import com.barofutures.seco.R;
+import com.barofutures.seco.SteppingAuthActivity;
+import com.barofutures.seco.WalkingAuthActivity;
+import com.barofutures.seco.model.ContentsDetailData;
 
 import org.w3c.dom.Text;
 
@@ -22,10 +27,15 @@ public class ChallengeActivityOfTodayListAdapter extends RecyclerView.Adapter<Ch
     Context mContext;
     ArrayList<String> activityData;
     ArrayList<Boolean> completionData;
+    ContentsDetailData activityListData;
 
     public ChallengeActivityOfTodayListAdapter(ArrayList<String> activityData, ArrayList<Boolean> completionData) {
         this.activityData = activityData;
         this.completionData = completionData;
+        activityListData = new ContentsDetailData();
+        activityListData.setMeal();
+        activityListData.setActivity();
+        activityListData.setQuest();
     }
 
     @NonNull
@@ -39,6 +49,8 @@ public class ChallengeActivityOfTodayListAdapter extends RecyclerView.Adapter<Ch
 
     @Override
     public void onBindViewHolder(@NonNull ChallengeActivityOfTodayListAdapter.ViewHolder holder, int position) {
+        int indexOfList = activityListData.title.indexOf(activityData.get(position));
+
         holder.name.setText(activityData.get(position));
 
         if (completionData.get(position)) {
@@ -52,8 +64,34 @@ public class ChallengeActivityOfTodayListAdapter extends RecyclerView.Adapter<Ch
             holder.layout.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    // TODO: 클릭하면 해당 활동 인증 activity로 이동
-
+                    // 걷기, 자전거로 출퇴근, 플로깅인 경우
+                    if (activityData.get(position).equalsIgnoreCase("걷기")
+                        ||activityData.get(position).equalsIgnoreCase("자전거로 출퇴근")
+                        ||activityData.get(position).equalsIgnoreCase("플로깅")){
+                        Intent authIntent = new Intent(mContext, WalkingAuthActivity.class);
+                        authIntent.putExtra("title", activityData.get(position));
+                        authIntent.putExtra("badgeCriteria", activityListData.activityNum.get(indexOfList));
+                        authIntent.putExtra("badgeNum", activityListData.badgeNum.get(indexOfList));
+                        authIntent.putExtra("carbonReduction", activityListData.carbonReduction.get(indexOfList));
+                        mContext.startActivity(authIntent);
+                    }
+                    // 계단 이용하기 인 경우
+                    else if (activityData.get(position).equalsIgnoreCase("계단 이용하기")) {
+                        Intent authIntent = new Intent(mContext, SteppingAuthActivity.class);
+                        authIntent.putExtra("title", activityData.get(position));
+                        authIntent.putExtra("badgeCriteria", activityListData.activityNum.get(indexOfList));
+                        authIntent.putExtra("badgeNum", activityListData.badgeNum.get(indexOfList));
+                        authIntent.putExtra("carbonReduction", activityListData.carbonReduction.get(indexOfList));
+                        mContext.startActivity(authIntent);
+                    }
+                    // 나머지 사진 인증하는 활동인 경우
+                    else {
+                        Intent authIntent = new Intent(mContext, PhotoAuthActivity.class);
+                        authIntent.putExtra("title", activityData.get(position));
+                        authIntent.putExtra("badgeNum", activityListData.badgeNum.get(indexOfList));
+                        authIntent.putExtra("carbonReduction", activityListData.carbonReduction.get(indexOfList));
+                        mContext.startActivity(authIntent);
+                    }
                 }
             });
         }
