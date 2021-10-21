@@ -211,12 +211,18 @@ public class AuthCompletionActivity extends AppCompatActivity {
                 Map<String, Object> data = dataDoc.getData();
                 Log.d("AuthCompletionActivity", "data===" + data.toString());
                 Log.d("AuthCompletionActivity", "id===" + dataDoc.getId());
-                // 배지 수 업데이트, 진행률이 90% 이상이면 succeed 업데이트하고 challenge mode off로 변경
-                //TODO: 하는 중
-                updateChallengeData(dataDoc.getId());
+                // 진행률이 90% 이상이면 succeed 업데이트
+                long currentBadgeNum = (long) data.get("currentBadgeNum");
+                long maxBadgeNum = (long) data.get("maxBadgeNum");
+                double progressValue = (double) currentBadgeNum / maxBadgeNum;
+                Log.d("123123123", "progressValue = " + progressValue);
+                if (progressValue >= 0.9) {
+                    Log.d("123123123", "progressValue = " + progressValue);
+                    updateChallengeSucceed(dataDoc.getId());
+                }
 
-                // TODO: 버튼 UI 업데이트 -> 여기 말고 다른 곳에서!!!!!!!
-//                updateButtonUI();
+                // 배지 수 업데이트
+                updateChallengeData(dataDoc.getId());
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override
@@ -227,8 +233,25 @@ public class AuthCompletionActivity extends AppCompatActivity {
     }
 
     /*
-     *챌린지 중인 경우, 배지 수, 미션 완료(mission_completion) 업데이트 ( 진행률이 90% 이상이면 succeed 업데이트 + challenge mode off로 변경)
+     *챌린지 중인 경우, 배지 수, 미션 완료(mission_completion) 업데이트 ( 진행률이 90% 이상이면 succeed 업데이트)
      */
+
+    // 챌린지 성공 여부 (succeed) 업데이트
+    private void updateChallengeSucceed(String key) {
+        WriteBatch batch = db.batch();
+
+        CollectionReference ref = db.collection("users").document(userEmail).collection("challenge");
+        DocumentReference listRef = ref.document(key);
+
+        batch.update(listRef, "succeed", true);
+        // Commit the batch
+        batch.commit().addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                Log.d("AuthCompletionActivity", "challenge data(succeed) update completed!!");
+            }
+        });
+    }
 
     // challenge - currentBadgeNum 업데이트
     private void updateChallengeData(String key) {
@@ -287,7 +310,6 @@ public class AuthCompletionActivity extends AppCompatActivity {
         });
     }
 
-    // TODO: 여기 하는 중
     // 미션 완료(mission_completion) 업데이트
     private void updateChallengeMissionCompletion(String key, int index, ArrayList<Boolean> todayCompletionData) {
         ArrayList<Boolean> updateData = (ArrayList<Boolean>) todayCompletionData.clone();
