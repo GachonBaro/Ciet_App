@@ -99,7 +99,9 @@ public class ChallengeActivityOfTodayListAdapter extends RecyclerView.Adapter<Ch
 
     @Override
     public int getItemCount() {
-        return activityData.size();
+        if (completionData == null)
+            return 0;
+        return completionData.size();
     }
 
     class ViewHolder extends RecyclerView.ViewHolder {

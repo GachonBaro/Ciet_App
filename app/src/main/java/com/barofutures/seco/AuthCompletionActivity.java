@@ -212,12 +212,12 @@ public class AuthCompletionActivity extends AppCompatActivity {
                 Log.d("AuthCompletionActivity", "data===" + data.toString());
                 Log.d("AuthCompletionActivity", "id===" + dataDoc.getId());
                 // 진행률이 90% 이상이면 succeed 업데이트
-                long currentBadgeNum = (long) data.get("currentBadgeNum");
+                long currentBadgeNum = (long) data.get("currentBadgeNum") + Long.parseLong(badgeNum);
                 long maxBadgeNum = (long) data.get("maxBadgeNum");
                 double progressValue = (double) currentBadgeNum / maxBadgeNum;
-                Log.d("123123123", "progressValue = " + progressValue);
+                Log.d("AuthCompletionActivity", "progressValue = " + progressValue);
                 if (progressValue >= 0.9) {
-                    Log.d("123123123", "progressValue = " + progressValue);
+                    Log.d("AuthCompletionActivity", "progressValue = " + progressValue);
                     updateChallengeSucceed(dataDoc.getId());
                 }
 

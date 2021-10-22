@@ -2,12 +2,16 @@ package com.barofutures.seco.fragments.freemode;
 
 import static android.app.Activity.RESULT_OK;
 
+import android.bluetooth.le.ScanSettings;
 import android.content.Intent;
+import android.media.Image;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -19,10 +23,12 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.barofutures.seco.ChallengeSettingActivity;
+import com.barofutures.seco.MainActivity;
 import com.barofutures.seco.R;
 import com.barofutures.seco.adapter.ChallengeActivityOfTodayListAdapter;
 import com.barofutures.seco.adapter.ChallengeRecommendationListAdapter;
 import com.barofutures.seco.firebase.firestore.UserInfoData;
+import com.barofutures.seco.progress.ProgressButton;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -37,9 +43,11 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QuerySnapshot;
+import com.google.firebase.firestore.WriteBatch;
 import com.skydoves.progressview.ProgressView;
 
 import org.jetbrains.annotations.NotNull;
@@ -79,6 +87,20 @@ public class ChallengeFragment extends Fragment {
 
     private RecyclerView onActivityOfTodayRecyclerView;
     private ChallengeActivityOfTodayListAdapter activityOfTodayListAdapter;
+
+    /*
+     * Challenge Finish
+     */
+
+    private ConstraintLayout finishProgressLayout;
+    private TextView finishTextView;
+
+    private ConstraintLayout finishBadgeNumLayout;
+    private TextView finishBadgeNumTextView;
+
+    private ImageView finishOtterImageView;
+    private View finishSuccessButton;
+    private View finishFailButton;
 
 
     public ChallengeFragment() {
@@ -139,6 +161,42 @@ public class ChallengeFragment extends Fragment {
         obtainedBadgeNumTextView = view.findViewById(R.id.fragment_challenge_on_progress_degree_obtained_badge_num_text_view);
         onActivityOfTodayRecyclerView = view.findViewById(R.id.fragment_challenge_on_activity_of_today_recycler_view);
 
+
+
+        /*
+         * Challenge Finish
+         */
+
+        finishProgressLayout = view.findViewById(R.id.fragment_challenge_finish_main_layout);
+        finishTextView = view.findViewById(R.id.fragment_challenge_finish_text_view);
+        finishOtterImageView = view.findViewById(R.id.fragment_challenge_finish_otter_image_view);
+
+        finishBadgeNumLayout = view.findViewById(R.id.fragment_challenge_finish_badge_num_layout);
+        finishBadgeNumTextView = view.findViewById(R.id.activity_challenge_finish_badge_num_text_view);
+
+
+        finishSuccessButton = view.findViewById(R.id.fragment_challenge_success_button);
+        finishFailButton = view.findViewById(R.id.fragment_challenge_fail_button);
+
+        finishSuccessButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final ProgressButton progressButton = new ProgressButton(getContext(), view);
+                progressButton.buttonActivated(true);
+                // 배지 지급하고 challenge mode false로 변경
+                getAdditionalBadgeNum(progressButton);
+            }
+        });
+
+        finishFailButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final ProgressButton progressButton = new ProgressButton(getContext(), view);
+                progressButton.buttonActivated(false);
+                updateChallengeModeFalse(false, 0, progressButton);     // challenge mode - false로 변경
+            }
+        });
+
     }
 
     @Override
@@ -155,6 +213,51 @@ public class ChallengeFragment extends Fragment {
         }
     }
 
+    // challenge mode를 false로 바꿈
+    private void updateChallengeModeFalse(boolean badgeNumUpdate, long additionalBadgeNum, ProgressButton button) {
+        WriteBatch batch = db.batch();
+        CollectionReference ref = db.collection("users").document(email).collection("user_info");
+        DocumentReference currentRef = ref.document("current");
+
+        // 배지 수 업데이트가 필요한 경우만
+        if (badgeNumUpdate) {
+            batch.update(currentRef, "badgeNum", FieldValue.increment(additionalBadgeNum));
+        }
+
+        batch.update(currentRef, "challengeMode", false);
+        // Commit the batch
+        batch.commit().addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                Log.d("ChallengeFragment", "updateChallengeModeFalse() update completed!!");
+                button.buttonFinished();
+                setLayout();
+            }
+        });
+    }
+
+    // 완료(성공)된 챌린지의 추가 배지 수 데이터 가져오기
+    private void getAdditionalBadgeNum(ProgressButton button) {
+        CollectionReference ref = db.collection("users").document(email).collection("challenge");
+        ref.orderBy("startDate", Query.Direction.DESCENDING).limit(1)
+                .get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+            @Override
+            public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+                DocumentSnapshot dataDoc = queryDocumentSnapshots.getDocuments().get(0);
+                Map<String, Object> data = dataDoc.getData();
+                Log.d("ChallengeFragment", "data===" + data.toString());
+                Log.d("ChallengeFragment", "id===" + dataDoc.getId());
+
+                updateChallengeModeFalse(true, (Long) data.get("additionalBadgeNum"), button);
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Log.w("ChallengeFragment", e.toString());
+            }
+        });
+    }
+
     // 유저의 챌린지 데이터를 받아옴
     private void getChallengeData() {
         CollectionReference ref = db.collection("users").document(email).collection("challenge");
@@ -166,8 +269,20 @@ public class ChallengeFragment extends Fragment {
                 Map<String, Object> data = dataDoc.getData();
                 Log.d("ChallengeFragment", "data===" + data.toString());
                 Log.d("ChallengeFragment", "id===" + dataDoc.getId());
-                getActivityOfTodayData(dataDoc.getId());
-                updateProgressUI(Float.valueOf(data.get("currentBadgeNum").toString()), Float.valueOf(data.get("maxBadgeNum").toString()));
+
+                // succeed=true 이면 'finish'로
+                if ((boolean)data.get("succeed")) {
+                    updateUI("finished_succeed");
+                    updateFinishBadgeNumUI((Long) data.get("additionalBadgeNum"));
+//                    updateChallengeModeFalse();
+                } else if (data.get("endDate").toString().compareToIgnoreCase(getDateOfToday()) < 0) {      // end_date < 오늘 날짜 이면 'finish'로
+                    updateUI("finished_fail");
+//                    updateChallengeModeFalse();
+                } else {        // 'in progress'인 경우
+                    updateUI("progress");
+                    getActivityOfTodayData(dataDoc.getId());
+                    updateProgressUI(Float.valueOf(data.get("currentBadgeNum").toString()), Float.valueOf(data.get("maxBadgeNum").toString()));
+                }
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override
@@ -187,8 +302,13 @@ public class ChallengeFragment extends Fragment {
         float progressValue = getProgressValue(currentNum, maxNum);
         progressDegreeTextView.setText(String.format("%.1f", progressValue) + "%");
         challengeProgressView.setProgress(progressValue);
-        challengeProgressView.setLabelText(progressValue + "%");
+        challengeProgressView.setLabelText(String.format("%.1f", progressValue) + "%");
         obtainedBadgeNumTextView.setText("획득한 배지 " + String.format("%d", (int) currentNum) + "개");
+    }
+
+    // challenge mode = 'finish'인 경우, 추가 배지 수 ui 업데이트
+    private void updateFinishBadgeNumUI(Long additionalBadgeNum) {
+        finishBadgeNumTextView.setText(" X " + additionalBadgeNum.toString() + "개");
     }
 
     // 오늘의 활동 데이터를 받아옴 (activity_by_day, mission_completion)
@@ -218,26 +338,6 @@ public class ChallengeFragment extends Fragment {
                 activityOfTodayListAdapter.notifyDataSetChanged();
             }
         });
-
-//        listRef.document("activity_by_day").get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-//            @Override
-//            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-//                Map<String, Object> data = task.getResult().getData();
-//                Log.d("ChallengeFragment", "activity_by_day, data===" + data.toString());
-//
-//                // TODO: 받아온 데이터로 UI 업데이트
-//            }
-//        });
-//
-//        listRef.document("mission_completion").get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-//            @Override
-//            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-//                Map<String, Object> data = task.getResult().getData();
-//                Log.d("ChallengeFragment", "mission_completion, data===" + data.toString());
-//                // TODO: 받아온 데이터로 UI 업데이트
-//
-//            }
-//        });
     }
 
     // 오늘 날짜 반환
@@ -279,7 +379,7 @@ public class ChallengeFragment extends Fragment {
         return day;
     }
 
-    // 현재 챌린지 모드를 실행 중인지 데이터를 가져와서 챌린지 모드 On/off에 맞게 화면 보여줌
+    // 현재 챌린지 모드를 실행 중인지 데이터를 가져와서 챌린지 모드 On(in progress, finished)/off에 맞게 화면 보여줌
     private void setLayout() {
         CollectionReference ref = db.collection("users").document(email).collection("user_info");
         DocumentReference currentRef = ref.document("current");
@@ -294,15 +394,12 @@ public class ChallengeFragment extends Fragment {
                         Map<String, Object> currentData = document.getData();
                         if ((Boolean) currentData.get("challengeMode")) {       // challenge mode 이면
                             Log.d("ChallengeFragment", "true: " + currentData.get("challengeMode"));
-                            offProgressLayout.setVisibility(View.INVISIBLE);
-                            onProgressLayout.setVisibility(View.VISIBLE);
 
                             // 해당 유저의 챌린지 데이터를 받아옴
                             getChallengeData();
                         } else {            // challenge mode 가 아니면
                             Log.d("ChallengeFragment", "false: " + currentData.get("challengeMode"));
-                            offProgressLayout.setVisibility(View.VISIBLE);
-                            onProgressLayout.setVisibility(View.INVISIBLE);
+                            updateUI("off");
                         }
                     } else {
                         Log.d("ChallengeFragment", "No such document");
@@ -312,6 +409,39 @@ public class ChallengeFragment extends Fragment {
                 }
             }
         });
+    }
+
+    // change UI (challenge off, on(in progress), on(finished))
+    private void updateUI (String mode) {
+        if (mode.equalsIgnoreCase("off")) {
+            offProgressLayout.setVisibility(View.VISIBLE);
+            onProgressLayout.setVisibility(View.INVISIBLE);
+            finishProgressLayout.setVisibility(View.INVISIBLE);
+        } else if (mode.equalsIgnoreCase("progress")) {
+            offProgressLayout.setVisibility(View.INVISIBLE);
+            onProgressLayout.setVisibility(View.VISIBLE);
+            finishProgressLayout.setVisibility(View.INVISIBLE);
+        } else if (mode.equalsIgnoreCase("finished_succeed")) {
+            offProgressLayout.setVisibility(View.INVISIBLE);
+            onProgressLayout.setVisibility(View.INVISIBLE);
+            finishProgressLayout.setVisibility(View.VISIBLE);
+
+            finishTextView.setText("챌린지 성공!");
+            finishOtterImageView.setImageResource(R.drawable.img_otter_happy);
+            finishBadgeNumLayout.setVisibility(View.VISIBLE);
+            finishSuccessButton.setVisibility(View.VISIBLE);
+            finishFailButton.setVisibility(View.INVISIBLE);
+        }  else if (mode.equalsIgnoreCase("finished_fail")) {
+            offProgressLayout.setVisibility(View.INVISIBLE);
+            onProgressLayout.setVisibility(View.INVISIBLE);
+            finishProgressLayout.setVisibility(View.VISIBLE);
+            
+            finishTextView.setText("챌린지 실패...");
+            finishOtterImageView.setImageResource(R.drawable.img_otter_gloomy);
+            finishBadgeNumLayout.setVisibility(View.INVISIBLE);
+            finishSuccessButton.setVisibility(View.INVISIBLE);
+            finishFailButton.setVisibility(View.VISIBLE);
+        }
     }
 
     // Firebase(realtime)에서 난이도별 추천 챌린지 데이터 받아오기
