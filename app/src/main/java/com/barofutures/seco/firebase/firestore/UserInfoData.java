@@ -19,8 +19,9 @@ public class UserInfoData {
     // current state
     private String seti;            // 현재 SETI type
     private double carbonReductionAmount;   // 현재까지의 탄소 저감
-    private long badgeNum;        // 현재 뱃지 개수
+    private long badgeNum;        // 현재 배지 개수
     private boolean challengeMode;    // 현재 챌린지 모드를 진행하고 있는지 유무
+    private long donationBadgeNum;      // 기부한 배지 개수
 
     public UserInfoData() {
 
@@ -44,6 +45,7 @@ public class UserInfoData {
         this.carbonReductionAmount = 0;
         this.badgeNum = 0;
         this.challengeMode = false;
+        this.donationBadgeNum = 0;
     }
 
     // getter, setter
@@ -166,5 +168,13 @@ public class UserInfoData {
 
     public void setChallengeMode(boolean challengeMode) {
         this.challengeMode = challengeMode;
+    }
+
+    public long getDonationBadgeNum() {
+        return donationBadgeNum;
+    }
+
+    public void setDonationBadgeNum(long donationBadgeNum) {
+        this.donationBadgeNum = donationBadgeNum;
     }
 }
