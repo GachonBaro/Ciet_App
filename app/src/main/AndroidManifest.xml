@@ -65,9 +65,6 @@
             android:name=".AuthorizeActivity"
             android:exported="true" />
         <activity
-            android:name=".freeModeStatusActivity"
-            android:exported="true" />
-        <activity
             android:name=".FreeModeContentsDetailsActivity"
             android:exported="true"
             android:label="@string/title_activity_free_mode_contents_details"
