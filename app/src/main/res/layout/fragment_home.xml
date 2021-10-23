@@ -4,636 +4,403 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@android:color/white"
     android:orientation="vertical"
-    android:background="@color/seco_background"
-    tools:context=".fragments.Fragment_Home"
-    android:overScrollMode="never">
+    android:overScrollMode="never"
+    tools:context=".fragments.Fragment_Home">
 
-    <RelativeLayout
-        android:id="@+id/fragment_home_root_relative_layout"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:paddingBottom="50dp">
 
-        <RelativeLayout
-            android:id="@+id/home_constraintlayout_banner"
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/fragment_home_my_activity_title_text_view"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true">
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/noto_sans_cjk_kr_bold"
+            android:includeFontPadding="false"
+            android:text="@string/home_my_activity_title"
+            android:textColor="@android:color/black"
+            android:textSize="22sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="MissingConstraints" />
 
-            <androidx.viewpager2.widget.ViewPager2
-                android:id="@+id/home_viewpager2_banner"
-                android:layout_width="match_parent"
-                android:layout_height="200dp"
-                tools:ignore="MissingConstraints"></androidx.viewpager2.widget.ViewPager2>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/fragment_home_my_activity_layout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/bg_white_corner_radius_7dp"
+            android:elevation="10dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/fragment_home_my_activity_title_text_view"
+            tools:ignore="MissingConstraints">
 
             <View
-                android:id="@+id/viewFadingEdge"
-                android:layout_width="match_parent"
-                android:layout_height="55dp"
-                android:layout_alignBottom="@id/home_viewpager2_banner"
-                android:background="@drawable/bg_fading_edge" />
+                android:id="@+id/fragment_home_my_activity_line_horizontal"
+                android:layout_width="0dp"
+                android:layout_height="2dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="85dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="85dp"
+                android:background="@color/seco_lightgray"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="MissingConstraints" />
 
-            <LinearLayout
-                android:id="@+id/home_banner_indicator"
+            <View
+                android:id="@+id/fragment_home_my_activity_line_vertical"
+                android:layout_width="2dp"
+                android:layout_height="0dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="@color/seco_lightgray"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="MissingConstraints" />
+
+            <TextView
+                android:id="@+id/fragment_home_my_activity_holding_badge_num_title_text_view"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignBottom="@id/home_viewpager2_banner"
-                android:layout_centerHorizontal="true"
-                android:gravity="center"
-                android:orientation="horizontal"
-                android:paddingBottom="8dp" />
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/noto_sans_cjk_kr_bold"
+                android:includeFontPadding="false"
+                android:text="@string/home_holding_badge_num_title"
+                android:textColor="@android:color/black"
+                android:textSize="16sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="MissingConstraints" />
 
-        </RelativeLayout>
+            <TextView
+                android:id="@+id/fragment_home_my_activity_holding_badge_num_value_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/noto_sans_cjk_kr_bold"
+                android:includeFontPadding="false"
+                android:text="_개"
+                android:textColor="@color/seco_green"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toTopOf="@id/fragment_home_my_activity_line_horizontal"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@id/fragment_home_my_activity_line_vertical"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="MissingConstraints" />
 
+            <TextView
+                android:id="@+id/fragment_home_my_activity_carbon_reduction_title_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/noto_sans_cjk_kr_bold"
+                android:includeFontPadding="false"
+                android:text="@string/home_carbon_reduction_num_title"
+                android:textColor="@android:color/black"
+                android:textSize="16sp"
+                app:layout_constraintLeft_toRightOf="@id/fragment_home_my_activity_line_vertical"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="MissingConstraints" />
 
-        <ScrollView
-            android:id="@+id/home_content"
+            <TextView
+                android:id="@+id/fragment_home_my_activity_carbon_reduction_value_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/noto_sans_cjk_kr_bold"
+                android:includeFontPadding="false"
+                android:text="_.___kg"
+                android:textColor="@color/seco_green"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toTopOf="@id/fragment_home_my_activity_line_horizontal"
+                app:layout_constraintLeft_toLeftOf="@id/fragment_home_my_activity_line_vertical"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="MissingConstraints" />
+
+            <TextView
+                android:id="@+id/fragment_home_my_activity_donation_badge_num_title_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/noto_sans_cjk_kr_bold"
+                android:includeFontPadding="false"
+                android:text="@string/home_donation_badge_num_title"
+                android:textColor="@android:color/black"
+                android:textSize="16sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/fragment_home_my_activity_line_horizontal"
+                tools:ignore="MissingConstraints" />
+
+            <TextView
+                android:id="@+id/fragment_home_my_activity_donation_badge_num_value_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/noto_sans_cjk_kr_bold"
+                android:includeFontPadding="false"
+                android:text="_개"
+                android:textColor="@color/seco_green"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@id/fragment_home_my_activity_line_vertical"
+                app:layout_constraintTop_toBottomOf="@id/fragment_home_my_activity_line_horizontal"
+                tools:ignore="MissingConstraints" />
+
+            <TextView
+                android:id="@+id/fragment_home_my_activity_my_seti_type_title_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/noto_sans_cjk_kr_bold"
+                android:includeFontPadding="false"
+                android:text="@string/home_my_seti_title"
+                android:textColor="@android:color/black"
+                android:textSize="16sp"
+                app:layout_constraintLeft_toRightOf="@id/fragment_home_my_activity_line_vertical"
+                app:layout_constraintTop_toBottomOf="@id/fragment_home_my_activity_line_horizontal"
+                tools:ignore="MissingConstraints" />
+
+            <TextView
+                android:id="@+id/fragment_home_my_activity_my_seti_type_value_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/noto_sans_cjk_kr_bold"
+                android:includeFontPadding="false"
+                android:text="___"
+                android:textColor="@color/seco_green"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="@id/fragment_home_my_activity_line_vertical"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="@id/fragment_home_my_activity_line_horizontal"
+                tools:ignore="MissingConstraints" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/fragment_home_ai_recommendation_activity_title_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/noto_sans_cjk_kr_bold"
+            android:includeFontPadding="false"
+            android:text="@string/home_ai_recommendation_activity_title"
+            android:textColor="@android:color/black"
+            android:textSize="22sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/fragment_home_my_activity_layout"
+            tools:ignore="MissingConstraints" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/fragment_home_ai_recommendation_activity_recycler_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/home_constraintlayout_banner"
-            android:background="@android:color/transparent"
-            android:scrollbars="none">
+            android:layout_marginTop="10dp"
+            android:overScrollMode="never"
+            app:layout_constraintTop_toBottomOf="@id/fragment_home_ai_recommendation_activity_title_text_view"
+            tools:ignore="MissingConstraints" />
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/home_scroll_info_cards"
+        <TextView
+            android:id="@+id/fragment_home_seti_recommendation_activity_title_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/noto_sans_cjk_kr_bold"
+            android:includeFontPadding="false"
+            android:text="___ 유형 추천 활동"
+            android:textColor="@android:color/black"
+            android:textSize="22sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/fragment_home_ai_recommendation_activity_recycler_view"
+            tools:ignore="MissingConstraints" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/fragment_home_seti_recommendation_activity_contents"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/fragment_home_seti_recommendation_activity_title_text_view"
+            tools:ignore="MissingConstraints">
+
+            <TextView
+                android:id="@+id/fragment_home_seti_recommendation_activity_null_text"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="20dp"
+                android:fontFamily="@font/notosansregular"
+                android:includeFontPadding="false"
+                android:text="SETI 테스트를 하시면 자신의 유형에 맞는 활동을 추천받을 수 있어요!"
+                android:textColor="@android:color/black"
+                android:textSize="15sp"
+                android:visibility="visible"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="MissingConstraints" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/fragment_home_seti_recommendation_activity_recycler_view"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:layout_marginTop="10dp"
+                android:overScrollMode="never"
+                android:visibility="gone"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="MissingConstraints" />
 
-                <RelativeLayout
-                    android:id="@+id/home_relativelayout_mode"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentStart="true"
-                    android:layout_marginLeft="25dp"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginRight="25dp"
-                    android:layout_marginBottom="25dp"
-                    android:background="@drawable/item_white_rounded_background"
-                    android:paddingLeft="25dp"
-                    android:paddingTop="15dp"
-                    android:paddingRight="25dp"
-                    android:paddingBottom="15dp"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_chainStyle="packed">
-
-                    <TextView
-                        android:id="@+id/home_text_current_mode"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginBottom="10dp"
-                        android:fontFamily="@font/noto_sans_cjk_kr_bold"
-                        android:gravity="center"
-                        android:includeFontPadding="false"
-                        android:text="모드 준비중입니다."
-                        android:textColor="@color/black"
-                        android:textSize="16sp" />
-
-                    <com.kyleduo.switchbutton.SwitchButton
-                        android:id="@+id/home_button_set_mode"
-                        android:layout_width="82dp"
-                        android:layout_height="34dp"
-                        android:layout_alignParentTop="true"
-                        android:layout_alignParentRight="true"
-                        android:layout_centerVertical="true"
-                        android:layout_marginRight="5dp"
-                        android:fontFamily="@font/noto_sans_cjk_kr_bold"
-                        android:textColor="@color/white"
-                        android:textSize="12sp"
-                        app:kswTextOff="OFF  "
-                        app:kswTextOn="ON   "
-                        app:kswThumbMargin="5dp" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-                </RelativeLayout>
+        <TextView
+            android:id="@+id/fragment_home_donation_title_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/noto_sans_cjk_kr_bold"
+            android:includeFontPadding="false"
+            android:text="@string/home_donation_title"
+            android:textColor="@android:color/black"
+            android:textSize="22sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/fragment_home_seti_recommendation_activity_contents"
+            tools:ignore="MissingConstraints" />
 
-                <RelativeLayout
-                    android:id="@+id/home_info_card_progress_free_mode"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentTop="true"
-                    android:layout_marginLeft="25dp"
-                    android:layout_marginTop="25dp"
-                    android:layout_marginRight="25dp"
-                    android:background="@drawable/item_white_rounded_background"
-                    android:padding="25dp"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/home_relativelayout_mode">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/fragment_home_donation_layout"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/bg_white_corner_radius_7dp"
+            android:elevation="10dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/fragment_home_donation_title_text_view"
+            tools:ignore="MissingConstraints">
 
-                    <RelativeLayout
-                        android:id="@+id/home_info_card_progress_free_mode_titleline"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="-10dp"
-                        android:orientation="horizontal">
+            <ImageView
+                android:id="@+id/fragment_home_donation_badge_image_view"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="10dp"
+                android:src="@drawable/ic_badge_green"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@id/fragment_home_donation_input_edit_text"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="MissingConstraints" />
 
-                        <TextView
-                            android:id="@+id/home_info_progress_free_mode_title"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/noto_sans_cjk_kr_bold"
-                            android:gravity="center_vertical"
-                            android:text="진행상황"
-                            android:textColor="@color/black"
-                            android:textSize="16sp" />
+            <EditText
+                android:id="@+id/fragment_home_donation_input_edit_text"
+                android:layout_width="140dp"
+                android:layout_height="25dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="15dp"
+                android:background="@drawable/bg_rounded_lightgray"
+                android:fontFamily="@font/notosansregular"
+                android:hint="@string/home_donation_input_hint"
+                android:includeFontPadding="false"
+                android:inputType="number"
+                android:paddingLeft="10dp"
+                android:textAlignment="textStart"
+                android:textColor="@color/seco_tooltipgray"
+                android:textSize="13sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toRightOf="@id/fragment_home_donation_badge_image_view"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="MissingConstraints" />
 
-                        <TextView
-                            android:id="@+id/home_text_progress_free_mode_more"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentRight="true"
-                            android:layout_alignParentBottom="true"
-                            android:layout_centerVertical="true"
-                            android:layout_marginBottom="6dp"
-                            android:drawableRight="@drawable/button_arrow"
-                            android:fontFamily="@font/notosansregular"
-                            android:text="더보기   "
-                            android:textColor="@color/seco_deepgray"
-                            android:textSize="14sp" />
+            <TextView
+                android:id="@+id/fragment_home_donation_amount_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:fontFamily="@font/notosansregular"
+                android:includeFontPadding="false"
+                android:text="개"
+                android:textColor="@android:color/black"
+                android:textSize="15sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toRightOf="@id/fragment_home_donation_input_edit_text"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="MissingConstraints" />
 
-                    </RelativeLayout>
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/fragment_home_donation_progress_button"
+                android:layout_width="100dp"
+                android:layout_height="35dp"
+                android:layout_marginRight="15dp"
+                android:background="@drawable/button_rounded_green"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="MissingConstraints">
 
-                    <RelativeLayout
-                        android:id="@+id/home_info_card_progress_free_mode_container_challenge"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@id/home_info_card_progress_free_mode_titleline"
-                        android:layout_marginBottom="10dp">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/notosansregular"
-                            android:text="용기내 챌린지"
-                            android:textColor="@color/black"
-                            android:textSize="14sp" />
-
-                        <TextView
-                            android:id="@+id/home_info_card_progress_free_mode_container_challenge_number"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentRight="true"
-                            android:fontFamily="@font/notosansregular"
-                            android:text="(0/1)"
-                            android:textColor="@color/seco_deepgray"
-                            android:textSize="11sp" />
-
-                        <com.skydoves.progressview.ProgressView
-                            android:id="@+id/home_info_card_progress_free_mode_container_challenge_progressbar"
-                            android:layout_width="match_parent"
-                            android:layout_height="21dp"
-                            android:layout_below="@id/home_info_card_progress_free_mode_container_challenge_number"
-                            app:progressView_autoAnimate="true"
-                            app:progressView_colorBackground="@color/seco_gray"
-                            app:progressView_colorProgress="@color/seco_green"
-                            app:progressView_labelColorInner="@color/white"
-                            app:progressView_labelColorOuter="@color/seco_green"
-                            app:progressView_labelSize="11dp"
-                            app:progressView_labelText="0%"
-                            app:progressView_max="100"
-                            app:progressView_min="0"
-                            app:progressView_progress="0"
-                            app:progressView_progressFromPrevious="true" />
-                    </RelativeLayout>
-
-                    <RelativeLayout
-                        android:id="@+id/home_info_card_progress_free_mode_imperfect"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@id/home_info_card_progress_free_mode_container_challenge"
-                        android:layout_marginBottom="10dp">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/notosansregular"
-                            android:text="못난이 농산물"
-                            android:textColor="@color/black"
-                            android:textSize="14sp" />
-
-                        <TextView
-                            android:id="@+id/home_info_card_progress_free_mode_imperfect_number"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentRight="true"
-                            android:fontFamily="@font/notosansregular"
-                            android:text="(0/1)"
-                            android:textColor="@color/seco_deepgray"
-                            android:textSize="11sp" />
-
-                        <com.skydoves.progressview.ProgressView
-                            android:id="@+id/home_info_card_progress_free_mode_imperfect_progressbar"
-                            android:layout_width="match_parent"
-                            android:layout_height="21dp"
-                            android:layout_below="@id/home_info_card_progress_free_mode_imperfect_number"
-                            app:progressView_autoAnimate="true"
-                            app:progressView_colorBackground="@color/seco_gray"
-                            app:progressView_colorProgress="@color/seco_green"
-                            app:progressView_labelColorInner="@color/white"
-                            app:progressView_labelColorOuter="@color/seco_green"
-                            app:progressView_labelSize="11dp"
-                            app:progressView_labelText="0%"
-                            app:progressView_max="100"
-                            app:progressView_min="0"
-                            app:progressView_progress="0"
-                            app:progressView_progressFromPrevious="true" />
-                    </RelativeLayout>
-
-                    <RelativeLayout
-                        android:id="@+id/home_info_card_progress_free_mode_stairs"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@id/home_info_card_progress_free_mode_imperfect"
-                        android:layout_marginBottom="10dp">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/notosansregular"
-                            android:text="계단 오르기"
-                            android:textColor="@color/black"
-                            android:textSize="14sp" />
-
-                        <TextView
-                            android:id="@+id/home_info_card_progress_free_mode_stairs_number"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentRight="true"
-                            android:fontFamily="@font/notosansregular"
-                            android:text="(12/12)"
-                            android:textColor="@color/seco_deepgray"
-                            android:textSize="11sp" />
-
-                        <com.skydoves.progressview.ProgressView
-                            android:id="@+id/home_info_card_progress_free_mode_stairs_progressbar"
-                            android:layout_width="match_parent"
-                            android:layout_height="21dp"
-                            android:layout_below="@id/home_info_card_progress_free_mode_stairs_number"
-                            app:progressView_autoAnimate="true"
-                            app:progressView_colorBackground="@color/seco_gray"
-                            app:progressView_colorProgress="@color/seco_green"
-                            app:progressView_labelColorInner="@color/white"
-                            app:progressView_labelColorOuter="@color/seco_green"
-                            app:progressView_labelSize="11dp"
-                            app:progressView_labelText="100%"
-                            app:progressView_max="100"
-                            app:progressView_min="0"
-                            app:progressView_progress="100"
-                            app:progressView_progressFromPrevious="true" />
-
-                    </RelativeLayout>
-
-
-                </RelativeLayout>
-
-                <RelativeLayout
-                    android:id="@+id/home_info_card_progress_challenge_mode"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentTop="true"
-                    android:layout_marginLeft="25dp"
-                    android:layout_marginTop="25dp"
-                    android:layout_marginRight="25dp"
-                    android:layout_marginBottom="25dp"
-                    android:background="@drawable/item_white_rounded_background"
-                    android:padding="25dp"
-                    app:layout_constraintBottom_toTopOf="@id/home_info_card_cmi"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/home_relativelayout_mode"
-                    app:layout_constraintVertical_chainStyle="spread">
-
-                    <RelativeLayout
-                        android:id="@+id/home_info_card_progress_challenge_mode_titleline"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="-10dp"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:id="@+id/home_info_progress_challenge_mode_title"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/noto_sans_cjk_kr_bold"
-                            android:gravity="center_vertical"
-                            android:text="진행상황"
-                            android:textColor="@color/black"
-                            android:textSize="16sp" />
-
-                        <TextView
-                            android:id="@+id/home_text_progress_challenge_mode_more"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentRight="true"
-                            android:layout_alignParentBottom="true"
-                            android:layout_centerVertical="true"
-                            android:drawableRight="@drawable/button_arrow"
-                            android:fontFamily="@font/notosansregular"
-                            android:paddingBottom="15dp"
-                            android:text="더보기   "
-                            android:textColor="@color/seco_deepgray"
-                            android:textSize="14sp" />
-
-                    </RelativeLayout>
-
-                    <RelativeLayout
-                        android:id="@+id/home_info_card_progress_challenge_mode_daily"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@id/home_info_card_progress_challenge_mode_titleline"
-                        android:layout_marginBottom="10dp">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/notosansregular"
-                            android:text="My Daily Challenge"
-                            android:textColor="@color/black"
-                            android:textSize="14sp" />
-
-                        <TextView
-                            android:id="@+id/home_info_card_progress_challenge_mode_vegan_days_left"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentRight="true"
-                            android:fontFamily="@font/noto_sans_cjk_kr_bold"
-                            android:includeFontPadding="false"
-                            android:text="남은일수 5일"
-                            android:textColor="@color/seco_deepgray"
-                            android:textSize="11sp" />
-
-                        <TextView
-                            android:id="@+id/home_info_card_progress_challenge_mode_vegan_days"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@id/home_info_card_progress_challenge_mode_vegan_days_left"
-                            android:layout_alignParentRight="true"
-                            android:fontFamily="@font/notosansregular"
-                            android:text="일 월 화 수 목 금 토"
-                            android:textColor="@color/black"
-                            android:textSize="11sp" />
-
-
-                        <com.skydoves.progressview.ProgressView
-                            android:id="@+id/home_info_card_progress_challenge_mode_vegan_bar"
-                            android:layout_width="match_parent"
-                            android:layout_height="21dp"
-                            android:layout_below="@id/home_info_card_progress_challenge_mode_vegan_days"
-                            app:progressView_autoAnimate="true"
-                            app:progressView_colorBackground="@color/seco_gray"
-                            app:progressView_colorProgress="@color/seco_green"
-                            app:progressView_labelColorInner="@color/white"
-                            app:progressView_labelColorOuter="@color/seco_green"
-                            app:progressView_labelSize="11dp"
-                            app:progressView_labelText="0%"
-                            app:progressView_max="100"
-                            app:progressView_min="0"
-                            app:progressView_progress="0"
-                            app:progressView_progressFromPrevious="true" />
-                    </RelativeLayout>
-
-                    <RelativeLayout
-                        android:id="@+id/home_info_card_progress_challenge_mode_weekend"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@id/home_info_card_progress_challenge_mode_daily"
-                        android:layout_marginBottom="10dp">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/notosansregular"
-                            android:text="Weekend Challenge"
-                            android:textColor="@color/black"
-                            android:textSize="14sp" />
-
-                        <TextView
-                            android:id="@+id/home_info_card_progress_challenge_mode_walk_days_left"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentRight="true"
-                            android:fontFamily="@font/noto_sans_cjk_kr_bold"
-                            android:includeFontPadding="false"
-                            android:text="남은일수 5일"
-                            android:textColor="@color/seco_deepgray"
-                            android:textSize="11sp" />
-
-                        <TextView
-                            android:id="@+id/home_info_card_progress_challenge_mode_walk_days"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@id/home_info_card_progress_challenge_mode_walk_days_left"
-                            android:layout_alignParentRight="true"
-                            android:fontFamily="@font/notosansregular"
-                            android:text="일 월 화 수 목 금 토"
-                            android:textColor="@color/black"
-                            android:textSize="11sp" />
-
-
-                        <com.skydoves.progressview.ProgressView
-                            android:id="@+id/home_info_card_progress_challenge_mode_walk_bar"
-                            android:layout_width="match_parent"
-                            android:layout_height="21dp"
-                            android:layout_below="@id/home_info_card_progress_challenge_mode_walk_days"
-                            app:progressView_autoAnimate="true"
-                            app:progressView_colorBackground="@color/seco_gray"
-                            app:progressView_colorProgress="@color/seco_green"
-                            app:progressView_labelColorInner="@color/white"
-                            app:progressView_labelColorOuter="@color/seco_green"
-                            app:progressView_labelSize="11dp"
-                            app:progressView_labelText="23%"
-                            app:progressView_max="100"
-                            app:progressView_min="0"
-                            app:progressView_progress="23"
-                            app:progressView_progressFromPrevious="true" />
-                    </RelativeLayout>
-
-                    <RelativeLayout
-                        android:id="@+id/home_info_card_progress_challenge_mode_stairs"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@id/home_info_card_progress_challenge_mode_weekend"
-                        android:layout_marginBottom="10dp">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/notosansregular"
-                            android:text="Workout Challenge"
-                            android:textColor="@color/black"
-                            android:textSize="14sp" />
-
-                        <TextView
-                            android:id="@+id/home_info_card_progress_challenge_mode_container_days_left"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentRight="true"
-                            android:fontFamily="@font/noto_sans_cjk_kr_bold"
-                            android:includeFontPadding="false"
-                            android:text="남은일수 5일"
-                            android:textColor="@color/seco_deepgray"
-                            android:textSize="11sp" />
-
-                        <TextView
-                            android:id="@+id/home_info_card_progress_challenge_mode_container_days"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@id/home_info_card_progress_challenge_mode_container_days_left"
-                            android:layout_alignParentRight="true"
-                            android:fontFamily="@font/notosansregular"
-                            android:text="일 월 화 수 목 금 토"
-                            android:textColor="@color/black"
-                            android:textSize="11sp" />
-
-                        <com.skydoves.progressview.ProgressView
-                            android:id="@+id/home_info_card_progress_challenge_mode_container_bar"
-                            android:layout_width="match_parent"
-                            android:layout_height="21dp"
-                            android:layout_below="@id/home_info_card_progress_challenge_mode_container_days"
-                            app:progressView_autoAnimate="true"
-                            app:progressView_colorBackground="@color/seco_gray"
-                            app:progressView_colorProgress="@color/seco_green"
-                            app:progressView_labelColorInner="@color/white"
-                            app:progressView_labelColorOuter="@color/seco_green"
-                            app:progressView_labelSize="11dp"
-                            app:progressView_labelText="30%"
-                            app:progressView_max="100"
-                            app:progressView_min="0"
-                            app:progressView_progress="30"
-                            app:progressView_progressFromPrevious="true" />
-
-                    </RelativeLayout>
-
-
-                </RelativeLayout>
-
-                <RelativeLayout
-                    android:id="@+id/home_info_card_cmi"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/home_info_card_progress_free_mode"
-                    android:layout_marginLeft="25dp"
-                    android:layout_marginRight="25dp"
-                    android:layout_marginBottom="25dp"
-                    android:background="@drawable/item_white_rounded_background"
-                    android:padding="25dp"
-                    app:layout_constraintBottom_toTopOf="@id/home_info_card_seti"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/home_info_card_progress_challenge_mode"
-                    app:layout_constraintVertical_chainStyle="spread">
-
-                    <RelativeLayout
-                        android:id="@+id/home_info_card_cmi_title"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="-10dp"
-                        android:layout_marginBottom="10dp">
-
-                        <TextView
-                            android:id="@+id/home_info_card_cmi_text"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/noto_sans_cjk_kr_bold"
-                            android:gravity="center_vertical"
-                            android:text="CMI"
-                            android:textColor="@color/black"
-                            android:textSize="16sp" />
-
-                        <TextView
-                            android:id="@+id/home_info_card_cmi_total"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentRight="true"
-                            android:fontFamily="@font/notosansregular"
-                            android:text="총 932Kcal 입니다."
-                            android:textColor="@color/black"
-                            android:textSize="14sp" />
-
-                        <LinearLayout
-                            android:id="@+id/home_info_card_cmi_pie_ratio"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@id/home_info_card_cmi_text"
-                            android:orientation="horizontal">
-
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:id="@+id/home_info_card_cmi_pie"
-                            android:layout_width="match_parent"
-                            android:layout_height="5dp"
-                            android:layout_below="@id/home_info_card_cmi_pie_ratio"
-                            android:orientation="horizontal">
-
-                        </LinearLayout>
-
-                    </RelativeLayout>
-
-                </RelativeLayout>
-
-
-                <RelativeLayout
-                    android:id="@+id/home_info_card_seti"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="25dp"
-                    android:layout_marginRight="25dp"
-                    android:layout_marginBottom="25dp"
-                    android:background="@drawable/item_white_rounded_background"
-                    android:padding="25dp"
+                <ProgressBar
+                    android:id="@+id/fragment_home_donation_progress_bar"
+                    style="?android:attr/progressBarStyle"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginRight="5dp"
+                    android:indeterminate="true"
+                    android:indeterminateTint="@color/white"
+                    android:indeterminateTintMode="src_atop"
+                    android:visibility="gone"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/home_info_card_cmi"
-                    app:layout_constraintVertical_chainStyle="spread">
+                    app:layout_constraintEnd_toStartOf="@id/fragment_home_donation_progress_button_text_view"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-                    <RelativeLayout
-                        android:id="@+id/home_info_card_seti_title"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                <TextView
+                    android:id="@+id/fragment_home_donation_progress_button_text_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/noto_sans_cjk_kr_bold"
+                    android:includeFontPadding="false"
+                    android:text="확인"
+                    android:textColor="@android:color/white"
+                    android:textSize="12sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-                        android:layout_marginTop="-10dp"
-                        android:layout_marginBottom="10dp">
-
-                        <TextView
-                            android:id="@+id/home_info_card_seti_text"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/noto_sans_cjk_kr_bold"
-                            android:gravity="center_vertical"
-                            android:text="SETI"
-                            android:textColor="@color/black"
-                            android:textSize="16sp" />
-
-                        <TextView
-                            android:id="@+id/home_info_card_seti_result"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@id/home_info_card_seti_text"
-                            android:layout_alignParentLeft="true"
-                            android:fontFamily="@font/notosansregular"
-                            android:text="테스트를 아직 진행하지 않았습니다."
-                            android:textColor="@color/seco_tooltipgray"
-                            android:textSize="14sp" />
-
-
-                    </RelativeLayout>
-
-                </RelativeLayout>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-        </ScrollView>
 
-    </RelativeLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
-
-
-
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </ScrollView>

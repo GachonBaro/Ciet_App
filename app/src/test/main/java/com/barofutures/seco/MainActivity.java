@@ -39,7 +39,6 @@ import com.amazonaws.mobile.client.UserStateDetails;
 import com.amazonaws.mobile.config.AWSConfiguration;
 import com.amazonaws.mobileconnectors.pinpoint.PinpointConfiguration;
 import com.amazonaws.mobileconnectors.pinpoint.PinpointManager;
-import com.barofutures.seco.adapter.RoutineStatusAdapter;
 import com.barofutures.seco.fragments.Fragment_Commerce;
 import com.barofutures.seco.fragments.Fragment_Home;
 import com.barofutures.seco.fragments.Fragment_MyPage;
