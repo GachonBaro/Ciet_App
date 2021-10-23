@@ -44,9 +44,9 @@ public class Fragment_MyPage extends Fragment {
     private FirebaseAuth mAuth;
     private GoogleSignInClient mGoogleSignInClient;
     private Bitmap bitmap;
-    private TextView userEmail, userNickname, exampleNickname1, exampleNickname2, exampleNickname3, exampleEmail1, exampleEmail2, exampleEmail3, exampleGrade1, exampleGrade2, exampleGrade3, exampleRating1, exampleRating2, exampleRating3;
-    private CircleImageView userPhoto, examplePhoto1, examplePhoto2, examplePhoto3;
-    private Button logOutButton, setiButton, cmiButton, rewardButton, orderButton;
+    private TextView userEmail, userNickname;
+    private CircleImageView userPhoto;
+    private Button logOutButton, licenseButton, setiButton, verifiedButton, challengeHistoryButton, donationHistoryButton;
 
     // Instance 반환 메소드
     public static Fragment_MyPage newInstance(){
@@ -70,44 +70,6 @@ public class Fragment_MyPage extends Fragment {
                 .build();
 
         mGoogleSignInClient = GoogleSignIn.getClient(getContext(), gso);
-
-        //로그아웃 버튼
-        logOutButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                signOut();
-                Intent intent = new Intent(getContext(), GoogleLogInActivity.class);
-                startActivity(intent);
-            }
-        });
-
-        setiButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent=new Intent(getActivity(), MySetiActivity.class);
-                intent.putExtra("email", currentUser.getEmail());
-                // 플래그 지정: 같은 액티비티가 재사용되기 때문에 onCreate가 호출되지 않고 onNewIntent가 실행되는 것에 주의
-                intent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
-                startActivity(intent);
-            }
-        });
-
-        cmiButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent=new Intent(getActivity(), MyCmiActivity.class);
-                startActivity(intent);
-            }
-        });
-
-        orderButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent=new Intent(getActivity(), MyOrderHistoryActivity.class);
-                startActivity(intent);
-            }
-        });
-
 
         // 유저 정보 표시
         if (currentUser != null) {
@@ -142,10 +104,50 @@ public class Fragment_MyPage extends Fragment {
             }
         };
 
-        // 버튼 클릭 리스너
-        rewardButton.setOnClickListener(new View.OnClickListener() {
+        //로그아웃 버튼
+        logOutButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                signOut();
+                Intent intent = new Intent(getContext(), GoogleLogInActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        setiButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(getActivity(), MySetiActivity.class);
+                intent.putExtra("email", currentUser.getEmail());
+                // 플래그 지정: 같은 액티비티가 재사용되기 때문에 onCreate가 호출되지 않고 onNewIntent가 실행되는 것에 주의
+                intent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                startActivity(intent);
+            }
+        });
+
+        verifiedButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // TODO: 수정 필요
+                Intent intent=new Intent(getActivity(), MyCmiActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        challengeHistoryButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // TODO: 수정 필요
+                Intent intent=new Intent(getActivity(), MyOrderHistoryActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        // 버튼 클릭 리스너
+        donationHistoryButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // TODO: 수정 필요
                 Intent intent=new Intent(getActivity(), RewardHistoryAcitivity.class);
                 startActivity(intent);
             }
@@ -159,27 +161,14 @@ public class Fragment_MyPage extends Fragment {
         userEmail = (TextView) viewGroup.findViewById(R.id.fragment_mypage_text_email);
         userNickname = (TextView) viewGroup.findViewById(R.id.fragment_mypage_text_nickname);
         userPhoto = (CircleImageView) viewGroup.findViewById(R.id.fragment_mypage_image_userphoto);
+
         logOutButton = (Button) viewGroup.findViewById(R.id.fragment_mypage_button_logout);
-        examplePhoto1=(CircleImageView)viewGroup.findViewById(R.id.fragment_mypage_image_userphoto_1);
-        examplePhoto2=(CircleImageView)viewGroup.findViewById(R.id.fragment_mypage_image_userphoto_2);
-        examplePhoto3=(CircleImageView)viewGroup.findViewById(R.id.fragment_mypage_image_userphoto_3);
-        exampleEmail1=viewGroup.findViewById(R.id.fragment_mypage_text_email_1);
-        exampleEmail2=viewGroup.findViewById(R.id.fragment_mypage_text_email_2);
-        exampleEmail3=viewGroup.findViewById(R.id.fragment_mypage_text_email_3);
-        exampleNickname1=viewGroup.findViewById(R.id.fragment_mypage_text_nickname_1);
-        exampleNickname2=viewGroup.findViewById(R.id.fragment_mypage_text_nickname_2);
-        exampleNickname3=viewGroup.findViewById(R.id.fragment_mypage_text_nickname_3);
-        exampleGrade1=viewGroup.findViewById(R.id.fragment_mypage_text_grade_1);
-        exampleGrade2=viewGroup.findViewById(R.id.fragment_mypage_text_grade_2);
-        exampleGrade3=viewGroup.findViewById(R.id.fragment_mypage_text_grade_3);
-        exampleRating1=viewGroup.findViewById(R.id.fragment_mypage_text_rating_1);
-        exampleRating2=viewGroup.findViewById(R.id.fragment_mypage_text_rating_2);
-        exampleRating3=viewGroup.findViewById(R.id.fragment_mypage_text_rating_3);
-        setiButton=viewGroup.findViewById(R.id.fragment_mypage_to_my_seti_button);
-        cmiButton=viewGroup.findViewById(R.id.fragment_mypage_to_my_cmi_button);
-        rewardButton=viewGroup.findViewById(R.id.fragment_mypage_to_reward_history_button);
-        orderButton=viewGroup.findViewById(R.id.fragment_mypage_to_order_history_button);
-        cmiButton=viewGroup.findViewById(R.id.fragment_mypage_to_my_cmi_button);
+        licenseButton = (Button) viewGroup.findViewById(R.id.fragment_mypage_license_button);
+
+        setiButton = viewGroup.findViewById(R.id.fragment_mypage_to_my_seti_button);
+        verifiedButton = viewGroup.findViewById(R.id.fragment_mypage_to_my_verified_button);
+        challengeHistoryButton = viewGroup.findViewById(R.id.fragment_mypage_to_challenge_history_button);
+        donationHistoryButton = viewGroup.findViewById(R.id.fragment_mypage_to_donation_history_button);
     }
 
     // 로그아웃
