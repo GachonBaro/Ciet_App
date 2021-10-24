@@ -1,5 +1,6 @@
 package com.barofutures.seco.fragments;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -76,9 +77,9 @@ public class Fragment_Home extends Fragment {
     private TextView donationButtonTextView;
 
     public Fragment_Home() {
-        db = FirebaseFirestore.getInstance();
-        user = FirebaseAuth.getInstance().getCurrentUser();
-        email = user.getEmail();
+//        db = FirebaseFirestore.getInstance();
+//        user = FirebaseAuth.getInstance().getCurrentUser();
+//        email = user.getEmail();
     }
 
     // Instance 반환 메소드
@@ -87,12 +88,19 @@ public class Fragment_Home extends Fragment {
     }
 
     @Override
+    public void onAttach(@NonNull Context context) {
+        super.onAttach(context);
+        db = FirebaseFirestore.getInstance();
+        user = FirebaseAuth.getInstance().getCurrentUser();
+        email = user.getEmail();
+    }
+
+    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
         // View 초기화 및 연결
         ViewGroup viewGroup = (ViewGroup) inflater.inflate(R.layout.fragment_home, container, false);
-
         return viewGroup;
     }
 
@@ -151,6 +159,7 @@ public class Fragment_Home extends Fragment {
 
     // 유저 데이터를 가져와서 화면에 보여줌
     private void setLayout() {
+        Log.d("Fragment_Home", "email = " + email);
         CollectionReference ref = db.collection("users").document(email).collection("user_info");
         DocumentReference currentRef = ref.document("current");
 

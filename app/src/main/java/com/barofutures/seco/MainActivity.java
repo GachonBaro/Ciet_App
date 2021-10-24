@@ -3,6 +3,7 @@ package com.barofutures.seco;
 import static com.barofutures.seco.PushListenerService.TAG;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.Signature;
@@ -64,6 +65,7 @@ public class MainActivity extends AppCompatActivity{
     // Splash에서 유저 프로필 받아오기
     private FirebaseUser currentUser;
     private String userName;
+    private String userEmail;
 
     // Toolbar: 위에 메뉴 아이콘, 메뉴 이름(text) 뜨는 바
     private Toolbar toolbar;
@@ -132,6 +134,11 @@ public class MainActivity extends AppCompatActivity{
 //        // FAB 숨기기
 //        floatingActionButton.hide();
 
+        // Intent
+        Intent intent = getIntent();
+        userEmail = intent.getExtras().getString("email");
+        Log.d("MainActivity123123", "userEmail = " + userEmail);
+
         // 트랜잭션 까지 생성 후 홈 프래그먼트 보여주기
         fragmentManager = getSupportFragmentManager();
         fragmentTransaction = fragmentManager.beginTransaction();
@@ -176,7 +183,7 @@ public class MainActivity extends AppCompatActivity{
          * Drawer Navigation View: 왼 -> 오른쪽으로 슬라이드하면 뜨는 메뉴 (간단한 사용자 정보, 상세 메뉴, 설정 등)
          */
 
-        // TODO: Drawer에 User 정보 표시 - UserInfo 불러오는 코드 추가 후에 수정
+        // TODO: Drawer에 User 정보 표시 - Drawer 삭제 예정
         currentUser = FirebaseAuth.getInstance().getCurrentUser();
         if (currentUser != null) {
             userName = currentUser.getDisplayName();

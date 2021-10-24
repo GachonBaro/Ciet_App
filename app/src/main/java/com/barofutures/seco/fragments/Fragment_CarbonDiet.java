@@ -49,21 +49,11 @@ public class Fragment_CarbonDiet extends Fragment {
     public static ContentsDetailData contentsDetailDataMeal;
     public static ContentsDetailData contentsDetailDataActivity;
     public static ContentsDetailData contentsDetailDataQuest;
-//    public static ContentsDetailData contentsDetailDataFavorites;
 
     public Fragment_CarbonDiet() {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment Fragment_CarbonDiet.
-     */
-    // TODO: Rename and change types and number of parameters
     public static Fragment_CarbonDiet newInstance(String param1, String param2) {
         Fragment_CarbonDiet fragment = new Fragment_CarbonDiet();
         Bundle args = new Bundle();
@@ -110,7 +100,7 @@ public class Fragment_CarbonDiet extends Fragment {
         viewPager2.setSaveEnabled(false);
 
         // tab list 생성
-        final List<String> tabElement = Arrays.asList("식단", "활동", "퀘스트", "진행중");
+        final List<String> tabElement = Arrays.asList("식단", "활동", "퀘스트", "챌린지");
         new TabLayoutMediator(tabLayout, viewPager2, new TabLayoutMediator.TabConfigurationStrategy() {
             @Override
             public void onConfigureTab(@NonNull TabLayout.Tab tab, int position) {
@@ -132,19 +122,6 @@ public class Fragment_CarbonDiet extends Fragment {
 
     // user의 free mode 데이터 받아옴 (meal)
     public ContentsDetailData getFreeModeContentsListDataMeal() {
-//        //TODO: 사용자의 좋아요, 활성화 유무 데이터 받아오기
-//        ArrayList<Boolean> isFavorites = new ArrayList<>();
-//        isFavorites.add(true);
-//        isFavorites.add(true);
-//        isFavorites.add(false);
-//        isFavorites.add(false);
-//
-//        ArrayList<Boolean> isEnabled = new ArrayList<>();
-//        isEnabled.add(false);
-//        isEnabled.add(true);
-//        isEnabled.add(true);
-//        isEnabled.add(true);
-
         ContentsDetailData meal = new ContentsDetailData();
         meal.setMeal();
 
@@ -153,19 +130,6 @@ public class Fragment_CarbonDiet extends Fragment {
 
     // user의 free mode 데이터 받아옴 (activity)
     public ContentsDetailData getFreeModeContentsListDataActivity() {
-        //TODO: 사용자의 좋아요, 활성화 유무 데이터 받아오기
-//        ArrayList<Boolean> isFavorites = new ArrayList<>();
-//        isFavorites.add(true);
-//        isFavorites.add(true);
-//        isFavorites.add(false);
-//        isFavorites.add(false);
-//
-//        ArrayList<Boolean> isEnabled = new ArrayList<>();
-//        isEnabled.add(false);
-//        isEnabled.add(true);
-//        isEnabled.add(true);
-//        isEnabled.add(true);
-
         ContentsDetailData activity = new ContentsDetailData();
         activity.setActivity();
 
@@ -174,29 +138,6 @@ public class Fragment_CarbonDiet extends Fragment {
 
     // user의 free mode 데이터 받아옴 (quest)
     public ContentsDetailData getFreeModeContentsListDataQuest() {
-//        //TODO: 사용자의 좋아요, 활성화 유무 데이터 받아오기
-//        ArrayList<Boolean> isFavorites = new ArrayList<>();
-//        isFavorites.add(true);
-//        isFavorites.add(true);
-//        isFavorites.add(false);
-//        isFavorites.add(false);
-//        isFavorites.add(true);
-//        isFavorites.add(true);
-//        isFavorites.add(false);
-//        isFavorites.add(false);
-//
-//
-//        ArrayList<Boolean> isEnabled = new ArrayList<>();
-//        isEnabled.add(false);
-//        isEnabled.add(true);
-//        isEnabled.add(true);
-//        isEnabled.add(true);
-//        isEnabled.add(false);
-//        isEnabled.add(true);
-//        isEnabled.add(true);
-//        isEnabled.add(true);
-
-
         ContentsDetailData quest = new ContentsDetailData();
         quest.setQuest();
 

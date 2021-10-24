@@ -104,6 +104,7 @@ public class ReadAndWriteUserInfoData {
 
     // 사용자 데이터(UID, email, name) 저장
     public void storeUIDAndNameAndEmail(String UID, String email, String name) {
+        Log.d(TAG, "storeUIDAndNameAndEmail()");
         UserInfoData userInfoData = new UserInfoData(UID, name, email);
 
         DocumentReference docRef = usersRef.document(email).collection("user_info").document("current");

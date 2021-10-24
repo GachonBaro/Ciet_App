@@ -2,6 +2,7 @@ package com.barofutures.seco;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.WindowManager;
 import android.widget.Toast;
 
@@ -42,6 +43,7 @@ public class SplashActivity extends AppCompatActivity {
                 // TEST
                 Toast.makeText(getApplicationContext(), "case MainActivity", Toast.LENGTH_SHORT).show();
 
+                Log.d("SplashActivity", "email = " + email);
 
                 Intent MainIntent = new Intent(getApplicationContext(), MainActivity.class);
                 MainIntent.putExtra("email", email);
