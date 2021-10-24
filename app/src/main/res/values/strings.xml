@@ -99,7 +99,7 @@
     <string name="home_ai_recommendation_activity_title">AI 추천 활동</string>
     <string name="home_donation_title">배지 기부하기</string>
     <string name="home_donation_input_hint">기부할 배지 개수를 입력</string>
-    
+
     <string name="to_be_developed">개발 예정</string>
 
 </resources>

@@ -18,6 +18,7 @@ import androidx.fragment.app.Fragment;
 import com.barofutures.seco.ChallengeHistoryActivity;
 import com.barofutures.seco.DonationHistoryActivity;
 import com.barofutures.seco.GoogleLogInActivity;
+import com.barofutures.seco.LicenceInfoActivity;
 import com.barofutures.seco.MyCmiActivity;
 import com.barofutures.seco.MyOrderHistoryActivity;
 import com.barofutures.seco.MySetiActivity;
@@ -149,6 +150,15 @@ public class Fragment_MyPage extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent(getActivity(), DonationHistoryActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        // 라이선스 정보 버튼 클릭 리스너
+        licenseButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(getActivity(), LicenceInfoActivity.class);
                 startActivity(intent);
             }
         });

@@ -23,6 +23,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SECO">
         <activity
+            android:name=".LicenceInfoActivity"
+            android:exported="true" />
+        <activity
             android:name=".DonationHistoryActivity"
             android:exported="true" />
         <activity
