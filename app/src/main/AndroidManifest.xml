@@ -23,6 +23,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SECO">
         <activity
+            android:name=".DonationHistoryActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ChallengeHistoryActivity"
+            android:exported="true" />
+        <activity
+            android:name=".VerifiedHistoryActivity"
+            android:exported="true" />
+        <activity
             android:name=".ChallengeSettingActivity"
             android:exported="true" />
         <activity

@@ -25,8 +25,10 @@
         <entry key="app/src/main/res/drawable/selector_wed.xml" value="0.2609375" />
         <entry key="app/src/main/res/layout/activity_auth_completion.xml" value="0.33240740740740743" />
         <entry key="app/src/main/res/layout/activity_authorize.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_challenge_history.xml" value="0.24375" />
         <entry key="app/src/main/res/layout/activity_challenge_setting.xml" value="0.3428793274382995" />
         <entry key="app/src/main/res/layout/activity_contents_list.xml" value="0.23020833333333332" />
+        <entry key="app/src/main/res/layout/activity_donation_history.xml" value="0.24375" />
         <entry key="app/src/main/res/layout/activity_free_mode_contents_details.xml" value="0.23020833333333332" />
         <entry key="app/src/main/res/layout/activity_free_mode_status.xml" value="0.23020833333333332" />
         <entry key="app/src/main/res/layout/activity_initialsurveyintro.xml" value="0.2490740740740741" />
@@ -41,6 +43,7 @@
         <entry key="app/src/main/res/layout/activity_setisurveyresult.xml" value="0.23020833333333332" />
         <entry key="app/src/main/res/layout/activity_splash.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_stepping_auth.xml" value="0.23020833333333332" />
+        <entry key="app/src/main/res/layout/activity_verified_history.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_walking_auth.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_camera_auth.xml" value="0.2518518518518518" />
         <entry key="app/src/main/res/layout/fragment_carbon_diet.xml" value="0.11574074074074074" />

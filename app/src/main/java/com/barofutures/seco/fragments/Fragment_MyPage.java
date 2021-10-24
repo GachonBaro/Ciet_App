@@ -15,12 +15,15 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
+import com.barofutures.seco.ChallengeHistoryActivity;
+import com.barofutures.seco.DonationHistoryActivity;
 import com.barofutures.seco.GoogleLogInActivity;
 import com.barofutures.seco.MyCmiActivity;
 import com.barofutures.seco.MyOrderHistoryActivity;
 import com.barofutures.seco.MySetiActivity;
 import com.barofutures.seco.R;
 import com.barofutures.seco.RewardHistoryAcitivity;
+import com.barofutures.seco.VerifiedHistoryActivity;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
@@ -128,8 +131,7 @@ public class Fragment_MyPage extends Fragment {
         verifiedButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // TODO: 수정 필요
-                Intent intent=new Intent(getActivity(), MyCmiActivity.class);
+                Intent intent=new Intent(getActivity(), VerifiedHistoryActivity.class);
                 startActivity(intent);
             }
         });
@@ -137,8 +139,7 @@ public class Fragment_MyPage extends Fragment {
         challengeHistoryButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // TODO: 수정 필요
-                Intent intent=new Intent(getActivity(), MyOrderHistoryActivity.class);
+                Intent intent=new Intent(getActivity(), ChallengeHistoryActivity.class);
                 startActivity(intent);
             }
         });
@@ -147,8 +148,7 @@ public class Fragment_MyPage extends Fragment {
         donationHistoryButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // TODO: 수정 필요
-                Intent intent=new Intent(getActivity(), RewardHistoryAcitivity.class);
+                Intent intent=new Intent(getActivity(), DonationHistoryActivity.class);
                 startActivity(intent);
             }
         });
