@@ -18,10 +18,7 @@ import com.barofutures.seco.SteppingAuthActivity;
 import com.barofutures.seco.WalkingAuthActivity;
 import com.barofutures.seco.model.ContentsDetailData;
 
-import org.w3c.dom.Text;
-
 import java.util.ArrayList;
-import java.util.Map;
 
 public class ChallengeActivityOfTodayListAdapter extends RecyclerView.Adapter<ChallengeActivityOfTodayListAdapter.ViewHolder>{
     Context mContext;

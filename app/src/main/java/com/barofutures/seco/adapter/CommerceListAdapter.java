@@ -1,20 +1,15 @@
 package com.barofutures.seco.adapter;
 
-import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.QuickContactBadge;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.barofutures.seco.AuthorizeActivity;
 import com.barofutures.seco.R;
 import com.barofutures.seco.model.CommerceItem;
-import com.barofutures.seco.model.RoutineStatus;
 import com.bumptech.glide.Glide;
 
 public class CommerceListAdapter extends RecyclerView.Adapter<CommerceListAdapter.ViewHolder> {

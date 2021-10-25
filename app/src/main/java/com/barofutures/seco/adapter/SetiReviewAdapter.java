@@ -9,7 +9,6 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.barofutures.seco.R;
-import com.barofutures.seco.model.RewardHistory;
 import com.barofutures.seco.model.SetiQnA;
 
 public class SetiReviewAdapter extends RecyclerView.Adapter<SetiReviewAdapter.ViewHolder>{

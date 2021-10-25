@@ -1,6 +1,5 @@
 package com.barofutures.seco.adapter;
 
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,17 +8,13 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.barofutures.seco.MainActivity;
 import com.barofutures.seco.R;
 import com.barofutures.seco.model.SuggestItemClass;
 import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
-
-import javax.crypto.spec.PSource;
 
 public class SuggestionAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private final int VIEW_TYPE_ITEM = 0;

@@ -6,7 +6,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RadioGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -14,8 +13,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.barofutures.seco.R;
 import com.barofutures.seco.SetiSurveyActivity;
 import com.barofutures.seco.model.SetiQnA;
-
-import java.net.InterfaceAddress;
 
 
 public class SetiSurveyAdapter extends RecyclerView.Adapter<SetiSurveyAdapter.ViewHolder> {

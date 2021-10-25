@@ -19,14 +19,12 @@ public class CarbonDietTabPagerAdapter extends FragmentStateAdapter {
     public static ContentsDetailData contentsDetailDataMeal;
     public static ContentsDetailData contentsDetailDataActivity;
     public static ContentsDetailData contentsDetailDataQuest;
-//    public static ContentsDetailData contentsDetailDataFavorites;
 
     public CarbonDietTabPagerAdapter(@NonNull Fragment fragment, ContentsDetailData contentsDetailDataMeal, ContentsDetailData contentsDetailDataActivity, ContentsDetailData contentsDetailDataQuest) {
         super(fragment);
         this.contentsDetailDataMeal = contentsDetailDataMeal;
         this.contentsDetailDataActivity = contentsDetailDataActivity;
         this.contentsDetailDataQuest = contentsDetailDataQuest;
-//        this.contentsDetailDataFavorites = contentsDetailDataFavorites;
     }
 
     @NonNull

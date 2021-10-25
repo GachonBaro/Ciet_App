@@ -2,23 +2,17 @@ package com.barofutures.seco.adapter;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.content.Intent;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.barofutures.seco.R;
-
-import org.w3c.dom.Text;
 
 import java.util.Map;
 
@@ -58,14 +52,9 @@ public class ChallengeRecommendationListAdapter extends RecyclerView.Adapter<Cha
             holder.title.setText("고급");
         }
 
-//        Log.d("ChallengeRecommendationListAdapter", temp);
         String[] tempArr = temp.split("\\|");
-//        for (int i = 0; i < tempArr.length; i++ ) {
-//            Log.d("ChallengeRecommendationListAdapter", tempArr[i]);
-//        }
 
         int rsc = Integer.parseInt(tempArr[0]);
-//        Log.d("ChallengeRecommendationListAdapter", String.valueOf(rsc));
         holder.representativeImage.setImageResource(rsc);
 
         for (int i = 1; i < tempArr.length; i++) {
@@ -74,17 +63,6 @@ public class ChallengeRecommendationListAdapter extends RecyclerView.Adapter<Cha
         }
         holder.activityListTextView.setText(text);
 
-        // Click Event
-        holder.constraintLayout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // TODO: 챌린지 설정으로 이동
-                Toast.makeText(mContext, "챌린지 설정으로 이동", Toast.LENGTH_SHORT).show();
-//                Intent intent = new Intent(mContext, );
-//                intent.putExtra("recommend_activity_list", temp);
-//                mContext.startActivity(intent);
-            }
-        });
     }
 
     @Override

@@ -20,7 +20,6 @@ import com.barofutures.seco.WalkingAuthActivity;
 import com.barofutures.seco.model.ContentsDetailData;
 
 import java.util.ArrayList;
-import java.util.Map;
 
 public class ActivityRecommendationListAdapter extends RecyclerView.Adapter<ActivityRecommendationListAdapter.ViewHolder>{
     Context mContext;

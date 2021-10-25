@@ -2,12 +2,10 @@ package com.barofutures.seco.adapter;
 
 import android.content.Context;
 import android.content.Intent;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -16,7 +14,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.barofutures.seco.FreeModeContentsDetailsActivity;
 import com.barofutures.seco.R;
-import com.barofutures.seco.fragments.Fragment_Home;
 import com.barofutures.seco.model.ContentsDetailData;
 
 public class FreeModeContentsListAdapter extends RecyclerView.Adapter<FreeModeContentsListAdapter.ViewHolder> {
@@ -43,12 +40,6 @@ public class FreeModeContentsListAdapter extends RecyclerView.Adapter<FreeModeCo
     public void onBindViewHolder(@NonNull FreeModeContentsListAdapter.ViewHolder holder, int position) {
         // 배경 사진 설정
         holder.background.setImageResource(data.image.get(position));
-
-//        // 좋아요 표시 아이콘 설정
-//        if (data.isFavorites.get(position))         // 사용자가 좋아요 표시
-//            holder.likeButton.setImageResource(R.drawable.ic_filled_favorites);       // filled icon으로
-//        else                                        // 사용자가 좋아요 안누름
-//            holder.likeButton.setImageResource(R.drawable.ic_unfilled_favorites);     // unfilled icon으로
 
         // 제목
         holder.title.setText(data.title.get(position));
@@ -91,7 +82,6 @@ public class FreeModeContentsListAdapter extends RecyclerView.Adapter<FreeModeCo
 
     class ViewHolder extends RecyclerView.ViewHolder {
         ImageView background;       // 배경 사진
-//        ImageButton likeButton;     // 좋아요 아이콘
         TextView title;             // 제목
         TextView numOfActivities;   // 활동 횟수
         TextView numOfBadge;        // 뱃지 개수
@@ -100,7 +90,6 @@ public class FreeModeContentsListAdapter extends RecyclerView.Adapter<FreeModeCo
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             background = (ImageView) itemView.findViewById(R.id.item_free_mode_contents_image);
-//            likeButton = (ImageButton) itemView.findViewById(R.id.item_free_mode_like_button);
             title = (TextView) itemView.findViewById(R.id.contents_title_text_view);
             numOfActivities = (TextView) itemView.findViewById(R.id.num_of_activities_text);
             numOfBadge = (TextView) itemView.findViewById(R.id.num_of_badge_text);

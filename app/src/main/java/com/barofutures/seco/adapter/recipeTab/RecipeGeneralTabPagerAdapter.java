@@ -2,7 +2,6 @@ package com.barofutures.seco.adapter.recipeTab;
 
 import android.os.Bundle;
 import android.util.Log;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
