@@ -23,8 +23,6 @@ public class ReadAndWriteUserData {
     private DatabaseReference mDatabase;
     // [END declare_database_ref]
 
-
-    // TODO: database parameter가 왜 필요하지...?
     public ReadAndWriteUserData(DatabaseReference database, Context context) {
         // [START initialize_database_ref]
         mDatabase = FirebaseDatabase.getInstance().getReference();
