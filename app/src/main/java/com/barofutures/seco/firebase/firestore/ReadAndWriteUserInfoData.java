@@ -52,6 +52,7 @@ public class ReadAndWriteUserInfoData {
                         intent.putExtra("nextActivity", "MainActivity");
                         intent.putExtra("email", email);
                         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         context.startActivity(intent);
                         googleLogInActivity.finish();
                     } else {
@@ -98,6 +99,7 @@ public class ReadAndWriteUserInfoData {
                 intent.putExtra("nextActivity", "InitialSurveyIntroActivity");
                 intent.putExtra("email", email);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 context.startActivity(intent);
                 googleLogInActivity.finish();
             }

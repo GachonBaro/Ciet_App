@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity{
     // Splash에서 유저 프로필 받아오기
     private FirebaseUser currentUser;
     private String userName;
-    private String userEmail;
+    public static String userEmail;
 
     // Toolbar: 위에 메뉴 아이콘, 메뉴 이름(text) 뜨는 바
     private Toolbar toolbar;

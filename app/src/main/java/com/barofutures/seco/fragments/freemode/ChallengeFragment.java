@@ -20,6 +20,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.barofutures.seco.ChallengeSettingActivity;
+import com.barofutures.seco.MainActivity;
 import com.barofutures.seco.R;
 import com.barofutures.seco.adapter.ChallengeActivityOfTodayListAdapter;
 import com.barofutures.seco.adapter.ChallengeRecommendationListAdapter;
@@ -99,8 +100,9 @@ public class ChallengeFragment extends Fragment {
 
     public ChallengeFragment() {
         db = FirebaseFirestore.getInstance();
-        user = FirebaseAuth.getInstance().getCurrentUser();
-        email = user.getEmail();
+//        user = FirebaseAuth.getInstance().getCurrentUser();
+//        email = user.getEmail();
+        email = MainActivity.userEmail;
     }
 
     @Override

@@ -1,6 +1,7 @@
 package com.barofutures.seco.fragments;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -18,7 +19,9 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.barofutures.seco.MainActivity;
 import com.barofutures.seco.R;
+import com.barofutures.seco.SplashActivity;
 import com.barofutures.seco.adapter.ActivityRecommendationListAdapter;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -36,6 +39,7 @@ import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.WriteBatch;
 
 import java.text.SimpleDateFormat;
@@ -59,9 +63,10 @@ public class Fragment_Home extends Fragment {
     // AI 추천 활동
     private RecyclerView aiRecommendationRecyclerView;
     private ActivityRecommendationListAdapter aiRecommendationListAdapter;
+    private TextView aiNullDescriptionText;
 
     // ___ 유형 추천 활동
-    TextView setiRecommendationTextView;
+    private TextView setiRecommendationTextView;
     private RecyclerView setiRecommendationRecyclerView;
     private TextView setiNullDescriptionText;
 
@@ -88,8 +93,9 @@ public class Fragment_Home extends Fragment {
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);
         db = FirebaseFirestore.getInstance();
-        user = FirebaseAuth.getInstance().getCurrentUser();
-        email = user.getEmail();
+//        user = FirebaseAuth.getInstance().getCurrentUser();
+//        email = user.getEmail();
+        email = MainActivity.userEmail;
     }
 
     @Override
@@ -111,6 +117,7 @@ public class Fragment_Home extends Fragment {
         mySetiType = (TextView) view.findViewById(R.id.fragment_home_my_activity_my_seti_type_value_text_view);
 
         aiRecommendationRecyclerView = (RecyclerView) view.findViewById(R.id.fragment_home_ai_recommendation_activity_recycler_view);
+        aiNullDescriptionText = (TextView) view.findViewById(R.id.fragment_home_ai_recommendation_activity_null_text);
 
         setiRecommendationTextView = (TextView) view.findViewById(R.id.fragment_home_seti_recommendation_activity_title_text_view);
         setiRecommendationRecyclerView = (RecyclerView) view.findViewById(R.id.fragment_home_seti_recommendation_activity_recycler_view);
@@ -181,8 +188,8 @@ public class Fragment_Home extends Fragment {
                             updateSetiRecommendationUI(currentData.get("seti"));
                         }
 
-
-                        // TODO: AI 추천 활동 업데이트
+                        // AI 추천 활동 업데이트
+                        checkAiRecommendationActivityData();
 
                     } else {
                         Log.d("Fragment_Home", "No such document");
@@ -194,6 +201,42 @@ public class Fragment_Home extends Fragment {
         });
 
     }
+
+    // AI 추천 활동 업데이트 (활동 데이터가 있는 경우에만 데이터가 생성됨
+    private void checkAiRecommendationActivityData() {
+        CollectionReference ref = db.collection("users").document(email).collection("ai_recommendation");
+        DocumentReference docRef = ref.document("ai_recommendation_list");
+
+        docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                if (task.isSuccessful()) {
+                    DocumentSnapshot document = task.getResult();
+                    if (document.exists()) {
+                        Log.d("Fragment_Home", "DocumentSnapshot data: " + document.getData());
+                        Map<String, Object> data = document.getData();
+                        ArrayList<String> aiRecommendData = (ArrayList<String>) data.get("list");
+
+                        // UI 업데이트
+                        aiNullDescriptionText.setVisibility(View.GONE);
+                        aiRecommendationRecyclerView.setVisibility(View.VISIBLE);
+
+                        aiRecommendationListAdapter = new ActivityRecommendationListAdapter(aiRecommendData);
+                        aiRecommendationRecyclerView.setAdapter(aiRecommendationListAdapter);
+                        aiRecommendationRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
+                        aiRecommendationListAdapter.notifyDataSetChanged();
+
+                    } else {
+                        Log.d("Fragment_Home", "No such document");
+                    }
+                } else {
+                    Log.d("Fragment_Home", "get failed with ", task.getException());
+                    Toast.makeText(getContext(), "ERROR: 앱을 종료하고 다시 시작해주십시오.", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+    }
+
 
     // 나의 활동 UI 업데이트
     private void updateMyActivityUI(Object badgeNum, Object carbonReduction, Object donationBadgeNum, Object setiType) {
