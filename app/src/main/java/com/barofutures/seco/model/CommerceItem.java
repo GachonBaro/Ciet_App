@@ -3,9 +3,9 @@ package com.barofutures.seco.model;
 public class CommerceItem {
     public static String commerceItemList[][]={
             // image, brand, name, price, discount, point
-            {"https://newsimg.hankookilbo.com/cms/articlerelease/2019/12/13/201912130903786139_3.jpg","산앤들", "못난이 감자", "6,100원", "삼성에코 혜택가 2,217원", "삼성에코 적립 41원"},
-            {"https://m.jejunaturefarm.com/web/product/big/202101/0136fe73bb7f3bd6d2d54c36f3def53f.png","강원야채", "못난이 당근", "4,100원", "삼성에코 혜택가 4,217원", "삼성에코 적립 41원"},
-            {"http://th3.tmon.kr/thumbs/image/408/d57/b33/5145bc28f_700x700_95_FIT.jpg","강릉 옥수수", "못난이 옥수수", "8,400원", "삼성에코 혜택가 4,217원", "삼성에코 적립 41원"}
+            {"https://newsimg.hankookilbo.com/cms/articlerelease/2019/12/13/201912130903786139_3.jpg","산앤들", "못난이 감자", "6,100원", "SECO 배지 혜택가 2,217원", "배지 적립 1"},
+            {"https://m.jejunaturefarm.com/web/product/big/202101/0136fe73bb7f3bd6d2d54c36f3def53f.png","강원야채", "못난이 당근", "4,100원", "SECO 배지 혜택가 4,217원", "배지 적립 1개"},
+            {"http://th3.tmon.kr/thumbs/image/408/d57/b33/5145bc28f_700x700_95_FIT.jpg","강릉 옥수수", "못난이 옥수수", "8,400원", "SECO 배지 혜택가 4,217원", "배지 적립 2개"}
     };
 
     public static String commerceDiningTabItemList[][]={

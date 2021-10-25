@@ -5,26 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <EditText
-        android:id="@+id/fragment_recipe_searchbar_edit_text"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginRight="30dp"
-        android:layout_marginBottom="10dp"
-        android:background="@drawable/ic_search_title"
-        android:fontFamily="@font/noto_sans_cjk_kr_bold"
-        android:gravity="left"
-        android:hint="재료를 검색해 보세요."
-        android:paddingLeft="50dp"
-        android:paddingTop="3dp"
-        android:textColor="@color/seco_tooltipgray"
-        android:textSize="14sp"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints" />
-
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/fragment_recipe_tabs"
         android:layout_width="match_parent"
@@ -33,7 +13,7 @@
         app:tabRippleColor="@android:color/transparent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/fragment_recipe_searchbar_edit_text"
+        app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints">
     </com.google.android.material.tabs.TabLayout>
 

@@ -94,12 +94,12 @@ public class RecipeGeneralAdapter extends RecyclerView.Adapter<RecipeGeneralAdap
         }
         holder.color.setText(itemList.get(position).COLOR);
 
-        // TODO: 좋아요 데이터 반영 필요함
-        // 좋아요 버튼
-        if (((int)(Math.random() * 10)) % 2 == 0)         // 사용자가 좋아요 표시
-            holder.likeButton.setImageResource(R.drawable.ic_filled_favorites);       // filled icon으로
-        else                                        // 사용자가 좋아요 안누름
-            holder.likeButton.setImageResource(R.drawable.ic_unfilled_favorites);     // unfilled icon으로
+//        // TODO: 좋아요 데이터 반영 필요함
+//        // 좋아요 버튼
+//        if (((int)(Math.random() * 10)) % 2 == 0)         // 사용자가 좋아요 표시
+//            holder.likeButton.setImageResource(R.drawable.ic_filled_favorites);       // filled icon으로
+//        else                                        // 사용자가 좋아요 안누름
+//            holder.likeButton.setImageResource(R.drawable.ic_unfilled_favorites);     // unfilled icon으로
 
 
         // TODO: 좋아요 버튼 클릭 이벤트 추가 (+ db 연동)
@@ -117,7 +117,7 @@ public class RecipeGeneralAdapter extends RecyclerView.Adapter<RecipeGeneralAdap
         TextView title;         // 레시피 이름
         TextView calories;      // 칼로리
         TextView color;         // color (light, normal, heavy)
-        ImageButton likeButton; // 좋아요 버튼
+//        ImageButton likeButton; // 좋아요 버튼
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -127,7 +127,7 @@ public class RecipeGeneralAdapter extends RecyclerView.Adapter<RecipeGeneralAdap
             title = itemView.findViewById(R.id.item_recipe_list_title_text);
             calories = itemView.findViewById(R.id.item_recipe_list_calories_text);
             color = itemView.findViewById(R.id.item_recipe_list_color_text);
-            likeButton = itemView.findViewById(R.id.item_recipe_list_like_button);
+//            likeButton = itemView.findViewById(R.id.item_recipe_list_like_button);
         }
     }
 

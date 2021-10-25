@@ -21,7 +21,7 @@
                 android:id="@+id/toolbar_menu_textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
+                android:layout_marginLeft="40dp"
                 android:fontFamily="@font/noto_sans_cjk_kr_bold"
                 android:text="SECO"
                 android:textColor="@android:color/black"

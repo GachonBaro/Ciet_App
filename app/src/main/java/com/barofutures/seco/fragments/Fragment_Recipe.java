@@ -25,7 +25,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Fragment_Recipe extends Fragment {
-    private EditText searchBar;                     // 검색창
+//    private EditText searchBar;                     // 검색창
 
     private TabLayout tabLayout;                    // 레시피 L1 탭 TabLayout (일반식, 비건)
 
@@ -41,7 +41,7 @@ public class Fragment_Recipe extends Fragment {
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        searchBar = view.findViewById(R.id.fragment_recipe_searchbar_edit_text);
+//        searchBar = view.findViewById(R.id.fragment_recipe_searchbar_edit_text);
         tabLayout = view.findViewById(R.id.fragment_recipe_tabs);
         recipeTabPagerAdapter = new RecipeTabPagerAdapter(this);
         viewPager2 = view.findViewById(R.id.fragment_recipe_view_pager);

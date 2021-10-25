@@ -9,8 +9,9 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/seco_lightgray"
         android:orientation="vertical"
-        android:background="@color/seco_lightgray">
+        android:visibility="visible">
 
         <RelativeLayout
             android:id="@+id/fragment_commerce_upper"
@@ -24,17 +25,17 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:elevation="15dp"
-                android:paddingTop="3dp"
                 android:layout_marginLeft="30dp"
                 android:layout_marginTop="30dp"
                 android:layout_marginRight="30dp"
                 android:layout_marginBottom="40dp"
                 android:background="@drawable/ic_search_title"
+                android:elevation="15dp"
                 android:fontFamily="@font/noto_sans_cjk_kr_bold"
                 android:gravity="left"
                 android:hint="가게 이름을 검색해 보세요."
                 android:paddingLeft="50dp"
+                android:paddingTop="3dp"
                 android:textColor="@color/seco_tooltipgray"
                 android:textSize="14sp" />
 
@@ -148,9 +149,9 @@
                 android:id="@+id/fragment_commerce_list_number"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
                 android:fontFamily="@font/noto_sans_cjk_kr_bold"
                 android:text="128개"
-                android:layout_alignParentTop="true"
                 android:textColor="@color/seco_tooltipgray"
                 android:textSize="14sp" />
 

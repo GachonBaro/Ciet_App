@@ -1,17 +1,20 @@
 package com.barofutures.seco.fragments;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.res.TypedArray;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
-import android.widget.Toast;
 
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
@@ -45,9 +48,23 @@ public class Fragment_Commerce extends Fragment {
     private RecyclerView recyclerView;
     private Button goToMap;
 
+    LinearLayout ll;
+
     // Instance 반환 메소드
     public static Fragment_Commerce newInstance() {
         return new Fragment_Commerce();
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        setDialog();
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        removeDialog();
     }
 
     @Override
@@ -73,8 +90,8 @@ public class Fragment_Commerce extends Fragment {
 
         // ViewPager Adapter 연결
         commerceFragAdapter = new CommerceFragAdapter(getActivity().getSupportFragmentManager(), 0);
-        commerceFragAdapter.addFragment(commerce_dining, "외식");
-        commerceFragAdapter.addFragment(commerce_ugly, "못난이");
+        commerceFragAdapter.addFragment(commerce_dining, "Meal Saving");
+        commerceFragAdapter.addFragment(commerce_ugly, "유기농");
         commerceFragAdapter.addFragment(commerce_vegan, "비건");
         commerceFragAdapter.addFragment(commerce_health, "헬스");
         viewPager.setAdapter(commerceFragAdapter);
@@ -107,19 +124,19 @@ public class Fragment_Commerce extends Fragment {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 switch (position) {
                     case 0:
-                        Toast.makeText(getContext(), "추천순", Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(getContext(), "추천순", Toast.LENGTH_SHORT).show();
                         break;
                     case 1:
-                        Toast.makeText(getContext(), "판매순", Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(getContext(), "판매순", Toast.LENGTH_SHORT).show();
                         break;
                     case 2:
-                        Toast.makeText(getContext(), "낮은 가격순", Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(getContext(), "낮은 가격순", Toast.LENGTH_SHORT).show();
                         break;
                     case 3:
-                        Toast.makeText(getContext(), "높은 가격순", Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(getContext(), "높은 가격순", Toast.LENGTH_SHORT).show();
                         break;
                     case 4:
-                        Toast.makeText(getContext(), "최신순", Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(getContext(), "최신순", Toast.LENGTH_SHORT).show();
                         break;
                 }
             }
@@ -173,5 +190,58 @@ public class Fragment_Commerce extends Fragment {
                 imageView.setImageDrawable(ContextCompat.getDrawable(getActivity(), R.drawable.bg_indicator_inactive));
             }
         }
+    }
+
+    // dialog
+    private void setDialog() {
+
+        LayoutInflater inflater = (LayoutInflater)getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+
+        ll = (LinearLayout)inflater.inflate(R.layout.dialog_transparent, null);
+
+        ll.setBackgroundColor(Color.parseColor("#99000000"));
+
+        LinearLayout.LayoutParams param = new LinearLayout.LayoutParams
+                (LinearLayout.LayoutParams.FILL_PARENT,LinearLayout.LayoutParams.FILL_PARENT);
+        param.setMargins(0, getStatusBarHeight() + getActionBarHeight(), 0, getNavigationBarHeight() + 220);
+        getActivity().addContentView(ll, param);
+
+    }
+
+    private void removeDialog() {
+//        @SuppressLint("ResourceType") LinearLayout ll = (LinearLayout) getActivity().findViewById(R.layout.dialog_transparent);
+        ((ViewManager) ll.getParent()).removeView(ll);
+    }
+
+    //status bar의 높이 계산
+    public int getStatusBarHeight()
+    {
+        int result = 0;
+        int resourceId = getResources().getIdentifier("status_bar_height", "dimen", "android");
+        if (resourceId > 0)
+            result = getResources().getDimensionPixelSize(resourceId);
+
+        return result;
+    }
+
+    // navigation bar 높이 계산
+    private int getNavigationBarHeight() {
+        int navigationBarHeight = 0;
+        int resId = getResources().getIdentifier("navigation_bar_height", "dimen", "android");
+        if (resId > 0) {
+            navigationBarHeight = getResources().getDimensionPixelSize(resId);
+        }
+        return navigationBarHeight;
+    }
+
+    // actionBar 높이 계산
+    private int getActionBarHeight() {
+        int actionBarHeight = 0;
+        final TypedArray styledAttributes = getActivity().getTheme().obtainStyledAttributes(
+                new int[] { android.R.attr.actionBarSize }
+        );
+        actionBarHeight = (int) styledAttributes.getDimension(0, 0);
+        styledAttributes.recycle();
+        return actionBarHeight;
     }
 }

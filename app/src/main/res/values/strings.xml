@@ -101,5 +101,6 @@
     <string name="home_donation_input_hint">기부할 배지 개수를 입력</string>
 
     <string name="to_be_developed">개발 예정</string>
+    <string name="coming_soon">Coming Soon</string>
 
 </resources>

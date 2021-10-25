@@ -70,17 +70,17 @@
 
                 </FrameLayout>
 
-                <ImageButton
-                    android:id="@+id/activity_recipe_detail_like_button"
-                    android:layout_width="32dp"
-                    android:layout_height="32dp"
-                    android:layout_marginRight="25dp"
-                    android:layout_marginBottom="25dp"
-                    android:background="@drawable/bg_like_icon"
-                    android:src="@drawable/ic_filled_favorites"
-                    app:layout_constraintBottom_toBottomOf="@+id/activity_recipe_detail_frame_layout"
-                    app:layout_constraintRight_toRightOf="@+id/activity_recipe_detail_frame_layout"
-                    tools:ignore="MissingConstraints,NotSibling" />
+<!--                <ImageButton-->
+<!--                    android:id="@+id/activity_recipe_detail_like_button"-->
+<!--                    android:layout_width="32dp"-->
+<!--                    android:layout_height="32dp"-->
+<!--                    android:layout_marginRight="25dp"-->
+<!--                    android:layout_marginBottom="25dp"-->
+<!--                    android:background="@drawable/bg_like_icon"-->
+<!--                    android:src="@drawable/ic_filled_favorites"-->
+<!--                    app:layout_constraintBottom_toBottomOf="@+id/activity_recipe_detail_frame_layout"-->
+<!--                    app:layout_constraintRight_toRightOf="@+id/activity_recipe_detail_frame_layout"-->
+<!--                    tools:ignore="MissingConstraints,NotSibling" />-->
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -230,22 +230,22 @@
                         android:textSize="11sp" />
                 </LinearLayout>
 
-                <Button
-                    android:id="@+id/activity_recipe_detail_selection_button"
-                    android:layout_width="338dp"
-                    android:layout_height="58dp"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginBottom="25dp"
-                    android:background="@drawable/button_rounded_green"
-                    android:fontFamily="@font/noto_sans_cjk_kr_bold"
-                    android:text="메뉴 선택하기"
-                    android:textAlignment="center"
-                    android:textColor="@color/white"
-                    android:textSize="12sp"
-                    android:textStyle="bold"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/recipe_calories_linear_layout" />
+<!--                <Button-->
+<!--                    android:id="@+id/activity_recipe_detail_selection_button"-->
+<!--                    android:layout_width="338dp"-->
+<!--                    android:layout_height="58dp"-->
+<!--                    android:layout_marginTop="20dp"-->
+<!--                    android:layout_marginBottom="25dp"-->
+<!--                    android:background="@drawable/button_rounded_green"-->
+<!--                    android:fontFamily="@font/noto_sans_cjk_kr_bold"-->
+<!--                    android:text="메뉴 선택하기"-->
+<!--                    android:textAlignment="center"-->
+<!--                    android:textColor="@color/white"-->
+<!--                    android:textSize="12sp"-->
+<!--                    android:textStyle="bold"-->
+<!--                    app:layout_constraintLeft_toLeftOf="parent"-->
+<!--                    app:layout_constraintRight_toRightOf="parent"-->
+<!--                    app:layout_constraintTop_toBottomOf="@+id/recipe_calories_linear_layout" />-->
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -610,7 +610,7 @@
             <View
                 android:id="@+id/recipe_detail_line2"
                 android:layout_width="match_parent"
-                android:layout_height="12dp"
+                android:layout_height="3dp"
                 android:background="@color/seco_lightgray"
                 app:layout_constraintTop_toBottomOf="@+id/activity_recipe_detail_manual_read_more_button"
                 tools:ignore="MissingConstraints" />
@@ -621,27 +621,27 @@
                 app:layout_constraintTop_toBottomOf="@+id/recipe_detail_line2"
                 tools:ignore="MissingConstraints">
 
-                <TextView
-                    android:id="@+id/activity_recipe_detail_related_product_title"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="26dp"
-                    android:layout_marginTop="33dp"
-                    android:layout_marginBottom="13dp"
-                    android:fontFamily="@font/noto_sans_cjk_kr_bold"
-                    android:text="이 상품과 관련된 상품"
-                    android:textAlignment="center"
-                    android:textColor="@color/black"
-                    android:textSize="16sp"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+<!--                <TextView-->
+<!--                    android:id="@+id/activity_recipe_detail_related_product_title"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginLeft="26dp"-->
+<!--                    android:layout_marginTop="33dp"-->
+<!--                    android:layout_marginBottom="13dp"-->
+<!--                    android:fontFamily="@font/noto_sans_cjk_kr_bold"-->
+<!--                    android:text="이 상품과 관련된 상품"-->
+<!--                    android:textAlignment="center"-->
+<!--                    android:textColor="@color/black"-->
+<!--                    android:textSize="16sp"-->
+<!--                    app:layout_constraintLeft_toLeftOf="parent"-->
+<!--                    app:layout_constraintTop_toTopOf="parent" />-->
 
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/activity_recipe_detail_related_product_recycler_view"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:nestedScrollingEnabled="true"
-                    tools:ignore="MissingConstraints" />
+<!--                <androidx.recyclerview.widget.RecyclerView-->
+<!--                    android:id="@+id/activity_recipe_detail_related_product_recycler_view"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:nestedScrollingEnabled="true"-->
+<!--                    tools:ignore="MissingConstraints" />-->
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

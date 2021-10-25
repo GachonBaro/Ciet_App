@@ -1563,6 +1563,7 @@ public class RecipeDetailActivity extends AppCompatActivity {
                     params.topToBottom = R.id.recipe_detail_line1;
                     params.bottomToTop = R.id.activity_recipe_detail_manual_read_more_button;
                     manualLayout.setLayoutParams(params);
+                    readMoreButton.setText("접기");
                     
                 } else {
 //                    manualLayout.setMinHeight(200);
@@ -1571,6 +1572,7 @@ public class RecipeDetailActivity extends AppCompatActivity {
                     params.topToBottom = R.id.recipe_detail_line1;
                     params.bottomToTop = R.id.activity_recipe_detail_manual_read_more_button;
                     manualLayout.setLayoutParams(params);
+                    readMoreButton.setText("더보기");
                 }
             }
         });
