@@ -211,13 +211,11 @@ public class WalkingAuthActivity extends AppCompatActivity
             pauseButton.setVisibility(View.VISIBLE);
             stopButton.setVisibility(View.VISIBLE);
         }else if (code == 1) {
-            // TODO: 일시정지 구현
             state = false;
 
             // 버튼 상태 변경
             pauseButton.setText("계속하기");
         }else if (code == 2) {
-            // TODO: 다시 시작 구현
             state = true;
             //현재 위치를 시작점으로 설정
             startLatLng = new LatLng(mCurrentLocation.getLatitude(), mCurrentLocation.getLongitude());
@@ -358,17 +356,16 @@ public class WalkingAuthActivity extends AppCompatActivity
             currentDistanceText.setText(String.format("%1.2f", sumOfDistance) + "km");
 
             Log.d("누적거리", String.valueOf(sumOfDistance));
-            Toast.makeText(getApplicationContext(), "누적거리: " + String.valueOf(sumOfDistance), Toast.LENGTH_SHORT).show();
+//            Toast.makeText(getApplicationContext(), "누적거리: " + String.valueOf(sumOfDistance), Toast.LENGTH_SHORT).show();
 
             startLatLng = new LatLng(latitude, longtitude);        //시작점을 끝점으로 다시 설정
 
-            // TODO: 이동거리 >= 목표거리이면, 인증 완료 activity로 넘어가기 + 종료 시간 저장
             // 달성 완료: 이동거리 >= 목표거리
             if (targetDistance <= sumOfDistance) {
                 endTime = getTime();        // 달성 완료 시간 저장
-                // TODO: 인증 완료 activity로 넘어가기
+
                 Toast.makeText(getApplicationContext(), "달성완료", Toast.LENGTH_SHORT).show();
-                Toast.makeText(getApplicationContext(), "s: " + startTime + ", e: " + endTime, Toast.LENGTH_SHORT).show();
+//                Toast.makeText(getApplicationContext(), "s: " + startTime + ", e: " + endTime, Toast.LENGTH_SHORT).show();
 
 
                 if (title.equalsIgnoreCase("플로깅")) {      // 플로깅인 경우

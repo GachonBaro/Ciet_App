@@ -99,11 +99,6 @@ public class ContentsListActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:     // toolbar의 뒤로가기 버튼을 눌렀을 때
-//                Intent intent = new Intent(FreeModeActivity.this, MainActivity.class);
-////                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);        // 현재(FreeModeActivity) 액티비티와 이 위에 있는 모든 애티비티를 종료시키고 이동
-//                intent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
-//
-//                startActivity(intent);
                 finish();
                 return true;
         }
@@ -123,18 +118,6 @@ public class ContentsListActivity extends AppCompatActivity {
 
     // user의 free mode 데이터 받아옴 (meal)
     public ContentsDetailData getFreeModeContentsListDataMeal() {
-//        //TODO: 사용자의 좋아요, 활성화 유무 데이터 받아오기
-//        ArrayList<Boolean> isFavorites = new ArrayList<>();
-//        isFavorites.add(true);
-//        isFavorites.add(true);
-//        isFavorites.add(false);
-//        isFavorites.add(false);
-//
-//        ArrayList<Boolean> isEnabled = new ArrayList<>();
-//        isEnabled.add(false);
-//        isEnabled.add(true);
-//        isEnabled.add(true);
-//        isEnabled.add(true);
 
         ContentsDetailData meal = new ContentsDetailData();
         meal.setMeal();
@@ -144,18 +127,6 @@ public class ContentsListActivity extends AppCompatActivity {
 
     // user의 free mode 데이터 받아옴 (activity)
     public ContentsDetailData getFreeModeContentsListDataActivity() {
-        //TODO: 사용자의 좋아요, 활성화 유무 데이터 받아오기
-//        ArrayList<Boolean> isFavorites = new ArrayList<>();
-//        isFavorites.add(true);
-//        isFavorites.add(true);
-//        isFavorites.add(false);
-//        isFavorites.add(false);
-//
-//        ArrayList<Boolean> isEnabled = new ArrayList<>();
-//        isEnabled.add(false);
-//        isEnabled.add(true);
-//        isEnabled.add(true);
-//        isEnabled.add(true);
 
         ContentsDetailData activity = new ContentsDetailData();
         activity.setActivity();
@@ -165,28 +136,6 @@ public class ContentsListActivity extends AppCompatActivity {
 
     // user의 free mode 데이터 받아옴 (quest)
     public ContentsDetailData getFreeModeContentsListDataQuest() {
-//        //TODO: 사용자의 좋아요, 활성화 유무 데이터 받아오기
-//        ArrayList<Boolean> isFavorites = new ArrayList<>();
-//        isFavorites.add(true);
-//        isFavorites.add(true);
-//        isFavorites.add(false);
-//        isFavorites.add(false);
-//        isFavorites.add(true);
-//        isFavorites.add(true);
-//        isFavorites.add(false);
-//        isFavorites.add(false);
-//
-//
-//        ArrayList<Boolean> isEnabled = new ArrayList<>();
-//        isEnabled.add(false);
-//        isEnabled.add(true);
-//        isEnabled.add(true);
-//        isEnabled.add(true);
-//        isEnabled.add(false);
-//        isEnabled.add(true);
-//        isEnabled.add(true);
-//        isEnabled.add(true);
-
 
         ContentsDetailData quest = new ContentsDetailData();
         quest.setQuest();
@@ -196,16 +145,7 @@ public class ContentsListActivity extends AppCompatActivity {
 
     // user의 free mode 데이터 받아옴 (Favorites)
     public ContentsDetailData getFreeModeContentsListDataListFavorites() {
-//        //TODO: 사용자의 좋아요, 활성화 유무 데이터 받아오기
-//        ArrayList<Boolean> isFavorites = new ArrayList<>();
-//        isFavorites.add(true);
-//        isFavorites.add(true);
-//        isFavorites.add(true);
-//
-//        ArrayList<Boolean> isEnabled = new ArrayList<>();
-//        isEnabled.add(false);
-//        isEnabled.add(true);
-//        isEnabled.add(true);
+
 
         ContentsDetailData favorites = new ContentsDetailData();
         favorites.setFavorites();

@@ -1354,7 +1354,7 @@ public class RecipeDetailActivity extends AppCompatActivity {
                 manualText18.setText(RecipeGeneralDessertFragment.itemList.get(recyclerItemPosition).MANUAL18);
             }
         } else {      // 비건의 경우
-            Toast.makeText(getApplicationContext(), "else: 비건", Toast.LENGTH_SHORT).show();
+//            Toast.makeText(getApplicationContext(), "else: 비건", Toast.LENGTH_SHORT).show();
             // 음식 사진
             Glide.with(getApplicationContext())
                     .load(Uri.parse(RecipeVeganFragment.itemList.get(recyclerItemPosition).ATT_FILE_NO_MAIN))

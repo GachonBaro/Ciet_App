@@ -79,8 +79,6 @@ public class SteppingAuthActivity extends AppCompatActivity
     private LocationManager mLocationManager;
     private LocationCallback locationCallback;
     private Marker mCurrentMarker;
-//    private LatLng startLatLng = new LatLng(0, 0);        //polyline 시작점
-//    private LatLng endLatLng = new LatLng(0, 0);        //polyline 끝점
     private boolean state = false;                    // 진행 상태
     private double startVerticalAccuracyMeters;         // 시작 시 고도
     private double currentVerticalAccuracyMeters;         // 현재 고도
@@ -238,7 +236,7 @@ public class SteppingAuthActivity extends AppCompatActivity
             //현재 고도를 시작점으로 설정
 //            requestCurrentLocation();           // TODO
             startVerticalAccuracyMeters = mCurrentLocation.getVerticalAccuracyMeters();
-            Toast.makeText(getApplicationContext(), "startVerticalAccuracyMeters = " + startVerticalAccuracyMeters, Toast.LENGTH_SHORT).show();
+//            Toast.makeText(getApplicationContext(), "startVerticalAccuracyMeters = " + startVerticalAccuracyMeters, Toast.LENGTH_SHORT).show();
 
             // 버튼 상태 변경
             startButton.setVisibility(View.INVISIBLE);
@@ -258,7 +256,7 @@ public class SteppingAuthActivity extends AppCompatActivity
             state = true;
             //현재 고도를 시작점으로 설정
             startVerticalAccuracyMeters = mCurrentLocation.getVerticalAccuracyMeters();
-            Toast.makeText(getApplicationContext(), "startVerticalAccuracyMeters = " + startVerticalAccuracyMeters, Toast.LENGTH_SHORT).show();
+//            Toast.makeText(getApplicationContext(), "startVerticalAccuracyMeters = " + startVerticalAccuracyMeters, Toast.LENGTH_SHORT).show();
             // 버튼 상태 변경
             pauseButton.setText("일시정지");
         }else if (code == 3) {
@@ -386,14 +384,13 @@ public class SteppingAuthActivity extends AppCompatActivity
 
 
             Log.d("누적거리", String.valueOf(sumOfDistance));
-            Toast.makeText(getApplicationContext(), "누적거리: " + String.valueOf(sumOfDistance), Toast.LENGTH_SHORT).show();
+//            Toast.makeText(getApplicationContext(), "누적거리: " + String.valueOf(sumOfDistance), Toast.LENGTH_SHORT).show();
 
             // 달성 완료: 이동거리 >= 목표거리
             if (targetDistance <= sumOfDistance + currentDistance) {
                 endTime = getTime();        // 달성 완료 시간 저장
-                // TODO: 인증 완료 activity로 넘어가기
                 Toast.makeText(getApplicationContext(), "달성완료", Toast.LENGTH_SHORT).show();
-                Toast.makeText(getApplicationContext(), "s: " + startTime + ", e: " + endTime, Toast.LENGTH_SHORT).show();
+//                Toast.makeText(getApplicationContext(), "s: " + startTime + ", e: " + endTime, Toast.LENGTH_SHORT).show();
 
                 Intent authIntent = new Intent(getApplicationContext(), AuthCompletionActivity.class);
                 authIntent.putExtra("title", title);

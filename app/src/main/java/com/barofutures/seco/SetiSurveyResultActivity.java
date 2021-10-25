@@ -5,12 +5,10 @@ import android.os.Bundle;
 import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.style.ForegroundColorSpan;
-import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
@@ -23,7 +21,6 @@ public class SetiSurveyResultActivity extends AppCompatActivity {
     private Button detailButton, exitButton;
     // 마지막으로 뒤로가기 버튼을 눌렀던 시간 저장
     private long backKeyPressedTime = 0;
-    private Toast toast;
     private String seti;
 
     private String email;
@@ -68,29 +65,6 @@ public class SetiSurveyResultActivity extends AppCompatActivity {
         // SETI 결과 저장
         SetiQnA.storeSETIResult(email);
 
-//        // 더 자세히 알아보기 클릭 시 이벤트
-//        detailButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent=new Intent(getApplicationContext(), MySetiActivity.class);
-//                intent.putExtra("email", email);
-//                startActivity(intent);
-//                finish();
-//            }
-//        });
-//
-//        // 나가기 버튼 클릭 시 홈으로 이동
-//        exitButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-//                intent.putExtra("email", email);
-//                // 플래그 지정: 같은 액티비티가 재사용되기 때문에 onCreate가 호출되지 않고 onNewIntent가 실행되는 것에 주의
-//                intent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
-//                startActivity(intent);
-//                finish();
-//            }
-//        });
     }
 
     @Override
@@ -124,21 +98,4 @@ public class SetiSurveyResultActivity extends AppCompatActivity {
         });
     }
 
-    /*
-     * back button click event
-     */
-//    @Override
-//    public void onBackPressed() {
-//        if (System.currentTimeMillis() > backKeyPressedTime + 2000) {
-//            backKeyPressedTime = System.currentTimeMillis();
-//            toast = Toast.makeText(this, "뒤로가기 버튼을 한번 더 누르면 종료됩니다.", Toast.LENGTH_SHORT);
-//            toast.show();
-//            return;
-//        }
-//        if (System.currentTimeMillis() <= backKeyPressedTime + 2000) {
-//            // 전부 Kill
-//            finishAffinity();
-//            toast.cancel();
-//        }
-//    }
 }

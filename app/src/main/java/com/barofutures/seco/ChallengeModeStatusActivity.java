@@ -27,7 +27,6 @@ public class ChallengeModeStatusActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_challenge_mode_status);
 
-//
         recyclerView = findViewById(R.id.routine_list_recycler_view);
 
         // Routinelistadapter 초기화 및 연결
@@ -35,17 +34,6 @@ public class ChallengeModeStatusActivity extends AppCompatActivity {
         routineListAdapter=new RoutineListAdapter();
         recyclerView.setAdapter(routineListAdapter);
 
-//       // TODO: 스크롤하면 플로팅 버튼 보이기 / 숨기기
-//        recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
-//            @Override
-//            public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
-//                if(dy>0){
-//                    floatingActionButton.hide();
-//                }else if(dy<0){
-//                    floatingActionButton.show();
-//                }
-//            }
-//        });
 
         // actionBar 설정
         toolbar=findViewById(R.id.activity_challenge_mode_material_toolbar);

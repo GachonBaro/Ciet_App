@@ -18,7 +18,6 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.barofutures.seco.model.SetiQnA;
 import com.google.android.gms.tasks.OnCompleteListener;

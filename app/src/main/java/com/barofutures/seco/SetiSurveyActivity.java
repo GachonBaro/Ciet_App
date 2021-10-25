@@ -1,14 +1,11 @@
 package com.barofutures.seco;
 
-import android.animation.ObjectAnimator;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.ProgressBar;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -149,30 +146,5 @@ public class SetiSurveyActivity extends AppCompatActivity implements SetiSurveyA
         nextButton.setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.seco_deepgray));
         nextButton.setOnClickListener(null);
     }
-
-    /*
-     * back button click event
-     */
-//    @Override
-//    public void onBackPressed() {
-//        if (viewPager2.getCurrentItem() != 5) {
-//            if (System.currentTimeMillis() > backKeyPressedTime + 2000) {
-//                backKeyPressedTime = System.currentTimeMillis();
-//                toast = Toast.makeText(this, "뒤로가기 버튼을 한번 더 누르면 종료됩니다.", Toast.LENGTH_SHORT);
-//                toast.show();
-//                return;
-//            }
-//            if (System.currentTimeMillis() <= backKeyPressedTime + 2000) {
-//                // 전부 Kill
-//                finishAffinity();
-//                toast.cancel();
-//            }
-//        } else {
-//            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-//            startActivity(intent);
-//            this.finish();
-//        }
-//
-//    }
 
 }

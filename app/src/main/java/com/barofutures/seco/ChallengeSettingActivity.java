@@ -370,19 +370,6 @@ public class ChallengeSettingActivity extends AppCompatActivity {
             }
         });
 
-//        challengeRef.set(challengeData).addOnSuccessListener(new OnSuccessListener<Void>() {
-//            @Override
-//            public void onSuccess(Void unused) {
-//                Log.d("ChallengeSettingActivity", "DocumentSnapshot successfully written!");
-//                storeActivityByDay(challengeRef);
-//            }
-//        }).addOnFailureListener(new OnFailureListener() {
-//            @Override
-//            public void onFailure(@NonNull Exception e) {
-//                Log.w("ChallengeSettingActivity", "Error writing document", e);
-//            }
-//        });
-
     }
 
     // 요일별 활동 리스트 저장
@@ -478,14 +465,6 @@ public class ChallengeSettingActivity extends AppCompatActivity {
             }
         }
 
-//        activityByDay.put("일", sun.toArray(new String[sun.size()]));
-//        activityByDay.put("월", mon.toArray(new String[mon.size()]));
-//        activityByDay.put("화", tue.toArray(new String[tue.size()]));
-//        activityByDay.put("수", wed.toArray(new String[wed.size()]));
-//        activityByDay.put("목", thu.toArray(new String[thu.size()]));
-//        activityByDay.put("금", fri.toArray(new String[fri.size()]));
-//        activityByDay.put("토", sat.toArray(new String[sat.size()]));
-
         activityByDay.put("일", sunStr);
         activityByDay.put("월", monStr);
         activityByDay.put("화", tueStr);
@@ -495,15 +474,6 @@ public class ChallengeSettingActivity extends AppCompatActivity {
         activityByDay.put("토", satStr);
 
         // 시작일이 무슨 요일인지
-//        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-//        Date date = null;
-//        try {
-//            date = format.parse(challengeData.getStartDate());
-//        } catch (ParseException e) {
-//            e.printStackTrace();
-//        }
-//        Calendar calendar = Calendar.getInstance();
-//        calendar.setTime(date);
         int dayOfStartDate = mCalendar.get(Calendar.DAY_OF_WEEK);   // 시작일 요일 (int)
 
         String myFormat = "yyyy-MM-dd";    // 출력형식
@@ -538,46 +508,8 @@ public class ChallengeSettingActivity extends AppCompatActivity {
             temp.add(Calendar.DATE, 1);     // 하루씩 더함
         }
 
-//        missionCompletion.put("일", sunBool);
-//        missionCompletion.put("월", monBool);
-//        missionCompletion.put("화", tueBool);
-//        missionCompletion.put("수", wedBool);
-//        missionCompletion.put("목", thuBool);
-//        missionCompletion.put("금", friBool);
-//        missionCompletion.put("토", satBool);
-
-//        setMissionCompletion(sun.size(), mon.size(), tue.size(), wed.size(), thu.size(), fri.size(), sat.size());
     }
 
-//    // 각 활동의 미션 완료 여부
-//    private void setMissionCompletion(int sunSize, int monSize, int tueSize, int wedSize, int thuSize, int friSize, int satSize) {
-//        missionCompletion = new HashMap<>();
-//
-//        ArrayList<Boolean> sun = new ArrayList<>();
-//        boolean[] sun = new boolean[sunSize];
-//        boolean[] mon = new boolean[monSize];
-//        boolean[] tue = new boolean[tueSize];
-//        boolean[] wed = new boolean[wedSize];
-//        boolean[] thu = new boolean[thuSize];
-//        boolean[] fri = new boolean[friSize];
-//        boolean[] sat = new boolean[satSize];
-//
-//        Arrays.fill(sun, false);
-//        Arrays.fill(mon, false);
-//        Arrays.fill(tue, false);
-//        Arrays.fill(wed, false);
-//        Arrays.fill(thu, false);
-//        Arrays.fill(fri, false);
-//        Arrays.fill(sat, false);
-//
-//        missionCompletion.put("일", sun);
-//        missionCompletion.put("월", mon);
-//        missionCompletion.put("화", tue);
-//        missionCompletion.put("수", wed);
-//        missionCompletion.put("목", thu);
-//        missionCompletion.put("금", fri);
-//        missionCompletion.put("토", sat);
-//    }
 
     // 최대로 얻을 수 있는 배지 개수 계산
     private long calcMaxBadgeNum() {
@@ -598,12 +530,6 @@ public class ChallengeSettingActivity extends AppCompatActivity {
 
     // 각 활동별로 선택된 요일 데이터를 가져옴
     private void setDayDataByActivity() {
-//        for (Map<String, ArrayList<String>> map : activityList) {
-//            for (String key : map.keySet()) {
-//                Log.d("ChallengeSettingActivity2222", key);
-//
-//            }
-//        }
 
         String[] dayList = new String[]{"일", "월", "화", "수", "목", "금", "토"};
         for (int i = 0; i < activityNum; i++) {
@@ -621,15 +547,12 @@ public class ChallengeSettingActivity extends AppCompatActivity {
         }
 
         for (int i = 0; i < activityNum; i++) {
-//            Log.d("ChallengeSettingActivity2222", "i = " + i);
             for (String key : activityList.get(i).keySet()) {
-//                Log.d("ChallengeSettingActivity2222", "key = " + key);
                String s = "";
                 for (String day : activityList.get(i).get(key)) {
-//                    Log.d("ChallengeSettingActivity2222", day);
                     s += day +" ";
                 }
-                Log.d("ChallengeSettingActivity111111", s);
+                Log.d("ChallengeSettingActivity", s);
             }
         }
 
