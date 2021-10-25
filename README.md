@@ -13,7 +13,7 @@
 
 ## 📚Stack
 - <img src="https://img.shields.io/badge/Android-3DDC84?style=for-the-badge&logo=android&logoColor=white"/></a><img src="https://img.shields.io/badge/JAVA-007396?style=for-the-badge&logo=java&logoColor=white"></a>
-- <img src="https://img.shields.io/badge/Amazon AWS-{232F3E}?style=for-the-badge&logo=amazonaws&logoColor=white"/></a>__Amazon Pinpoint__, __Amazon RDS__
+- __Microsoft azure__
 - <img src="https://img.shields.io/badge/firebase-ffca28?style=for-the-badge&logo=firebase&logoColor=black"/></a>
 - [![Open In Collab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Naereen/badges)</a>
 - [![Python 3.6.10](https://img.shields.io/badge/python-3.6.10-blue.svg)](https://www.python.org/downloads/release/python-3610/)</a>
@@ -29,7 +29,6 @@
 ▶️[Click Here!](https://github.com/GachonBaro/Ciet_DL)
 
 ## 📖Read more (click below)  
-▶️[System Architectural design🎛](https://github.com/GachonBaro/Ciet_App/wiki/System-Architectural-Design)  
 ▶️[Demo Web for SETI Test💻](https://setitest.netlify.app/)  
 
 ## Demo video (click below)
