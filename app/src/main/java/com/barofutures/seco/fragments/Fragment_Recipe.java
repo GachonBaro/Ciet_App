@@ -1,12 +1,10 @@
 package com.barofutures.seco.fragments;
 
-import android.annotation.SuppressLint;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -56,7 +54,7 @@ public class Fragment_Recipe extends Fragment {
             @Override
             public void onConfigureTab(@NonNull TabLayout.Tab tab, int position) {
                 Typeface typeface= ResourcesCompat.getFont(getActivity(), R.font.noto_sans_cjk_kr_bold);
-                TextView textView = new TextView(getActivity());             //////// getContext()...?? getActivity()...?
+                TextView textView = new TextView(getActivity());
                 textView.setText(tabElement.get(position));
                 textView.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
                 textView.setTypeface(typeface);

@@ -2,15 +2,12 @@ package com.barofutures.seco.fragments.freemode;
 
 import static android.app.Activity.RESULT_OK;
 
-import android.bluetooth.le.ScanSettings;
 import android.content.Intent;
-import android.media.Image;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -23,11 +20,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.barofutures.seco.ChallengeSettingActivity;
-import com.barofutures.seco.MainActivity;
 import com.barofutures.seco.R;
 import com.barofutures.seco.adapter.ChallengeActivityOfTodayListAdapter;
 import com.barofutures.seco.adapter.ChallengeRecommendationListAdapter;
-import com.barofutures.seco.firebase.firestore.UserInfoData;
 import com.barofutures.seco.progress.ProgressButton;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -52,7 +47,6 @@ import com.skydoves.progressview.ProgressView;
 
 import org.jetbrains.annotations.NotNull;
 
-import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -274,10 +268,8 @@ public class ChallengeFragment extends Fragment {
                 if ((boolean)data.get("succeed")) {
                     updateUI("finished_succeed");
                     updateFinishBadgeNumUI((Long) data.get("additionalBadgeNum"));
-//                    updateChallengeModeFalse();
                 } else if (data.get("endDate").toString().compareToIgnoreCase(getDateOfToday()) < 0) {      // end_date < 오늘 날짜 이면 'finish'로
                     updateUI("finished_fail");
-//                    updateChallengeModeFalse();
                 } else {        // 'in progress'인 경우
                     updateUI("progress");
                     getActivityOfTodayData(dataDoc.getId());

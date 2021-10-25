@@ -43,7 +43,6 @@ public class RecipeGeneralFragment extends Fragment {
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-//        Bundle args = getArguments();
         tabLayout = view.findViewById(R.id.fragment_recipe_general_tabs);
         tabLayout.setTabMode(TabLayout.MODE_SCROLLABLE);
         recipeGeneralTabPagerAdapter = new RecipeGeneralTabPagerAdapter(this, tabElement.size());

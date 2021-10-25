@@ -1,6 +1,5 @@
 package com.barofutures.seco.fragments.initsurvey;
 
-import static com.barofutures.seco.InitialSurveyActivity.nextButton;
 import static com.barofutures.seco.InitialSurveyActivity.setAnswered;
 
 import android.os.Bundle;
@@ -11,10 +10,8 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
-import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
-import com.barofutures.seco.InitialSurveyActivity;
 import com.barofutures.seco.R;
 import com.barofutures.seco.model.InitQnA;
 

@@ -5,7 +5,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -98,7 +97,6 @@ public class RecipeGeneralWesternFragment extends Fragment {
                 recipeGeneralRecyclerView.setAdapter(recipeGeneralAdapter);
                 recipeGeneralRecyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 2));
                 recipeGeneralAdapter.notifyDataSetChanged();
-//                Toast.makeText(getActivity(), "데이터 20개 불러오기 성공", Toast.LENGTH_SHORT).show();
             }
 
             @Override
@@ -129,7 +127,6 @@ public class RecipeGeneralWesternFragment extends Fragment {
                 // 데이터 갱신
                 recipeGeneralAdapter.notifyDataSetChanged();
 
-//                Toast.makeText(getActivity(), "데이터 더 불러오기 성공", Toast.LENGTH_SHORT).show();
             }
 
             @Override

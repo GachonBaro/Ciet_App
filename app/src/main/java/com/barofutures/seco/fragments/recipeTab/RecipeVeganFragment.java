@@ -5,7 +5,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -92,7 +91,6 @@ public class RecipeVeganFragment extends Fragment {
                 recipeVeganRecyclerView.setAdapter(recipeVeganAdapter);
                 recipeVeganRecyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 2));
                 recipeVeganAdapter.notifyDataSetChanged();
-//                Toast.makeText(getActivity(), "한식 데이터 20개 불러오기 성공", Toast.LENGTH_SHORT).show();
             }
 
             @Override
@@ -123,7 +121,6 @@ public class RecipeVeganFragment extends Fragment {
                 // 데이터 갱신
                 recipeVeganAdapter.notifyDataSetChanged();
 
-//                Toast.makeText(getActivity(), "한식 데이터 더 불러오기 성공", Toast.LENGTH_SHORT).show();
             }
 
             @Override

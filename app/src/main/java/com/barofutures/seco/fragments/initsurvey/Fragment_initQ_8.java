@@ -15,9 +15,7 @@ import androidx.fragment.app.Fragment;
 import com.barofutures.seco.InitialSurveyActivity;
 import com.barofutures.seco.MainActivity;
 import com.barofutures.seco.R;
-import com.barofutures.seco.SetiSurveyActivity;
 import com.barofutures.seco.SetiSurveyIntroActivity;
-import com.barofutures.seco.firebase.firestore.UserInfoData;
 import com.barofutures.seco.model.InitQnA;
 import com.barofutures.seco.model.SetiQnA;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -56,9 +54,6 @@ public class Fragment_initQ_8 extends Fragment {
                 InitQnA.A8=InitQnA.C458[0];
                 InitQnA.isAsked=true;
                 storeUserInfoAndGoSETI();
-//                Intent intent=new Intent(getActivity(), SetiSurveyIntroActivity.class);
-//                startActivity(intent);
-//                getActivity().finish();
             }
         });
 
@@ -70,9 +65,6 @@ public class Fragment_initQ_8 extends Fragment {
                 InitQnA.isAsked=true;
                 SetiQnA.testLater=true;
                 storeUserInfoAndGoMain();
-//                Intent intent=new Intent(getActivity(), MainActivity.class);
-//                startActivity(intent);
-//                getActivity().finish();
             }
         });
 
@@ -81,8 +73,6 @@ public class Fragment_initQ_8 extends Fragment {
 
     // Firestore에 UserInfo 저장하고 환경유형검사로 이동
     private void storeUserInfoAndGoSETI() {
-
-        //TODO: 여기 하는중 - 닉네임 등 업데이
         // Get a new write batch
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         WriteBatch batch = db.batch();
@@ -112,8 +102,6 @@ public class Fragment_initQ_8 extends Fragment {
 
     // Firestore에 UserInfo 저장하고 메인화면으로 이동
     private void storeUserInfoAndGoMain() {
-
-        //TODO: 여기 하는중 - 닉네임 등 업데이
 
         // Get a new write batch
         FirebaseFirestore db = FirebaseFirestore.getInstance();
