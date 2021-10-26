@@ -26,6 +26,7 @@ import com.barofutures.seco.VerifiedHistoryActivity;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.oss.licenses.OssLicensesMenuActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
@@ -156,8 +157,11 @@ public class Fragment_MyPage extends Fragment {
         licenseButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(getActivity(), LicenceInfoActivity.class);
-                startActivity(intent);
+//                Intent intent=new Intent(getActivity(), LicenceInfoActivity.class);
+//                startActivity(intent);
+
+                // When the user selects an option to see the licenses:
+                startActivity(new Intent(getActivity(), OssLicensesMenuActivity.class));
             }
         });
 

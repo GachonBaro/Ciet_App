@@ -62,7 +62,8 @@ public class ReadAndWriteUserInfoData {
                     }
                 } else {
                     Log.d(TAG, "get failed with ", task.getException());
-                    Toast.makeText(context, "ERROR: 앱을 종료하고 다시 시작해주십시오.", Toast.LENGTH_SHORT).show();
+                    Log.d(TAG, "onComplete: " + task.getException().toString());
+                    Toast.makeText(context, "FIREBASE get() method is failed.", Toast.LENGTH_SHORT).show();
                 }
             }
         });

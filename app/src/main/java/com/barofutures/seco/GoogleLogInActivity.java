@@ -35,7 +35,7 @@ public class GoogleLogInActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private GoogleSignInClient mGoogleSignInClient;
     private Button googleSignInButton;
-    private String profileImageUrl, userName;
+    private String userID, userEmail, userName;
 
     private ReadAndWriteUserInfoData readAndWriteUserInfoData;
 
@@ -71,10 +71,15 @@ public class GoogleLogInActivity extends AppCompatActivity {
         // 신규 유저이면 InitialSurveyIntroActivity.java로 이동 (초기 기초 설문 조사) (nextActivity == InitialSurveyIntroActivity)
         GoogleSignInAccount lastGoogleAccount = GoogleSignIn.getLastSignedInAccount(GoogleLogInActivity.this);
         if (lastGoogleAccount != null) {
-            Toast.makeText(this, lastGoogleAccount.getEmail() + "으로 로그인 되었습니다.", Toast.LENGTH_SHORT).show();
+            userID = lastGoogleAccount.getId();
+            userEmail = lastGoogleAccount.getEmail();
+            userName = lastGoogleAccount.getDisplayName();
 
-            readAndWriteUserInfoData.searchUser(lastGoogleAccount.getId(), lastGoogleAccount.getEmail(), lastGoogleAccount.getDisplayName());
-            Log.d("GoogleLogInActivity","자동로그, " + lastGoogleAccount.getId());
+
+            Toast.makeText(this, userEmail + "으로 로그인 되었습니다.", Toast.LENGTH_SHORT).show();
+
+            readAndWriteUserInfoData.searchUser(userID, userEmail, userName);
+            Log.d("GoogleLogInActivity123123","자동로그, " + lastGoogleAccount.getId());
 
         }
         else {

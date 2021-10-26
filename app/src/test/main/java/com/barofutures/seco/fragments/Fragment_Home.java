@@ -32,7 +32,6 @@ import androidx.viewpager2.widget.ViewPager2;
 
 import com.barofutures.seco.ChallengeModeStatusActivity;
 import com.barofutures.seco.R;
-import com.barofutures.seco.adapter.HomeBannerAdapter;
 import com.barofutures.seco.model.UserData;
 import com.kyleduo.switchbutton.SwitchButton;
 

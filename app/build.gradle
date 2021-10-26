@@ -1,8 +1,8 @@
 plugins {
     id 'com.android.application'
     id 'com.google.gms.google-services'
-//    id 'com.amplifyframework.amplifytools'
     id 'com.google.android.libraries.mapsplatform.secrets-gradle-plugin'
+    id 'com.google.android.gms.oss-licenses-plugin'
 }
 
 android {
@@ -92,7 +92,6 @@ dependencies {
 
     // ViewPager2
     implementation 'androidx.viewpager2:viewpager2:1.0.0'
-    implementation 'me.relex:circleindicator:2.1.4'
 
     // v7 Support Preference Library
     implementation "androidx.recyclerview:recyclerview:1.2.1"
@@ -116,7 +115,6 @@ dependencies {
 
     // 네이버 지도 SDK
     implementation 'com.naver.maps:map-sdk:3.12.0'
-    implementation 'com.google.android.gms:play-services-location:18.0.0'
 
     // Google Map SDK
     implementation 'com.google.android.gms:play-services-maps:17.0.1'
@@ -124,5 +122,8 @@ dependencies {
 
     // Custom Spinner (https://github.com/skydoves/PowerSpinner)
     implementation "com.github.skydoves:powerspinner:1.1.9"
+
+    // oss-licenses library
+    implementation 'com.google.android.gms:play-services-oss-licenses:17.0.0'
 
 }
