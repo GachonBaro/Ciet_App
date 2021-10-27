@@ -127,8 +127,8 @@ public class GoogleLogInActivity extends AppCompatActivity {
                 Log.d(TAG, "GoogleLogInActivity:" + account.getId());
                 firebaseAuthWithGoogle(account.getIdToken());
 
-                readAndWriteUserInfoData.searchUser(account.getId(), account.getEmail(), account.getDisplayName());
-                Log.d("uiduid","자동로그, " + account.getId());
+//                readAndWriteUserInfoData.searchUser(account.getId(), account.getEmail(), account.getDisplayName());
+//                Log.d("uiduid","자동로그, " + account.getId());
 
             } catch (ApiException e) {
                 // Google Sign In failed, update UI appropriately
@@ -148,6 +148,7 @@ public class GoogleLogInActivity extends AppCompatActivity {
                             // Sign in success
                             Log.d(TAG, "signInWithCredential:success");
                             FirebaseUser user = mAuth.getCurrentUser();
+                            readAndWriteUserInfoData.searchUser(user.getUid(), user.getEmail(), user.getDisplayName());
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w(TAG, "signInWithCredential:failure", task.getException());
