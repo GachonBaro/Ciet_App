@@ -17,6 +17,7 @@ package com.barofutures.seco.adapter;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -57,20 +58,24 @@ public class ChallengeRecommendationListAdapter extends RecyclerView.Adapter<Cha
             temp = data.get("초급").toString();
             text += "2주 동안 매주\n";
             holder.title.setText("초급");
+            holder.representativeImage.setImageResource(R.drawable.walking);
         } else if (position == 1) {     // '중급'
             temp = data.get("중급").toString();
             text += "3주 동안 매주\n";
             holder.title.setText("중급");
+            holder.representativeImage.setImageResource(R.drawable.stepping);
         } else if (position == 2) {     // '고급'
             temp = data.get("고급").toString();
             text += "4주 동안 매주\n";
             holder.title.setText("고급");
+            holder.representativeImage.setImageResource(R.drawable.cycling);
         }
 
         String[] tempArr = temp.split("\\|");
 
         int rsc = Integer.parseInt(tempArr[0]);
-        holder.representativeImage.setImageResource(rsc);
+//        holder.representativeImage.setImageResource(rsc);
+//        Log.d("ChallengeRecommendationListAdapter", String.valueOf(rsc));
 
         for (int i = 1; i < tempArr.length; i++) {
             String[] strArr = tempArr[i].split("_");
