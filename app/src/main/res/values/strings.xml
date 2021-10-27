@@ -103,4 +103,13 @@
     <string name="to_be_developed">개발 예정</string>
     <string name="coming_soon">Coming Soon</string>
 
+    <string name="verified_history_toolbar_title">활동 인증 내역</string>
+    <string name="challenge_history_toolbar_title">챌린지 내역</string>
+    <string name="donation_history_toolbar_title">기부 내역</string>
+    <string name="earned_badge_num_text">얻은 배지 수</string>
+    <string name="swung_dash_text">~</string>
+    <string name="challenge_success_failure">챌린지 성공 여부</string>
+    <string name="challenge_additional_badge_num">추가 배지 수</string>
+
+
 </resources>

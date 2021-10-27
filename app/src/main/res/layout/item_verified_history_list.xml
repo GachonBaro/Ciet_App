@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/item_verified_history_list_layout"
+        android:layout_width="0dp"
+        android:layout_height="160dp"
+        android:background="@drawable/bg_white_corner_radius_7dp"
+        android:elevation="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="15dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:ignore="MissingConstraints">
+
+        <TextView
+            android:id="@+id/item_verified_history_list_auth_date_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dp"
+            android:fontFamily="@font/noto_sans_cjk_kr_bold"
+            android:text="yyyy-MM-dd"
+            android:textColor="@android:color/black"
+            android:textSize="14sp"
+            android:gravity="left"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="MissingConstraints"/>
+
+        <TextView
+            android:id="@+id/item_verified_history_list_end_time_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="25dp"
+            android:fontFamily="@font/noto_sans_cjk_kr_bold"
+            android:text="hh:mm"
+            android:textColor="@android:color/black"
+            android:textSize="14sp"
+            android:gravity="left"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="MissingConstraints"/>
+
+        <View
+            android:id="@+id/item_verified_history_list_divider_1"
+            android:layout_width="0dp"
+            android:layout_height="2dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="10dp"
+            android:background="@color/seco_lightgray"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/item_verified_history_list_auth_date_text_view"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/item_verified_history_list_activity_name_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/noto_sans_cjk_kr_bold"
+            android:text="_______"
+            android:textColor="@android:color/black"
+            android:textSize="16sp"
+            android:gravity="center"
+            app:layout_constraintTop_toBottomOf="@id/item_verified_history_list_divider_1"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            tools:ignore="MissingConstraints"/>
+
+        <View
+            android:id="@+id/item_verified_history_list_divider_2"
+            android:layout_width="2dp"
+            android:layout_height="0dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="10dp"
+            android:background="@color/seco_lightgray"
+            android:visibility="invisible"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/item_verified_history_list_carbon_reduction_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/noto_sans_cjk_kr_bold"
+            android:text="@string/home_carbon_reduction_num_title"
+            android:textColor="@android:color/black"
+            android:textSize="12sp"
+            android:gravity="center"
+            android:includeFontPadding="false"
+            app:layout_constraintTop_toBottomOf="@id/item_verified_history_list_activity_name_text_view"
+            app:layout_constraintRight_toRightOf="@id/item_verified_history_list_divider_2"
+            app:layout_constraintLeft_toLeftOf="parent"
+            tools:ignore="MissingConstraints"/>
+
+        <TextView
+            android:id="@+id/item_verified_history_list_carbon_reduction_data_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/noto_sans_cjk_kr_bold"
+            android:text="_.____kg"
+            android:textColor="@android:color/black"
+            android:textSize="12sp"
+            android:gravity="center"
+            app:layout_constraintTop_toBottomOf="@id/item_verified_history_list_carbon_reduction_text_view"
+            app:layout_constraintRight_toRightOf="@id/item_verified_history_list_divider_2"
+            app:layout_constraintLeft_toLeftOf="parent"
+            tools:ignore="MissingConstraints"/>
+
+        <TextView
+            android:id="@+id/item_verified_history_list_badge_num_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/noto_sans_cjk_kr_bold"
+            android:text="@string/earned_badge_num_text"
+            android:textColor="@android:color/black"
+            android:textSize="12sp"
+            android:gravity="center"
+            android:includeFontPadding="false"
+            app:layout_constraintTop_toBottomOf="@id/item_verified_history_list_activity_name_text_view"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="@id/item_verified_history_list_divider_2"
+            tools:ignore="MissingConstraints"/>
+
+        <TextView
+            android:id="@+id/item_verified_history_list_badge_num_data_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/noto_sans_cjk_kr_bold"
+            android:text="_개"
+            android:textColor="@android:color/black"
+            android:textSize="12sp"
+            android:gravity="center"
+            app:layout_constraintTop_toBottomOf="@id/item_verified_history_list_carbon_reduction_text_view"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="@id/item_verified_history_list_divider_2"
+            tools:ignore="MissingConstraints"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

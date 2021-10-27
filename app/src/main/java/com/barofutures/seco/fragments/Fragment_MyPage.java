@@ -147,6 +147,7 @@ public class Fragment_MyPage extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent(getActivity(), VerifiedHistoryActivity.class);
+                intent.putExtra("email", MainActivity.userEmail);
                 startActivity(intent);
             }
         });
@@ -155,6 +156,7 @@ public class Fragment_MyPage extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent(getActivity(), ChallengeHistoryActivity.class);
+                intent.putExtra("email", MainActivity.userEmail);
                 startActivity(intent);
             }
         });
@@ -164,6 +166,7 @@ public class Fragment_MyPage extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent(getActivity(), DonationHistoryActivity.class);
+                intent.putExtra("email", MainActivity.userEmail);
                 startActivity(intent);
             }
         });
