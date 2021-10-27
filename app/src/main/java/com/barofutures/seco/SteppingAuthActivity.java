@@ -1,18 +1,3 @@
-/*
-Copyright 2021 Baro Futures
-
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
-
-    http://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
- */
 package com.barofutures.seco;
 
 import androidx.annotation.NonNull;
@@ -249,7 +234,7 @@ public class SteppingAuthActivity extends AppCompatActivity
         if (code == 0) {
             state = true;
             //현재 고도를 시작점으로 설정
-//            requestCurrentLocation();           // TODO
+//            requestCurrentLocation();
             startVerticalAccuracyMeters = mCurrentLocation.getVerticalAccuracyMeters();
 //            Toast.makeText(getApplicationContext(), "startVerticalAccuracyMeters = " + startVerticalAccuracyMeters, Toast.LENGTH_SHORT).show();
 
@@ -258,7 +243,6 @@ public class SteppingAuthActivity extends AppCompatActivity
             pauseButton.setVisibility(View.VISIBLE);
             stopButton.setVisibility(View.VISIBLE);
         }else if (code == 1) {
-            // TODO: 일시정지 구현
             state = false;
 
             // 누적 이동 높이 갱신
@@ -267,7 +251,6 @@ public class SteppingAuthActivity extends AppCompatActivity
             // 버튼 상태 변경
             pauseButton.setText("계속하기");
         }else if (code == 2) {
-            // TODO: 다시 시작 구현
             state = true;
             //현재 고도를 시작점으로 설정
             startVerticalAccuracyMeters = mCurrentLocation.getVerticalAccuracyMeters();
