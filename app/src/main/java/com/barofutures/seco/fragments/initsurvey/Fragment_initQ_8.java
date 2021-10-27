@@ -138,6 +138,7 @@ public class Fragment_initQ_8 extends Fragment {
             public void onComplete(@NonNull Task<Void> task) {
                 Log.d("Fragment_initQ_8", "init survey update completed!!");
                 Intent intent=new Intent(getActivity(), MainActivity.class);
+                intent.putExtra("email", InitialSurveyActivity.email);
                 startActivity(intent);
                 getActivity().finish();
             }
