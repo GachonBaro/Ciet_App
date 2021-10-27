@@ -267,7 +267,7 @@ public class ChallengeSettingActivity extends AppCompatActivity {
             spinnerViewArr.get(a).setOnSpinnerItemSelectedListener(new OnSpinnerItemSelectedListener<IconSpinnerItem>() {
                 @Override
                 public void onItemSelected(int i, @Nullable IconSpinnerItem iconSpinnerItem, int i1, IconSpinnerItem t1) {
-                    Toast.makeText(getApplicationContext(), t1.getText().toString() + "이 선택되었습니다", Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(getApplicationContext(), t1.getText().toString() + "이 선택되었습니다", Toast.LENGTH_SHORT).show();
                     if (iconSpinnerItem != null && activityList.get(temp).containsKey(iconSpinnerItem.getText().toString())) {
                         activityList.get(temp).remove(iconSpinnerItem.getText().toString());
                     }
@@ -538,7 +538,7 @@ public class ChallengeSettingActivity extends AppCompatActivity {
         }
         num *= term;        // 챌린지 기간(n주)를 곱함
 
-        Toast.makeText(getApplicationContext(), "최대 배지 수: " + num, Toast.LENGTH_SHORT).show();
+//        Toast.makeText(getApplicationContext(), "최대 배지 수: " + num, Toast.LENGTH_SHORT).show();
 
         return num;
     }
@@ -591,7 +591,7 @@ public class ChallengeSettingActivity extends AppCompatActivity {
         endDate.add(Calendar.WEEK_OF_YEAR, term);
         challengeData.setEndDate(sdf.format(endDate.getTime()));
         endDateTextView.setText(challengeData.getEndDate());
-        Toast.makeText(getApplicationContext(), "종료일: " + challengeData.getEndDate(), Toast.LENGTH_SHORT).show();
+//        Toast.makeText(getApplicationContext(), "종료일: " + challengeData.getEndDate(), Toast.LENGTH_SHORT).show();
     }
 
     @Override

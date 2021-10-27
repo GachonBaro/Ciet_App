@@ -25,7 +25,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -154,7 +153,6 @@ public class ChallengeFragment extends Fragment {
         offProgressLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getContext(), "챌린지 생성 화면으로 이동", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(getContext(), ChallengeSettingActivity.class);
                 startActivityForResult(intent, 2222);
             }
