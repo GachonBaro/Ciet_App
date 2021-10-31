@@ -105,6 +105,7 @@ public class SteppingAuthActivity extends AppCompatActivity
     private static final double temperature = 15;
     private double startAltitude = 0.0;
     private double currentAltitude = 0.0;
+    private double currentTotalDistance = 0.0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -259,11 +260,6 @@ public class SteppingAuthActivity extends AppCompatActivity
     public void setState(int code) {
         if (code == 0) {
             state = true;
-            // TODO: 삭제 - 현재 고도를 시작점으로 설정
-//            startVerticalAccuracyMeters = mCurrentLocation.getVerticalAccuracyMeters();
-//            Toast.makeText(getApplicationContext(), "startVerticalAccuracyMeters = " + startVerticalAccuracyMeters, Toast.LENGTH_SHORT).show();
-
-
 
             // 현재 고도를 시작점으로 설정
             startAltitude = currentAltitude;
@@ -279,18 +275,17 @@ public class SteppingAuthActivity extends AppCompatActivity
             state = false;
 
             // 누적 이동 높이 갱신
-            sumOfDistance += currentDistance;
+//            sumOfDistance += currentDistance;
+            sumOfDistance = currentTotalDistance;
+            postValue = 0.0;
 
             // 버튼 상태 변경
             pauseButton.setText("계속하기");
         }else if (code == 2) {
-            state = true;
-            // TODO: 삭제 - 현재 고도를 시작점으로 설정
-//            startVerticalAccuracyMeters = mCurrentLocation.getVerticalAccuracyMeters();
-//            Toast.makeText(getApplicationContext(), "startVerticalAccuracyMeters = " + startVerticalAccuracyMeters, Toast.LENGTH_SHORT).show();
-
             // 현재 고도를 시작점으로 설정
             startAltitude = currentAltitude;
+
+            state = true;
 
 //            Toast.makeText(getApplicationContext(), "startAltitude = " + String.valueOf(startAltitude), Toast.LENGTH_SHORT).show();
 
@@ -381,54 +376,6 @@ public class SteppingAuthActivity extends AppCompatActivity
         mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(
                 new LatLng(mCurrentLocation.getLatitude(), mCurrentLocation.getLongitude()), 18));
 
-//        Log.d("getVerticalAccuracyMeters()", String.valueOf(location.getVerticalAccuracyMeters()));
-//        Toast.makeText(getApplicationContext(), "getVerticalAccuracyMeters()" +  String.valueOf(location.getVerticalAccuracyMeters()), Toast.LENGTH_SHORT).show();
-//
-//        if(state){                        // 활동 중일 때
-//            currentVerticalAccuracyMeters = mCurrentLocation.getVerticalAccuracyMeters();        //현재 위치 받아옴
-//
-//            // 이동거리 갱신 (현재 고도 - 시작 고도)
-//            if (currentVerticalAccuracyMeters > startVerticalAccuracyMeters)
-//                currentDistance = currentVerticalAccuracyMeters - startVerticalAccuracyMeters;
-//
-//
-//            if (postValue < currentDistance) {
-//                // update progressView and textView
-//                if (sumOfDistance + currentDistance > targetDistance) {
-//                    altitudeProgressView.setProgress(((float) targetDistance));
-//                    altitudeProgressView.setLabelText(String.format("%1.2f", targetDistance) + "m");
-//                    currentAltitudeText.setText(String.format("%1.2f", targetDistance) + "m");
-//                }
-//                else {
-//                    altitudeProgressView.setProgress(((float) (sumOfDistance + currentDistance)));
-//                    altitudeProgressView.setLabelText(String.format("%1.2f", sumOfDistance + currentDistance) + "m");
-//                    currentAltitudeText.setText(String.format("%1.2f", sumOfDistance + currentDistance) + "m");
-//                }
-//                postValue = currentDistance;
-//            }
-//
-//
-//            Log.d("누적거리", String.valueOf(sumOfDistance));
-////            Toast.makeText(getApplicationContext(), "누적거리: " + String.valueOf(sumOfDistance), Toast.LENGTH_SHORT).show();
-//
-//            // 달성 완료: 이동거리 >= 목표거리
-//            if (targetDistance <= sumOfDistance + currentDistance) {
-//                endTime = getTime();        // 달성 완료 시간 저장
-//                Toast.makeText(getApplicationContext(), "달성완료", Toast.LENGTH_SHORT).show();
-////                Toast.makeText(getApplicationContext(), "s: " + startTime + ", e: " + endTime, Toast.LENGTH_SHORT).show();
-//
-//                Intent authIntent = new Intent(getApplicationContext(), AuthCompletionActivity.class);
-//                authIntent.putExtra("title", title);
-//                authIntent.putExtra("badgeNum", badgeNum);
-//                authIntent.putExtra("carbonReduction", carbonReduction);
-//                authIntent.putExtra("startTime", startTime);
-//                authIntent.putExtra("endTime", endTime);
-//                startActivity(authIntent);
-//                finish();
-//            }
-//
-//
-//        }
     }
 
     @Override
@@ -484,7 +431,7 @@ public class SteppingAuthActivity extends AppCompatActivity
         currentAltitude = getAltitude(millibarsOfPressure);
 
         // Do something with this sensor data.
-        Log.d("SteppingAuthActivity22", "Pressure = " + millibarsOfPressure);
+//        Log.d("SteppingAuthActivity22", "Pressure = " + millibarsOfPressure);
 //        Toast.makeText(getApplicationContext(), "Pressure = " + millibarsOfPressure, Toast.LENGTH_SHORT).show();
 
         // get Latitude
@@ -493,27 +440,36 @@ public class SteppingAuthActivity extends AppCompatActivity
 
         if (state) {                        // 활동 중일 때
 
+
             // 이동거리 갱신 (현재 고도 - 시작 고도)
             if (currentAltitude > startAltitude) {
                 currentDistance = Math.abs(currentAltitude - startAltitude);
             }
 
+            Log.d("SteppingAuthActivity22", "currentDistance = " + currentDistance);
+
+            double tempCurrentTotalDistance = sumOfDistance + currentDistance;
+
             if (postValue < currentDistance) {
                 // update progressView and textView
-                if (sumOfDistance + currentDistance > targetDistance) {
+                if (tempCurrentTotalDistance > targetDistance) {
                     altitudeProgressView.setProgress(((float) targetDistance));
                     altitudeProgressView.setLabelText(String.format("%1.2f", targetDistance) + "m");
                     currentAltitudeText.setText(String.format("%1.2f", targetDistance) + "m");
                 } else {
-                    altitudeProgressView.setProgress(((float) (sumOfDistance + currentDistance)));
-                    altitudeProgressView.setLabelText(String.format("%1.2f", sumOfDistance + currentDistance) + "m");
-                    currentAltitudeText.setText(String.format("%1.2f", sumOfDistance + currentDistance) + "m");
+                    altitudeProgressView.setProgress(((float) (tempCurrentTotalDistance)));
+                    altitudeProgressView.setLabelText(String.format("%1.2f", tempCurrentTotalDistance) + "m");
+                    currentAltitudeText.setText(String.format("%1.2f", tempCurrentTotalDistance) + "m");
                 }
                 postValue = currentDistance;
+
+                Log.d("SteppingAuthActivity22", "업데이트, sumOfDistance = " + sumOfDistance
+                        + ", currentDistance = " + currentDistance + ", tempCurrentTotalDistance = " + String.format("%1.2f", tempCurrentTotalDistance));
+                currentTotalDistance = tempCurrentTotalDistance;
             }
 
             // 달성 완료: 이동거리 >= 목표거리
-            if (targetDistance <= sumOfDistance + currentDistance) {
+            if (targetDistance <= (currentTotalDistance)) {
                 endTime = getTime();        // 달성 완료 시간 저장
                 Toast.makeText(getApplicationContext(), "달성완료", Toast.LENGTH_SHORT).show();
 //                Toast.makeText(getApplicationContext(), "s: " + startTime + ", e: " + endTime, Toast.LENGTH_SHORT).show();
