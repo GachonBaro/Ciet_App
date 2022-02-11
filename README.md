@@ -29,7 +29,7 @@
 ▶️[Click Here!](https://github.com/GachonBaro/Ciet_DL)
 
 ## 📖Read more (click below)  
-▶️[Demo Web for SETI Test💻](https://setitest.netlify.app/)  
+▶️[Demo Web for SETI Test💻](https://barofutures-ecotypetest.netlify.app/)  
 
 ## Demo video (click below)
 
